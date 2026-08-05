@@ -1,0 +1,108 @@
+{
+  "activity": "Tempoross",
+  "slug": "tempoross",
+  "sourcePage": "Tempoross/Strategies",
+  "sourceUrl": "https://oldschool.runescape.wiki/w/Tempoross/Strategies",
+  "sourceRevId": 15284785,
+  "contentHash": "c97b297ddc61bbdb",
+  "variants": [
+    {
+      "variant": "Solo cooking (mix of XP and permits)",
+      "tagName": "Tempoross Solo cooking (mix of XP and permits)",
+      "icon": 1929,
+      "importString": "banktags,1,Tempoross Solo cooking (mix of XP and permits),1929,layout,4,1929,5,1929,6,1929,7,1929",
+      "layout": {
+        "4": 1929,
+        "5": 1929,
+        "6": 1929,
+        "7": 1929
+      },
+      "equipment": {},
+      "inventory": {
+        "1": 1929,
+        "2": 1929,
+        "3": 1929,
+        "4": 1929
+      },
+      "runes": {},
+      "warnings": []
+    },
+    {
+      "variant": "Solo cooking + firefighting (max permits)",
+      "tagName": "Tempoross Solo cooking + firefighting (max permits)",
+      "icon": 2347,
+      "importString": "banktags,1,Tempoross Solo cooking + firefighting (max permits),2347,layout,4,2347,5,1929,6,1929,7,1929,12,1929,14,1929,40,9075,41,554,42,555,13,1929,15,954,55,12791",
+      "layout": {
+        "4": 2347,
+        "5": 1929,
+        "6": 1929,
+        "7": 1929,
+        "12": 1929,
+        "14": 1929,
+        "40": 9075,
+        "41": 554,
+        "42": 555,
+        "13": 1929,
+        "15": 954,
+        "55": 12791
+      },
+      "equipment": {},
+      "inventory": {
+        "1": 2347,
+        "2": 1929,
+        "3": 1929,
+        "4": 1929,
+        "5": 1929,
+        "7": 1929,
+        "6": 1929,
+        "8": 954,
+        "28": 12791
+      },
+      "runes": {
+        "1": 9075,
+        "2": 554,
+        "3": 555
+      },
+      "warnings": []
+    },
+    {
+      "variant": "Solo cooking 5 rounds (mix of XP and permits)",
+      "tagName": "Tempoross Solo cooking 5 rounds (mix of XP and permits)",
+      "icon": 1929,
+      "importString": "banktags,1,Tempoross Solo cooking 5 rounds (mix of XP and permits),1929,layout,4,1929",
+      "layout": {
+        "4": 1929
+      },
+      "equipment": {},
+      "inventory": {
+        "1": 1929
+      },
+      "runes": {},
+      "warnings": []
+    },
+    {
+      "variant": "Solo no cooking (max XP)",
+      "tagName": "Tempoross Solo no cooking (max XP)",
+      "icon": 954,
+      "importString": "banktags,1,Tempoross Solo no cooking (max XP),954,layout,4,954,40,9075,41,554,42,555,55,12791",
+      "layout": {
+        "4": 954,
+        "40": 9075,
+        "41": 554,
+        "42": 555,
+        "55": 12791
+      },
+      "equipment": {},
+      "inventory": {
+        "1": 954,
+        "28": 12791
+      },
+      "runes": {
+        "1": 9075,
+        "2": 554,
+        "3": 555
+      },
+      "warnings": []
+    }
+  ]
+}

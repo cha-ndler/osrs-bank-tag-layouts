@@ -1,0 +1,61 @@
+{
+  "activity": "Aquanite",
+  "slug": "aquanite",
+  "sourcePage": "Aquanite/Strategies",
+  "sourceUrl": "https://oldschool.runescape.wiki/w/Aquanite/Strategies",
+  "sourceRevId": 15286218,
+  "contentHash": "fc26bdd55015107d",
+  "variants": [
+    {
+      "variant": "Melee Slash/Stab",
+      "tagName": "Aquanite Melee Slash/Stab",
+      "icon": 22324,
+      "importString": "banktags,1,Aquanite Melee Slash/Stab,22324,layout,54,27281,4,11806,5,4151,8,21295,10,22947,16,22324,32,22981,40,561,33,31097,41,554,17,26384,25,26386,34,28307,9,29801,18,22322,55,8013,53,13639,1,25177",
+      "layout": {
+        "54": 27281,
+        "4": 11806,
+        "5": 4151,
+        "8": 21295,
+        "10": 22947,
+        "16": 22324,
+        "32": 22981,
+        "40": 561,
+        "33": 31097,
+        "41": 554,
+        "17": 26384,
+        "25": 26386,
+        "34": 28307,
+        "9": 29801,
+        "18": 22322,
+        "55": 8013,
+        "53": 13639,
+        "1": 25177
+      },
+      "equipment": {
+        "cape": 21295,
+        "ammo": 22947,
+        "weapon": 22324,
+        "gloves": 22981,
+        "boots": 31097,
+        "torso": 26384,
+        "legs": 26386,
+        "ring": 28307,
+        "neck": 29801,
+        "shield": 22322,
+        "head": 25177
+      },
+      "inventory": {
+        "27": 27281,
+        "1": 11806,
+        "2": 4151,
+        "28": 8013,
+        "26": 13639
+      },
+      "runes": {
+        "1": 561,
+        "2": 554
+      },
+      "warnings": []
+    }
+  ]
+}

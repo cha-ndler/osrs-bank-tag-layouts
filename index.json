@@ -1,0 +1,823 @@
+{
+  "generatedAt": "2026-08-05T22:33:49Z",
+  "activityCount": 102,
+  "layoutCount": 330,
+  "activities": [
+    {
+      "activity": "Abyss",
+      "slug": "abyss",
+      "file": "data/abyss.json",
+      "variantCount": 1,
+      "sourceRevId": 15082725,
+      "contentHash": "a62b1b84b4bd13f5"
+    },
+    {
+      "activity": "Abyssal Sire",
+      "slug": "abyssal-sire",
+      "file": "data/abyssal-sire.json",
+      "variantCount": 1,
+      "sourceRevId": 15275785,
+      "contentHash": "0d36bf7233a0852c"
+    },
+    {
+      "activity": "Adamant dragon",
+      "slug": "adamant-dragon",
+      "file": "data/adamant-dragon.json",
+      "variantCount": 4,
+      "sourceRevId": 15250956,
+      "contentHash": "657e11d84c410251"
+    },
+    {
+      "activity": "Alchemical Hydra",
+      "slug": "alchemical-hydra",
+      "file": "data/alchemical-hydra.json",
+      "variantCount": 3,
+      "sourceRevId": 15278786,
+      "contentHash": "c2427de2cdf3d003"
+    },
+    {
+      "activity": "Amoxliatl",
+      "slug": "amoxliatl",
+      "file": "data/amoxliatl.json",
+      "variantCount": 1,
+      "sourceRevId": 15278623,
+      "contentHash": "1fa756776a2d9150"
+    },
+    {
+      "activity": "Aquanite",
+      "slug": "aquanite",
+      "file": "data/aquanite.json",
+      "variantCount": 1,
+      "sourceRevId": 15286218,
+      "contentHash": "fc26bdd55015107d"
+    },
+    {
+      "activity": "Araxxor",
+      "slug": "araxxor",
+      "file": "data/araxxor.json",
+      "variantCount": 2,
+      "sourceRevId": 15286084,
+      "contentHash": "f6fd2ff0801c5acb"
+    },
+    {
+      "activity": "Artio",
+      "slug": "artio",
+      "file": "data/artio.json",
+      "variantCount": 2,
+      "sourceRevId": 15248494,
+      "contentHash": "87270fbfc1136371"
+    },
+    {
+      "activity": "Aviansie",
+      "slug": "aviansie",
+      "file": "data/aviansie.json",
+      "variantCount": 3,
+      "sourceRevId": 15276482,
+      "contentHash": "391c9f899df03538"
+    },
+    {
+      "activity": "Barbarian Assault",
+      "slug": "barbarian-assault",
+      "file": "data/barbarian-assault.json",
+      "variantCount": 2,
+      "sourceRevId": 15265253,
+      "contentHash": "2988fc464dccdd9d"
+    },
+    {
+      "activity": "Barrows",
+      "slug": "barrows",
+      "file": "data/barrows.json",
+      "variantCount": 2,
+      "sourceRevId": 15248428,
+      "contentHash": "762c99a6db5887aa"
+    },
+    {
+      "activity": "Basilisk Knight",
+      "slug": "basilisk-knight",
+      "file": "data/basilisk-knight.json",
+      "variantCount": 3,
+      "sourceRevId": 15286038,
+      "contentHash": "7cec9691e5cd90d8"
+    },
+    {
+      "activity": "Brutal black dragon",
+      "slug": "brutal-black-dragon",
+      "file": "data/brutal-black-dragon.json",
+      "variantCount": 2,
+      "sourceRevId": 15264712,
+      "contentHash": "60f5de1803c6810e"
+    },
+    {
+      "activity": "Brutus",
+      "slug": "brutus",
+      "file": "data/brutus.json",
+      "variantCount": 5,
+      "sourceRevId": 15286845,
+      "contentHash": "17b39dc8173742b3"
+    },
+    {
+      "activity": "Callisto",
+      "slug": "callisto",
+      "file": "data/callisto.json",
+      "variantCount": 2,
+      "sourceRevId": 15266934,
+      "contentHash": "9486b362052d7e50"
+    },
+    {
+      "activity": "Calvar'ion",
+      "slug": "calvarion",
+      "file": "data/calvarion.json",
+      "variantCount": 3,
+      "sourceRevId": 15284090,
+      "contentHash": "bd508849f3af4237"
+    },
+    {
+      "activity": "Cerberus",
+      "slug": "cerberus",
+      "file": "data/cerberus.json",
+      "variantCount": 2,
+      "sourceRevId": 15275956,
+      "contentHash": "eae53a92f5405d84"
+    },
+    {
+      "activity": "Chambers of Xeric",
+      "slug": "chambers-of-xeric",
+      "file": "data/chambers-of-xeric.json",
+      "variantCount": 5,
+      "sourceRevId": 15272678,
+      "contentHash": "2b3b179112cb569d"
+    },
+    {
+      "activity": "Chambers of Xeric/Challenge Mode",
+      "slug": "chambers-of-xeric-challenge-mode",
+      "file": "data/chambers-of-xeric-challenge-mode.json",
+      "variantCount": 2,
+      "sourceRevId": 15267240,
+      "contentHash": "e7da1c036b446949"
+    },
+    {
+      "activity": "Chaos Elemental",
+      "slug": "chaos-elemental",
+      "file": "data/chaos-elemental.json",
+      "variantCount": 2,
+      "sourceRevId": 15252603,
+      "contentHash": "049937f929a14cc8"
+    },
+    {
+      "activity": "Chaos Fanatic",
+      "slug": "chaos-fanatic",
+      "file": "data/chaos-fanatic.json",
+      "variantCount": 1,
+      "sourceRevId": 15270790,
+      "contentHash": "0ed4e8ffe83a4a71"
+    },
+    {
+      "activity": "Chest (Rogues' Castle)",
+      "slug": "chest-rogues-castle",
+      "file": "data/chest-rogues-castle.json",
+      "variantCount": 5,
+      "sourceRevId": 15277206,
+      "contentHash": "56cb82751caa0ed0"
+    },
+    {
+      "activity": "Commander Zilyana",
+      "slug": "commander-zilyana",
+      "file": "data/commander-zilyana.json",
+      "variantCount": 2,
+      "sourceRevId": 15267374,
+      "contentHash": "44f5d4952ab354e3"
+    },
+    {
+      "activity": "Corporeal Beast",
+      "slug": "corporeal-beast",
+      "file": "data/corporeal-beast.json",
+      "variantCount": 6,
+      "sourceRevId": 15267852,
+      "contentHash": "98d4a554b2b4a7bb"
+    },
+    {
+      "activity": "Crazy archaeologist",
+      "slug": "crazy-archaeologist",
+      "file": "data/crazy-archaeologist.json",
+      "variantCount": 1,
+      "sourceRevId": 15254384,
+      "contentHash": "64b879973c73eab8"
+    },
+    {
+      "activity": "Dagannoth Kings",
+      "slug": "dagannoth-kings",
+      "file": "data/dagannoth-kings.json",
+      "variantCount": 4,
+      "sourceRevId": 15282425,
+      "contentHash": "2792f7d2b840ae59"
+    },
+    {
+      "activity": "Demonic Brutus",
+      "slug": "demonic-brutus",
+      "file": "data/demonic-brutus.json",
+      "variantCount": 1,
+      "sourceRevId": 15254767,
+      "contentHash": "8df3fe23796259d5"
+    },
+    {
+      "activity": "Demonic gorilla",
+      "slug": "demonic-gorilla",
+      "file": "data/demonic-gorilla.json",
+      "variantCount": 5,
+      "sourceRevId": 15280072,
+      "contentHash": "060e0565be734b99"
+    },
+    {
+      "activity": "Doom of Mokhaiotl",
+      "slug": "doom-of-mokhaiotl",
+      "file": "data/doom-of-mokhaiotl.json",
+      "variantCount": 2,
+      "sourceRevId": 15285926,
+      "contentHash": "33019038a5778060"
+    },
+    {
+      "activity": "Duke Sucellus",
+      "slug": "duke-sucellus",
+      "file": "data/duke-sucellus.json",
+      "variantCount": 1,
+      "sourceRevId": 15273458,
+      "contentHash": "be9d0e2437455119"
+    },
+    {
+      "activity": "Ecumenical key",
+      "slug": "ecumenical-key",
+      "file": "data/ecumenical-key.json",
+      "variantCount": 2,
+      "sourceRevId": 15010280,
+      "contentHash": "65a51435bb8ac966"
+    },
+    {
+      "activity": "Fishing Trawler",
+      "slug": "fishing-trawler",
+      "file": "data/fishing-trawler.json",
+      "variantCount": 1,
+      "sourceRevId": 15218133,
+      "contentHash": "14d2fc3ab4f51074"
+    },
+    {
+      "activity": "Fortis Colosseum",
+      "slug": "fortis-colosseum",
+      "file": "data/fortis-colosseum.json",
+      "variantCount": 6,
+      "sourceRevId": 15271665,
+      "contentHash": "1fdb5011cf2eeb25"
+    },
+    {
+      "activity": "Fossil Island Wyverns",
+      "slug": "fossil-island-wyverns",
+      "file": "data/fossil-island-wyverns.json",
+      "variantCount": 4,
+      "sourceRevId": 15270240,
+      "contentHash": "8b00e9331b8da472"
+    },
+    {
+      "activity": "Gemstone Crab",
+      "slug": "gemstone-crab",
+      "file": "data/gemstone-crab.json",
+      "variantCount": 5,
+      "sourceRevId": 15285755,
+      "contentHash": "d4b48dae1bd3487f"
+    },
+    {
+      "activity": "General Graardor",
+      "slug": "general-graardor",
+      "file": "data/general-graardor.json",
+      "variantCount": 8,
+      "sourceRevId": 15275731,
+      "contentHash": "5385f95869a34c55"
+    },
+    {
+      "activity": "Giant Mole",
+      "slug": "giant-mole",
+      "file": "data/giant-mole.json",
+      "variantCount": 5,
+      "sourceRevId": 15271567,
+      "contentHash": "e41b4dfd18ed30fb"
+    },
+    {
+      "activity": "Gout tuber",
+      "slug": "gout-tuber",
+      "file": "data/gout-tuber.json",
+      "variantCount": 2,
+      "sourceRevId": 15149088,
+      "contentHash": "2b9a91ef6e5fca11"
+    },
+    {
+      "activity": "Green dragon",
+      "slug": "green-dragon",
+      "file": "data/green-dragon.json",
+      "variantCount": 2,
+      "sourceRevId": 15267193,
+      "contentHash": "1324ee88efa066ab"
+    },
+    {
+      "activity": "Grotesque Guardians",
+      "slug": "grotesque-guardians",
+      "file": "data/grotesque-guardians.json",
+      "variantCount": 4,
+      "sourceRevId": 15280739,
+      "contentHash": "3eb65375202f476b"
+    },
+    {
+      "activity": "Guardians of the Rift",
+      "slug": "guardians-of-the-rift",
+      "file": "data/guardians-of-the-rift.json",
+      "variantCount": 4,
+      "sourceRevId": 15279817,
+      "contentHash": "a4d2416174e418e7"
+    },
+    {
+      "activity": "Hallowed Sepulchre",
+      "slug": "hallowed-sepulchre",
+      "file": "data/hallowed-sepulchre.json",
+      "variantCount": 1,
+      "sourceRevId": 15286046,
+      "contentHash": "e12d1e6c76cffa0b"
+    },
+    {
+      "activity": "Hespori",
+      "slug": "hespori",
+      "file": "data/hespori.json",
+      "variantCount": 3,
+      "sourceRevId": 15261174,
+      "contentHash": "95d34e91c91300fe"
+    },
+    {
+      "activity": "Hespori (Echo)",
+      "slug": "hespori-echo",
+      "file": "data/hespori-echo.json",
+      "variantCount": 1,
+      "sourceRevId": 15208401,
+      "contentHash": "4cd20aa8a810115b"
+    },
+    {
+      "activity": "Hunters' Rumours",
+      "slug": "hunters-rumours",
+      "file": "data/hunters-rumours.json",
+      "variantCount": 3,
+      "sourceRevId": 15288198,
+      "contentHash": "afc0516aed9b3c3c"
+    },
+    {
+      "activity": "Inferno",
+      "slug": "inferno",
+      "file": "data/inferno.json",
+      "variantCount": 4,
+      "sourceRevId": 15272567,
+      "contentHash": "26599376f47ea0f4"
+    },
+    {
+      "activity": "K'ril Tsutsaroth",
+      "slug": "kril-tsutsaroth",
+      "file": "data/kril-tsutsaroth.json",
+      "variantCount": 5,
+      "sourceRevId": 15264271,
+      "contentHash": "a69d39ca54f96f53"
+    },
+    {
+      "activity": "Kalphite Queen",
+      "slug": "kalphite-queen",
+      "file": "data/kalphite-queen.json",
+      "variantCount": 4,
+      "sourceRevId": 15286609,
+      "contentHash": "11ca60004cfb16c8"
+    },
+    {
+      "activity": "King Black Dragon",
+      "slug": "king-black-dragon",
+      "file": "data/king-black-dragon.json",
+      "variantCount": 6,
+      "sourceRevId": 15272965,
+      "contentHash": "19bcdb1885577904"
+    },
+    {
+      "activity": "Kraken",
+      "slug": "kraken",
+      "file": "data/kraken.json",
+      "variantCount": 1,
+      "sourceRevId": 15285886,
+      "contentHash": "af12a05d790c3071"
+    },
+    {
+      "activity": "Kree'arra",
+      "slug": "kreearra",
+      "file": "data/kreearra.json",
+      "variantCount": 5,
+      "sourceRevId": 15265160,
+      "contentHash": "59948224d1bef115"
+    },
+    {
+      "activity": "Krystilia",
+      "slug": "krystilia",
+      "file": "data/krystilia.json",
+      "variantCount": 1,
+      "sourceRevId": 15272925,
+      "contentHash": "7273e0a272d0a8f3"
+    },
+    {
+      "activity": "Lizardman shaman",
+      "slug": "lizardman-shaman",
+      "file": "data/lizardman-shaman.json",
+      "variantCount": 5,
+      "sourceRevId": 15271673,
+      "contentHash": "1616e27f643051ee"
+    },
+    {
+      "activity": "Mad Angel",
+      "slug": "mad-angel",
+      "file": "data/mad-angel.json",
+      "variantCount": 3,
+      "sourceRevId": 15288263,
+      "contentHash": "f0fffd22bb4e6126"
+    },
+    {
+      "activity": "Maggot King",
+      "slug": "maggot-king",
+      "file": "data/maggot-king.json",
+      "variantCount": 2,
+      "sourceRevId": 15278205,
+      "contentHash": "90b3bb56d6066d07"
+    },
+    {
+      "activity": "Maniacal monkey",
+      "slug": "maniacal-monkey",
+      "file": "data/maniacal-monkey.json",
+      "variantCount": 3,
+      "sourceRevId": 15285586,
+      "contentHash": "861cc1fdf4e1e5cf"
+    },
+    {
+      "activity": "Metal dragons",
+      "slug": "metal-dragons",
+      "file": "data/metal-dragons.json",
+      "variantCount": 3,
+      "sourceRevId": 15285808,
+      "contentHash": "7fc5ee8bfd04ec2f"
+    },
+    {
+      "activity": "Mithril dragon",
+      "slug": "mithril-dragon",
+      "file": "data/mithril-dragon.json",
+      "variantCount": 4,
+      "sourceRevId": 15267190,
+      "contentHash": "214e6009bbbc4e84"
+    },
+    {
+      "activity": "Moons of Peril",
+      "slug": "moons-of-peril",
+      "file": "data/moons-of-peril.json",
+      "variantCount": 1,
+      "sourceRevId": 15284392,
+      "contentHash": "e0a6969d10e3c532"
+    },
+    {
+      "activity": "Nex",
+      "slug": "nex",
+      "file": "data/nex.json",
+      "variantCount": 2,
+      "sourceRevId": 15275283,
+      "contentHash": "85d034276066a676"
+    },
+    {
+      "activity": "Nightmare Zone",
+      "slug": "nightmare-zone",
+      "file": "data/nightmare-zone.json",
+      "variantCount": 6,
+      "sourceRevId": 15286841,
+      "contentHash": "68e6f316e567273e"
+    },
+    {
+      "activity": "Phantom Muspah",
+      "slug": "phantom-muspah",
+      "file": "data/phantom-muspah.json",
+      "variantCount": 3,
+      "sourceRevId": 15286618,
+      "contentHash": "a7116ad1574646db"
+    },
+    {
+      "activity": "Phosani's Nightmare",
+      "slug": "phosanis-nightmare",
+      "file": "data/phosanis-nightmare.json",
+      "variantCount": 3,
+      "sourceRevId": 15287380,
+      "contentHash": "f8bfd9949a7f550a"
+    },
+    {
+      "activity": "Revenants",
+      "slug": "revenants",
+      "file": "data/revenants.json",
+      "variantCount": 4,
+      "sourceRevId": 15226804,
+      "contentHash": "ee13082fe95676f0"
+    },
+    {
+      "activity": "Rocky",
+      "slug": "rocky",
+      "file": "data/rocky.json",
+      "variantCount": 6,
+      "sourceRevId": 15286348,
+      "contentHash": "028ae0c972609759"
+    },
+    {
+      "activity": "Royal Titans",
+      "slug": "royal-titans",
+      "file": "data/royal-titans.json",
+      "variantCount": 5,
+      "sourceRevId": 15278601,
+      "contentHash": "d8a4662b3a704375"
+    },
+    {
+      "activity": "Rune dragon",
+      "slug": "rune-dragon",
+      "file": "data/rune-dragon.json",
+      "variantCount": 3,
+      "sourceRevId": 15287355,
+      "contentHash": "79330ec31dd4b68e"
+    },
+    {
+      "activity": "Sarachnis",
+      "slug": "sarachnis",
+      "file": "data/sarachnis.json",
+      "variantCount": 3,
+      "sourceRevId": 15278622,
+      "contentHash": "cf6faec41b47996e"
+    },
+    {
+      "activity": "Scorpia",
+      "slug": "scorpia",
+      "file": "data/scorpia.json",
+      "variantCount": 1,
+      "sourceRevId": 15244110,
+      "contentHash": "fbdee0697555b2b0"
+    },
+    {
+      "activity": "Scurrius",
+      "slug": "scurrius",
+      "file": "data/scurrius.json",
+      "variantCount": 6,
+      "sourceRevId": 15273053,
+      "contentHash": "d34f7a6e64f45242"
+    },
+    {
+      "activity": "Shellbane gryphon",
+      "slug": "shellbane-gryphon",
+      "file": "data/shellbane-gryphon.json",
+      "variantCount": 5,
+      "sourceRevId": 15286632,
+      "contentHash": "0bd9bee2dada2823"
+    },
+    {
+      "activity": "Skeletal Wyvern",
+      "slug": "skeletal-wyvern",
+      "file": "data/skeletal-wyvern.json",
+      "variantCount": 7,
+      "sourceRevId": 15273286,
+      "contentHash": "4441716df24bbc56"
+    },
+    {
+      "activity": "Skotizo",
+      "slug": "skotizo",
+      "file": "data/skotizo.json",
+      "variantCount": 2,
+      "sourceRevId": 15278624,
+      "contentHash": "5ee42f2e53fb1b38"
+    },
+    {
+      "activity": "Smoke devil",
+      "slug": "smoke-devil",
+      "file": "data/smoke-devil.json",
+      "variantCount": 1,
+      "sourceRevId": 15272595,
+      "contentHash": "29bdde3abce169da"
+    },
+    {
+      "activity": "Spindel",
+      "slug": "spindel",
+      "file": "data/spindel.json",
+      "variantCount": 2,
+      "sourceRevId": 15286946,
+      "contentHash": "86a8bce834016419"
+    },
+    {
+      "activity": "Sulliuscep",
+      "slug": "sulliuscep",
+      "file": "data/sulliuscep.json",
+      "variantCount": 2,
+      "sourceRevId": 15235146,
+      "contentHash": "6e97fb0e49c6b900"
+    },
+    {
+      "activity": "Tempoross",
+      "slug": "tempoross",
+      "file": "data/tempoross.json",
+      "variantCount": 4,
+      "sourceRevId": 15284785,
+      "contentHash": "c97b297ddc61bbdb"
+    },
+    {
+      "activity": "The Gauntlet",
+      "slug": "the-gauntlet",
+      "file": "data/the-gauntlet.json",
+      "variantCount": 4,
+      "sourceRevId": 15275827,
+      "contentHash": "65c7bcc739e21e1d"
+    },
+    {
+      "activity": "The Hueycoatl",
+      "slug": "the-hueycoatl",
+      "file": "data/the-hueycoatl.json",
+      "variantCount": 1,
+      "sourceRevId": 15288167,
+      "contentHash": "fcfe95b1e043812e"
+    },
+    {
+      "activity": "The Leviathan",
+      "slug": "the-leviathan",
+      "file": "data/the-leviathan.json",
+      "variantCount": 1,
+      "sourceRevId": 15284393,
+      "contentHash": "33b4c8c8109992fa"
+    },
+    {
+      "activity": "The Mimic",
+      "slug": "the-mimic",
+      "file": "data/the-mimic.json",
+      "variantCount": 3,
+      "sourceRevId": 15256547,
+      "contentHash": "75792f33fbc1961c"
+    },
+    {
+      "activity": "The Nightmare",
+      "slug": "the-nightmare",
+      "file": "data/the-nightmare.json",
+      "variantCount": 2,
+      "sourceRevId": 15275674,
+      "contentHash": "586c05027461d751"
+    },
+    {
+      "activity": "The Whisperer",
+      "slug": "the-whisperer",
+      "file": "data/the-whisperer.json",
+      "variantCount": 1,
+      "sourceRevId": 15283510,
+      "contentHash": "f93dadf6d6fe116f"
+    },
+    {
+      "activity": "Theatre of Blood",
+      "slug": "theatre-of-blood",
+      "file": "data/theatre-of-blood.json",
+      "variantCount": 6,
+      "sourceRevId": 15277069,
+      "contentHash": "1c998cf67ae0d1d0"
+    },
+    {
+      "activity": "Thermonuclear smoke devil",
+      "slug": "thermonuclear-smoke-devil",
+      "file": "data/thermonuclear-smoke-devil.json",
+      "variantCount": 4,
+      "sourceRevId": 15278665,
+      "contentHash": "3dfccf5bc2513ce0"
+    },
+    {
+      "activity": "Tombs of Amascut",
+      "slug": "tombs-of-amascut",
+      "file": "data/tombs-of-amascut.json",
+      "variantCount": 5,
+      "sourceRevId": 15285501,
+      "contentHash": "74c21365fc9b2a04"
+    },
+    {
+      "activity": "Tormented Demon",
+      "slug": "tormented-demon",
+      "file": "data/tormented-demon.json",
+      "variantCount": 4,
+      "sourceRevId": 15283490,
+      "contentHash": "2330ca8dafbb02ee"
+    },
+    {
+      "activity": "Treasure Trails",
+      "slug": "treasure-trails",
+      "file": "data/treasure-trails.json",
+      "variantCount": 8,
+      "sourceRevId": 15284659,
+      "contentHash": "27e4450ba26e1515"
+    },
+    {
+      "activity": "TzHaar Fight Cave",
+      "slug": "tzhaar-fight-cave",
+      "file": "data/tzhaar-fight-cave.json",
+      "variantCount": 4,
+      "sourceRevId": 15275221,
+      "contentHash": "6a73e611b42ef434"
+    },
+    {
+      "activity": "User:Andmcadams/Mahogany Homes",
+      "slug": "user-andmcadams-mahogany-homes",
+      "file": "data/user-andmcadams-mahogany-homes.json",
+      "variantCount": 1,
+      "sourceRevId": 14348219,
+      "contentHash": "28ea28ad6323c355"
+    },
+    {
+      "activity": "User:Discograph/Zulrah",
+      "slug": "user-discograph-zulrah",
+      "file": "data/user-discograph-zulrah.json",
+      "variantCount": 5,
+      "sourceRevId": 15107783,
+      "contentHash": "c5ea46d1374dd3e5"
+    },
+    {
+      "activity": "User:Varied2350/Brutus",
+      "slug": "user-varied2350-brutus",
+      "file": "data/user-varied2350-brutus.json",
+      "variantCount": 5,
+      "sourceRevId": 15145091,
+      "contentHash": "8a2decb539648749"
+    },
+    {
+      "activity": "Vale Totems",
+      "slug": "vale-totems",
+      "file": "data/vale-totems.json",
+      "variantCount": 2,
+      "sourceRevId": 15276918,
+      "contentHash": "8a1aa8a1629fe09a"
+    },
+    {
+      "activity": "Vardorvis",
+      "slug": "vardorvis",
+      "file": "data/vardorvis.json",
+      "variantCount": 2,
+      "sourceRevId": 15283593,
+      "contentHash": "695ed7a4185e4fa8"
+    },
+    {
+      "activity": "Venenatis",
+      "slug": "venenatis",
+      "file": "data/venenatis.json",
+      "variantCount": 4,
+      "sourceRevId": 15270664,
+      "contentHash": "5f3b3785b91b0fdc"
+    },
+    {
+      "activity": "Vet'ion",
+      "slug": "vetion",
+      "file": "data/vetion.json",
+      "variantCount": 3,
+      "sourceRevId": 15272964,
+      "contentHash": "bec04b5a3e5c111c"
+    },
+    {
+      "activity": "Vorkath",
+      "slug": "vorkath",
+      "file": "data/vorkath.json",
+      "variantCount": 3,
+      "sourceRevId": 15277400,
+      "contentHash": "b2f09e33927e8237"
+    },
+    {
+      "activity": "Vyrewatch Sentinel",
+      "slug": "vyrewatch-sentinel",
+      "file": "data/vyrewatch-sentinel.json",
+      "variantCount": 2,
+      "sourceRevId": 15282745,
+      "contentHash": "8adbb1ef51964dcb"
+    },
+    {
+      "activity": "Wintertodt",
+      "slug": "wintertodt",
+      "file": "data/wintertodt.json",
+      "variantCount": 1,
+      "sourceRevId": 15278826,
+      "contentHash": "15557a27af329f50"
+    },
+    {
+      "activity": "Yama",
+      "slug": "yama",
+      "file": "data/yama.json",
+      "variantCount": 13,
+      "sourceRevId": 15287750,
+      "contentHash": "d419e211909b071e"
+    },
+    {
+      "activity": "Zalcano",
+      "slug": "zalcano",
+      "file": "data/zalcano.json",
+      "variantCount": 2,
+      "sourceRevId": 15275968,
+      "contentHash": "d420a1b59872aced"
+    },
+    {
+      "activity": "Zulrah",
+      "slug": "zulrah",
+      "file": "data/zulrah.json",
+      "variantCount": 5,
+      "sourceRevId": 15287323,
+      "contentHash": "35888c13ff2ecfe4"
+    }
+  ]
+}

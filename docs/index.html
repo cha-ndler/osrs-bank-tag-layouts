@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OSRS Bank Tag Layouts</title>
+<meta name="description" content="Bank tag layouts for Old School RuneScape bosses and raids, generated from the OSRS Wiki.">
+<style>
+  :root {
+    --bg: #12100e; --panel: #1c1916; --edge: #33302b; --ink: #ece5da;
+    --muted: #9b9187; --accent: #d8b45f; --slot: #241f1a; --ok: #6fbf73;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f5f1e8; --panel: #fffdf8; --edge: #d9d0bd; --ink: #221e19;
+      --muted: #6d6459; --accent: #8a6a17; --slot: #ebe4d4; --ok: #2f7a34;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  header {
+    padding: 28px 20px 18px; border-bottom: 1px solid var(--edge);
+    position: sticky; top: 0; background: var(--bg); z-index: 5;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+  h1 { margin: 0 0 6px; font-size: 22px; letter-spacing: .2px; }
+  .sub { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
+  .sub a { color: var(--accent); }
+  #q {
+    width: 100%; padding: 11px 14px; font-size: 15px; color: var(--ink);
+    background: var(--panel); border: 1px solid var(--edge); border-radius: 8px;
+  }
+  #q:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  #count { color: var(--muted); font-size: 12px; margin-top: 8px; }
+  main { padding: 18px 20px 60px; }
+  .activity { margin-bottom: 26px; }
+  .activity > h2 {
+    font-size: 16px; margin: 0 0 10px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--edge); display: flex; gap: 10px; align-items: baseline;
+  }
+  .activity > h2 a { color: var(--muted); font-size: 12px; font-weight: 400; }
+  .variants { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+  .card {
+    background: var(--panel); border: 1px solid var(--edge);
+    border-radius: 10px; padding: 12px;
+  }
+  .card h3 { margin: 0 0 2px; font-size: 14px; }
+  .tagname { color: var(--muted); font-size: 12px; margin-bottom: 10px; word-break: break-word; }
+  .grid {
+    display: grid; grid-template-columns: repeat(8, 1fr); gap: 2px;
+    background: var(--edge); border: 1px solid var(--edge); border-radius: 6px;
+    padding: 2px; margin-bottom: 10px;
+  }
+  .cell {
+    aspect-ratio: 1; background: var(--slot); border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cell img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
+  .row { display: flex; gap: 8px; align-items: center; }
+  button.copy {
+    flex: 1; padding: 8px 10px; font: inherit; font-size: 13px; cursor: pointer;
+    color: var(--bg); background: var(--accent); border: 0; border-radius: 6px;
+  }
+  button.copy.done { background: var(--ok); }
+  details.warn { margin-top: 8px; font-size: 12px; color: var(--muted); }
+  details.warn ul { margin: 6px 0 0; padding-left: 18px; }
+  .empty { color: var(--muted); padding: 40px 0; text-align: center; }
+  footer { color: var(--muted); font-size: 12px; padding: 0 20px 40px; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>OSRS Bank Tag Layouts</h1>
+    <p class="sub">
+      Gear and inventory setups for bosses, raids and activities, generated from the
+      <a href="https://oldschool.runescape.wiki/" rel="noopener">OSRS Wiki</a> strategy pages.
+      Copy a layout, then in your bank right-click <em>New tag tab</em> &rarr; <em>Import tag tab</em>.
+    </p>
+    <input id="q" type="search" placeholder="Search activity or variant - try &quot;doom&quot;, &quot;raids&quot;, &quot;budget&quot;" autocomplete="off">
+    <div id="count"></div>
+  </div>
+</header>
+<main class="wrap" id="results"></main>
+<footer class="wrap">
+  <p id="meta"></p>
+  <p>
+    Item data and setups come from the OSRS Wiki, available under
+    <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="noopener">CC BY-NC-SA 3.0</a>.
+    Not affiliated with Jagex.
+  </p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

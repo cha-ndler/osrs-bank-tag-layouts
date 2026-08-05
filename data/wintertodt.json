@@ -1,0 +1,52 @@
+{
+  "activity": "Wintertodt",
+  "slug": "wintertodt",
+  "sourcePage": "Wintertodt/Strategies",
+  "sourceUrl": "https://oldschool.runescape.wiki/w/Wintertodt/Strategies",
+  "sourceRevId": 15278826,
+  "contentHash": "15557a27af329f50",
+  "variants": [
+    {
+      "variant": "Equipment",
+      "tagName": "Wintertodt",
+      "icon": 6739,
+      "importString": "banktags,1,Wintertodt,6739,layout,4,2347,5,31043,8,9769,10,22947,16,6739,32,11133,33,20710,17,20704,25,20706,34,13128,9,3853,18,29777,1,20708",
+      "layout": {
+        "4": 2347,
+        "5": 31043,
+        "8": 9769,
+        "10": 22947,
+        "16": 6739,
+        "32": 11133,
+        "33": 20710,
+        "17": 20704,
+        "25": 20706,
+        "34": 13128,
+        "9": 3853,
+        "18": 29777,
+        "1": 20708
+      },
+      "equipment": {
+        "cape": 9769,
+        "ammo": 22947,
+        "weapon": 6739,
+        "gloves": 11133,
+        "boots": 20710,
+        "torso": 20704,
+        "legs": 20706,
+        "ring": 13128,
+        "neck": 3853,
+        "shield": 29777,
+        "head": 20708
+      },
+      "inventory": {
+        "1": 2347,
+        "2": 31043
+      },
+      "runes": {},
+      "warnings": [
+        "Games necklace -> Games necklace(8)"
+      ]
+    }
+  ]
+}

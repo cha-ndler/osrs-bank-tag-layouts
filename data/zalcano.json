@@ -1,0 +1,84 @@
+{
+  "activity": "Zalcano",
+  "slug": "zalcano",
+  "sourcePage": "Zalcano/Strategies",
+  "sourceUrl": "https://oldschool.runescape.wiki/w/Zalcano/Strategies",
+  "sourceRevId": 15275968,
+  "contentHash": "d420a1b59872aced",
+  "variants": [
+    {
+      "variant": "Equipment",
+      "tagName": "Zalcano",
+      "icon": 23680,
+      "importString": "banktags,1,Zalcano,23680,layout,8,9769,10,22947,16,23680,32,11133,33,11860,17,13107,25,11856,34,25545,9,22111,18,13120,1,11850",
+      "layout": {
+        "8": 9769,
+        "10": 22947,
+        "16": 23680,
+        "32": 11133,
+        "33": 11860,
+        "17": 13107,
+        "25": 11856,
+        "34": 25545,
+        "9": 22111,
+        "18": 13120,
+        "1": 11850
+      },
+      "equipment": {
+        "cape": 9769,
+        "ammo": 22947,
+        "weapon": 23680,
+        "gloves": 11133,
+        "boots": 11860,
+        "torso": 13107,
+        "legs": 11856,
+        "ring": 25545,
+        "neck": 22111,
+        "shield": 13120,
+        "head": 11850
+      },
+      "inventory": {},
+      "runes": {},
+      "warnings": []
+    },
+    {
+      "variant": "Inventory",
+      "tagName": "Zalcano 2",
+      "icon": 23946,
+      "importString": "banktags,1,Zalcano 2,23946,layout,4,23946,5,12625,6,12625,7,12625,12,6685,14,6685,20,6685,21,6685,13,6685,15,6685,22,6685,23,6685",
+      "layout": {
+        "4": 23946,
+        "5": 12625,
+        "6": 12625,
+        "7": 12625,
+        "12": 6685,
+        "14": 6685,
+        "20": 6685,
+        "21": 6685,
+        "13": 6685,
+        "15": 6685,
+        "22": 6685,
+        "23": 6685
+      },
+      "equipment": {},
+      "inventory": {
+        "1": 23946,
+        "2": 12625,
+        "3": 12625,
+        "4": 12625,
+        "5": 6685,
+        "7": 6685,
+        "9": 6685,
+        "10": 6685,
+        "6": 6685,
+        "8": 6685,
+        "11": 6685,
+        "12": 6685
+      },
+      "runes": {},
+      "warnings": [
+        "Saradomin brew -> Saradomin brew(4)"
+      ]
+    }
+  ]
+}

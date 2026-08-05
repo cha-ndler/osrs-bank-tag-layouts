@@ -1,0 +1,96 @@
+{
+  "activity": "Green dragon",
+  "slug": "green-dragon",
+  "sourcePage": "Green dragon/Strategies",
+  "sourceUrl": "https://oldschool.runescape.wiki/w/Green_dragon/Strategies",
+  "sourceRevId": 15267193,
+  "contentHash": "1324ee88efa066ab",
+  "variants": [
+    {
+      "variant": "Melee",
+      "tagName": "Green dragon Melee",
+      "icon": 22586,
+      "importString": "banktags,1,Green dragon Melee,22586,layout,4,22586,5,2552,6,23691,7,2456,12,21166,14,2434,20,3144,28,3144,21,3144,13,2434,15,2434,22,3144,23,3144",
+      "layout": {
+        "4": 22586,
+        "5": 2552,
+        "6": 23691,
+        "7": 2456,
+        "12": 21166,
+        "14": 2434,
+        "20": 3144,
+        "28": 3144,
+        "21": 3144,
+        "13": 2434,
+        "15": 2434,
+        "22": 3144,
+        "23": 3144
+      },
+      "equipment": {},
+      "inventory": {
+        "1": 22586,
+        "2": 2552,
+        "3": 23691,
+        "4": 2456,
+        "5": 21166,
+        "7": 2434,
+        "9": 3144,
+        "13": 3144,
+        "10": 3144,
+        "6": 2434,
+        "8": 2434,
+        "11": 3144,
+        "12": 3144
+      },
+      "runes": {},
+      "warnings": [
+        "Ring of dueling -> Ring of dueling(8)",
+        "Burning amulet -> Burning amulet(5)"
+      ]
+    },
+    {
+      "variant": "Ranged",
+      "tagName": "Green dragon Ranged",
+      "icon": 22586,
+      "importString": "banktags,1,Green dragon Ranged,22586,layout,4,22586,5,2552,6,23739,7,2456,12,21166,14,2434,20,3144,21,3144,29,3144,13,2434,15,2434,22,3144,30,3144,23,3144",
+      "layout": {
+        "4": 22586,
+        "5": 2552,
+        "6": 23739,
+        "7": 2456,
+        "12": 21166,
+        "14": 2434,
+        "20": 3144,
+        "21": 3144,
+        "29": 3144,
+        "13": 2434,
+        "15": 2434,
+        "22": 3144,
+        "30": 3144,
+        "23": 3144
+      },
+      "equipment": {},
+      "inventory": {
+        "1": 22586,
+        "2": 2552,
+        "3": 23739,
+        "4": 2456,
+        "5": 21166,
+        "7": 2434,
+        "9": 3144,
+        "10": 3144,
+        "14": 3144,
+        "6": 2434,
+        "8": 2434,
+        "11": 3144,
+        "15": 3144,
+        "12": 3144
+      },
+      "runes": {},
+      "warnings": [
+        "Ring of dueling -> Ring of dueling(8)",
+        "Burning amulet -> Burning amulet(5)"
+      ]
+    }
+  ]
+}

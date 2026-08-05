@@ -1,0 +1,412 @@
+{
+  "layouts": 330,
+  "encodeFailures": [],
+  "errors": [],
+  "roundTripMismatches": [],
+  "partialDoseAccepted": [
+    {
+      "layout": "Adamant dragon / Setup (3)",
+      "position": 5,
+      "item": "extended super antifire(2)",
+      "itemId": 22215,
+      "sourceName": "Extended super antifire(2)"
+    },
+    {
+      "layout": "Artio / Magic",
+      "position": 46,
+      "item": "extended anti-venom+(1)",
+      "itemId": 29833,
+      "sourceName": "Extended anti-venom+(1)"
+    },
+    {
+      "layout": "Barrows / Magic (Low level)",
+      "position": 32,
+      "item": "combat bracelet(4)",
+      "itemId": 11118,
+      "sourceName": "Combat bracelet(4)"
+    },
+    {
+      "layout": "Chest (Rogues' Castle) / Inventory",
+      "position": 6,
+      "item": "blighted super restore(1)",
+      "itemId": 24605,
+      "sourceName": "Blighted super restore(1)"
+    },
+    {
+      "layout": "Green dragon / Melee",
+      "position": 6,
+      "item": "divine super combat potion(2)",
+      "itemId": 23691,
+      "sourceName": "Divine super combat potion(2)"
+    },
+    {
+      "layout": "Green dragon / Melee",
+      "position": 7,
+      "item": "antifire potion(2)",
+      "itemId": 2456,
+      "sourceName": "Antifire potion(2)"
+    },
+    {
+      "layout": "Green dragon / Ranged",
+      "position": 6,
+      "item": "divine ranging potion(2)",
+      "itemId": 23739,
+      "sourceName": "Divine ranging potion(2)"
+    },
+    {
+      "layout": "Green dragon / Ranged",
+      "position": 7,
+      "item": "antifire potion(2)",
+      "itemId": 2456,
+      "sourceName": "Antifire potion(2)"
+    },
+    {
+      "layout": "Hespori / Best-in-slot",
+      "position": 5,
+      "item": "divine super combat potion(1)",
+      "itemId": 23694,
+      "sourceName": "Divine super combat potion(1)"
+    },
+    {
+      "layout": "Hespori / Best-in-slot",
+      "position": 6,
+      "item": "superantipoison(1)",
+      "itemId": 185,
+      "sourceName": "Superantipoison(1)"
+    },
+    {
+      "layout": "Hespori / Best-in-slot",
+      "position": 13,
+      "item": "surge potion(1)",
+      "itemId": 30884,
+      "sourceName": "Surge potion(1)"
+    },
+    {
+      "layout": "Hespori / Entry level",
+      "position": 5,
+      "item": "super combat potion(1)",
+      "itemId": 12701,
+      "sourceName": "Super combat potion(1)"
+    },
+    {
+      "layout": "Hespori / Mage",
+      "position": 5,
+      "item": "superantipoison(1)",
+      "itemId": 185,
+      "sourceName": "Superantipoison(1)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee",
+      "position": 4,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee",
+      "position": 5,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee",
+      "position": 6,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee",
+      "position": 7,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Absorption + AFK)",
+      "position": 5,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Absorption + AFK)",
+      "position": 6,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Absorption + AFK)",
+      "position": 7,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Absorption + AFK)",
+      "position": 12,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Absorption + AFK)",
+      "position": 14,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Absorption + AFK)",
+      "position": 13,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Prayer)",
+      "position": 5,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Prayer)",
+      "position": 6,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Prayer)",
+      "position": 7,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Prayer)",
+      "position": 12,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Prayer)",
+      "position": 14,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Melee (Prayer)",
+      "position": 13,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Ranged",
+      "position": 4,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Ranged",
+      "position": 5,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Ranged",
+      "position": 6,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Nightmare Zone / Ranged",
+      "position": 7,
+      "item": "overload (3)",
+      "itemId": 11731,
+      "sourceName": "Overload (Nightmare Zone)"
+    },
+    {
+      "layout": "Rune dragon / Setup",
+      "position": 6,
+      "item": "extended super antifire(2)",
+      "itemId": 22215,
+      "sourceName": "Extended super antifire(2)"
+    },
+    {
+      "layout": "Rune dragon / Setup",
+      "position": 7,
+      "item": "divine super combat potion(2)",
+      "itemId": 23691,
+      "sourceName": "Divine super combat potion(2)"
+    },
+    {
+      "layout": "Rune dragon / Setup (2)",
+      "position": 7,
+      "item": "extended antifire(1)",
+      "itemId": 11957,
+      "sourceName": "Extended antifire(1)"
+    },
+    {
+      "layout": "Rune dragon / Setup (3)",
+      "position": 7,
+      "item": "extended antifire(1)",
+      "itemId": 11957,
+      "sourceName": "Extended antifire(1)"
+    },
+    {
+      "layout": "The Gauntlet / Desired equipment and inventory",
+      "position": 5,
+      "item": "egniol potion (3)",
+      "itemId": 23884,
+      "sourceName": "Egniol potion (3)"
+    },
+    {
+      "layout": "The Gauntlet / Desired equipment and inventory",
+      "position": 6,
+      "item": "egniol potion (3)",
+      "itemId": 23884,
+      "sourceName": "Egniol potion (3)"
+    },
+    {
+      "layout": "The Gauntlet / Desired equipment and inventory (2)",
+      "position": 5,
+      "item": "egniol potion (3)",
+      "itemId": 23884,
+      "sourceName": "Egniol potion (3)"
+    },
+    {
+      "layout": "The Gauntlet / Desired equipment and inventory (2)",
+      "position": 6,
+      "item": "egniol potion (3)",
+      "itemId": 23884,
+      "sourceName": "Egniol potion (3)"
+    },
+    {
+      "layout": "The Gauntlet / Desired equipment and inventory (3)",
+      "position": 5,
+      "item": "egniol potion (3)",
+      "itemId": 23884,
+      "sourceName": "Egniol potion (3)"
+    },
+    {
+      "layout": "The Gauntlet / Desired equipment and inventory (3)",
+      "position": 6,
+      "item": "egniol potion (3)",
+      "itemId": 23884,
+      "sourceName": "Egniol potion (3)"
+    },
+    {
+      "layout": "The Gauntlet / Desired equipment and inventory (3)",
+      "position": 7,
+      "item": "egniol potion (3)",
+      "itemId": 23884,
+      "sourceName": "Egniol potion (3)"
+    },
+    {
+      "layout": "The Gauntlet / Desired equipment and inventory (4)",
+      "position": 5,
+      "item": "egniol potion (3)",
+      "itemId": 23884,
+      "sourceName": "Egniol potion (3)"
+    },
+    {
+      "layout": "The Gauntlet / Desired equipment and inventory (4)",
+      "position": 6,
+      "item": "egniol potion (3)",
+      "itemId": 23884,
+      "sourceName": "Egniol potion (3)"
+    },
+    {
+      "layout": "Tombs of Amascut / Minimum",
+      "position": 9,
+      "item": "amulet of glory(4)",
+      "itemId": 1712,
+      "sourceName": "Amulet of glory(4)"
+    },
+    {
+      "layout": "Treasure Trails / Hard clues (from implings)",
+      "position": 36,
+      "item": "ranging potion(2)",
+      "itemId": 171,
+      "sourceName": "Ranging potion(2)"
+    },
+    {
+      "layout": "Vorkath / Melee",
+      "position": 21,
+      "item": "surge potion(2)",
+      "itemId": 30881,
+      "sourceName": "Surge potion(2)"
+    },
+    {
+      "layout": "Vorkath / Ranged (crossbow)",
+      "position": 5,
+      "item": "divine ranging potion(3)",
+      "itemId": 23736,
+      "sourceName": "Divine ranging potion(3)"
+    },
+    {
+      "layout": "Vorkath / Ranged (crossbow)",
+      "position": 6,
+      "item": "extended super antifire(2)",
+      "itemId": 22215,
+      "sourceName": "Extended super antifire(2)"
+    },
+    {
+      "layout": "Yama / Sensory Clouding",
+      "position": 44,
+      "item": "surge potion(1)",
+      "itemId": 30884,
+      "sourceName": "Surge potion(1)"
+    }
+  ],
+  "partialDoseUnexpected": [],
+  "normalizations": [
+    "Absorption -> Absorption(4)",
+    "Anti-venom -> Anti-venom(4)",
+    "Antidote++ -> Antidote++(4)",
+    "Antipoison -> Antipoison(4)",
+    "Blighted super restore -> Blighted super restore(4)",
+    "Burning amulet -> Burning amulet(5)",
+    "Digsite pendant -> Digsite pendant(5)",
+    "Divine bastion potion -> Divine bastion potion(4)",
+    "Divine ranging potion -> Divine ranging potion(4)",
+    "Divine super combat potion -> Divine super combat potion(4)",
+    "Energy potion -> Energy potion(4)",
+    "Extended anti-venom+ -> Extended anti-venom+(4)",
+    "Extended antifire -> Extended antifire(4)",
+    "Extended stamina potion -> Extended stamina potion(4)",
+    "Extended super antifire -> Extended super antifire(4)",
+    "Extreme energy potion -> Extreme energy potion(4)",
+    "Forgotten brew -> Forgotten brew(4)",
+    "Games necklace -> Games necklace(8)",
+    "Guthix rest -> Guthix rest(4)",
+    "Menaphite remedy -> Menaphite remedy(4)",
+    "Moonlight moth mix -> Moonlight moth mix(2)",
+    "Necklace of passage -> Necklace of passage(5)",
+    "Prayer potion -> Prayer potion(4)",
+    "Prayer regeneration potion -> Prayer regeneration potion(4)",
+    "Ranging potion -> Ranging potion(4)",
+    "Ring of dueling -> Ring of dueling(8)",
+    "Sanfew serum -> Sanfew serum(4)",
+    "Saradomin brew -> Saradomin brew(4)",
+    "Slayer ring -> Slayer ring(8)",
+    "Stamina potion -> Stamina potion(4)",
+    "Super attack -> Super attack(4)",
+    "Super combat potion -> Super combat potion(4)",
+    "Super restore -> Super restore(4)",
+    "Super strength -> Super strength(4)",
+    "Superantipoison -> Superantipoison(4)",
+    "Surge potion -> Surge potion(4)",
+    "Zamorak brew -> Zamorak brew(4)"
+  ]
+}

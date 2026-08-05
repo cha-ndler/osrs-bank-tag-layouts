@@ -1,0 +1,69 @@
+name: Refresh layouts
+
+# The wiki changes; a one-time dump would rot. This re-runs the pipeline weekly
+# and opens a pull request *only* when a layout's content actually changed, so
+# vandalism or a template rewrite upstream cannot silently republish the library.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run offline tests
+        run: python -m unittest discover -s tests
+
+      - name: Regenerate library
+        run: python generator/run.py --fresh
+        working-directory: ${{ github.workspace }}
+
+      - name: Re-run tests against fresh data
+        run: python -m unittest discover -s tests
+
+      - name: Summarise
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          index = json.loads(pathlib.Path("index.json").read_text(encoding="utf-8"))
+          report = json.loads(pathlib.Path("report.json").read_text(encoding="utf-8"))
+          print(f"{index['layoutCount']} layouts across {index['activityCount']} activities")
+          print(f"structural errors: {len(report['errors'])}")
+          print(f"round-trip mismatches: {len(report['roundTripMismatches'])}")
+          PY
+
+      - name: Open pull request on change
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: refresh layouts from wiki"
+          branch: automated/refresh-layouts
+          delete-branch: true
+          title: "Refresh bank tag layouts from the wiki"
+          body: |
+            Automated weekly regeneration from the OSRS Wiki strategy pages.
+
+            Review the diff in `data/` before merging - a large unexpected change
+            usually means an upstream template or page structure changed.
+
+            `report.json` lists every item-name normalisation and any validation
+            findings for this run.
+          add-paths: |
+            data/**
+            index.json
+            report.json
+            docs/layouts.json

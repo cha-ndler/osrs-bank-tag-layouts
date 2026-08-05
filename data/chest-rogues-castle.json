@@ -1,0 +1,165 @@
+{
+  "activity": "Chest (Rogues' Castle)",
+  "slug": "chest-rogues-castle",
+  "sourcePage": "Chest (Rogues' Castle)/Strategies",
+  "sourceUrl": "https://oldschool.runescape.wiki/w/Chest_(Rogues'_Castle)/Strategies",
+  "sourceRevId": 15277206,
+  "contentHash": "56cb82751caa0ed0",
+  "variants": [
+    {
+      "variant": "Best 3 item + low risk",
+      "tagName": "Chest (Rogues' Castle) Best 3 item + low risk",
+      "icon": 12263,
+      "importString": "banktags,1,Chest (Rogues' Castle) Best 3 item + low risk,12263,layout,8,13124,10,22947,16,12263,32,6629,33,22954,17,29562,25,29564,34,25252,9,22986,18,13120,1,12203",
+      "layout": {
+        "8": 13124,
+        "10": 22947,
+        "16": 12263,
+        "32": 6629,
+        "33": 22954,
+        "17": 29562,
+        "25": 29564,
+        "34": 25252,
+        "9": 22986,
+        "18": 13120,
+        "1": 12203
+      },
+      "equipment": {
+        "cape": 13124,
+        "ammo": 22947,
+        "weapon": 12263,
+        "gloves": 6629,
+        "boots": 22954,
+        "torso": 29562,
+        "legs": 29564,
+        "ring": 25252,
+        "neck": 22986,
+        "shield": 13120,
+        "head": 12203
+      },
+      "inventory": {},
+      "runes": {},
+      "warnings": []
+    },
+    {
+      "variant": "Best 3 item, zero risk",
+      "tagName": "Chest (Rogues' Castle) Best 3 item zero risk",
+      "icon": 2952,
+      "importString": "banktags,1,Chest (Rogues' Castle) Best 3 item zero risk,2952,layout,8,13124,10,22947,16,2952,33,22954,17,29562,25,29564,34,25252,9,22986,18,13120,1,29560",
+      "layout": {
+        "8": 13124,
+        "10": 22947,
+        "16": 2952,
+        "33": 22954,
+        "17": 29562,
+        "25": 29564,
+        "34": 25252,
+        "9": 22986,
+        "18": 13120,
+        "1": 29560
+      },
+      "equipment": {
+        "cape": 13124,
+        "ammo": 22947,
+        "weapon": 2952,
+        "boots": 22954,
+        "torso": 29562,
+        "legs": 29564,
+        "ring": 25252,
+        "neck": 22986,
+        "shield": 13120,
+        "head": 29560
+      },
+      "inventory": {},
+      "runes": {},
+      "warnings": []
+    },
+    {
+      "variant": "Best 4 item, zero risk",
+      "tagName": "Chest (Rogues' Castle) Best 4 item zero risk",
+      "icon": 2952,
+      "importString": "banktags,1,Chest (Rogues' Castle) Best 4 item zero risk,2952,layout,8,13124,10,22947,16,2952,33,22954,17,29562,25,29564,34,25252,9,22986,18,13120,1,28933",
+      "layout": {
+        "8": 13124,
+        "10": 22947,
+        "16": 2952,
+        "33": 22954,
+        "17": 29562,
+        "25": 29564,
+        "34": 25252,
+        "9": 22986,
+        "18": 13120,
+        "1": 28933
+      },
+      "equipment": {
+        "cape": 13124,
+        "ammo": 22947,
+        "weapon": 2952,
+        "boots": 22954,
+        "torso": 29562,
+        "legs": 29564,
+        "ring": 25252,
+        "neck": 22986,
+        "shield": 13120,
+        "head": 28933
+      },
+      "inventory": {},
+      "runes": {},
+      "warnings": []
+    },
+    {
+      "variant": "Best never lost",
+      "tagName": "Chest (Rogues' Castle) Best never lost",
+      "icon": 2952,
+      "importString": "banktags,1,Chest (Rogues' Castle) Best never lost,2952,layout,8,13124,10,22947,16,2952,33,25440,17,29562,25,29564,34,13128,9,4081,18,13120,1,29560",
+      "layout": {
+        "8": 13124,
+        "10": 22947,
+        "16": 2952,
+        "33": 25440,
+        "17": 29562,
+        "25": 29564,
+        "34": 13128,
+        "9": 4081,
+        "18": 13120,
+        "1": 29560
+      },
+      "equipment": {
+        "cape": 13124,
+        "ammo": 22947,
+        "weapon": 2952,
+        "boots": 25440,
+        "torso": 29562,
+        "legs": 29564,
+        "ring": 13128,
+        "neck": 4081,
+        "shield": 13120,
+        "head": 29560
+      },
+      "inventory": {},
+      "runes": {},
+      "warnings": []
+    },
+    {
+      "variant": "Inventory",
+      "tagName": "Chest (Rogues' Castle)",
+      "icon": 22081,
+      "importString": "banktags,1,Chest (Rogues' Castle),22081,layout,4,22081,5,29784,6,24605,7,8013",
+      "layout": {
+        "4": 22081,
+        "5": 29784,
+        "6": 24605,
+        "7": 8013
+      },
+      "equipment": {},
+      "inventory": {
+        "1": 22081,
+        "2": 29784,
+        "3": 24605,
+        "4": 8013
+      },
+      "runes": {},
+      "warnings": []
+    }
+  ]
+}

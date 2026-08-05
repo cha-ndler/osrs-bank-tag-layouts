@@ -1,0 +1,55 @@
+{
+  "activity": "Hallowed Sepulchre",
+  "slug": "hallowed-sepulchre",
+  "sourcePage": "Hallowed Sepulchre/Strategies",
+  "sourceUrl": "https://oldschool.runescape.wiki/w/Hallowed_Sepulchre/Strategies",
+  "sourceRevId": 15286046,
+  "contentHash": "e12d1e6c76cffa0b",
+  "variants": [
+    {
+      "variant": "Recommended equipment",
+      "tagName": "Hallowed Sepulchre Recommended equipment",
+      "icon": 24727,
+      "importString": "banktags,1,Hallowed Sepulchre Recommended equipment,24727,layout,4,24727,5,8794,6,4824,7,24738,12,8782,14,8782,20,3325,28,564,21,3325,29,554,13,8782,15,8782,22,3325,30,561,23,3325,31,10890",
+      "layout": {
+        "4": 24727,
+        "5": 8794,
+        "6": 4824,
+        "7": 24738,
+        "12": 8782,
+        "14": 8782,
+        "20": 3325,
+        "28": 564,
+        "21": 3325,
+        "29": 554,
+        "13": 8782,
+        "15": 8782,
+        "22": 3325,
+        "30": 561,
+        "23": 3325,
+        "31": 10890
+      },
+      "equipment": {},
+      "inventory": {
+        "1": 24727,
+        "2": 8794,
+        "3": 4824,
+        "4": 24738,
+        "5": 8782,
+        "7": 8782,
+        "9": 3325,
+        "13": 564,
+        "10": 3325,
+        "14": 554,
+        "6": 8782,
+        "8": 8782,
+        "11": 3325,
+        "15": 561,
+        "12": 3325,
+        "16": 10890
+      },
+      "runes": {},
+      "warnings": []
+    }
+  ]
+}
