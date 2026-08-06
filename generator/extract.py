@@ -24,6 +24,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from normalize import load_slot_index
 from wikiclient import WikiClient
 
 REPO = Path(__file__).parent.parent
@@ -67,6 +68,17 @@ RANKED_SLOT_RE = re.compile(r"^(?P<slot>[a-z0-9]+?)(?P<rank>\d*)$")
 # rank; prefer the one-handed entry so the shield slot stays meaningful.
 SLOT_SOURCE_PRIORITY = {"weapon": 0, "2h": 1}
 PLINK_RE = re.compile(r"\{\{\s*plink[a-z]*\b", re.IGNORECASE)
+
+# A slot value of "None if using two-handed weapon, such as {{plinkp|Toxic
+# blowpipe}}" says the slot stays *empty*. The linked item is an example of what
+# empties it, not something to wear - read literally it put a blowpipe in the
+# shield slot. "Empty" is deliberately absent: Empty bucket and Empty jug are
+# 24 real items.
+EMPTY_SLOT_RE = re.compile(r"^\s*(none|nothing|n/a)\b", re.IGNORECASE)
+
+# Lowercased names of every item the wiki records as occupying the `2h` slot.
+# Populated by main() from the wiki's own infoboxes; tests inject their own.
+TWO_HANDED_NAMES: set[str] = set()
 
 HEADING_RE = re.compile(r"(?m)^(=+)\s*(.+?)\s*\1\s*$")
 TAB_LABEL_RE = re.compile(r"(?m)^([^=|{}\n]{1,60}?)\s*=\s*$")
@@ -136,6 +148,9 @@ def plink_item(value: str) -> str:
         return ""
     value = re.sub(r"<!--.*?-->", "", value, flags=re.DOTALL)
     value = strip_templates(value, ("efn", "efn2", "GEP", "NoCoins"))
+
+    if EMPTY_SLOT_RE.match(value):
+        return ""
 
     m = PLINK_RE.search(value)
     if m:
@@ -441,7 +456,36 @@ def _merge_shared(setups: list[Setup]) -> list[Setup]:
     return out
 
 
-def extract_page(title: str, text: str) -> tuple[list[Setup], list[str]]:
+def drop_conflicting_offhand(
+    equipment: dict[str, str], two_handed: set[str]
+) -> str | None:
+    """Clear the shield slot when the chosen weapon needs both hands.
+
+    `{{Recommended equipment}}` ranks every slot independently, so a block whose
+    best weapon is two-handed still lists the off-hands belonging to its
+    *lower-ranked one-handed* alternatives - the wiki even annotates them, as in
+    "shield1 = None if using [[two-handed weapons]]". Taking rank 1 from each
+    column therefore produced a loadout nobody can wear: Tumeken's shadow beside
+    an Elidinis' ward, a Scythe of vitur beside an Avernic defender.
+
+    The page's own ranking is trusted, so the weapon stays and the shield goes.
+    Returns the dropped item name, or None when nothing conflicted.
+    """
+    weapon = equipment.get("weapon")
+    shield = equipment.get("shield")
+    if not weapon or not shield:
+        return None
+    if weapon.lower() not in two_handed:
+        return None
+    del equipment["shield"]
+    return shield
+
+
+def extract_page(
+    title: str, text: str, two_handed: set[str] | None = None
+) -> tuple[list[Setup], list[str]]:
+    if two_handed is None:
+        two_handed = TWO_HANDED_NAMES
     occurrences = find_occurrences(text)
     scopes = build_scopes(text)
     warnings: list[str] = []
@@ -553,6 +597,17 @@ def extract_page(title: str, text: str) -> tuple[list[Setup], list[str]]:
     setups.sort(key=lambda s: s.order)
     setups = _merge_shared(setups)
 
+    # Enforced once, after merging, so the setups that inherit their gear from
+    # another variant are covered by the same pass rather than a second copy of
+    # the rule.
+    for setup in setups:
+        dropped = drop_conflicting_offhand(setup.equipment, two_handed)
+        if dropped:
+            warnings.append(
+                f"'{setup.variant}': dropped off-hand {dropped} - "
+                f"{setup.equipment['weapon']} is two-handed"
+            )
+
     # Many pages carry a {{Recommended equipment}} table in an ==Equipment==
     # section *and* full setups further down that already reflect it. Once the
     # complete setups exist, the standalone gear tables are duplicates, so keep
@@ -585,15 +640,19 @@ def extract_page(title: str, text: str) -> tuple[list[Setup], list[str]]:
 
 
 def main() -> None:
+    global TWO_HANDED_NAMES
     client = WikiClient()
+    TWO_HANDED_NAMES = set(load_slot_index(client)["twoHandedNames"])
     corpus = json.loads(CORPUS.read_text(encoding="utf-8"))
     pages_out = []
     total_setups = 0
     empty_pages: list[str] = []
+    offhands_dropped = 0
 
     for title in corpus["pages"]:
         text, rev_id = client.page_wikitext(title)
         setups, warnings = extract_page(title, text)
+        offhands_dropped += sum(1 for w in warnings if "dropped off-hand" in w)
         total_setups += len(setups)
         if not setups:
             empty_pages.append(title)
@@ -620,6 +679,7 @@ def main() -> None:
     )
     print(f"extract: {len(pages_out)} pages -> {total_setups} setups")
     print(f"  {len(empty_pages)} pages yielded none")
+    print(f"  {offhands_dropped} off-hands dropped (weapon is two-handed)")
     print(f"  http={client.stats['http']} cache={client.stats['cache']}")
     print(f"  wrote {SETUPS.relative_to(REPO)}")
 

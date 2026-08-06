@@ -1,6 +1,7 @@
 # Generated intermediates - the pipeline rebuilds these from the wiki.
 generator/cache/
 generator/items.json
+generator/slots.json
 generator/corpus.json
 generator/setups.json
 generator/encoded.json

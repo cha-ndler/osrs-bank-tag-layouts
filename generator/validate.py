@@ -21,7 +21,7 @@ import sys
 from pathlib import Path
 
 from encode import LOADOUT_MAP
-from normalize import DOSE_RE, Normalizer, load_item_index
+from normalize import DOSE_RE, Normalizer, load_item_index, load_slot_index
 from wikiclient import WikiClient
 
 REPO = Path(__file__).parent.parent
@@ -33,6 +33,13 @@ VALID_POSITIONS = set(LOADOUT_MAP)
 # Ratchet. Raise it when the real figure improves; never lower it to make a
 # regression pass.
 COMPLETENESS_BASELINE = 0.88
+
+# The wiki's own slot vocabulary, mapped onto Module:Loadout argument names.
+WIKI_SLOT_TO_LOADOUT = {
+    "head": "head", "cape": "cape", "neck": "neck", "ammo": "ammo",
+    "weapon": "weapon", "2h": "weapon", "body": "torso", "legs": "legs",
+    "shield": "shield", "hands": "gloves", "feet": "boots", "ring": "ring",
+}
 
 # Variant names that promise a weapon ("Tbow / Bowfa", "Melee (scythe)").
 WEAPON_HINT_RE = re.compile(
@@ -76,6 +83,9 @@ def validate() -> int:
     client = WikiClient()
     index = load_item_index(client)
     norm = Normalizer(index)
+    slot_index = load_slot_index(client)
+    two_handed_ids = set(slot_index["twoHandedIds"])
+    id_slot = slot_index["idSlot"]
     data = json.loads(ENCODED.read_text(encoding="utf-8"))
     layouts = data["layouts"]
     partial = partial_dose_ids(index)
@@ -169,6 +179,55 @@ def validate() -> int:
                     f"but no weapon slot was extracted"
                 )
 
+    # A two-handed weapon leaves no hand for an off-hand. {{Recommended
+    # equipment}} ranks each slot independently, so taking the best of every
+    # column once shipped Tumeken's shadow beside an Elidinis' ward in 64 of
+    # 330 layouts. Nothing caught it but a player looking at the tab.
+    #
+    # Deliberately keyed on item ids, not names: a handful of ornamental and
+    # uncharged variants share a name with a two-hander but carry no bonuses row
+    # of their own, and one-handed items sharing such a name would fail the build
+    # for no reason. Extraction casts the wider net; this gate stays exact.
+    slot_notes: list[dict] = []
+    for e in layouts:
+        equipment = e.get("equipment") or {}
+        weapon, shield = equipment.get("weapon"), equipment.get("shield")
+        label = f"{e['activity']} / {e['variant']}"
+        gated: set[str] = set()
+
+        if shield and weapon in two_handed_ids:
+            gate_errors.append(
+                f"{label}: two-handed {norm.name_for_id(weapon)} ({weapon}) "
+                f"with off-hand {norm.name_for_id(shield)} ({shield})"
+            )
+            gated.add("shield")
+        if shield and id_slot.get(str(shield)) in ("weapon", "2h"):
+            gate_errors.append(
+                f"{label}: {norm.name_for_id(shield)} ({shield}) is a weapon, "
+                f"not an off-hand"
+            )
+            gated.add("shield")
+
+        # Every other slot disagreement is recorded rather than gated. The wiki
+        # legitimately lists Amethyst dart under `ammo` - blowpipe ammunition -
+        # although the dart's own infobox slot is `weapon`, and failing the
+        # build on correct wiki convention would be worse than the noise.
+        for slot, item_id in equipment.items():
+            if slot in gated:
+                continue
+            expected = WIKI_SLOT_TO_LOADOUT.get(id_slot.get(str(item_id), ""))
+            base = "ammo" if slot == "ammo2" else slot
+            if expected and expected != base:
+                slot_notes.append(
+                    {
+                        "layout": label,
+                        "slot": slot,
+                        "item": norm.name_for_id(item_id),
+                        "itemId": item_id,
+                        "wikiSlot": id_slot.get(str(item_id)),
+                    }
+                )
+
     # Both layout styles must describe the same set of items.
     for e in layouts:
         presets = sorted(e["layout"].values())
@@ -191,6 +250,7 @@ def validate() -> int:
         "encodeFailures": data.get("failures", []),
         "errors": errors,
         "roundTripMismatches": unresolved,
+        "slotDisagreements": slot_notes,
         "partialDoseAccepted": [d for d in dose_flags if d not in bad_doses],
         "partialDoseUnexpected": bad_doses,
         "normalizations": sorted(
@@ -207,6 +267,7 @@ def validate() -> int:
           f"({ratio:.1%}, baseline {COMPLETENESS_BASELINE:.0%})")
     print(f"  structural errors        : {len(errors)}")
     print(f"  round-trip mismatches    : {len(unresolved)}")
+    print(f"  slot disagreements (note): {len(slot_notes)}")
     print(f"  part-dose (explicit, ok) : {len(dose_flags) - len(bad_doses)}")
     print(f"  part-dose (unexpected)   : {len(bad_doses)}")
     print(f"  distinct normalizations  : {len(report['normalizations'])}")

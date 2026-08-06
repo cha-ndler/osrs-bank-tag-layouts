@@ -23,9 +23,27 @@ from wikiclient import WikiClient
 
 REPO = Path(__file__).parent.parent
 ITEMS = REPO / "generator" / "items.json"
+SLOTS = REPO / "generator" / "slots.json"
 
 DOSE_RE = re.compile(r"^(?P<base>.+?)\s*\((?P<n>\d{1,2})\)$")
 PAGE_SIZE = 5000
+
+
+def sweep(client: WikiClient, table: str, fields: tuple[str, ...]) -> list[dict]:
+    """Every row of a bucket table, following the offset pages."""
+    selected = ",".join(f'"{f}"' for f in fields)
+    rows: list[dict] = []
+    offset = 0
+    while True:
+        batch = client.bucket(
+            f'bucket("{table}").select({selected})'
+            f".limit({PAGE_SIZE}).offset({offset}).run()"
+        )
+        rows.extend(batch)
+        if len(batch) < PAGE_SIZE:
+            break
+        offset += PAGE_SIZE
+    return rows
 
 
 def load_item_index(client: WikiClient, refresh: bool = False) -> dict:
@@ -33,17 +51,7 @@ def load_item_index(client: WikiClient, refresh: bool = False) -> dict:
     if ITEMS.exists() and not refresh:
         return json.loads(ITEMS.read_text(encoding="utf-8"))
 
-    rows: list[dict] = []
-    offset = 0
-    while True:
-        batch = client.bucket(
-            f'bucket("infobox_item").select("item_id","item_name","page_name")'
-            f".limit({PAGE_SIZE}).offset({offset}).run()"
-        )
-        rows.extend(batch)
-        if len(batch) < PAGE_SIZE:
-            break
-        offset += PAGE_SIZE
+    rows = sweep(client, "infobox_item", ("item_id", "item_name", "page_name"))
 
     by_name: dict[str, list[int]] = {}
     by_id: dict[str, str] = {}
@@ -58,6 +66,52 @@ def load_item_index(client: WikiClient, refresh: bool = False) -> dict:
 
     index = {"count": len(rows), "byName": by_name, "byId": by_id}
     ITEMS.write_text(json.dumps(index), encoding="utf-8")
+    return index
+
+
+def load_slot_index(client: WikiClient, refresh: bool = False) -> dict:
+    """Which equipment slot each item occupies, straight from the wiki.
+
+    `infobox_bonuses` records one slot per *page* - two-handers get the distinct
+    value ``2h`` - and `infobox_item` maps ids and names onto pages. No page in
+    the store carries conflicting slots, so joining on the page name is
+    unambiguous.
+
+    This is what lets extraction know that a shield cannot be worn alongside the
+    weapon it picked. `{{Recommended equipment}}` ranks each slot independently,
+    so without it a Tumeken's shadow setup also claims an Elidinis' ward.
+    """
+    if SLOTS.exists() and not refresh:
+        return json.loads(SLOTS.read_text(encoding="utf-8"))
+
+    page_slot: dict[str, str] = {}
+    for row in sweep(client, "infobox_bonuses", ("page_name", "equipment_slot")):
+        page = (row.get("page_name") or "").strip()
+        slot = (row.get("equipment_slot") or "").strip()
+        if page and slot:
+            page_slot[page] = slot
+
+    # Pages are named on the wiki as often as items are, and a setup may cite
+    # either, so both spellings resolve.
+    two_handed: set[str] = {p.lower() for p, s in page_slot.items() if s == "2h"}
+    id_slot: dict[str, str] = {}
+    for row in sweep(client, "infobox_item", ("item_id", "item_name", "page_name")):
+        slot = page_slot.get((row.get("page_name") or "").strip())
+        if not slot:
+            continue
+        name = (row.get("item_name") or "").strip()
+        if slot == "2h" and name:
+            two_handed.add(name.lower())
+        for item_id in row.get("item_id") or []:
+            if str(item_id).isdigit():
+                id_slot[str(item_id)] = slot
+
+    index = {
+        "twoHandedNames": sorted(two_handed),
+        "twoHandedIds": sorted(int(i) for i, s in id_slot.items() if s == "2h"),
+        "idSlot": id_slot,
+    }
+    SLOTS.write_text(json.dumps(index), encoding="utf-8")
     return index
 
 

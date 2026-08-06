@@ -1,15 +1,24 @@
 {
   "layouts": 330,
-  "completeRatio": 0.8909,
+  "completeRatio": 0.8879,
   "completenessBaseline": 0.88,
   "completenessCounts": {
-    "complete": 294,
+    "complete": 293,
     "minimal": 28,
-    "partial": 8
+    "partial": 9
   },
   "encodeFailures": [],
   "errors": [],
   "roundTripMismatches": [],
+  "slotDisagreements": [
+    {
+      "layout": "Nightmare Zone / Ranged",
+      "slot": "ammo",
+      "item": "Amethyst dart",
+      "itemId": 25849,
+      "wikiSlot": "weapon"
+    }
+  ],
   "partialDoseAccepted": [
     {
       "layout": "Adamant dragon / Magic - Tumeken's Shadow",
