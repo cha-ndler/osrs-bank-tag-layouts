@@ -113,17 +113,26 @@ function render(term) {
       )
     : LAYOUTS;
 
-  const shown = matches.slice(0, MAX_RENDERED);
-  const groups = new Map();
-  for (const entry of shown) {
-    if (!groups.has(entry.activity)) groups.set(entry.activity, []);
-    groups.get(entry.activity).push(entry);
+  // Group first, then cap on whole activities. Slicing a flat list would show
+  // an activity with only some of its variants and no sign the rest exist.
+  const byActivity = new Map();
+  for (const entry of matches) {
+    if (!byActivity.has(entry.activity)) byActivity.set(entry.activity, []);
+    byActivity.get(entry.activity).push(entry);
   }
 
-  const activities = new Set(matches.map((e) => e.activity)).size;
+  const groups = new Map();
+  let rendered = 0;
+  for (const [activity, entries] of byActivity) {
+    if (rendered >= MAX_RENDERED) break;
+    groups.set(activity, entries);
+    rendered += entries.length;
+  }
+
+  const activities = byActivity.size;
   let summary = `${matches.length} layout${matches.length === 1 ? '' : 's'} across ${activities} activit${activities === 1 ? 'y' : 'ies'}`;
-  if (matches.length > shown.length) {
-    summary += ` — showing the first ${shown.length}, search to narrow`;
+  if (groups.size < activities) {
+    summary += ` — showing ${groups.size} of ${activities}, search to narrow`;
   }
   els.count.textContent = summary;
   els.results.textContent = '';

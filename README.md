@@ -4,7 +4,7 @@ Bank tag layouts for Old School RuneScape bosses, raids and activities,
 generated automatically from the [OSRS Wiki](https://oldschool.runescape.wiki/)
 strategy pages.
 
-**319 layouts across 99 activities.** Browse and copy them at
+**333 layouts across 99 activities.** Browse and copy them at
 [the GitHub Pages site](https://cha-ndler.github.io/osrs-bank-tag-layouts/), or
 consume `data/*.json` directly.
 
@@ -68,9 +68,11 @@ discover → extract → encode → validate → publish
   and keeps the `/Strategies` subpages (99 of 268; the rest use the template
   illustratively). `User:` sandbox drafts match the suffix too and are excluded —
   they are personal working copies, not the wiki's published meta.
-- **extract** — parses `{{Equipment}}` / `{{Inventory}}` / `{{Rune pouch}}` and
-  pairs them per scope. Pages use two different shapes: tabbers (Doom, Zulrah)
-  and wikitables whose header cells name the variants (Chambers of Xeric).
+- **extract** — parses `{{Equipment}}`, `{{Recommended equipment}}`,
+  `{{Inventory}}` and `{{Rune pouch}}`, and pairs them per scope. Pages use
+  several shapes: tabbers (Doom, Zulrah), wikitables whose header cells name the
+  variants (Chambers of Xeric), and a tabbed set of gear variants followed by one
+  shared inventory in a sibling section (Abyss, Gemstone Crab).
 - **encode** — hands a synthesised `{{Loadout}}` call back to the wiki through
   `action=expandtemplates`, so `Module:Loadout` does the name-to-id resolution.
   No second implementation to keep in sync.
@@ -91,6 +93,16 @@ literally called that and the page it points at is a numbered family, in which
 case the highest number wins. When an exact item exists the wiki is already
 unambiguous and is left alone — which is why setups that explicitly ask for a
 `Ranging potion(3)` still get one. Every rewrite is logged to `report.json`.
+
+### Two equipment templates
+
+`{{Equipment}}` names slots directly. `{{Recommended equipment}}` — used by 93
+of the 99 pages — is different: it calls them `body` / `hands` / `feet` rather
+than torso / gloves / boots, wraps values in `{{plink}}`, and ranks options per
+slot as `weapon1`..`weapon4`, best first. We take the best-ranked option, and
+prefer a `plink`'s `pic=` over its link target when the link points at a
+category page such as "Barrows equipment". Its `special` list has no worn slot
+and is skipped.
 
 ## Scope and limitations
 

@@ -21,7 +21,80 @@ from encode import (  # noqa: E402
     split_layout,
     tag_name,
 )
-from extract import clean_item, extract_page, parse_template, split_args  # noqa: E402
+from extract import (  # noqa: E402
+    clean_item,
+    extract_page,
+    parse_template,
+    plink_item,
+    recommended_equipment,
+    split_args,
+)
+
+
+class TestRecommendedEquipment(unittest.TestCase):
+    """{{Recommended equipment}} is used by 93 of 99 strategy pages."""
+
+    def test_plink_returns_item_name(self):
+        self.assertEqual(plink_item("{{plink|Scythe of vitur}}"), "Scythe of vitur")
+
+    def test_plink_prefers_pic_over_category_page(self):
+        # "Barrows equipment" is a category page, not a wearable item.
+        self.assertEqual(
+            plink_item("{{plink|Barrows equipment|pic=Torag's platebody|txt=Barrows body}}"),
+            "Torag's platebody",
+        )
+
+    def test_footnotes_are_stripped(self):
+        self.assertEqual(
+            plink_item("{{plink|Fire cape}}{{efn|Mythical is better sometimes.}}"),
+            "Fire cape",
+        )
+
+    def test_first_of_ranked_alternatives_wins(self):
+        self.assertEqual(
+            plink_item("{{plink|Abyssal bludgeon}} > <br/>{{plink|Zamorakian hasta}}"),
+            "Abyssal bludgeon",
+        )
+
+    def test_prose_value_yields_nothing(self):
+        self.assertEqual(plink_item("Ammo for killing araxyte spawns"), "")
+
+    def test_lowest_rank_wins_and_slots_are_remapped(self):
+        args = {
+            "style": "Melee",
+            "head1": "{{plink|Slayer helmet (i)}}",
+            "body1": "{{plink|Inquisitor's hauberk}}",
+            "body2": "{{plink|Torva platebody}}",
+            "hands2": "{{plink|Barrows gloves}}",
+            "feet1": "{{plink|Primordial boots}}",
+            "special1": "{{plink|Dragon claws}}",
+        }
+        eq = recommended_equipment(args)
+        self.assertEqual(eq["head"], "Slayer helmet (i)")
+        self.assertEqual(eq["torso"], "Inquisitor's hauberk")  # body1 beats body2
+        self.assertEqual(eq["gloves"], "Barrows gloves")       # only rank 2 exists
+        self.assertEqual(eq["boots"], "Primordial boots")
+        # `special` is a spec weapon list with no worn slot to occupy.
+        self.assertNotIn("special", eq)
+
+    def test_shared_inventory_folds_onto_preceding_gear_tabs(self):
+        # Abyss tabs two gear sets, then gives one inventory for both.
+        text = (
+            "==Setup==\n<tabber>\nGraceful=\n"
+            "{{Recommended equipment|style=Graceful|head1={{plink|Graceful hood}}"
+            "|body1={{plink|Graceful top}}|legs1={{plink|Graceful legs}}"
+            "|feet1={{plink|Graceful boots}}|hands1={{plink|Graceful gloves}}}}\n"
+            "|-|\nDefensive=\n"
+            "{{Recommended equipment|style=Defensive|head1={{plink|Rune full helm}}"
+            "|body1={{plink|Rune platebody}}|legs1={{plink|Rune platelegs}}"
+            "|feet1={{plink|Rune boots}}|hands1={{plink|Rune gloves}}}}\n"
+            "</tabber>\n===Inventory===\n{{Inventory|1 = Pure essence}}\n"
+        )
+        setups, _ = extract_page("Abyss/Strategies", text)
+        self.assertEqual(len(setups), 2)
+        for s in setups:
+            self.assertEqual(s.inventory.get("1"), "Pure essence")
+            self.assertGreaterEqual(len(s.equipment), 5)
 
 
 class TestCleanItem(unittest.TestCase):
@@ -113,6 +186,19 @@ class TestImportString(unittest.TestCase):
         self.assertEqual(tag_name("Sarachnis", "Setup"), "Sarachnis")
         self.assertEqual(tag_name("Vorkath", "Ranged"), "Vorkath Ranged")
 
+    def test_long_names_drop_the_parenthetical_rather_than_truncating(self):
+        name = tag_name("Fortis Colosseum", "Melee only (not recommended for first quiver)")
+        self.assertEqual(name, "Fortis Colosseum Melee only")
+        self.assertLessEqual(len(name), 60)
+
+    def test_long_names_never_cut_mid_word(self):
+        name = tag_name("A" * 30, "supercalifragilistic expialidocious extravaganza")
+        self.assertLessEqual(len(name), 60)
+        self.assertFalse(name.endswith(" "))
+        # Whatever survives must be whole words from the original.
+        for word in name.split():
+            self.assertIn(word, ("A" * 30 + " supercalifragilistic expialidocious extravaganza").split())
+
 
 class TestExtractPairing(unittest.TestCase):
     def test_tabber_pairs_equipment_with_inventory(self):
@@ -148,13 +234,35 @@ class TestExtractPairing(unittest.TestCase):
         self.assertEqual(setups, [])
         self.assertTrue(any("unpaired" in w for w in warnings))
 
-    def test_gear_only_tab_is_kept(self):
-        # Theatre of Blood tabs a melee loadout with no inventory block.
-        text = "<tabber>\nMelee=\n{{Equipment|head = Torva full helm}}\n</tabber>"
+    def test_gear_only_tab_is_kept_when_page_offers_nothing_better(self):
+        text = (
+            "<tabber>\nMelee=\n{{Equipment|head = Torva full helm|torso = Torva platebody"
+            "|legs = Torva platelegs|weapon = Scythe of vitur|boots = Primordial boots"
+            "|gloves = Ferocious gloves}}\n</tabber>"
+        )
         setups, _ = extract_page("X/Strategies", text)
         self.assertEqual(len(setups), 1)
         self.assertEqual(setups[0].variant, "Melee")
         self.assertEqual(setups[0].inventory, {})
+
+    def test_gear_fragment_is_not_published(self):
+        # A two-slot block is an illustration, not a loadout.
+        text = "<tabber>\nLarvae=\n{{Equipment|weapon = Darklight|shield = Book of the dead}}\n</tabber>"
+        setups, _ = extract_page("X/Strategies", text)
+        self.assertEqual(setups, [])
+
+    def test_complete_setups_suppress_redundant_gear_tables(self):
+        # The ==Equipment== table is the source the full setup already reflects.
+        text = (
+            "==Equipment==\n<tabber>\nRanged=\n"
+            "{{Equipment|head = Masori mask (f)|torso = Masori body (f)|legs = Masori chaps (f)"
+            "|weapon = Twisted bow|boots = Pegasian boots|gloves = Zaryte vambraces}}\n</tabber>\n"
+            "==Inventory setups==\n<tabber>\nMax=\n"
+            "{{Equipment|head = Masori mask (f)|weapon = Twisted bow}}\n"
+            "{{Inventory|1 = Anglerfish}}\n</tabber>\n"
+        )
+        setups, _ = extract_page("X/Strategies", text)
+        self.assertEqual([s.variant for s in setups], ["Max"])
 
 
 class TestPublishedData(unittest.TestCase):

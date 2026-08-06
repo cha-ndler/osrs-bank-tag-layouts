@@ -4,20 +4,33 @@
   "sourcePage": "Tempoross/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Tempoross/Strategies",
   "sourceRevId": 15284785,
-  "contentHash": "c97b297ddc61bbdb",
+  "contentHash": "eda864b278217149",
   "variants": [
     {
       "variant": "Solo cooking (mix of XP and permits)",
       "tagName": "Tempoross Solo cooking (mix of XP and permits)",
-      "icon": 1929,
-      "importString": "banktags,1,Tempoross Solo cooking (mix of XP and permits),1929,layout,4,1929,5,1929,6,1929,7,1929",
+      "icon": 21031,
+      "importString": "banktags,1,Tempoross Solo cooking (mix of XP and permits),21031,layout,4,1929,5,1929,6,1929,7,1929,16,21031,33,25598,17,25594,25,25596,18,29775,1,25592",
       "layout": {
         "4": 1929,
         "5": 1929,
         "6": 1929,
-        "7": 1929
+        "7": 1929,
+        "16": 21031,
+        "33": 25598,
+        "17": 25594,
+        "25": 25596,
+        "18": 29775,
+        "1": 25592
       },
-      "equipment": {},
+      "equipment": {
+        "weapon": 21031,
+        "boots": 25598,
+        "torso": 25594,
+        "legs": 25596,
+        "shield": 29775,
+        "head": 25592
+      },
       "inventory": {
         "1": 1929,
         "2": 1929,
@@ -30,8 +43,8 @@
     {
       "variant": "Solo cooking + firefighting (max permits)",
       "tagName": "Tempoross Solo cooking + firefighting (max permits)",
-      "icon": 2347,
-      "importString": "banktags,1,Tempoross Solo cooking + firefighting (max permits),2347,layout,4,2347,5,1929,6,1929,7,1929,12,1929,14,1929,40,9075,41,554,42,555,13,1929,15,954,55,12791",
+      "icon": 11787,
+      "importString": "banktags,1,Tempoross Solo cooking + firefighting (max permits),11787,layout,4,2347,5,1929,6,1929,7,1929,12,1929,14,1929,16,11787,40,9075,33,25598,41,554,17,25594,25,25596,34,25975,42,555,13,1929,15,954,18,29775,55,12791,1,25592",
       "layout": {
         "4": 2347,
         "5": 1929,
@@ -39,14 +52,29 @@
         "7": 1929,
         "12": 1929,
         "14": 1929,
+        "16": 11787,
         "40": 9075,
+        "33": 25598,
         "41": 554,
+        "17": 25594,
+        "25": 25596,
+        "34": 25975,
         "42": 555,
         "13": 1929,
         "15": 954,
-        "55": 12791
+        "18": 29775,
+        "55": 12791,
+        "1": 25592
       },
-      "equipment": {},
+      "equipment": {
+        "weapon": 11787,
+        "boots": 25598,
+        "torso": 25594,
+        "legs": 25596,
+        "ring": 25975,
+        "shield": 29775,
+        "head": 25592
+      },
       "inventory": {
         "1": 2347,
         "2": 1929,
@@ -68,12 +96,25 @@
     {
       "variant": "Solo cooking 5 rounds (mix of XP and permits)",
       "tagName": "Tempoross Solo cooking 5 rounds (mix of XP and permits)",
-      "icon": 1929,
-      "importString": "banktags,1,Tempoross Solo cooking 5 rounds (mix of XP and permits),1929,layout,4,1929",
+      "icon": 21028,
+      "importString": "banktags,1,Tempoross Solo cooking 5 rounds (mix of XP and permits),21028,layout,4,1929,16,21028,33,25598,17,25594,25,25596,18,29775,1,25592",
       "layout": {
-        "4": 1929
+        "4": 1929,
+        "16": 21028,
+        "33": 25598,
+        "17": 25594,
+        "25": 25596,
+        "18": 29775,
+        "1": 25592
       },
-      "equipment": {},
+      "equipment": {
+        "weapon": 21028,
+        "boots": 25598,
+        "torso": 25594,
+        "legs": 25596,
+        "shield": 29775,
+        "head": 25592
+      },
       "inventory": {
         "1": 1929
       },
@@ -83,16 +124,31 @@
     {
       "variant": "Solo no cooking (max XP)",
       "tagName": "Tempoross Solo no cooking (max XP)",
-      "icon": 954,
-      "importString": "banktags,1,Tempoross Solo no cooking (max XP),954,layout,4,954,40,9075,41,554,42,555,55,12791",
+      "icon": 23762,
+      "importString": "banktags,1,Tempoross Solo no cooking (max XP),23762,layout,4,954,16,23762,40,9075,33,25598,41,554,17,25594,25,25596,34,23943,42,555,18,20714,55,12791,1,25592",
       "layout": {
         "4": 954,
+        "16": 23762,
         "40": 9075,
+        "33": 25598,
         "41": 554,
+        "17": 25594,
+        "25": 25596,
+        "34": 23943,
         "42": 555,
-        "55": 12791
+        "18": 20714,
+        "55": 12791,
+        "1": 25592
       },
-      "equipment": {},
+      "equipment": {
+        "weapon": 23762,
+        "boots": 25598,
+        "torso": 25594,
+        "legs": 25596,
+        "ring": 23943,
+        "shield": 20714,
+        "head": 25592
+      },
       "inventory": {
         "1": 954,
         "28": 12791

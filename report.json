@@ -1,11 +1,11 @@
 {
-  "layouts": 319,
+  "layouts": 333,
   "encodeFailures": [],
   "errors": [],
   "roundTripMismatches": [],
   "partialDoseAccepted": [
     {
-      "layout": "Adamant dragon / Setup (3)",
+      "layout": "Adamant dragon / Magic - Tumeken's Shadow",
       "position": 5,
       "item": "extended super antifire(2)",
       "itemId": 22215,
@@ -17,13 +17,6 @@
       "item": "extended anti-venom+(1)",
       "itemId": 29833,
       "sourceName": "Extended anti-venom+(1)"
-    },
-    {
-      "layout": "Barrows / Magic (Low level)",
-      "position": 32,
-      "item": "combat bracelet(4)",
-      "itemId": 11118,
-      "sourceName": "Combat bracelet(4)"
     },
     {
       "layout": "Chest (Rogues' Castle) / Inventory",
@@ -236,28 +229,28 @@
       "sourceName": "Overload (Nightmare Zone)"
     },
     {
-      "layout": "Rune dragon / Setup",
-      "position": 6,
-      "item": "extended super antifire(2)",
-      "itemId": 22215,
-      "sourceName": "Extended super antifire(2)"
-    },
-    {
-      "layout": "Rune dragon / Setup",
-      "position": 7,
-      "item": "divine super combat potion(2)",
-      "itemId": 23691,
-      "sourceName": "Divine super combat potion(2)"
-    },
-    {
-      "layout": "Rune dragon / Setup (2)",
+      "layout": "Rune dragon / Magic",
       "position": 7,
       "item": "extended antifire(1)",
       "itemId": 11957,
       "sourceName": "Extended antifire(1)"
     },
     {
-      "layout": "Rune dragon / Setup (3)",
+      "layout": "Rune dragon / Melee",
+      "position": 6,
+      "item": "extended super antifire(2)",
+      "itemId": 22215,
+      "sourceName": "Extended super antifire(2)"
+    },
+    {
+      "layout": "Rune dragon / Melee",
+      "position": 7,
+      "item": "divine super combat potion(2)",
+      "itemId": 23691,
+      "sourceName": "Divine super combat potion(2)"
+    },
+    {
+      "layout": "Rune dragon / Ranged",
       "position": 7,
       "item": "extended antifire(1)",
       "itemId": 11957,

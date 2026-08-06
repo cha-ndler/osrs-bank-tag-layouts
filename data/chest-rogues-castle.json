@@ -4,7 +4,7 @@
   "sourcePage": "Chest (Rogues' Castle)/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Chest_(Rogues'_Castle)/Strategies",
   "sourceRevId": 15277206,
-  "contentHash": "56cb82751caa0ed0",
+  "contentHash": "5800310995746d08",
   "variants": [
     {
       "variant": "Best 3 item + low risk",
@@ -158,6 +158,41 @@
         "3": 24605,
         "4": 8013
       },
+      "runes": {},
+      "warnings": []
+    },
+    {
+      "variant": "Prayer bonus",
+      "tagName": "Chest (Rogues' Castle) Prayer bonus",
+      "icon": 12263,
+      "importString": "banktags,1,Chest (Rogues' Castle) Prayer bonus,12263,layout,8,25346,10,22947,16,12263,32,19997,33,22954,17,28936,25,28939,34,25252,9,22986,18,13120,1,28933",
+      "layout": {
+        "8": 25346,
+        "10": 22947,
+        "16": 12263,
+        "32": 19997,
+        "33": 22954,
+        "17": 28936,
+        "25": 28939,
+        "34": 25252,
+        "9": 22986,
+        "18": 13120,
+        "1": 28933
+      },
+      "equipment": {
+        "cape": 25346,
+        "ammo": 22947,
+        "weapon": 12263,
+        "gloves": 19997,
+        "boots": 22954,
+        "torso": 28936,
+        "legs": 28939,
+        "ring": 25252,
+        "neck": 22986,
+        "shield": 13120,
+        "head": 28933
+      },
+      "inventory": {},
       "runes": {},
       "warnings": []
     }

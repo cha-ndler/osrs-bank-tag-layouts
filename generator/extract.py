@@ -30,13 +30,34 @@ REPO = Path(__file__).parent.parent
 CORPUS = REPO / "generator" / "corpus.json"
 SETUPS = REPO / "generator" / "setups.json"
 
-TEMPLATES = ("Equipment", "Inventory", "Rune pouch")
+TEMPLATES = ("Equipment", "Recommended equipment", "Inventory", "Rune pouch")
 
 # Equipment slots Module:Loadout understands. `*quantity` args are display-only.
 EQUIPMENT_SLOTS = (
     "head", "cape", "neck", "ammo", "ammo2", "weapon",
     "torso", "legs", "shield", "gloves", "boots", "ring",
 )
+
+# {{Recommended equipment}} is the template most strategy pages actually use
+# (93 of 99). It names slots differently from {{Equipment}} and ranks options
+# per slot as head1..head4, best first.
+RECOMMENDED_SLOT_MAP = {
+    "head": "head",
+    "neck": "neck",
+    "cape": "cape",
+    "ammo": "ammo",
+    "weapon": "weapon",
+    "body": "torso",
+    "legs": "legs",
+    "shield": "shield",
+    "hands": "gloves",
+    "feet": "boots",
+    "ring": "ring",
+    # `special` lists spec-attack weapons, which have no worn slot to occupy.
+}
+
+RANKED_SLOT_RE = re.compile(r"^(?P<slot>[a-z]+?)(?P<rank>\d*)$")
+PLINK_RE = re.compile(r"\{\{\s*plink[a-z]*\b", re.IGNORECASE)
 
 HEADING_RE = re.compile(r"(?m)^(=+)\s*(.+?)\s*\1\s*$")
 TAB_LABEL_RE = re.compile(r"(?m)^([^=|{}\n]{1,60}?)\s*=\s*$")
@@ -69,6 +90,78 @@ def clean_item(value: str) -> str:
     if not v:
         return ""
     return v[0].upper() + v[1:]
+
+
+def strip_templates(text: str, names: tuple[str, ...]) -> str:
+    """Remove whole `{{name|...}}` calls, honouring nesting."""
+    pattern = re.compile(r"\{\{\s*(" + "|".join(names) + r")\b", re.IGNORECASE)
+    while True:
+        m = pattern.search(text)
+        if not m:
+            return text
+        depth, i = 0, m.start()
+        while i < len(text):
+            if text[i : i + 2] == "{{":
+                depth += 1
+                i += 2
+            elif text[i : i + 2] == "}}":
+                depth -= 1
+                i += 2
+                if depth == 0:
+                    break
+            else:
+                i += 1
+        if depth != 0:
+            return text
+        text = text[: m.start()] + text[i:]
+
+
+def plink_item(value: str) -> str:
+    """First real item named by a `{{plink}}` (or a plain wiki link).
+
+    `{{plink|Barrows equipment|pic=Torag's platebody}}` points at a category
+    page, so `pic` - the icon actually drawn - is the truer item name.
+    Slots often list ranked alternatives ("mace / axe > hasta"); take the first.
+    """
+    if not value:
+        return ""
+    value = re.sub(r"<!--.*?-->", "", value, flags=re.DOTALL)
+    value = strip_templates(value, ("efn", "efn2", "GEP", "NoCoins"))
+
+    m = PLINK_RE.search(value)
+    if m:
+        parsed = parse_template(value, m.start())
+        if parsed:
+            _, args, _ = parsed
+            if args.get("pic"):
+                return clean_item(args["pic"])
+            if args.get("1"):
+                return clean_item(args["1"])
+        return ""
+
+    link = re.search(r"\[\[([^|\]]+)", value)
+    if link:
+        return clean_item(link.group(1))
+    return ""
+
+
+def recommended_equipment(args: dict[str, str]) -> dict[str, str]:
+    """Best-ranked item per slot from a {{Recommended equipment}} block."""
+    best: dict[str, tuple[int, str]] = {}
+    for key, raw in args.items():
+        m = RANKED_SLOT_RE.match(key)
+        if not m:
+            continue
+        slot = RECOMMENDED_SLOT_MAP.get(m.group("slot"))
+        if not slot:
+            continue
+        rank = int(m.group("rank")) if m.group("rank") else 1
+        item = plink_item(raw)
+        if not item:
+            continue
+        if slot not in best or rank < best[slot][0]:
+            best[slot] = (rank, item)
+    return {slot: item for slot, (_, item) in best.items()}
 
 
 def split_args(body: str) -> list[str]:
@@ -169,6 +262,7 @@ class Setup:
     equipment: dict[str, str] = field(default_factory=dict)
     inventory: dict[str, str] = field(default_factory=dict)
     runes: dict[str, str] = field(default_factory=dict)
+    order: int = 0  # document position, for page-level merging
 
 
 def find_occurrences(text: str) -> list[Occurrence]:
@@ -276,7 +370,7 @@ def extract_page(title: str, text: str) -> tuple[list[Setup], list[str]]:
 
     for key, occs in grouped.items():
         scope = scope_by_id[key]
-        equips = [o for o in occs if o.name == "Equipment"]
+        equips = [o for o in occs if o.name in ("Equipment", "Recommended equipment")]
         invs = [o for o in occs if o.name == "Inventory"]
         pouches = [o for o in occs if o.name == "Rune pouch"]
 
@@ -320,10 +414,16 @@ def extract_page(title: str, text: str) -> tuple[list[Setup], list[str]]:
         headers = table_headers(text, scope, len(pairs)) if len(pairs) > 1 else None
 
         for idx, (eq, inv) in enumerate(pairs):
+            # {{Recommended equipment}} carries a `style` ("Melee", "Tekton"),
+            # which beats a generic heading like "Equipment" as a variant name.
+            style = clean_item(eq.args.get("style", "")) if eq else ""
+
             if headers:
                 variant = headers[idx]
             elif scope.kind == "tab" and scope.label:
                 variant = scope.label
+            elif style:
+                variant = style
             else:
                 variant = scope.label or "Setup"
 
@@ -343,8 +443,11 @@ def extract_page(title: str, text: str) -> tuple[list[Setup], list[str]]:
                     pouch = p
                     break
 
-            setup = Setup(variant=variant)
-            setup.equipment = _slots(eq, EQUIPMENT_SLOTS)
+            setup = Setup(variant=variant, order=anchor_end)
+            if eq is not None and eq.name == "Recommended equipment":
+                setup.equipment = recommended_equipment(eq.args)
+            else:
+                setup.equipment = _slots(eq, EQUIPMENT_SLOTS)
             setup.inventory = _slots(inv, [str(n) for n in range(1, 29)])
             setup.runes = _slots(pouch, [str(n) for n in range(1, 5)])
 
@@ -352,14 +455,59 @@ def extract_page(title: str, text: str) -> tuple[list[Setup], list[str]]:
                 continue
             setups.append(setup)
 
+    # Pages commonly tab several gear variants and then give ONE inventory in a
+    # sibling section that applies to all of them (Abyss: default/Defensive gear
+    # then ===Inventory===; Gemstone Crab: four melee tiers then ====Melee
+    # inventory====). Scope-local pairing cannot see across that boundary, so
+    # fold each shared inventory back onto the gear variants it follows.
+    setups.sort(key=lambda s: s.order)
+    absorbed: list[Setup] = []
+    pending: list[Setup] = []
+    for setup in setups:
+        if setup.equipment and not setup.inventory:
+            pending.append(setup)
+        elif setup.inventory and not setup.equipment:
+            if pending:
+                for gear in pending:
+                    gear.inventory = dict(setup.inventory)
+                    if not gear.runes:
+                        gear.runes = dict(setup.runes)
+                absorbed.append(setup)
+                pending = []
+        else:
+            pending = []
+    if absorbed:
+        # Identity, not equality: two setups can be value-identical.
+        dropped = {id(s) for s in absorbed}
+        setups = [s for s in setups if id(s) not in dropped]
+
+    # Many pages carry a {{Recommended equipment}} table in an ==Equipment==
+    # section *and* full setups further down that already reflect it. Once the
+    # complete setups exist, the standalone gear tables are duplicates, so keep
+    # them only on pages that offer nothing better (Theatre of Blood, Shellbane
+    # gryphon). A handful of slots is a fragment, not a loadout.
+    MIN_GEAR_ONLY_PIECES = 5
+    has_complete = any(s.inventory and s.equipment for s in setups)
+    if has_complete:
+        setups = [s for s in setups if s.inventory]
+    else:
+        setups = [
+            s
+            for s in setups
+            if s.inventory or len(s.equipment) >= MIN_GEAR_ONLY_PIECES
+        ]
+
     setups.sort(key=lambda s: s.variant)
 
     # Disambiguate repeated labels so every variant is addressable.
+    # Case-insensitive: "Lower Level" and "Lower level" come from different
+    # sections but would be indistinguishable as bank tab names.
     seen: dict[str, int] = {}
     for s in setups:
-        seen[s.variant] = seen.get(s.variant, 0) + 1
-        if seen[s.variant] > 1:
-            s.variant = f"{s.variant} ({seen[s.variant]})"
+        key = s.variant.lower()
+        seen[key] = seen.get(key, 0) + 1
+        if seen[key] > 1:
+            s.variant = f"{s.variant} ({seen[key]})"
 
     return setups, warnings
 

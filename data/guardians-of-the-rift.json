@@ -4,25 +4,48 @@
   "sourcePage": "Guardians of the Rift/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift/Strategies",
   "sourceRevId": 15279817,
-  "contentHash": "a4d2416174e418e7",
+  "contentHash": "6eeb9bff0a393d89",
   "variants": [
     {
-      "variant": "Setup",
-      "tagName": "Guardians of the Rift",
-      "icon": 5515,
-      "importString": "banktags,1,Guardians of the Rift,5515,layout,4,5515,5,6819,6,1755,7,12791,12,5509,40,556,41,564,42,9075,13,5511",
+      "variant": "Runecrafting",
+      "tagName": "Guardians of the Rift Runecrafting",
+      "icon": 23680,
+      "importString": "banktags,1,Guardians of the Rift Runecrafting,23680,layout,4,5515,5,6819,6,1755,7,12791,8,13280,10,27544,12,5509,16,23680,32,10553,40,556,33,26856,41,564,17,26852,25,26854,34,25545,42,9075,9,5521,13,5511,18,26842,1,26850",
       "layout": {
         "4": 5515,
         "5": 6819,
         "6": 1755,
         "7": 12791,
+        "8": 13280,
+        "10": 27544,
         "12": 5509,
+        "16": 23680,
+        "32": 10553,
         "40": 556,
+        "33": 26856,
         "41": 564,
+        "17": 26852,
+        "25": 26854,
+        "34": 25545,
         "42": 9075,
-        "13": 5511
+        "9": 5521,
+        "13": 5511,
+        "18": 26842,
+        "1": 26850
       },
-      "equipment": {},
+      "equipment": {
+        "cape": 13280,
+        "ammo": 27544,
+        "weapon": 23680,
+        "gloves": 10553,
+        "boots": 26856,
+        "torso": 26852,
+        "legs": 26854,
+        "ring": 25545,
+        "neck": 5521,
+        "shield": 26842,
+        "head": 26850
+      },
       "inventory": {
         "1": 5515,
         "2": 6819,
@@ -39,10 +62,10 @@
       "warnings": []
     },
     {
-      "variant": "Setup (2)",
-      "tagName": "Guardians of the Rift Setup (2)",
+      "variant": "Setup",
+      "tagName": "Guardians of the Rift",
       "icon": 5515,
-      "importString": "banktags,1,Guardians of the Rift Setup (2),5515,layout,4,5515,5,6819,6,556,7,12791,12,5509,14,1755,40,4694,41,564,42,9075,13,5511,15,5521",
+      "importString": "banktags,1,Guardians of the Rift,5515,layout,4,5515,5,6819,6,556,7,12791,12,5509,14,1755,40,4694,41,564,42,9075,13,5511,15,5521",
       "layout": {
         "4": 5515,
         "5": 6819,
@@ -75,10 +98,10 @@
       "warnings": []
     },
     {
-      "variant": "Setup (3)",
-      "tagName": "Guardians of the Rift Setup (3)",
+      "variant": "Setup (2)",
+      "tagName": "Guardians of the Rift Setup (2)",
       "icon": 26786,
-      "importString": "banktags,1,Guardians of the Rift Setup (3),26786,layout,4,26786,5,12791,6,1755,40,556,41,564,42,9075",
+      "importString": "banktags,1,Guardians of the Rift Setup (2),26786,layout,4,26786,5,12791,6,1755,40,556,41,564,42,9075",
       "layout": {
         "4": 26786,
         "5": 12791,
@@ -101,10 +124,10 @@
       "warnings": []
     },
     {
-      "variant": "Setup (4)",
-      "tagName": "Guardians of the Rift Setup (4)",
+      "variant": "Setup (3)",
+      "tagName": "Guardians of the Rift Setup (3)",
       "icon": 26786,
-      "importString": "banktags,1,Guardians of the Rift Setup (4),26786,layout,4,26786,5,1755,6,27281,7,5521,12,555,40,9075,41,564,42,4697",
+      "importString": "banktags,1,Guardians of the Rift Setup (3),26786,layout,4,26786,5,1755,6,27281,7,5521,12,555,40,9075,41,564,42,4697",
       "layout": {
         "4": 26786,
         "5": 1755,

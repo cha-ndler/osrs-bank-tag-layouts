@@ -56,13 +56,30 @@ def activity_name(page: str) -> str:
     return page.rsplit("/Strategies", 1)[0].strip()
 
 
+MAX_TAG_NAME = 60
+
+
 def tag_name(activity: str, variant: str) -> str:
     variant = (variant or "").strip()
     generic = variant.lower() in ("setup", "setups", "equipment", "inventory", "")
     name = activity if generic else f"{activity} {variant}"
     name = UNSAFE_NAME.sub(" ", name)
     name = re.sub(r"\s+", " ", name).strip()
-    return name[:60]
+
+    if len(name) <= MAX_TAG_NAME:
+        return name
+
+    # Parenthetical asides are the first thing to go - dropping
+    # "(not recommended for first quiver)" beats truncating into "first quive".
+    trimmed = re.sub(r"\s*\([^)]*\)", "", name).strip()
+    if trimmed and len(trimmed) <= MAX_TAG_NAME:
+        return trimmed
+
+    # Otherwise cut on a word boundary rather than mid-word.
+    cut = (trimmed or name)[:MAX_TAG_NAME]
+    if " " in cut:
+        cut = cut[: cut.rfind(" ")]
+    return cut.strip()
 
 
 def build_loadout_wikitext(name: str, icon: str, setup: dict) -> str:
