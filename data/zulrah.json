@@ -149,6 +149,8 @@
         "1": 556,
         "2": 565
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)"
       ]
@@ -302,6 +304,8 @@
         "2": 565,
         "3": 564
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)"
       ]
@@ -452,6 +456,10 @@
         "2": 565,
         "3": 30843
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        29796
+      ],
       "warnings": []
     },
     {
@@ -600,6 +608,10 @@
         "2": 565,
         "3": 564
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        25865
+      ],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)"
       ]
@@ -747,6 +759,8 @@
         "1": 556,
         "2": 565
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)"
       ]

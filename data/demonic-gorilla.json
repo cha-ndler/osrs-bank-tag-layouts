@@ -155,6 +155,8 @@
         "2": 21880,
         "3": 30843
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -303,6 +305,8 @@
         "2": 561,
         "3": 563
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -424,6 +428,10 @@
         "2": 561,
         "3": 563
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        4718
+      ],
       "warnings": []
     },
     {
@@ -572,6 +580,8 @@
         "2": 561,
         "3": 563
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -717,6 +727,10 @@
         "2": 557,
         "3": 9075
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        13263
+      ],
       "warnings": []
     }
   ]

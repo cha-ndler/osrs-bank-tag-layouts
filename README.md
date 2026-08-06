@@ -121,6 +121,33 @@ case the highest number wins. When an exact item exists the wiki is already
 unambiguous and is left alone — which is why setups that explicitly ask for a
 `Ranging potion(3)` still get one. Every rewrite is logged to `report.json`.
 
+### Stepping down from best-in-slot
+
+`{{Recommended equipment}}` ranks every slot best first, and **90% of filled
+slots list more than one option**. The layout itself uses rank 1, but the whole
+ladder is published, so a slot on the site can be stepped through with ◀ ▶ — left
+disabled once you are on the wiki's own pick, right walking down toward what you
+can actually afford. Copy then gives you *your* layout, not the wiki's.
+
+Two things follow from the data rather than from preference:
+
+- **About half the library has arrows.** 54% of setups come from
+  `{{Recommended equipment}}`; the rest are `{{Equipment}}` blocks, which are a
+  single hand-authored loadout with no ranking to offer. Inventing one is not
+  this repo's job.
+- **Inventories have no arrows.** `{{Inventory}}` is a flat positional list with
+  nothing to rank.
+
+Stepping the weapon onto a two-hander clears the off-hand, and stepping back
+restores it — which is why a shield's ladder is published even for setups that
+cannot currently wear one.
+
+The site rebuilds layouts in the browser, so the layout maths exists twice.
+`docs/layout.js` holds the port, `LOADOUT_MAP` and the zigzag order are shipped
+in `layouts.json` rather than copied, and `tests/check_layout_port.mjs` rebuilds
+every published layout in both styles and requires it to match the generator
+exactly. CI runs it on every pull request.
+
 ### When the wiki is out of date
 
 Extraction is faithful on purpose: it publishes what the strategy page says, even

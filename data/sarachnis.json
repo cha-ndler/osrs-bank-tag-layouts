@@ -149,6 +149,10 @@
         "2": 565,
         "3": 564
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        28997
+      ],
       "warnings": [
         "Super combat potion -> Super combat potion(4)",
         "Prayer potion -> Prayer potion(4)"
@@ -300,6 +304,10 @@
         "2": 565,
         "3": 30843
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        22325
+      ],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
         "Super restore -> Super restore(4)"
@@ -448,6 +456,10 @@
         "2": 565,
         "3": 564
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        27275
+      ],
       "warnings": []
     }
   ]

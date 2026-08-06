@@ -152,6 +152,10 @@
         "2": 30843,
         "3": 565
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        29591
+      ],
       "warnings": [
         "Divine ranging potion -> Divine ranging potion(4)",
         "Ranging potion -> Ranging potion(4)",
@@ -312,6 +316,8 @@
         "2": 30843,
         "3": 565
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Divine ranging potion -> Divine ranging potion(4)",
         "Ranging potion -> Ranging potion(4)",

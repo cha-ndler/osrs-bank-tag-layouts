@@ -142,6 +142,8 @@
         "16": 6685
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -280,6 +282,8 @@
         "16": 24589
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -418,6 +422,8 @@
         "16": 24589
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     }
   ]

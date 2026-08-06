@@ -101,6 +101,10 @@
         "2": 556,
         "3": 557
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        28220
+      ],
       "warnings": [
         "Digsite pendant -> Digsite pendant(5)"
       ]
@@ -197,6 +201,10 @@
         "2": 556,
         "3": 557
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        28220
+      ],
       "warnings": [
         "Digsite pendant -> Digsite pendant(5)"
       ]

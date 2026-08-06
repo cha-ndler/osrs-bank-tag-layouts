@@ -24,12 +24,15 @@ from encode import (  # noqa: E402
     zigzag_index,
     zigzag_layout,
 )
+import extract as extract_module  # noqa: E402
 from extract import (  # noqa: E402
     clean_item,
     drop_conflicting_offhand,
     extract_page,
     parse_template,
     plink_item,
+    plink_items,
+    recommended_alternatives,
     recommended_equipment,
     split_args,
 )
@@ -367,6 +370,111 @@ class TestTwoHandedOffhand(unittest.TestCase):
         equipment = {"weapon": "Emberlight", "shield": "Avernic defender"}
         self.assertIsNone(drop_conflicting_offhand(equipment, TWO_HANDED))
         self.assertEqual(equipment["shield"], "Avernic defender")
+
+
+class TestAlternatives(unittest.TestCase):
+    """The wiki ranks every slot; the site lets players step down that ranking."""
+
+    def setUp(self):
+        # fits_slot consults the wiki's slot data; inject a small one.
+        self._saved = extract_module.SLOT_OF_NAME
+        extract_module.SLOT_OF_NAME = {
+            "abyssal whip": "weapon",
+            "scythe of vitur": "2h",
+            "ghrazi rapier": "weapon",
+            "avernic defender": "shield",
+            "twisted buckler": "shield",
+            "ruby bolts (e)": "ammo",
+        }
+
+    def tearDown(self):
+        extract_module.SLOT_OF_NAME = self._saved
+
+    def test_every_item_in_a_rank_is_offered(self):
+        self.assertEqual(
+            plink_items("{{plink|Max cape}} / {{plink|Hitpoints cape}}"),
+            ["Max cape", "Hitpoints cape"],
+        )
+
+    def test_repeats_are_collapsed(self):
+        self.assertEqual(
+            plink_items("{{plink|Fire cape}} > {{plink|Fire cape}}"), ["Fire cape"]
+        )
+
+    def test_footnote_contents_are_not_offered(self):
+        # Callisto qualifies a crossbow with "Only if using {{plink|Ruby bolts
+        # (e)}}"; mining the footnote put ammo in the weapon ladder.
+        self.assertEqual(
+            plink_items(
+                "{{plink|Rune crossbow}}<ref>Only if using {{plink|Ruby bolts (e)}}</ref>"
+            ),
+            ["Rune crossbow"],
+        )
+
+    def test_a_link_into_the_page_is_not_an_item(self):
+        # Abyssal Sire's ammo slot points at "[[#Phase 1 equipment]]".
+        self.assertEqual(plink_items("[[#Phase 1 equipment|see above]]"), [])
+
+    def test_ranks_come_out_best_first(self):
+        alts = recommended_alternatives(
+            {
+                "weapon1": "{{plink|Scythe of vitur}}",
+                "weapon3": "{{plink|Ghrazi rapier}}",
+                "weapon2": "{{plink|Abyssal whip}}",
+            }
+        )
+        self.assertEqual(
+            alts["weapon"], ["Scythe of vitur", "Abyssal whip", "Ghrazi rapier"]
+        )
+
+    def test_two_handers_join_the_weapon_ladder(self):
+        alts = recommended_alternatives(
+            {"2h1": "{{plink|Scythe of vitur}}", "weapon2": "{{plink|Abyssal whip}}"}
+        )
+        self.assertEqual(alts["weapon"], ["Scythe of vitur", "Abyssal whip"])
+
+    def test_items_that_belong_elsewhere_are_dropped(self):
+        # Gemstone Crab lists "darts with {{plink|Twisted buckler}}" under
+        # `weapon`; a buckler is not a weapon.
+        alts = recommended_alternatives(
+            {"weapon1": "{{plink|Abyssal whip}} with {{plink|Twisted buckler}}"}
+        )
+        self.assertEqual(alts["weapon"], ["Abyssal whip"])
+
+    def test_a_shield_ladder_keeps_only_shields(self):
+        alts = recommended_alternatives(
+            {"shield1": "{{plink|Avernic defender}} / {{plink|Abyssal whip}}"}
+        )
+        self.assertEqual(alts["shield"], ["Avernic defender"])
+
+    def test_the_worn_item_is_the_head_of_its_ladder(self):
+        args = {
+            "weapon1": "{{plink|Scythe of vitur}}",
+            "weapon2": "{{plink|Abyssal whip}}",
+            "shield1": "{{plink|Avernic defender}}",
+        }
+        equipment = recommended_equipment(args)
+        alts = recommended_alternatives(args)
+        for slot, item in equipment.items():
+            self.assertEqual(item, alts[slot][0])
+
+    def test_the_shield_ladder_survives_a_two_handed_weapon(self):
+        # This is what lets the site put the off-hand back when the player
+        # steps the weapon down to a one-handed option.
+        text = (
+            "<tabber>\nMelee=\n"
+            "{{Recommended equipment|weapon1 = {{plink|Scythe of vitur}}"
+            "|weapon2 = {{plink|Ghrazi rapier}}"
+            "|shield1 = {{plink|Avernic defender}}"
+            "|shield2 = {{plink|Twisted buckler}}}}\n"
+            "{{Inventory|1 = Shark}}\n</tabber>"
+        )
+        setups, _ = extract_page("X/Strategies", text, {"scythe of vitur"})
+        setup = setups[0]
+        self.assertNotIn("shield", setup.equipment)
+        self.assertEqual(
+            setup.alternatives["shield"], ["Avernic defender", "Twisted buckler"]
+        )
 
 
 class TestOverrides(unittest.TestCase):

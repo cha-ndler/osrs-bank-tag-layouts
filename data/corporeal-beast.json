@@ -152,6 +152,8 @@
         "2": 557,
         "3": 9075
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -290,6 +292,8 @@
         "16": 3144
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -438,6 +442,8 @@
         "2": 554,
         "3": 565
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -583,6 +589,10 @@
         "2": 557,
         "3": 9075
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        29796
+      ],
       "warnings": []
     },
     {
@@ -734,6 +744,8 @@
         "2": 565,
         "3": 9075
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -879,6 +891,10 @@
         "2": 557,
         "3": 9075
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        29796
+      ],
       "warnings": []
     }
   ]

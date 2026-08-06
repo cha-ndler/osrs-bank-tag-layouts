@@ -76,6 +76,8 @@
         "26": 23685
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -163,6 +165,10 @@
         "26": 24635
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [
+        27610
+      ],
       "warnings": []
     }
   ]

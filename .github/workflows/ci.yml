@@ -39,6 +39,14 @@ jobs:
       - name: Run tests
         run: python -m unittest discover -s tests -v
 
+      # The site rebuilds layouts in the browser so a swapped slot can change
+      # which slots are filled. That is a second implementation of the layout
+      # maths, and a silent divergence would hand players a wrong import string.
+      # Uses the runner's preinstalled Node rather than adding another action to
+      # pin and trust; the check needs no packages.
+      - name: Check the browser layout port matches the generator
+        run: node tests/check_layout_port.mjs
+
       - name: Check published data is well formed
         run: |
           python - <<'PY'

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-06T16:49:12Z",
+  "generatedAt": "2026-08-06T17:50:51Z",
   "activityCount": 99,
   "layoutCount": 330,
   "activities": [
@@ -17,7 +17,7 @@
       "file": "data/abyssal-sire.json",
       "variantCount": 8,
       "sourceRevId": 15275785,
-      "contentHash": "fa6aa457e95ba21d"
+      "contentHash": "16b88981029d48aa"
     },
     {
       "activity": "Adamant dragon",

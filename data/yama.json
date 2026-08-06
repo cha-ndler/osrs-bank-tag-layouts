@@ -152,6 +152,8 @@
         "2": 554,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Guthix rest -> Guthix rest(4)",
         "Sanfew serum -> Sanfew serum(4)"
@@ -306,6 +308,8 @@
         "2": 554,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)"
       ]
@@ -446,6 +450,8 @@
         "16": 32352
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Surge potion -> Surge potion(4)",
         "Sanfew serum -> Sanfew serum(4)"
@@ -600,6 +606,8 @@
         "2": 554,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)"
       ]
@@ -753,6 +761,8 @@
         "2": 554,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)",
         "Extended stamina potion -> Extended stamina potion(4)",
@@ -908,6 +918,8 @@
         "2": 554,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Super combat potion -> Super combat potion(4)",
         "Saradomin brew -> Saradomin brew(4)",
@@ -1063,6 +1075,8 @@
         "2": 566,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Super restore -> Super restore(4)",
         "Antidote++ -> Antidote++(4)",
@@ -1218,6 +1232,8 @@
         "2": 554,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)"
       ]
@@ -1371,6 +1387,8 @@
         "2": 4699,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)"
       ]
@@ -1524,6 +1542,8 @@
         "2": 554,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Forgotten brew -> Forgotten brew(4)",
         "Saradomin brew -> Saradomin brew(4)",
@@ -1679,6 +1699,8 @@
         "2": 554,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Super restore -> Super restore(4)"
       ]
@@ -1832,6 +1854,8 @@
         "2": 554,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)",
         "Super restore -> Super restore(4)"
@@ -1986,6 +2010,8 @@
         "2": 554,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)",
         "Divine super combat potion -> Divine super combat potion(4)",

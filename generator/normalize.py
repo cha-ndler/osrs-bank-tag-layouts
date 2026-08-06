@@ -95,13 +95,16 @@ def load_slot_index(client: WikiClient, refresh: bool = False) -> dict:
     # either, so both spellings resolve.
     two_handed: set[str] = {p.lower() for p, s in page_slot.items() if s == "2h"}
     id_slot: dict[str, str] = {}
+    name_slot: dict[str, str] = {p.lower(): s for p, s in page_slot.items()}
     for row in sweep(client, "infobox_item", ("item_id", "item_name", "page_name")):
         slot = page_slot.get((row.get("page_name") or "").strip())
         if not slot:
             continue
         name = (row.get("item_name") or "").strip()
-        if slot == "2h" and name:
-            two_handed.add(name.lower())
+        if name:
+            name_slot.setdefault(name.lower(), slot)
+            if slot == "2h":
+                two_handed.add(name.lower())
         for item_id in row.get("item_id") or []:
             if str(item_id).isdigit():
                 id_slot[str(item_id)] = slot
@@ -110,6 +113,7 @@ def load_slot_index(client: WikiClient, refresh: bool = False) -> dict:
         "twoHandedNames": sorted(two_handed),
         "twoHandedIds": sorted(int(i) for i, s in id_slot.items() if s == "2h"),
         "idSlot": id_slot,
+        "nameSlot": name_slot,
     }
     SLOTS.write_text(json.dumps(index), encoding="utf-8")
     return index

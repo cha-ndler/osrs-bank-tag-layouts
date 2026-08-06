@@ -21,7 +21,7 @@ import json
 import re
 from pathlib import Path
 
-from normalize import Normalizer, load_item_index
+from normalize import Normalizer, load_item_index, load_slot_index
 from wikiclient import WikiClient
 
 REPO = Path(__file__).parent.parent
@@ -130,6 +130,22 @@ def build_loadout_wikitext(name: str, icon: str, setup: dict) -> str:
             lines.append(f"|rune{n} = {value}")
     lines.append("}}")
     return "\n".join(lines)
+
+
+def normalize_alternatives(
+    alternatives: dict[str, list[str]], norm: Normalizer
+) -> dict[str, list[str]]:
+    """Same dose correction the worn items get, so a swap cannot regress it."""
+    out: dict[str, list[str]] = {}
+    for slot, options in alternatives.items():
+        fixed: list[str] = []
+        for name in options:
+            corrected, _ = norm.normalize(name)
+            if corrected not in fixed:
+                fixed.append(corrected)
+        if fixed:
+            out[slot] = fixed
+    return out
 
 
 def normalize_setup(setup: dict, norm: Normalizer) -> tuple[dict, list[str]]:
@@ -245,6 +261,74 @@ def choose_icon(setup: dict) -> str:
     return ""
 
 
+def resolve_alternatives(
+    client: WikiClient, jobs: list[dict], result_for: dict[str, dict]
+) -> None:
+    """Give every ranked option the id the wiki would have given it.
+
+    Resolution goes back through `Module:Loadout` rather than through our own
+    item index, so an item picked with the arrows is the same id the wiki would
+    have published had it been rank 1. A loadout holds one item per slot, so the
+    ladder is walked in depth order: one synthetic loadout per rung, each
+    carrying every slot's option at that depth.
+    """
+    rungs: list[dict] = []
+    for job in jobs:
+        alts = job["altNames"]
+        if not alts or job["key"] not in result_for:
+            continue
+        depth = max(len(options) for options in alts.values())
+        for k in range(depth):
+            slots = {
+                slot: options[k] for slot, options in alts.items() if k < len(options)
+            }
+            if slots:
+                rungs.append({"key": f"{job['key']}A{k:02d}", "parent": job["key"],
+                              "depth": k, "slots": slots})
+    if not rungs:
+        return
+
+    resolved: dict[str, dict[int, dict[str, int]]] = {}
+    for start in range(0, len(rungs), BATCH_SIZE):
+        batch = rungs[start : start + BATCH_SIZE]
+        text = "\n".join(
+            build_loadout_wikitext(
+                rung["key"], "", {"equipment": rung["slots"], "inventory": {}, "runes": {}}
+            )
+            for rung in batch
+        )
+        rendered = client.expand_templates(text)
+        codes = {}
+        for code in CODE_RE.findall(rendered):
+            parts = code.split(",")
+            if len(parts) > 2:
+                codes[parts[2]] = code.strip()
+        for rung in batch:
+            code = codes.get(rung["key"])
+            if not code:
+                continue
+            equipment, _, _ = split_layout(parse_import_string(code))
+            resolved.setdefault(rung["parent"], {})[rung["depth"]] = equipment
+        print(f"  options {min(start + BATCH_SIZE, len(rungs))}/{len(rungs)}", end="\r")
+
+    for job in jobs:
+        by_depth = resolved.get(job["key"])
+        if not by_depth:
+            continue
+        ladders: dict[str, list[int]] = {}
+        for slot in job["altNames"]:
+            ids: list[int] = []
+            for depth in sorted(by_depth):
+                item_id = by_depth[depth].get(slot)
+                # An option the wiki cannot resolve is dropped rather than
+                # guessed at; the rest of the ladder is still usable.
+                if item_id and item_id not in ids:
+                    ids.append(item_id)
+            if len(ids) > 1:
+                ladders[slot] = ids
+        result_for[job["key"]]["alternatives"] = ladders
+
+
 def main() -> None:
     client = WikiClient()
     index = load_item_index(client)
@@ -265,6 +349,9 @@ def main() -> None:
                     "variant": setup["variant"],
                     "tagName": name,
                     "sourceNames": normalized,
+                    "altNames": normalize_alternatives(
+                        setup.get("alternatives", {}), norm
+                    ),
                     "notes": notes,
                     "curated": setup.get("curated", False),
                     "curationReason": setup.get("curationReason", ""),
@@ -285,6 +372,7 @@ def main() -> None:
             job["tagName"] = f"{base[:56]} {used[base]}".strip()
 
     results = []
+    result_for: dict[str, dict] = {}
     failures = []
     for start in range(0, len(jobs), BATCH_SIZE):
         batch = jobs[start : start + BATCH_SIZE]
@@ -316,36 +404,49 @@ def main() -> None:
             equipment, inventory, runes = split_layout(layout)
             zigzag = zigzag_layout(equipment, inventory, runes)
             status, note = completeness(job["activity"], equipment, inventory)
-            results.append(
-                {
-                    "activity": job["activity"],
-                    "sourcePage": job["page"],
-                    "sourceRevId": job["revId"],
-                    "variant": job["variant"],
-                    "tagName": job["tagName"],
-                    "icon": int(code.split(",")[3]) if code.split(",")[3].isdigit() else 0,
-                    "importString": code,
-                    "importStringZigzag": build_import_string(
-                        job["tagName"],
-                        int(code.split(",")[3]) if code.split(",")[3].isdigit() else 0,
-                        zigzag,
-                    ),
-                    "layout": layout,
-                    "layoutZigzag": zigzag,
-                    "completeness": status,
-                    "completenessNote": note,
-                    "curated": job["curated"],
-                    "curationReason": job["curationReason"],
-                    "equipment": equipment,
-                    "inventory": inventory,
-                    "runes": runes,
-                    # Kept so validation can round-trip every name back to the
-                    # id the wiki actually chose for it.
-                    "sourceNames": job["sourceNames"],
-                    "warnings": job["notes"],
-                }
-            )
+            icon_id = int(code.split(",")[3]) if code.split(",")[3].isdigit() else 0
+            result_for[job["key"]] = {
+                "activity": job["activity"],
+                "sourcePage": job["page"],
+                "sourceRevId": job["revId"],
+                "variant": job["variant"],
+                "tagName": job["tagName"],
+                "icon": icon_id,
+                "importString": code,
+                "importStringZigzag": build_import_string(
+                    job["tagName"], icon_id, zigzag
+                ),
+                "layout": layout,
+                "layoutZigzag": zigzag,
+                "completeness": status,
+                "completenessNote": note,
+                "curated": job["curated"],
+                "curationReason": job["curationReason"],
+                "equipment": equipment,
+                "inventory": inventory,
+                "runes": runes,
+                # Filled by resolve_alternatives once every option has an id.
+                "alternatives": {},
+                # Kept so validation can round-trip every name back to the
+                # id the wiki actually chose for it.
+                "sourceNames": job["sourceNames"],
+                "warnings": job["notes"],
+            }
+            results.append(result_for[job["key"]])
         print(f"  encoded {min(start + BATCH_SIZE, len(jobs))}/{len(jobs)}", end="\r")
+
+    resolve_alternatives(client, jobs, result_for)
+
+    # Which weapon options need both hands. The site clears the off-hand when
+    # one is chosen and restores it on the way back, so stepping through the
+    # weapon ladder can never produce a loadout nobody can wear.
+    two_handed = set(load_slot_index(client)["twoHandedIds"])
+    for entry in results:
+        options = entry["alternatives"].get("weapon", [])
+        worn = entry["equipment"].get("weapon")
+        entry["twoHandedWeapons"] = sorted(
+            {i for i in [*options, worn] if i and i in two_handed}
+        )
 
     ENCODED.write_text(
         json.dumps({"layouts": results, "failures": failures}, indent=2, ensure_ascii=False),

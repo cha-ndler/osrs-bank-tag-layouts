@@ -149,6 +149,10 @@
         "2": 565,
         "3": 554
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        28997
+      ],
       "warnings": [
         "Super combat potion -> Super combat potion(4)",
         "Prayer potion -> Prayer potion(4)",
@@ -301,6 +305,10 @@
         "2": 565,
         "3": 554
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        13263
+      ],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
         "Prayer potion -> Prayer potion(4)",
@@ -453,6 +461,10 @@
         "2": 565,
         "3": 554
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        22325
+      ],
       "warnings": [
         "Prayer potion -> Prayer potion(4)",
         "Sanfew serum -> Sanfew serum(4)",

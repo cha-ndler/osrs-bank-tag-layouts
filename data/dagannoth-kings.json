@@ -142,6 +142,8 @@
         "16": 2301
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -280,6 +282,8 @@
         "16": 10925
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -418,6 +422,8 @@
         "16": 385
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Ranging potion -> Ranging potion(4)",
         "Super combat potion -> Super combat potion(4)",
@@ -563,6 +569,8 @@
         "16": 5952
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Prayer potion -> Prayer potion(4)"
       ]
