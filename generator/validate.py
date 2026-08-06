@@ -26,6 +26,7 @@ from wikiclient import WikiClient
 
 REPO = Path(__file__).parent.parent
 ENCODED = REPO / "generator" / "encoded.json"
+SETUPS = REPO / "generator" / "setups.json"
 REPORT = REPO / "report.json"
 
 VALID_POSITIONS = set(LOADOUT_MAP)
@@ -228,6 +229,21 @@ def validate() -> int:
                     }
                 )
 
+    # An override that no longer matches means the wiki has caught up. Failing
+    # here is the point: it forces the entry to be deleted instead of quietly
+    # becoming a second source of staleness, which is the usual fate of a
+    # hand-maintained correction file.
+    setups_doc = json.loads(SETUPS.read_text(encoding="utf-8"))
+    for note in setups_doc.get("overrideNotes", []):
+        gate_errors.append(note)
+
+    curated = [e for e in layouts if e.get("curated")]
+    for e in curated:
+        if not e.get("curationReason"):
+            gate_errors.append(
+                f"{e['activity']} / {e['variant']}: curated with no stated reason"
+            )
+
     # Both layout styles must describe the same set of items.
     for e in layouts:
         presets = sorted(e["layout"].values())
@@ -251,6 +267,13 @@ def validate() -> int:
         "errors": errors,
         "roundTripMismatches": unresolved,
         "slotDisagreements": slot_notes,
+        "curatedLayouts": [
+            {
+                "layout": f"{e['activity']} / {e['variant']}",
+                "reason": e.get("curationReason", ""),
+            }
+            for e in curated
+        ],
         "partialDoseAccepted": [d for d in dose_flags if d not in bad_doses],
         "partialDoseUnexpected": bad_doses,
         "normalizations": sorted(
@@ -268,6 +291,7 @@ def validate() -> int:
     print(f"  structural errors        : {len(errors)}")
     print(f"  round-trip mismatches    : {len(unresolved)}")
     print(f"  slot disagreements (note): {len(slot_notes)}")
+    print(f"  curated layouts          : {len(curated)}")
     print(f"  part-dose (explicit, ok) : {len(dose_flags) - len(bad_doses)}")
     print(f"  part-dose (unexpected)   : {len(bad_doses)}")
     print(f"  distinct normalizations  : {len(report['normalizations'])}")

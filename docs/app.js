@@ -72,6 +72,15 @@ function renderCard(entry) {
     if (entry.completenessNote) badge.title = entry.completenessNote;
     h3.appendChild(badge);
   }
+  // Curated layouts deliberately differ from the wiki page, so say so rather
+  // than passing the correction off as the wiki's own answer.
+  if (entry.curated) {
+    const badge = document.createElement('span');
+    badge.className = 'badge curated';
+    badge.textContent = 'curated';
+    if (entry.curationReason) badge.title = entry.curationReason;
+    h3.appendChild(badge);
+  }
   card.appendChild(h3);
 
   const tag = document.createElement('div');

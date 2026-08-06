@@ -94,6 +94,8 @@
         "44": 7218,
         "45": 7218
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 21295,
         "weapon": 27660,
@@ -227,6 +229,8 @@
         "44": 7218,
         "45": 7218
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 28951,
         "ammo": 22947,

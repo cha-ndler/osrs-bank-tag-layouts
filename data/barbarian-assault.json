@@ -52,6 +52,8 @@
         "25": 23685,
         "26": 23685
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 6570,
         "weapon": 4151,
@@ -132,6 +134,8 @@
         "28": 24635,
         "29": 24635
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 28951,
         "weapon": 27610,

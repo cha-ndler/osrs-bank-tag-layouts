@@ -78,6 +78,8 @@ def main() -> None:
                     "importStringZigzag": e["importStringZigzag"],
                     "layout": e["layout"],
                     "layoutZigzag": e["layoutZigzag"],
+                    "curated": e["curated"],
+                    "curationReason": e["curationReason"],
                     "equipment": e["equipment"],
                     "inventory": e["inventory"],
                     "runes": e["runes"],
@@ -114,6 +116,8 @@ def main() -> None:
                     "layout": e["layout"],
                     "layoutZigzag": e["layoutZigzag"],
                     "sourceUrl": record["sourceUrl"],
+                    "curated": e["curated"],
+                    "curationReason": e["curationReason"],
                     "warnings": e["warnings"],
                 }
             )

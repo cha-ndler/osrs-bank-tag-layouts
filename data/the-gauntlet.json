@@ -64,6 +64,8 @@
         "33": 23874,
         "40": 23874
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "weapon": 23903,
         "torso": 23889,
@@ -120,6 +122,8 @@
         "25": 23874,
         "26": 23874
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "weapon": 23903
       },
@@ -202,6 +206,8 @@
         "42": 23874,
         "43": 23874
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "weapon": 23857,
         "torso": 23844,
@@ -271,6 +277,8 @@
         "25": 23874,
         "26": 23874
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "weapon": 23857,
         "torso": 23843,

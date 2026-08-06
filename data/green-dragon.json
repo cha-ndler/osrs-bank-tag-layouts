@@ -66,6 +66,8 @@
         "28": 3144,
         "29": 3144
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 21295,
         "ammo": 22947,
@@ -160,6 +162,8 @@
         "29": 3144,
         "30": 3144
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 22109,
         "ammo": 22947,

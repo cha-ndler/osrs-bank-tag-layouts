@@ -19,6 +19,16 @@
       "wikiSlot": "weapon"
     }
   ],
+  "curatedLayouts": [
+    {
+      "layout": "Abyss / Defensive",
+      "reason": "The colossal pouch is made by stitching the small, medium, large and giant pouches together, which consumes them, so a player cannot carry both. It holds 40 essence in one inventory slot against 30 across four. The Abyss strategy page predates it and never mentions it; Guardians of the Rift lists both tiers."
+    },
+    {
+      "layout": "Abyss / Graceful",
+      "reason": "The colossal pouch is made by stitching the small, medium, large and giant pouches together, which consumes them, so a player cannot carry both. It holds 40 essence in one inventory slot against 30 across four. The Abyss strategy page predates it and never mentions it; Guardians of the Rift lists both tiers."
+    }
+  ],
   "partialDoseAccepted": [
     {
       "layout": "Adamant dragon / Magic - Tumeken's Shadow",

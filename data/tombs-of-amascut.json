@@ -96,6 +96,8 @@
         "44": 3024,
         "45": 27281
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 21295,
         "ammo": 22947,
@@ -232,6 +234,8 @@
         "44": 6685,
         "45": 12791
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 6570,
         "ammo": 21944,
@@ -368,6 +372,8 @@
         "44": 3024,
         "45": 27281
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 6570,
         "ammo": 21944,
@@ -512,6 +518,8 @@
         "49": 565,
         "50": 564
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "ammo2": 11212,
         "cape": 21295,
@@ -651,6 +659,8 @@
         "43": 6685,
         "44": 25818
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 6570,
         "ammo": 9242,

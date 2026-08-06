@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "_comment": "Curated corrections to strategy pages that are out of date. Applied by generator/overrides.py after extraction, so the parser itself stays faithful to the wiki. Every rule must still match: when a page catches up, validation fails and the rule should be deleted rather than left to rot.",
+  "overrides": [
+    {
+      "activity": "Abyss",
+      "variants": "*",
+      "reason": "The colossal pouch is made by stitching the small, medium, large and giant pouches together, which consumes them, so a player cannot carry both. It holds 40 essence in one inventory slot against 30 across four. The Abyss strategy page predates it and never mentions it; Guardians of the Rift lists both tiers.",
+      "inventory": {
+        "replaceAll": [
+          "Small pouch",
+          "Medium pouch",
+          "Large pouch",
+          "Giant pouch"
+        ],
+        "with": [
+          "Colossal pouch"
+        ]
+      }
+    }
+  ]
+}
