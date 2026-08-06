@@ -142,6 +142,8 @@
         "16": 11936
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended antifire -> Extended antifire(4)"
@@ -283,6 +285,8 @@
         "16": 3024
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Prayer regeneration potion -> Prayer regeneration potion(4)"
       ]
@@ -420,6 +424,10 @@
         "16": 3024
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [
+        20997
+      ],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended antifire -> Extended antifire(4)"
@@ -561,6 +569,8 @@
         "16": 11936
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended antifire -> Extended antifire(4)"
@@ -702,6 +712,8 @@
         "16": 3024
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended super antifire -> Extended super antifire(4)"
@@ -840,6 +852,10 @@
         "16": 11936
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [
+        20997
+      ],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended antifire -> Extended antifire(4)"

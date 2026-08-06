@@ -13,6 +13,8 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
+from encode import LOADOUT_MAP, ZIGZAG_EQUIPMENT_ORDER
+
 REPO = Path(__file__).parent.parent
 ENCODED = REPO / "generator" / "encoded.json"
 DATA = REPO / "data"
@@ -83,6 +85,8 @@ def main() -> None:
                     "equipment": e["equipment"],
                     "inventory": e["inventory"],
                     "runes": e["runes"],
+                    "alternatives": e["alternatives"],
+                    "twoHandedWeapons": e["twoHandedWeapons"],
                     "warnings": e["warnings"],
                 }
                 for e in entries
@@ -118,6 +122,13 @@ def main() -> None:
                     "sourceUrl": record["sourceUrl"],
                     "curated": e["curated"],
                     "curationReason": e["curationReason"],
+                    # The site rebuilds the layout after every swap, so it needs
+                    # the slot-keyed source, not just the finished position map.
+                    "equipment": e["equipment"],
+                    "inventory": e["inventory"],
+                    "runes": e["runes"],
+                    "alternatives": e["alternatives"],
+                    "twoHandedWeapons": e["twoHandedWeapons"],
                     "warnings": e["warnings"],
                 }
             )
@@ -137,7 +148,16 @@ def main() -> None:
     )
     (DOCS / "layouts.json").write_text(
         json.dumps(
-            {"generatedAt": generated_at, "layouts": site_rows}, ensure_ascii=False
+            {
+                "generatedAt": generated_at,
+                # Shipped rather than duplicated in JavaScript: the site rebuilds
+                # layouts client-side when a slot is swapped, and a second copy
+                # of these constants would be free to drift from encode.py.
+                "loadoutMap": {str(k): v for k, v in LOADOUT_MAP.items()},
+                "zigzagOrder": list(ZIGZAG_EQUIPMENT_ORDER),
+                "layouts": site_rows,
+            },
+            ensure_ascii=False,
         ),
         encoding="utf-8",
     )

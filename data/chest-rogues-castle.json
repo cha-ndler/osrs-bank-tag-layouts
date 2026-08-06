@@ -57,6 +57,8 @@
       },
       "inventory": {},
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -107,6 +109,8 @@
       },
       "inventory": {},
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -157,6 +161,8 @@
       },
       "inventory": {},
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -207,6 +213,8 @@
       },
       "inventory": {},
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -239,6 +247,8 @@
         "4": 8013
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -292,6 +302,81 @@
       },
       "inventory": {},
       "runes": {},
+      "alternatives": {
+        "head": [
+          28933,
+          12203,
+          29560,
+          25438
+        ],
+        "neck": [
+          22986,
+          22111,
+          10472,
+          1718,
+          1724,
+          4081,
+          10588,
+          25278
+        ],
+        "cape": [
+          25346,
+          13124,
+          13123,
+          13122
+        ],
+        "torso": [
+          28936,
+          29562,
+          25434,
+          544
+        ],
+        "legs": [
+          28939,
+          29564,
+          25436,
+          542
+        ],
+        "weapon": [
+          12263,
+          2952,
+          2963,
+          24693,
+          22433
+        ],
+        "shield": [
+          13120,
+          3840,
+          13119,
+          13118,
+          25818,
+          13117
+        ],
+        "ammo": [
+          22947,
+          22945,
+          22943
+        ],
+        "gloves": [
+          19997,
+          6629
+        ],
+        "boots": [
+          22954,
+          25440,
+          6619
+        ],
+        "ring": [
+          25252,
+          12601,
+          28327,
+          13128,
+          13127,
+          13126,
+          13125
+        ]
+      },
+      "twoHandedWeapons": [],
       "warnings": []
     }
   ]

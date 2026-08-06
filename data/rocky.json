@@ -127,6 +127,8 @@
         "16": 6123
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Stamina potion -> Stamina potion(4)"
       ]
@@ -258,6 +260,8 @@
         "16": 1993
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -318,6 +322,8 @@
         "3": 13280
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -442,6 +448,8 @@
       "runes": {
         "1": 564
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -563,6 +571,8 @@
       "runes": {
         "1": 564
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     }
   ]

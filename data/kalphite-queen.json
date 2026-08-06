@@ -149,6 +149,10 @@
         "2": 564,
         "3": 565
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        4755
+      ],
       "warnings": [
         "Superantipoison -> Superantipoison(4)",
         "Prayer potion -> Prayer potion(4)"
@@ -300,6 +304,8 @@
         "2": 564,
         "3": 554
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -448,6 +454,8 @@
         "2": 560,
         "3": 557
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -593,6 +601,10 @@
         "2": 565,
         "3": 564
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        27275
+      ],
       "warnings": [
         "Super restore -> Super restore(4)"
       ]

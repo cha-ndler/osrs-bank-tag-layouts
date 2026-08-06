@@ -80,6 +80,16 @@ EMPTY_SLOT_RE = re.compile(r"^\s*(none|nothing|n/a)\b", re.IGNORECASE)
 # Populated by main() from the wiki's own infoboxes; tests inject their own.
 TWO_HANDED_NAMES: set[str] = set()
 
+# Lowercased item name -> the slot the wiki says it occupies. Used to throw out
+# options that a slot's prose merely mentions: Gemstone Crab lists "darts with
+# {{plink|Twisted buckler}}" under `weapon`, and a buckler is not a weapon.
+SLOT_OF_NAME: dict[str, str] = {}
+
+# Only these two slots are filtered. The wiki deliberately lists Amethyst dart
+# under `ammo` - blowpipe ammunition - although a dart's own slot is `weapon`,
+# and that convention is correct where it appears.
+STRICT_SLOTS = ("weapon", "shield")
+
 HEADING_RE = re.compile(r"(?m)^(=+)\s*(.+?)\s*\1\s*$")
 TAB_LABEL_RE = re.compile(r"(?m)^([^=|{}\n]{1,60}?)\s*=\s*$")
 TABLE_HEADER_RE = re.compile(r"(?m)^!(.+)$")
@@ -137,41 +147,84 @@ def strip_templates(text: str, names: tuple[str, ...]) -> str:
         text = text[: m.start()] + text[i:]
 
 
-def plink_item(value: str) -> str:
-    """First real item named by a `{{plink}}` (or a plain wiki link).
+def plink_items(value: str) -> list[str]:
+    """Every real item named by a slot value, in the order it lists them.
 
     `{{plink|Barrows equipment|pic=Torag's platebody}}` points at a category
     page, so `pic` - the icon actually drawn - is the truer item name.
-    Slots often list ranked alternatives ("mace / axe > hasta"); take the first.
+
+    A single rank often names several interchangeable items ("Max cape /
+    Hitpoints cape", "mace / axe > hasta"); 24% of ranks do. The first is the
+    one the layout uses, and the rest are alternatives a player can step to.
     """
     if not value:
-        return ""
+        return []
     value = re.sub(r"<!--.*?-->", "", value, flags=re.DOTALL)
+    # A <ref> is a footnote about the slot, not a list of things to wear. Callisto
+    # qualifies a crossbow with "Only if using {{plink|Ruby bolts (e)}}", and
+    # mining that put bolts in the weapon ladder.
+    value = re.sub(r"<ref\b[^>]*/>", "", value)
+    value = re.sub(r"<ref\b.*?</ref>", "", value, flags=re.DOTALL | re.IGNORECASE)
     value = strip_templates(value, ("efn", "efn2", "GEP", "NoCoins"))
 
     if EMPTY_SLOT_RE.match(value):
-        return ""
+        return []
 
-    m = PLINK_RE.search(value)
-    if m:
+    out: list[str] = []
+    for m in PLINK_RE.finditer(value):
         parsed = parse_template(value, m.start())
-        if parsed:
-            _, args, _ = parsed
-            if args.get("pic"):
-                return clean_item(args["pic"])
-            if args.get("1"):
-                return clean_item(args["1"])
-        return ""
+        if not parsed:
+            continue
+        _, args, _ = parsed
+        name = clean_item(args.get("pic") or args.get("1") or "")
+        if name and name not in out:
+            out.append(name)
+    if out:
+        return out
 
+    # No plink at all: a bare wiki link is still a real reference, unless it
+    # points within the page. Abyssal Sire's ammo slot reads
+    # "[[#Phase 1 equipment|...]]", which is a cross-reference, not an item.
     link = re.search(r"\[\[([^|\]]+)", value)
-    if link:
-        return clean_item(link.group(1))
-    return ""
+    if link and not link.group(1).lstrip().startswith("#"):
+        name = clean_item(link.group(1))
+        return [name] if name else []
+    return []
+
+
+def plink_item(value: str) -> str:
+    """The item a slot value resolves to - its first named item."""
+    items = plink_items(value)
+    return items[0] if items else ""
 
 
 def recommended_equipment(args: dict[str, str]) -> dict[str, str]:
-    """Best-ranked item per slot from a {{Recommended equipment}} block."""
-    best: dict[str, tuple[int, int, str]] = {}
+    """Best-ranked item per slot from a {{Recommended equipment}} block.
+
+    Derived from the full ranked list rather than computed alongside it, so the
+    published loadout is always the head of the ladder the site steps through -
+    they cannot drift apart.
+    """
+    return {
+        slot: options[0]
+        for slot, options in recommended_alternatives(args).items()
+        if options
+    }
+
+
+def recommended_alternatives(args: dict[str, str]) -> dict[str, list[str]]:
+    """Every option a {{Recommended equipment}} block offers, best first.
+
+    The template ranks each slot as `head1`..`head4`, and `recommended_equipment`
+    keeps only rank 1 - which is the whole loadout a player is offered. 90% of
+    filled slots list more than one option, so the rest is the ladder someone
+    without best-in-slot needs to climb down.
+
+    Ordering is the wiki's: by rank, then by the order items appear within a
+    rank. `weapon` and `2h` merge into one list under the same tie-break as
+    `recommended_equipment`, since they are alternatives for the same hand.
+    """
+    ranked: dict[str, list[tuple[int, int, str]]] = {}
     for key, raw in args.items():
         m = RANKED_SLOT_RE.match(key)
         if not m:
@@ -181,13 +234,40 @@ def recommended_equipment(args: dict[str, str]) -> dict[str, str]:
         if not slot:
             continue
         rank = int(m.group("rank")) if m.group("rank") else 1
-        item = plink_item(raw)
-        if not item:
-            continue
-        candidate = (rank, SLOT_SOURCE_PRIORITY.get(source, 0), item)
-        if slot not in best or candidate[:2] < best[slot][:2]:
-            best[slot] = candidate
-    return {slot: item for slot, (_, _, item) in best.items()}
+        priority = SLOT_SOURCE_PRIORITY.get(source, 0)
+        for item in plink_items(raw):
+            ranked.setdefault(slot, []).append((rank, priority, item))
+
+    out: dict[str, list[str]] = {}
+    for slot, entries in ranked.items():
+        seen: list[str] = []
+        for _, _, item in sorted(entries, key=lambda e: (e[0], e[1])):
+            if item in seen:
+                continue
+            if not fits_slot(item, slot):
+                continue
+            seen.append(item)
+        if seen:
+            out[slot] = seen
+    return out
+
+
+def fits_slot(item: str, slot: str) -> bool:
+    """Could this item be worn in this slot, according to the wiki?
+
+    A slot's value is prose as often as it is a list, and the prose names items
+    that go elsewhere: "darts with {{plink|Twisted buckler}}", "(with
+    {{plinkp|Tome of fire}})". Those read as alternatives and are not.
+
+    Only `weapon` and `shield` are judged, and only when the item's slot is
+    known - see STRICT_SLOTS.
+    """
+    if slot not in STRICT_SLOTS or not SLOT_OF_NAME:
+        return True
+    known = SLOT_OF_NAME.get(item.lower())
+    if known is None:
+        return True
+    return ("weapon" if known == "2h" else known) == slot
 
 
 def split_args(body: str) -> list[str]:
@@ -288,6 +368,9 @@ class Setup:
     equipment: dict[str, str] = field(default_factory=dict)
     inventory: dict[str, str] = field(default_factory=dict)
     runes: dict[str, str] = field(default_factory=dict)
+    # Ranked options per slot, best first, when the source ranked them. Empty
+    # for {{Equipment}}, which is one hand-authored loadout with no ladder.
+    alternatives: dict[str, list[str]] = field(default_factory=dict)
     order: int = 0  # document position, for page-level merging
 
 
@@ -418,6 +501,7 @@ def _merge_shared(setups: list[Setup]) -> list[Setup]:
                 # own name and inherits the shared gear.
                 for inv in invs:
                     inv.equipment = dict(gears[0].equipment)
+                    inv.alternatives = dict(gears[0].alternatives)
                 out.extend(invs)
             elif len(invs) == 1:
                 for gear in gears:
@@ -448,11 +532,14 @@ def _merge_shared(setups: list[Setup]) -> list[Setup]:
     # orphaning the rest. Only fires when gear exists earlier on the page, so
     # genuinely gearless activities (Vale Totems) are left alone.
     carried: dict[str, str] = {}
+    carried_alts: dict[str, list[str]] = {}
     for setup in out:
         if setup.equipment:
             carried = setup.equipment
+            carried_alts = setup.alternatives
         elif carried:
             setup.equipment = dict(carried)
+            setup.alternatives = dict(carried_alts)
     return out
 
 
@@ -579,7 +666,12 @@ def extract_page(
 
             setup = Setup(variant=variant, order=anchor_end)
             if eq is not None and eq.name == "Recommended equipment":
-                setup.equipment = recommended_equipment(eq.args)
+                setup.alternatives = recommended_alternatives(eq.args)
+                setup.equipment = {
+                    slot: options[0]
+                    for slot, options in setup.alternatives.items()
+                    if options
+                }
             else:
                 setup.equipment = _slots(eq, EQUIPMENT_SLOTS)
             setup.inventory = _slots(inv, [str(n) for n in range(1, 29)])
@@ -640,9 +732,11 @@ def extract_page(
 
 
 def main() -> None:
-    global TWO_HANDED_NAMES
+    global TWO_HANDED_NAMES, SLOT_OF_NAME
     client = WikiClient()
-    TWO_HANDED_NAMES = set(load_slot_index(client)["twoHandedNames"])
+    slot_index = load_slot_index(client)
+    TWO_HANDED_NAMES = set(slot_index["twoHandedNames"])
+    SLOT_OF_NAME = slot_index["nameSlot"]
     corpus = json.loads(CORPUS.read_text(encoding="utf-8"))
     pages_out = []
     total_setups = 0
@@ -667,6 +761,13 @@ def main() -> None:
                         "equipment": s.equipment,
                         "inventory": s.inventory,
                         "runes": s.runes,
+                        # Only slots that actually offer a choice; a
+                        # single-option list is just the equipment again.
+                        "alternatives": {
+                            slot: options
+                            for slot, options in s.alternatives.items()
+                            if len(options) > 1
+                        },
                     }
                     for s in setups
                 ],

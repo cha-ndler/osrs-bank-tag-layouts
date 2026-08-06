@@ -134,6 +134,8 @@
         "2": 4696,
         "3": 562
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -279,6 +281,10 @@
         "2": 4696,
         "3": 562
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        12926
+      ],
       "warnings": []
     },
     {
@@ -427,6 +433,8 @@
         "2": 4696,
         "3": 562
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Extended anti-venom+ -> Extended anti-venom+(4)",
         "Guthix rest -> Guthix rest(4)"

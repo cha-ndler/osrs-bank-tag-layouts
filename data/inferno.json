@@ -155,6 +155,8 @@
         "2": 565,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -306,6 +308,8 @@
         "2": 565,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -460,6 +464,8 @@
         "2": 565,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -614,6 +620,8 @@
         "2": 565,
         "3": 560
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     }
   ]

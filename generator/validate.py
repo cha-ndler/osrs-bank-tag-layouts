@@ -229,6 +229,34 @@ def validate() -> int:
                     }
                 )
 
+    # Every rung of a slot's ladder has to be a real item that fits the slot,
+    # and the head of it has to be the item actually published - otherwise the
+    # arrows would hand a player something the layout never offered.
+    for e in layouts:
+        equipment = e.get("equipment") or {}
+        label = f"{e['activity']} / {e['variant']}"
+        for slot, options in (e.get("alternatives") or {}).items():
+            if len(options) != len(set(options)):
+                gate_errors.append(f"{label}: {slot} lists the same option twice")
+            if slot in equipment and options and equipment[slot] != options[0]:
+                gate_errors.append(
+                    f"{label}: {slot} ladder starts at {options[0]} but the "
+                    f"layout wears {equipment[slot]}"
+                )
+            for item_id in options:
+                if norm.name_for_id(item_id) is None:
+                    gate_errors.append(f"{label}: {slot} option {item_id} is not an item")
+                    continue
+                expected = WIKI_SLOT_TO_LOADOUT.get(id_slot.get(str(item_id), ""))
+                base = "ammo" if slot == "ammo2" else slot
+                # Same report-only carve-out as the worn items: the wiki lists
+                # darts under `ammo` though their own slot is `weapon`.
+                if expected and expected != base and base in ("weapon", "shield"):
+                    gate_errors.append(
+                        f"{label}: {slot} option {norm.name_for_id(item_id)} "
+                        f"({item_id}) belongs in {expected}"
+                    )
+
     # An override that no longer matches means the wiki has caught up. Failing
     # here is the point: it forces the entry to be deleted instead of quietly
     # becoming a second source of staleness, which is the usual fate of a

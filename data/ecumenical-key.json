@@ -142,6 +142,8 @@
         "16": 24595
       },
       "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": []
     },
     {
@@ -280,6 +282,26 @@
         "16": 24592
       },
       "runes": {},
+      "alternatives": {
+        "cape": [
+          21793,
+          2413
+        ],
+        "weapon": [
+          28260,
+          27624
+        ],
+        "ammo": [
+          22947,
+          22945,
+          22943
+        ],
+        "gloves": [
+          31106,
+          19544
+        ]
+      },
+      "twoHandedWeapons": [],
       "warnings": []
     }
   ]

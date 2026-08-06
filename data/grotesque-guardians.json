@@ -155,6 +155,8 @@
         "2": 554,
         "3": 563
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
         "Divine ranging potion -> Divine ranging potion(4)",
@@ -308,6 +310,10 @@
         "2": 554,
         "3": 30843
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        22325
+      ],
       "warnings": []
     },
     {
@@ -453,6 +459,10 @@
         "2": 560,
         "3": 565
       },
+      "alternatives": {},
+      "twoHandedWeapons": [
+        29796
+      ],
       "warnings": []
     },
     {
@@ -601,6 +611,8 @@
         "2": 554,
         "3": 563
       },
+      "alternatives": {},
+      "twoHandedWeapons": [],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
         "Divine ranging potion -> Divine ranging potion(4)",
