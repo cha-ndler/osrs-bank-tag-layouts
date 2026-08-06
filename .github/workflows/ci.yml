@@ -8,6 +8,12 @@ on:
   pull_request:
   push:
     branches: [main]
+  # Lets a verification run be asked for by hand. Needed when a commit reaches
+  # main without one: an administrator merge bypasses the required check, and a
+  # GitHub Actions outage can swallow the push event outright, leaving a commit
+  # on main that no run will ever cover. Without this the only way to re-verify
+  # is an empty commit.
+  workflow_dispatch:
 
 # Least privilege: this job only reads the repository. Nothing here needs to
 # write contents, open pull requests, or touch packages.
