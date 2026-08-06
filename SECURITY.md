@@ -26,6 +26,29 @@ user data, and it writes nothing outside this repository.
 - Dependabot proposes action and dependency updates weekly, so SHA pinning does
   not mean stale code.
 
+## Branch protection settings
+
+`main` requires a pull request with the `test` job passing, and blocks force
+pushes, branch deletion and non-linear history.
+
+Repository admins can currently bypass these. That is deliberate for two
+reasons: the owner is the only account with write access, and — more
+practically — **the weekly refresh pull request does not run CI.** GitHub does
+not trigger workflows for pull requests opened with the default `GITHUB_TOKEN`,
+so the required `test` check never appears on it and the pull request sits at
+"blocked". The refresh job runs the same test suite itself before opening the
+pull request, so merging it with an admin bypass is safe.
+
+To require the same flow of everyone including admins:
+
+```bash
+gh api -X PUT repos/cha-ndler/osrs-bank-tag-layouts/branches/main/protection/enforce_admins
+```
+
+Doing that means the weekly refresh can no longer be merged without either a
+personal access token on the refresh job (so its pull request triggers CI) or
+temporarily lifting the setting.
+
 ## Reviewing an automated refresh
 
 The weekly job regenerates the library from the wiki and opens a pull request.
