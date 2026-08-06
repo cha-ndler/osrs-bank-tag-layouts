@@ -14,7 +14,7 @@ import encode
 import extract
 import publish
 import validate
-from normalize import ITEMS
+from normalize import ITEMS, SLOTS
 from wikiclient import CACHE_DIR
 
 
@@ -37,9 +37,10 @@ def main() -> int:
                 path.unlink(missing_ok=True)
                 removed += 1
         print(f"cache cleared ({removed} entries)")
-        # The item index is cached separately and would otherwise stay stale,
-        # which is exactly what --fresh is meant to prevent.
+        # The item and slot indexes are cached separately and would otherwise
+        # stay stale, which is exactly what --fresh is meant to prevent.
         ITEMS.unlink(missing_ok=True)
+        SLOTS.unlink(missing_ok=True)
 
     for stage in (discover, extract, encode):
         stage.main()

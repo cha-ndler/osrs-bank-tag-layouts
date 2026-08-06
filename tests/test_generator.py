@@ -26,12 +26,16 @@ from encode import (  # noqa: E402
 )
 from extract import (  # noqa: E402
     clean_item,
+    drop_conflicting_offhand,
     extract_page,
     parse_template,
     plink_item,
     recommended_equipment,
     split_args,
 )
+
+# Injected instead of the real wiki slot index so nothing here needs the network.
+TWO_HANDED = {"tumeken's shadow", "scythe of vitur", "twisted bow"}
 
 
 class TestRecommendedEquipment(unittest.TestCase):
@@ -268,6 +272,95 @@ class TestExtractPairing(unittest.TestCase):
         self.assertEqual([s.variant for s in setups], ["Max"])
 
 
+class TestTwoHandedOffhand(unittest.TestCase):
+    """A two-handed weapon leaves no hand for an off-hand.
+
+    {{Recommended equipment}} ranks each slot independently, so its shield column
+    describes the off-hands belonging to the *lower-ranked one-handed* weapons.
+    Reading rank 1 from every column once put Tumeken's shadow beside an
+    Elidinis' ward in 64 of 330 published setups.
+    """
+
+    def _magic_setup(self, weapon: str) -> str:
+        return (
+            "<tabber>\nMagic=\n"
+            "{{Recommended equipment"
+            f"|weapon1 = {{{{plink|{weapon}}}}}"
+            "|weapon2 = {{plink|Sanguinesti staff}}"
+            "|shield1 = {{plink|Elidinis' ward (f)}}"
+            "|head1 = {{plink|Ancestral hat}}}}\n"
+            "{{Inventory|1 = Shark}}\n</tabber>"
+        )
+
+    def test_two_handed_weapon_drops_the_offhand(self):
+        setups, warnings = extract_page(
+            "X/Strategies", self._magic_setup("Tumeken's shadow"), TWO_HANDED
+        )
+        self.assertEqual(len(setups), 1)
+        self.assertEqual(setups[0].equipment["weapon"], "Tumeken's shadow")
+        self.assertNotIn("shield", setups[0].equipment)
+        self.assertTrue(any("dropped off-hand" in w for w in warnings))
+
+    def test_one_handed_weapon_keeps_its_offhand(self):
+        # The guard against over-correcting: most setups legitimately pair a
+        # one-handed weapon with a shield and must be left alone.
+        setups, warnings = extract_page(
+            "X/Strategies", self._magic_setup("Sanguinesti staff"), TWO_HANDED
+        )
+        self.assertEqual(setups[0].equipment["shield"], "Elidinis' ward (f)")
+        self.assertEqual(warnings, [])
+
+    def test_the_2h_parameter_path_also_clears_the_shield(self):
+        # Only 6 blocks in the corpus use `2h`; 176 put a two-hander in
+        # `weapon1`. Both routes must end up in the same place.
+        text = (
+            "<tabber>\nRanged=\n"
+            "{{Recommended equipment"
+            "|2h1 = {{plink|Twisted bow}}"
+            "|shield1 = {{plink|Twisted buckler}}"
+            "|head1 = {{plink|Masori mask (f)}}}}\n"
+            "{{Inventory|1 = Shark}}\n</tabber>"
+        )
+        setups, _ = extract_page("X/Strategies", text, TWO_HANDED)
+        self.assertEqual(setups[0].equipment["weapon"], "Twisted bow")
+        self.assertNotIn("shield", setups[0].equipment)
+
+    def test_inherited_gear_is_corrected_too(self):
+        # Gear tabs sharing one inventory copy the equipment dict, so the rule
+        # has to run after merging or the copies keep the bad shield.
+        text = (
+            "<tabber>\nBudget=\n"
+            "{{Recommended equipment|weapon1 = {{plink|Scythe of vitur}}"
+            "|shield1 = {{plink|Avernic defender}}|head1 = {{plink|Torva full helm}}}}\n"
+            "</tabber>\n"
+            "===Inventory===\n{{Inventory|1 = Shark}}\n"
+        )
+        setups, _ = extract_page("X/Strategies", text, TWO_HANDED)
+        self.assertTrue(setups)
+        for setup in setups:
+            self.assertNotIn("shield", setup.equipment)
+
+    def test_none_means_the_slot_stays_empty(self):
+        # The wiki writes the rule out longhand; read literally it put a
+        # blowpipe in the shield slot of two published layouts.
+        self.assertEqual(plink_item("None if using [[two-handed weapons]]."), "")
+        self.assertEqual(
+            plink_item(
+                "None if using two-handed weapon, such as {{plinkp|Toxic blowpipe}}"
+            ),
+            "",
+        )
+
+    def test_empty_named_items_are_not_swallowed(self):
+        # 24 real items start with "Empty", so the rule must not cover them.
+        self.assertEqual(plink_item("{{plink|Empty bucket}}"), "Empty bucket")
+
+    def test_nothing_is_dropped_without_a_conflict(self):
+        equipment = {"weapon": "Emberlight", "shield": "Avernic defender"}
+        self.assertIsNone(drop_conflicting_offhand(equipment, TWO_HANDED))
+        self.assertEqual(equipment["shield"], "Avernic defender")
+
+
 class TestZigzag(unittest.TestCase):
     """Port fidelity against LayoutGenerator.toZigZagIndex."""
 
@@ -370,6 +463,44 @@ class TestPublishedData(unittest.TestCase):
             self.assertEqual(
                 sorted(v["layout"].values()), sorted(v["layoutZigzag"].values())
             )
+
+    def test_no_published_layout_pairs_a_two_hander_with_a_shield(self):
+        # Item ids rather than names, so this needs neither the network nor the
+        # cached slot index. Every one of these once shipped beside an off-hand.
+        # Zaryte crossbow is deliberately absent: it is one-handed and pairs
+        # with a Twisted buckler, which is a loadout that must keep working.
+        two_handed = {
+            27275: "Tumeken's shadow",
+            22325: "Scythe of vitur",
+            22664: "Scythe of vitur (uncharged)",
+            20997: "Twisted bow",
+            25865: "Bow of faerdhinen",
+            12926: "Toxic blowpipe",
+        }
+        offenders = []
+        for path in sorted((REPO / "data").glob("*.json")):
+            record = json.loads(path.read_text(encoding="utf-8"))
+            for variant in record.get("variants", []):
+                equipment = variant.get("equipment", {})
+                weapon = equipment.get("weapon")
+                if weapon in two_handed and equipment.get("shield"):
+                    offenders.append(
+                        f"{path.stem} / {variant['variant']}: {two_handed[weapon]}"
+                        f" + shield {equipment['shield']}"
+                    )
+        self.assertEqual(offenders, [])
+
+    def test_no_weapon_sits_in_the_shield_slot(self):
+        # 12926 = Toxic blowpipe, mined out of "None if using two-handed
+        # weapon, such as {{plinkp|Toxic blowpipe}}".
+        for path in sorted((REPO / "data").glob("*.json")):
+            record = json.loads(path.read_text(encoding="utf-8"))
+            for variant in record.get("variants", []):
+                self.assertNotEqual(
+                    variant.get("equipment", {}).get("shield"),
+                    12926,
+                    f"{path.stem} / {variant['variant']} wears a blowpipe as an off-hand",
+                )
 
     def test_kreearra_keeps_its_two_handed_weapon(self):
         path = REPO / "data" / "kreearra.json"
