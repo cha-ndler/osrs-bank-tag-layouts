@@ -26,6 +26,24 @@ user data, and it writes nothing outside this repository.
 - Dependabot proposes action and dependency updates weekly, so SHA pinning does
   not mean stale code.
 
+## Re-verifying `main` after a bypass
+
+The required check can be skipped two ways: an administrator merge, or a GitHub
+Actions outage that swallows the push event so no run is ever created for the
+commit. Both leave code on `main` that CI has not seen, and neither heals by
+itself — re-running an old run only re-checks the commit it was created for.
+
+CI therefore also accepts `workflow_dispatch`. To verify whatever is on `main`
+right now:
+
+```bash
+gh workflow run ci.yml --ref main
+gh run watch "$(gh run list --workflow=ci.yml --limit 1 --json databaseId --jq '.[0].databaseId')"
+```
+
+Run it after any admin merge. The same checks can be run locally:
+`python -m unittest discover -s tests` and `node tests/check_layout_port.mjs`.
+
 ## Branch protection settings
 
 `main` requires a pull request with the `test` job passing, and blocks force
