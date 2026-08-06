@@ -6,10 +6,18 @@
  * slots out in columns 4-7. Positions run 0-55, so seven rows covers it.
  */
 
-const GRID_CELLS = 56;
-// Every card draws a 56-cell grid, so rendering the whole library at once costs
-// ~30k DOM nodes. Cap it and let search reach the rest.
+// Every card draws a ~56-cell grid, so rendering the whole library at once
+// costs ~30k DOM nodes. Cap it and let search reach the rest.
 const MAX_RENDERED = 60;
+const STYLE_KEY = 'btl-style';
+
+// The plugin's two arrangements. Presets shapes worn gear like the equipment
+// panel; zigzag is the plugin's own default and packs items two per column.
+let style = localStorage.getItem(STYLE_KEY) === 'zigzag' ? 'zigzag' : 'presets';
+
+const layoutOf = (e) => (style === 'zigzag' ? e.layoutZigzag : e.layout) || e.layout;
+const stringOf = (e) =>
+  (style === 'zigzag' ? e.importStringZigzag : e.importString) || e.importString;
 const ICON = (id) => `https://static.runelite.net/cache/item/icon/${id}.png`;
 
 const els = {
@@ -21,10 +29,21 @@ const els = {
 
 let LAYOUTS = [];
 
+function syncStyleButtons() {
+  for (const btn of document.querySelectorAll('button.style')) {
+    btn.setAttribute('aria-pressed', String(btn.dataset.style === style));
+  }
+}
+
 function renderGrid(layout) {
   const grid = document.createElement('div');
   grid.className = 'grid';
-  for (let i = 0; i < GRID_CELLS; i++) {
+  // Size to the content: a layout can run past seven rows, and the bank
+  // scrolls, so a fixed 56 cells would silently clip items.
+  const positions = Object.keys(layout).map(Number);
+  const highest = positions.length ? Math.max(...positions) : 0;
+  const cells = (Math.floor(highest / 8) + 1) * 8;
+  for (let i = 0; i < cells; i++) {
     const cell = document.createElement('div');
     cell.className = 'cell';
     const id = layout[String(i)];
@@ -46,6 +65,13 @@ function renderCard(entry) {
 
   const h3 = document.createElement('h3');
   h3.textContent = entry.variant;
+  if (entry.completeness && entry.completeness !== 'complete') {
+    const badge = document.createElement('span');
+    badge.className = 'badge';
+    badge.textContent = entry.completeness === 'minimal' ? 'small by design' : 'may be partial';
+    if (entry.completenessNote) badge.title = entry.completenessNote;
+    h3.appendChild(badge);
+  }
   card.appendChild(h3);
 
   const tag = document.createElement('div');
@@ -53,7 +79,7 @@ function renderCard(entry) {
   tag.textContent = `tab name: ${entry.tagName}`;
   card.appendChild(tag);
 
-  card.appendChild(renderGrid(entry.layout));
+  card.appendChild(renderGrid(layoutOf(entry)));
 
   const row = document.createElement('div');
   row.className = 'row';
@@ -63,11 +89,11 @@ function renderCard(entry) {
   btn.textContent = 'Copy layout';
   btn.addEventListener('click', async () => {
     try {
-      await navigator.clipboard.writeText(entry.importString);
+      await navigator.clipboard.writeText(stringOf(entry));
     } catch {
       // Clipboard API needs a secure context; fall back to a temp selection.
       const ta = document.createElement('textarea');
-      ta.value = entry.importString;
+      ta.value = stringOf(entry);
       document.body.appendChild(ta);
       ta.select();
       document.execCommand('copy');
@@ -173,12 +199,21 @@ fetch('layouts.json')
   .then((data) => {
     LAYOUTS = data.layouts;
     els.meta.textContent = `${LAYOUTS.length} layouts generated ${data.generatedAt} from the OSRS Wiki.`;
+    syncStyleButtons();
     render('');
     let timer;
     els.q.addEventListener('input', () => {
       clearTimeout(timer);
       timer = setTimeout(() => render(els.q.value), 120);
     });
+    for (const btn of document.querySelectorAll('button.style')) {
+      btn.addEventListener('click', () => {
+        style = btn.dataset.style;
+        localStorage.setItem(STYLE_KEY, style);
+        syncStyleButtons();
+        render(els.q.value);
+      });
+    }
   })
   .catch(() => {
     const p = document.createElement('p');

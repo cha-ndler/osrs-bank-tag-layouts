@@ -10,7 +10,10 @@
       "variant": "Best 3 item + low risk",
       "tagName": "Chest (Rogues' Castle) Best 3 item + low risk",
       "icon": 12263,
+      "completeness": "minimal",
+      "completenessNote": "Deliberately low-risk wilderness setups carry almost nothing.",
       "importString": "banktags,1,Chest (Rogues' Castle) Best 3 item + low risk,12263,layout,8,13124,10,22947,16,12263,32,6629,33,22954,17,29562,25,29564,34,25252,9,22986,18,13120,1,12203",
+      "importStringZigzag": "banktags,1,Chest (Rogues' Castle) Best 3 item + low risk,12263,layout,0,12203,1,22986,2,29562,3,29564,4,22954,5,22947,8,13124,9,12263,10,13120,11,6629,12,25252",
       "layout": {
         "8": 13124,
         "10": 22947,
@@ -23,6 +26,19 @@
         "9": 22986,
         "18": 13120,
         "1": 12203
+      },
+      "layoutZigzag": {
+        "0": 12203,
+        "1": 22986,
+        "2": 29562,
+        "3": 29564,
+        "4": 22954,
+        "5": 22947,
+        "8": 13124,
+        "9": 12263,
+        "10": 13120,
+        "11": 6629,
+        "12": 25252
       },
       "equipment": {
         "cape": 13124,
@@ -45,7 +61,10 @@
       "variant": "Best 3 item, zero risk",
       "tagName": "Chest (Rogues' Castle) Best 3 item zero risk",
       "icon": 2952,
+      "completeness": "minimal",
+      "completenessNote": "Deliberately low-risk wilderness setups carry almost nothing.",
       "importString": "banktags,1,Chest (Rogues' Castle) Best 3 item zero risk,2952,layout,8,13124,10,22947,16,2952,33,22954,17,29562,25,29564,34,25252,9,22986,18,13120,1,29560",
+      "importStringZigzag": "banktags,1,Chest (Rogues' Castle) Best 3 item zero risk,2952,layout,0,29560,1,22986,2,29562,3,29564,4,25252,8,13124,9,2952,10,13120,11,22954,12,22947",
       "layout": {
         "8": 13124,
         "10": 22947,
@@ -57,6 +76,18 @@
         "9": 22986,
         "18": 13120,
         "1": 29560
+      },
+      "layoutZigzag": {
+        "0": 29560,
+        "1": 22986,
+        "2": 29562,
+        "3": 29564,
+        "4": 25252,
+        "8": 13124,
+        "9": 2952,
+        "10": 13120,
+        "11": 22954,
+        "12": 22947
       },
       "equipment": {
         "cape": 13124,
@@ -78,7 +109,10 @@
       "variant": "Best 4 item, zero risk",
       "tagName": "Chest (Rogues' Castle) Best 4 item zero risk",
       "icon": 2952,
+      "completeness": "minimal",
+      "completenessNote": "Deliberately low-risk wilderness setups carry almost nothing.",
       "importString": "banktags,1,Chest (Rogues' Castle) Best 4 item zero risk,2952,layout,8,13124,10,22947,16,2952,33,22954,17,29562,25,29564,34,25252,9,22986,18,13120,1,28933",
+      "importStringZigzag": "banktags,1,Chest (Rogues' Castle) Best 4 item zero risk,2952,layout,0,28933,1,22986,2,29562,3,29564,4,25252,8,13124,9,2952,10,13120,11,22954,12,22947",
       "layout": {
         "8": 13124,
         "10": 22947,
@@ -90,6 +124,18 @@
         "9": 22986,
         "18": 13120,
         "1": 28933
+      },
+      "layoutZigzag": {
+        "0": 28933,
+        "1": 22986,
+        "2": 29562,
+        "3": 29564,
+        "4": 25252,
+        "8": 13124,
+        "9": 2952,
+        "10": 13120,
+        "11": 22954,
+        "12": 22947
       },
       "equipment": {
         "cape": 13124,
@@ -111,7 +157,10 @@
       "variant": "Best never lost",
       "tagName": "Chest (Rogues' Castle) Best never lost",
       "icon": 2952,
+      "completeness": "minimal",
+      "completenessNote": "Deliberately low-risk wilderness setups carry almost nothing.",
       "importString": "banktags,1,Chest (Rogues' Castle) Best never lost,2952,layout,8,13124,10,22947,16,2952,33,25440,17,29562,25,29564,34,13128,9,4081,18,13120,1,29560",
+      "importStringZigzag": "banktags,1,Chest (Rogues' Castle) Best never lost,2952,layout,0,29560,1,4081,2,29562,3,29564,4,13128,8,13124,9,2952,10,13120,11,25440,12,22947",
       "layout": {
         "8": 13124,
         "10": 22947,
@@ -123,6 +172,18 @@
         "9": 4081,
         "18": 13120,
         "1": 29560
+      },
+      "layoutZigzag": {
+        "0": 29560,
+        "1": 4081,
+        "2": 29562,
+        "3": 29564,
+        "4": 13128,
+        "8": 13124,
+        "9": 2952,
+        "10": 13120,
+        "11": 25440,
+        "12": 22947
       },
       "equipment": {
         "cape": 13124,
@@ -144,12 +205,21 @@
       "variant": "Inventory",
       "tagName": "Chest (Rogues' Castle)",
       "icon": 22081,
+      "completeness": "minimal",
+      "completenessNote": "Deliberately low-risk wilderness setups carry almost nothing.",
       "importString": "banktags,1,Chest (Rogues' Castle),22081,layout,4,22081,5,29784,6,24605,7,8013",
+      "importStringZigzag": "banktags,1,Chest (Rogues' Castle),22081,layout,0,22081,1,24605,8,29784,9,8013",
       "layout": {
         "4": 22081,
         "5": 29784,
         "6": 24605,
         "7": 8013
+      },
+      "layoutZigzag": {
+        "0": 22081,
+        "1": 24605,
+        "8": 29784,
+        "9": 8013
       },
       "equipment": {},
       "inventory": {
@@ -165,7 +235,10 @@
       "variant": "Prayer bonus",
       "tagName": "Chest (Rogues' Castle) Prayer bonus",
       "icon": 12263,
+      "completeness": "minimal",
+      "completenessNote": "Deliberately low-risk wilderness setups carry almost nothing.",
       "importString": "banktags,1,Chest (Rogues' Castle) Prayer bonus,12263,layout,8,25346,10,22947,16,12263,32,19997,33,22954,17,28936,25,28939,34,25252,9,22986,18,13120,1,28933",
+      "importStringZigzag": "banktags,1,Chest (Rogues' Castle) Prayer bonus,12263,layout,0,28933,1,22986,2,28936,3,28939,4,22954,5,22947,8,25346,9,12263,10,13120,11,19997,12,25252",
       "layout": {
         "8": 25346,
         "10": 22947,
@@ -178,6 +251,19 @@
         "9": 22986,
         "18": 13120,
         "1": 28933
+      },
+      "layoutZigzag": {
+        "0": 28933,
+        "1": 22986,
+        "2": 28936,
+        "3": 28939,
+        "4": 22954,
+        "5": 22947,
+        "8": 25346,
+        "9": 12263,
+        "10": 13120,
+        "11": 19997,
+        "12": 25252
       },
       "equipment": {
         "cape": 25346,

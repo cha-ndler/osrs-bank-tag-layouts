@@ -10,7 +10,10 @@
       "variant": "Desired equipment and inventory",
       "tagName": "The Gauntlet Desired equipment and inventory",
       "icon": 23903,
+      "completeness": "minimal",
+      "completenessNote": "Gear and supplies are crafted inside the Gauntlet.",
       "importString": "banktags,1,The Gauntlet Desired equipment and inventory,23903,layout,38,23874,4,23900,5,23884,6,23884,12,23874,14,23874,16,23903,20,23874,28,23874,17,23889,21,23874,25,23892,29,23874,13,23874,15,23874,22,23874,30,23874,36,23874,37,23874,1,23886,39,23874,23,23874,31,23874",
+      "importStringZigzag": "banktags,1,The Gauntlet Desired equipment and inventory,23903,layout,0,23886,1,23889,8,23903,9,23892,16,23900,17,23884,18,23874,19,23874,20,23874,21,23874,22,23874,23,23874,24,23884,25,23874,26,23874,27,23874,28,23874,29,23874,30,23874,31,23874,32,23874,33,23874,40,23874",
       "layout": {
         "38": 23874,
         "4": 23900,
@@ -35,6 +38,31 @@
         "39": 23874,
         "23": 23874,
         "31": 23874
+      },
+      "layoutZigzag": {
+        "0": 23886,
+        "1": 23889,
+        "8": 23903,
+        "9": 23892,
+        "16": 23900,
+        "17": 23884,
+        "18": 23874,
+        "19": 23874,
+        "20": 23874,
+        "21": 23874,
+        "22": 23874,
+        "23": 23874,
+        "24": 23884,
+        "25": 23874,
+        "26": 23874,
+        "27": 23874,
+        "28": 23874,
+        "29": 23874,
+        "30": 23874,
+        "31": 23874,
+        "32": 23874,
+        "33": 23874,
+        "40": 23874
       },
       "equipment": {
         "weapon": 23903,
@@ -70,7 +98,10 @@
       "variant": "Desired equipment and inventory (2)",
       "tagName": "The Gauntlet Desired equipment and inventory (2)",
       "icon": 23903,
+      "completeness": "minimal",
+      "completenessNote": "Gear and supplies are crafted inside the Gauntlet.",
       "importString": "banktags,1,The Gauntlet Desired equipment and inventory (2),23903,layout,4,23899,5,23884,6,23884,12,23874,14,23874,16,23903,13,23874",
+      "importStringZigzag": "banktags,1,The Gauntlet Desired equipment and inventory (2),23903,layout,0,23903,16,23899,17,23884,18,23874,24,23884,25,23874,26,23874",
       "layout": {
         "4": 23899,
         "5": 23884,
@@ -79,6 +110,15 @@
         "14": 23874,
         "16": 23903,
         "13": 23874
+      },
+      "layoutZigzag": {
+        "0": 23903,
+        "16": 23899,
+        "17": 23884,
+        "18": 23874,
+        "24": 23884,
+        "25": 23874,
+        "26": 23874
       },
       "equipment": {
         "weapon": 23903
@@ -98,7 +138,10 @@
       "variant": "Desired equipment and inventory (3)",
       "tagName": "The Gauntlet Desired equipment and inventory (3)",
       "icon": 23857,
+      "completeness": "minimal",
+      "completenessNote": "Gear and supplies are crafted inside the Gauntlet.",
       "importString": "banktags,1,The Gauntlet Desired equipment and inventory (3),23857,layout,38,23874,46,23874,4,23854,5,23884,6,23884,7,23884,12,23874,14,23874,16,23857,20,23874,28,23874,17,23844,21,23874,25,23847,29,23874,13,23874,15,23874,22,23874,30,23874,36,23874,44,23874,47,23874,37,23874,45,23874,1,23841,39,23874,23,23874,31,23874",
+      "importStringZigzag": "banktags,1,The Gauntlet Desired equipment and inventory (3),23857,layout,0,23841,1,23844,8,23857,9,23847,16,23854,17,23884,18,23874,19,23874,20,23874,21,23874,22,23874,23,23874,24,23884,25,23884,26,23874,27,23874,28,23874,29,23874,30,23874,31,23874,32,23874,33,23874,34,23874,35,23874,40,23874,41,23874,42,23874,43,23874",
       "layout": {
         "38": 23874,
         "46": 23874,
@@ -128,6 +171,36 @@
         "39": 23874,
         "23": 23874,
         "31": 23874
+      },
+      "layoutZigzag": {
+        "0": 23841,
+        "1": 23844,
+        "8": 23857,
+        "9": 23847,
+        "16": 23854,
+        "17": 23884,
+        "18": 23874,
+        "19": 23874,
+        "20": 23874,
+        "21": 23874,
+        "22": 23874,
+        "23": 23874,
+        "24": 23884,
+        "25": 23884,
+        "26": 23874,
+        "27": 23874,
+        "28": 23874,
+        "29": 23874,
+        "30": 23874,
+        "31": 23874,
+        "32": 23874,
+        "33": 23874,
+        "34": 23874,
+        "35": 23874,
+        "40": 23874,
+        "41": 23874,
+        "42": 23874,
+        "43": 23874
       },
       "equipment": {
         "weapon": 23857,
@@ -168,7 +241,10 @@
       "variant": "Desired equipment and inventory (4)",
       "tagName": "The Gauntlet Desired equipment and inventory (4)",
       "icon": 23857,
+      "completeness": "minimal",
+      "completenessNote": "Gear and supplies are crafted inside the Gauntlet.",
       "importString": "banktags,1,The Gauntlet Desired equipment and inventory (4),23857,layout,4,23852,5,23884,6,23884,12,23874,14,23874,16,23857,17,23843,25,23846,13,23874,15,23874,1,23840",
+      "importStringZigzag": "banktags,1,The Gauntlet Desired equipment and inventory (4),23857,layout,0,23840,1,23843,8,23857,9,23846,16,23852,17,23884,18,23874,19,23874,24,23884,25,23874,26,23874",
       "layout": {
         "4": 23852,
         "5": 23884,
@@ -181,6 +257,19 @@
         "13": 23874,
         "15": 23874,
         "1": 23840
+      },
+      "layoutZigzag": {
+        "0": 23840,
+        "1": 23843,
+        "8": 23857,
+        "9": 23846,
+        "16": 23852,
+        "17": 23884,
+        "18": 23874,
+        "19": 23874,
+        "24": 23884,
+        "25": 23874,
+        "26": 23874
       },
       "equipment": {
         "weapon": 23857,

@@ -4,7 +4,7 @@ Bank tag layouts for Old School RuneScape bosses, raids and activities,
 generated automatically from the [OSRS Wiki](https://oldschool.runescape.wiki/)
 strategy pages.
 
-**333 layouts across 99 activities.** Browse and copy them at
+**330 layouts across 99 activities, in both plugin layout styles.** Browse and copy them at
 [the GitHub Pages site](https://cha-ndler.github.io/osrs-bank-tag-layouts/), or
 consume `data/*.json` directly.
 
@@ -26,9 +26,34 @@ only ever wired up on a single page. This repository closes that gap.
 2. In game, right-click the **New tag tab** button in your bank.
 3. Choose **Import tag tab**.
 
-Worn gear lands in the left three columns, laid out like the equipment screen.
-Column four is left blank as a spacer. The 28 inventory slots fill columns five
-through eight in their normal 4-wide shape.
+### Layout styles
+
+The Bank Tag Layouts plugin supports two arrangements, and both are published
+for every layout. Pick one with the toggle on the site.
+
+- **Presets** (`importString`, `layout`) — worn gear in the left three columns,
+  shaped like the equipment screen, column four blank as a spacer, and the 28
+  inventory slots filling columns five to eight in their normal 4-wide shape.
+- **Zigzag** (`importStringZigzag`, `layoutZigzag`) — the plugin's own default.
+  Items pack two per column across row pairs (0, 8, 1, 9, 2, 10 …), gear first,
+  then inventory, then the rune pouch laid out linearly.
+
+Both describe the same items; only the positions differ. The zigzag generator is
+a direct port of `LayoutGenerator.toZigZagIndex`, and a test pins the index
+sequence against values traced from the plugin.
+
+### Completeness
+
+Each variant carries a `completeness` field:
+
+- `complete` — at least 8 gear slots and 10 inventory items.
+- `minimal` — genuinely small, with a `completenessNote` explaining why
+  (Tempoross needs four items; the Gauntlet's gear is crafted inside).
+- `partial` — fewer items than expected and not a known-small activity, so the
+  wiki page may not list a full loadout.
+
+`validate.py` holds the complete-ratio at or above a recorded baseline and fails
+the build if it drops, which is what stops a parser regression shipping quietly.
 
 ## Data format
 

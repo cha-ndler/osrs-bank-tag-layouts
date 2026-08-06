@@ -10,7 +10,10 @@
       "variant": "Solo cooking (mix of XP and permits)",
       "tagName": "Tempoross Solo cooking (mix of XP and permits)",
       "icon": 21031,
+      "completeness": "minimal",
+      "completenessNote": "Tempoross needs only a few items; supplies come from the fight.",
       "importString": "banktags,1,Tempoross Solo cooking (mix of XP and permits),21031,layout,4,1929,5,1929,6,1929,7,1929,16,21031,33,25598,17,25594,25,25596,18,29775,1,25592",
+      "importStringZigzag": "banktags,1,Tempoross Solo cooking (mix of XP and permits),21031,layout,0,25592,1,25594,2,25596,8,21031,9,29775,10,25598,16,1929,17,1929,24,1929,25,1929",
       "layout": {
         "4": 1929,
         "5": 1929,
@@ -22,6 +25,18 @@
         "25": 25596,
         "18": 29775,
         "1": 25592
+      },
+      "layoutZigzag": {
+        "0": 25592,
+        "1": 25594,
+        "2": 25596,
+        "8": 21031,
+        "9": 29775,
+        "10": 25598,
+        "16": 1929,
+        "17": 1929,
+        "24": 1929,
+        "25": 1929
       },
       "equipment": {
         "weapon": 21031,
@@ -44,7 +59,10 @@
       "variant": "Solo cooking + firefighting (max permits)",
       "tagName": "Tempoross Solo cooking + firefighting (max permits)",
       "icon": 11787,
+      "completeness": "minimal",
+      "completenessNote": "Tempoross needs only a few items; supplies come from the fight.",
       "importString": "banktags,1,Tempoross Solo cooking + firefighting (max permits),11787,layout,4,2347,5,1929,6,1929,7,1929,12,1929,14,1929,16,11787,40,9075,33,25598,41,554,17,25594,25,25596,34,25975,42,555,13,1929,15,954,18,29775,55,12791,1,25592",
+      "importStringZigzag": "banktags,1,Tempoross Solo cooking + firefighting (max permits),11787,layout,0,25592,1,25594,2,25596,3,25975,8,11787,9,29775,10,25598,16,2347,17,1929,18,1929,19,1929,20,12791,24,1929,25,1929,26,1929,27,954,32,9075,33,554,34,555",
       "layout": {
         "4": 2347,
         "5": 1929,
@@ -65,6 +83,27 @@
         "18": 29775,
         "55": 12791,
         "1": 25592
+      },
+      "layoutZigzag": {
+        "0": 25592,
+        "1": 25594,
+        "2": 25596,
+        "3": 25975,
+        "8": 11787,
+        "9": 29775,
+        "10": 25598,
+        "16": 2347,
+        "17": 1929,
+        "18": 1929,
+        "19": 1929,
+        "20": 12791,
+        "24": 1929,
+        "25": 1929,
+        "26": 1929,
+        "27": 954,
+        "32": 9075,
+        "33": 554,
+        "34": 555
       },
       "equipment": {
         "weapon": 11787,
@@ -97,7 +136,10 @@
       "variant": "Solo cooking 5 rounds (mix of XP and permits)",
       "tagName": "Tempoross Solo cooking 5 rounds (mix of XP and permits)",
       "icon": 21028,
+      "completeness": "minimal",
+      "completenessNote": "Tempoross needs only a few items; supplies come from the fight.",
       "importString": "banktags,1,Tempoross Solo cooking 5 rounds (mix of XP and permits),21028,layout,4,1929,16,21028,33,25598,17,25594,25,25596,18,29775,1,25592",
+      "importStringZigzag": "banktags,1,Tempoross Solo cooking 5 rounds (mix of XP and permits),21028,layout,0,25592,1,25594,2,25596,8,21028,9,29775,10,25598,16,1929",
       "layout": {
         "4": 1929,
         "16": 21028,
@@ -106,6 +148,15 @@
         "25": 25596,
         "18": 29775,
         "1": 25592
+      },
+      "layoutZigzag": {
+        "0": 25592,
+        "1": 25594,
+        "2": 25596,
+        "8": 21028,
+        "9": 29775,
+        "10": 25598,
+        "16": 1929
       },
       "equipment": {
         "weapon": 21028,
@@ -125,7 +176,10 @@
       "variant": "Solo no cooking (max XP)",
       "tagName": "Tempoross Solo no cooking (max XP)",
       "icon": 23762,
+      "completeness": "minimal",
+      "completenessNote": "Tempoross needs only a few items; supplies come from the fight.",
       "importString": "banktags,1,Tempoross Solo no cooking (max XP),23762,layout,4,954,16,23762,40,9075,33,25598,41,554,17,25594,25,25596,34,23943,42,555,18,20714,55,12791,1,25592",
+      "importStringZigzag": "banktags,1,Tempoross Solo no cooking (max XP),23762,layout,0,25592,1,25594,2,25596,3,23943,8,23762,9,20714,10,25598,16,954,24,12791,32,9075,33,554,34,555",
       "layout": {
         "4": 954,
         "16": 23762,
@@ -139,6 +193,20 @@
         "18": 20714,
         "55": 12791,
         "1": 25592
+      },
+      "layoutZigzag": {
+        "0": 25592,
+        "1": 25594,
+        "2": 25596,
+        "3": 23943,
+        "8": 23762,
+        "9": 20714,
+        "10": 25598,
+        "16": 954,
+        "24": 12791,
+        "32": 9075,
+        "33": 554,
+        "34": 555
       },
       "equipment": {
         "weapon": 23762,

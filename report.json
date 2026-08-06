@@ -1,5 +1,12 @@
 {
-  "layouts": 333,
+  "layouts": 330,
+  "completeRatio": 0.8909,
+  "completenessBaseline": 0.88,
+  "completenessCounts": {
+    "complete": 294,
+    "minimal": 28,
+    "partial": 8
+  },
   "encodeFailures": [],
   "errors": [],
   "roundTripMismatches": [],

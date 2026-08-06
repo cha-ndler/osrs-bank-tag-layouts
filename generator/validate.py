@@ -30,6 +30,17 @@ REPORT = REPO / "report.json"
 
 VALID_POSITIONS = set(LOADOUT_MAP)
 
+# Ratchet. Raise it when the real figure improves; never lower it to make a
+# regression pass.
+COMPLETENESS_BASELINE = 0.88
+
+# Variant names that promise a weapon ("Tbow / Bowfa", "Melee (scythe)").
+WEAPON_HINT_RE = re.compile(
+    r"tbow|bowfa|scythe|shadow|blowpipe|crossbow|halberd|maul|whip|claws|bludgeon|"
+    r"chinchompa|staff|wand|axe|sword|spear|hasta|mace|dagger|bow\b",
+    re.IGNORECASE,
+)
+
 
 def source_name_for(layout_pos: str, source: dict) -> str | None:
     arg = LOADOUT_MAP.get(int(layout_pos))
@@ -137,8 +148,46 @@ def validate() -> int:
     # A part-dose item is only acceptable when the wiki asked for it by name.
     bad_doses = [d for d in dose_flags if not (d["sourceName"] or "").endswith(")")]
 
+    # --- completeness gate -------------------------------------------------
+    # Half the library once shipped with no worn gear at all and nothing caught
+    # it. Hold the ratio at or above the recorded baseline so the next parser
+    # regression fails the build instead of publishing quietly.
+    complete = [e for e in layouts if e.get("completeness") == "complete"]
+    ratio = len(complete) / len(layouts) if layouts else 0
+    gate_errors: list[str] = []
+    if ratio < COMPLETENESS_BASELINE:
+        gate_errors.append(
+            f"complete ratio {ratio:.1%} is below the {COMPLETENESS_BASELINE:.0%} baseline"
+        )
+
+    # A variant that names a weapon must actually carry one.
+    for e in layouts:
+        if e.get("equipment") and "weapon" not in e["equipment"]:
+            if WEAPON_HINT_RE.search(e["variant"]):
+                gate_errors.append(
+                    f"{e['activity']} / {e['variant']}: variant names a weapon "
+                    f"but no weapon slot was extracted"
+                )
+
+    # Both layout styles must describe the same set of items.
+    for e in layouts:
+        presets = sorted(e["layout"].values())
+        zigzag = sorted(e.get("layoutZigzag", {}).values())
+        if presets != zigzag:
+            gate_errors.append(
+                f"{e['activity']} / {e['variant']}: zigzag item multiset differs from presets"
+            )
+
+    errors.extend(gate_errors)
+
     report = {
         "layouts": len(layouts),
+        "completeRatio": round(ratio, 4),
+        "completenessBaseline": COMPLETENESS_BASELINE,
+        "completenessCounts": {
+            status: len([e for e in layouts if e.get("completeness") == status])
+            for status in ("complete", "minimal", "partial")
+        },
         "encodeFailures": data.get("failures", []),
         "errors": errors,
         "roundTripMismatches": unresolved,
@@ -151,6 +200,11 @@ def validate() -> int:
     REPORT.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"validate: {len(layouts)} layouts")
+    print(f"  complete / minimal / partial: "
+          f"{report['completenessCounts']['complete']} / "
+          f"{report['completenessCounts']['minimal']} / "
+          f"{report['completenessCounts']['partial']}  "
+          f"({ratio:.1%}, baseline {COMPLETENESS_BASELINE:.0%})")
     print(f"  structural errors        : {len(errors)}")
     print(f"  round-trip mismatches    : {len(unresolved)}")
     print(f"  part-dose (explicit, ok) : {len(dose_flags) - len(bad_doses)}")

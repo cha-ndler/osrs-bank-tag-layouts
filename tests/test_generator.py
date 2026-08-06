@@ -17,9 +17,12 @@ sys.path.insert(0, str(REPO / "generator"))
 
 from encode import (  # noqa: E402
     LOADOUT_MAP,
+    completeness,
     parse_import_string,
     split_layout,
     tag_name,
+    zigzag_index,
+    zigzag_layout,
 )
 from extract import (  # noqa: E402
     clean_item,
@@ -265,6 +268,64 @@ class TestExtractPairing(unittest.TestCase):
         self.assertEqual([s.variant for s in setups], ["Max"])
 
 
+class TestZigzag(unittest.TestCase):
+    """Port fidelity against LayoutGenerator.toZigZagIndex."""
+
+    def test_index_sequence_matches_the_plugin(self):
+        got = [zigzag_index(i) for i in range(18)]
+        self.assertEqual(
+            got, [0, 8, 1, 9, 2, 10, 3, 11, 4, 12, 5, 13, 6, 14, 7, 15, 16, 24]
+        )
+
+    def test_sixteen_items_fill_exactly_two_rows(self):
+        used = sorted(zigzag_index(i) for i in range(16))
+        self.assertEqual(used, list(range(16)))
+
+    def test_equipment_uses_runelite_slot_order(self):
+        eq = {"head": 1, "cape": 2, "neck": 3, "weapon": 4, "torso": 5}
+        layout = zigzag_layout(eq, {}, {})
+        # head->0, cape->8, neck->1, weapon->9, torso->2
+        self.assertEqual(layout["0"], 1)
+        self.assertEqual(layout["8"], 2)
+        self.assertEqual(layout["1"], 3)
+        self.assertEqual(layout["9"], 4)
+        self.assertEqual(layout["2"], 5)
+
+    def test_rune_pouch_is_linear_not_zigzag(self):
+        layout = zigzag_layout({"head": 1}, {"1": 2}, {"1": 10, "2": 11, "3": 12})
+        rune_positions = sorted(int(p) for p, v in layout.items() if v in (10, 11, 12))
+        self.assertEqual(
+            rune_positions,
+            [rune_positions[0], rune_positions[0] + 1, rune_positions[0] + 2],
+        )
+
+    def test_same_items_as_presets(self):
+        eq = {"head": 1, "cape": 2, "weapon": 3}
+        inv = {str(n): 100 + n for n in range(1, 29)}
+        runes = {"1": 560, "2": 565}
+        zz = zigzag_layout(eq, inv, runes)
+        expected = sorted([1, 2, 3] + [100 + n for n in range(1, 29)] + [560, 565])
+        self.assertEqual(sorted(zz.values()), expected)
+
+
+class TestCompleteness(unittest.TestCase):
+    def test_full_setup_is_complete(self):
+        status, note = completeness("Araxxor", {f"s{i}": i for i in range(11)},
+                                    {str(n): n for n in range(1, 29)})
+        self.assertEqual(status, "complete")
+        self.assertEqual(note, "")
+
+    def test_known_small_activity_is_minimal_with_a_reason(self):
+        status, note = completeness("Tempoross", {"head": 1}, {"1": 2})
+        self.assertEqual(status, "minimal")
+        self.assertTrue(note)
+
+    def test_unexpected_gap_is_partial(self):
+        status, note = completeness("Some Boss", {"head": 1}, {"1": 2})
+        self.assertEqual(status, "partial")
+        self.assertTrue(note)
+
+
 class TestPublishedData(unittest.TestCase):
     """Golden checks against real generated output, when it exists."""
 
@@ -299,10 +360,25 @@ class TestPublishedData(unittest.TestCase):
 
     def test_import_string_is_well_formed(self):
         for v in self.record["variants"]:
-            code = v["importString"]
-            self.assertTrue(code.startswith("banktags,1,"))
-            self.assertIn(",layout,", code)
-            self.assertNotIn(",,", code)
+            for code in (v["importString"], v["importStringZigzag"]):
+                self.assertTrue(code.startswith("banktags,1,"))
+                self.assertIn(",layout,", code)
+                self.assertNotIn(",,", code)
+
+    def test_both_styles_carry_the_same_items(self):
+        for v in self.record["variants"]:
+            self.assertEqual(
+                sorted(v["layout"].values()), sorted(v["layoutZigzag"].values())
+            )
+
+    def test_kreearra_keeps_its_two_handed_weapon(self):
+        path = REPO / "data" / "kreearra.json"
+        if not path.exists():
+            self.skipTest("Kree'arra data not generated")
+        record = json.loads(path.read_text(encoding="utf-8"))
+        tbow = next(v for v in record["variants"] if "Tbow" in v["variant"])
+        # 20997 = Twisted bow, supplied via the `2h1` argument.
+        self.assertEqual(tbow["equipment"].get("weapon"), 20997)
 
 
 if __name__ == "__main__":

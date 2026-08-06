@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-06T00:53:09Z",
+  "generatedAt": "2026-08-06T01:30:47Z",
   "activityCount": 99,
-  "layoutCount": 333,
+  "layoutCount": 330,
   "activities": [
     {
       "activity": "Abyss",
@@ -33,7 +33,7 @@
       "file": "data/alchemical-hydra.json",
       "variantCount": 3,
       "sourceRevId": 15278786,
-      "contentHash": "80c0ab98a86741fa"
+      "contentHash": "0c6c5b7be1d13586"
     },
     {
       "activity": "Amoxliatl",
@@ -41,7 +41,7 @@
       "file": "data/amoxliatl.json",
       "variantCount": 1,
       "sourceRevId": 15278623,
-      "contentHash": "f6bb14ed7fe2f1f8"
+      "contentHash": "5ca027c1b0eafc78"
     },
     {
       "activity": "Aquanite",
@@ -217,7 +217,7 @@
       "file": "data/demonic-brutus.json",
       "variantCount": 1,
       "sourceRevId": 15254767,
-      "contentHash": "1e9ee9d86da46492"
+      "contentHash": "46256bc71cd3ad50"
     },
     {
       "activity": "Demonic gorilla",
@@ -241,7 +241,7 @@
       "file": "data/duke-sucellus.json",
       "variantCount": 1,
       "sourceRevId": 15273458,
-      "contentHash": "e3fadace12146f54"
+      "contentHash": "9858f0e08da89d58"
     },
     {
       "activity": "Ecumenical key",
@@ -257,7 +257,7 @@
       "file": "data/fishing-trawler.json",
       "variantCount": 1,
       "sourceRevId": 15218133,
-      "contentHash": "cc0bea51652ad8bf"
+      "contentHash": "9fc52648921994b2"
     },
     {
       "activity": "Fortis Colosseum",
@@ -329,7 +329,7 @@
       "file": "data/guardians-of-the-rift.json",
       "variantCount": 4,
       "sourceRevId": 15279817,
-      "contentHash": "6eeb9bff0a393d89"
+      "contentHash": "a9adaea9b561a64d"
     },
     {
       "activity": "Hallowed Sepulchre",
@@ -401,7 +401,7 @@
       "file": "data/kraken.json",
       "variantCount": 1,
       "sourceRevId": 15285886,
-      "contentHash": "73257936a752baa2"
+      "contentHash": "0a09fc1294113750"
     },
     {
       "activity": "Kree'arra",
@@ -409,7 +409,7 @@
       "file": "data/kreearra.json",
       "variantCount": 5,
       "sourceRevId": 15265160,
-      "contentHash": "6a3daa5317181198"
+      "contentHash": "4af03fc72e256005"
     },
     {
       "activity": "Krystilia",
@@ -425,7 +425,7 @@
       "file": "data/lizardman-shaman.json",
       "variantCount": 5,
       "sourceRevId": 15271673,
-      "contentHash": "d41d0938be2944d1"
+      "contentHash": "f664173fd9e17126"
     },
     {
       "activity": "Mad Angel",
@@ -495,9 +495,9 @@
       "activity": "Phantom Muspah",
       "slug": "phantom-muspah",
       "file": "data/phantom-muspah.json",
-      "variantCount": 5,
+      "variantCount": 3,
       "sourceRevId": 15286618,
-      "contentHash": "6a3b0463294885ad"
+      "contentHash": "d06d3ec2ae1ae5a1"
     },
     {
       "activity": "Phosani's Nightmare",
@@ -553,7 +553,7 @@
       "file": "data/scorpia.json",
       "variantCount": 1,
       "sourceRevId": 15244110,
-      "contentHash": "cbae5580a894a1e7"
+      "contentHash": "09e40eec80235dd7"
     },
     {
       "activity": "Scurrius",
@@ -665,7 +665,7 @@
       "file": "data/the-whisperer.json",
       "variantCount": 1,
       "sourceRevId": 15283510,
-      "contentHash": "89295be921c36cc6"
+      "contentHash": "f17106aa0d539c4b"
     },
     {
       "activity": "Theatre of Blood",
@@ -729,7 +729,7 @@
       "file": "data/vardorvis.json",
       "variantCount": 2,
       "sourceRevId": 15283593,
-      "contentHash": "ad08c1d23c82d641"
+      "contentHash": "f6090f2553d37a27"
     },
     {
       "activity": "Venenatis",
@@ -743,9 +743,9 @@
       "activity": "Vet'ion",
       "slug": "vetion",
       "file": "data/vetion.json",
-      "variantCount": 3,
+      "variantCount": 2,
       "sourceRevId": 15272964,
-      "contentHash": "0454da55be88d9ef"
+      "contentHash": "df2f7b9465d4cd75"
     },
     {
       "activity": "Vorkath",
@@ -777,7 +777,7 @@
       "file": "data/yama.json",
       "variantCount": 13,
       "sourceRevId": 15287750,
-      "contentHash": "d419e211909b071e"
+      "contentHash": "5c7465c91516690c"
     },
     {
       "activity": "Zalcano",

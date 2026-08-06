@@ -58,6 +58,36 @@ def activity_name(page: str) -> str:
 
 MAX_TAG_NAME = 60
 
+# A setup counts as complete with most gear slots filled and a real inventory.
+COMPLETE_EQUIPMENT = 8
+COMPLETE_INVENTORY = 10
+
+# Activities whose setups are genuinely small. Without this, a correct
+# four-item Tempoross layout is indistinguishable from a parsing failure.
+MINIMAL_ACTIVITIES = {
+    "Tempoross": "Tempoross needs only a few items; supplies come from the fight.",
+    "The Gauntlet": "Gear and supplies are crafted inside the Gauntlet.",
+    "Wintertodt": "Warm clothing plus a few tools is the whole setup.",
+    "Guardians of the Rift": "Essence and a couple of tools; the rest is gathered inside.",
+    "Chest (Rogues' Castle)": "Deliberately low-risk wilderness setups carry almost nothing.",
+    "Vale Totems": "The page documents routes rather than a full loadout.",
+    "Nightmare Zone": "Absorptions and a few potions by design.",
+    "Barbarian Assault": "Minigame supplies are provided inside.",
+    "Fishing Trawler": "Minigame; almost nothing is brought in.",
+    "Hunters' Rumours": "A few tools and traps rather than a combat loadout.",
+    "Moons of Peril": "Per-boss weapon tables; the shared armour is on the other variants.",
+}
+
+
+def completeness(activity: str, equipment: dict, inventory: dict) -> tuple[str, str]:
+    """(status, note) - `complete`, `minimal` (small on purpose) or `partial`."""
+    if len(equipment) >= COMPLETE_EQUIPMENT and len(inventory) >= COMPLETE_INVENTORY:
+        return "complete", ""
+    note = MINIMAL_ACTIVITIES.get(activity)
+    if note:
+        return "minimal", note
+    return "partial", "Fewer items than a typical setup; the wiki page may not list a full loadout."
+
 
 def tag_name(activity: str, variant: str) -> str:
     variant = (variant or "").strip()
@@ -146,6 +176,60 @@ def split_layout(layout: dict[str, int]) -> tuple[dict[str, int], dict[str, int]
     return equipment, inventory, runes
 
 
+# RuneLite EquipmentInventorySlot order, which is the order the plugin walks
+# worn items in. Not the order our JSON happens to store them.
+ZIGZAG_EQUIPMENT_ORDER = (
+    "head", "cape", "neck", "weapon", "torso", "shield",
+    "legs", "gloves", "boots", "ring", "ammo", "ammo2",
+)
+
+
+def zigzag_index(i: int) -> int:
+    """Port of LayoutGenerator.toZigZagIndex.
+
+    Items fill a two-row block column by column: 0, 8, 1, 9, 2, 10 ... so a
+    16-item run covers exactly two rows of the 8-wide bank grid.
+    """
+    row = (i // 16) * 2
+    j = i - (i // 16) * 16
+    return (0 if j % 2 == 0 else 8) + (j // 2) + row * 8
+
+
+def _place(items: list[int], layout: dict[int, int], i: int, use_zigzag: bool) -> int:
+    """Port of LayoutGenerator.layoutItems, including its cursor advance."""
+    for item_id in items:
+        layout[zigzag_index(i) if use_zigzag else i] = item_id
+        i += 1
+    if items and layout:
+        highest = max(layout)
+        # After a group the cursor jumps to the next row-pair (zigzag) or the
+        # next row (linear), which is what keeps groups visually separated.
+        i = (highest // 16 * 2 + 2) * 8 if use_zigzag else (highest // 8 + 1) * 8
+    return i
+
+
+def zigzag_layout(equipment: dict[str, int], inventory: dict[str, int],
+                  runes: dict[str, int]) -> dict[str, int]:
+    """Build the plugin's ZIGZAG arrangement from resolved item ids."""
+    worn = [equipment[s] for s in ZIGZAG_EQUIPMENT_ORDER if equipment.get(s)]
+    inv = [inventory[str(n)] for n in range(1, 29) if inventory.get(str(n))]
+    pouch = [runes[str(n)] for n in range(1, 5) if runes.get(str(n))]
+
+    layout: dict[int, int] = {}
+    i = _place(worn, layout, 0, True)
+    i = _place(inv, layout, i, True)
+    # The plugin lays the rune pouch out linearly, not zigzag.
+    _place(pouch, layout, i, False)
+    return {str(k): v for k, v in sorted(layout.items())}
+
+
+def build_import_string(tag_name_: str, icon: int, layout: dict[str, int]) -> str:
+    parts = ["banktags", "1", tag_name_, str(icon), "layout"]
+    for pos, item_id in sorted(layout.items(), key=lambda kv: int(kv[0])):
+        parts.extend([pos, str(item_id)])
+    return ",".join(parts)
+
+
 def choose_icon(setup: dict) -> str:
     """A recognisable tab icon: the weapon, else the first inventory item."""
     weapon = setup["equipment"].get("weapon")
@@ -228,6 +312,8 @@ def main() -> None:
                 failures.append(f"{job['page']} / {job['variant']}: empty layout")
                 continue
             equipment, inventory, runes = split_layout(layout)
+            zigzag = zigzag_layout(equipment, inventory, runes)
+            status, note = completeness(job["activity"], equipment, inventory)
             results.append(
                 {
                     "activity": job["activity"],
@@ -237,7 +323,15 @@ def main() -> None:
                     "tagName": job["tagName"],
                     "icon": int(code.split(",")[3]) if code.split(",")[3].isdigit() else 0,
                     "importString": code,
+                    "importStringZigzag": build_import_string(
+                        job["tagName"],
+                        int(code.split(",")[3]) if code.split(",")[3].isdigit() else 0,
+                        zigzag,
+                    ),
                     "layout": layout,
+                    "layoutZigzag": zigzag,
+                    "completeness": status,
+                    "completenessNote": note,
                     "equipment": equipment,
                     "inventory": inventory,
                     "runes": runes,

@@ -53,10 +53,19 @@ RECOMMENDED_SLOT_MAP = {
     "hands": "gloves",
     "feet": "boots",
     "ring": "ring",
+    # Two-handers live under `2h`, not `weapon`. Missing this cost Kree'arra its
+    # Twisted bow on a variant literally named "Tbow / Bowfa".
+    "2h": "weapon",
     # `special` lists spec-attack weapons, which have no worn slot to occupy.
 }
 
-RANKED_SLOT_RE = re.compile(r"^(?P<slot>[a-z]+?)(?P<rank>\d*)$")
+# A slot name may start with a digit ("2h"), so the leading class cannot be
+# letters-only. The rank is always the trailing digits.
+RANKED_SLOT_RE = re.compile(r"^(?P<slot>[a-z0-9]+?)(?P<rank>\d*)$")
+
+# When a page lists both `weapon1` and `2h1` they are alternatives at equal
+# rank; prefer the one-handed entry so the shield slot stays meaningful.
+SLOT_SOURCE_PRIORITY = {"weapon": 0, "2h": 1}
 PLINK_RE = re.compile(r"\{\{\s*plink[a-z]*\b", re.IGNORECASE)
 
 HEADING_RE = re.compile(r"(?m)^(=+)\s*(.+?)\s*\1\s*$")
@@ -147,21 +156,23 @@ def plink_item(value: str) -> str:
 
 def recommended_equipment(args: dict[str, str]) -> dict[str, str]:
     """Best-ranked item per slot from a {{Recommended equipment}} block."""
-    best: dict[str, tuple[int, str]] = {}
+    best: dict[str, tuple[int, int, str]] = {}
     for key, raw in args.items():
         m = RANKED_SLOT_RE.match(key)
         if not m:
             continue
-        slot = RECOMMENDED_SLOT_MAP.get(m.group("slot"))
+        source = m.group("slot")
+        slot = RECOMMENDED_SLOT_MAP.get(source)
         if not slot:
             continue
         rank = int(m.group("rank")) if m.group("rank") else 1
         item = plink_item(raw)
         if not item:
             continue
-        if slot not in best or rank < best[slot][0]:
-            best[slot] = (rank, item)
-    return {slot: item for slot, (_, item) in best.items()}
+        candidate = (rank, SLOT_SOURCE_PRIORITY.get(source, 0), item)
+        if slot not in best or candidate[:2] < best[slot][:2]:
+            best[slot] = candidate
+    return {slot: item for slot, (_, _, item) in best.items()}
 
 
 def split_args(body: str) -> list[str]:
@@ -351,6 +362,85 @@ def _slots(occ: Occurrence | None, keys, limit: int | None = None) -> dict[str, 
     return out
 
 
+def _merge_shared(setups: list[Setup]) -> list[Setup]:
+    """Join gear-only and inventory-only runs that belong to each other.
+
+    Pages share one half across several of the other, in both directions:
+
+    * **N gear, 1 inventory** - Abyss tabs two gear sets then gives a single
+      ``===Inventory===`` for both; Gemstone Crab tabs four melee tiers then one
+      ``====Melee inventory====``.
+    * **1 gear, N inventories** - Vardorvis has one gear table then Normal and
+      Awakened inventories; Lizardman shaman has one per combat style then an
+      inventory per location.
+
+    Runs must be adjacent in document order; anything already complete resets
+    the pairing so a finished setup never steals a later inventory.
+    """
+    runs: list[tuple[str, list[Setup]]] = []
+    for setup in setups:
+        if setup.equipment and not setup.inventory:
+            kind = "gear"
+        elif setup.inventory and not setup.equipment:
+            kind = "inv"
+        else:
+            kind = "both"
+        if runs and runs[-1][0] == kind:
+            runs[-1][1].append(setup)
+        else:
+            runs.append((kind, [setup]))
+
+    out: list[Setup] = []
+    i = 0
+    while i < len(runs):
+        kind, group = runs[i]
+        nxt = runs[i + 1] if i + 1 < len(runs) else None
+
+        if kind == "gear" and nxt and nxt[0] == "inv":
+            gears, invs = group, nxt[1]
+            if len(gears) == 1:
+                # One gear set, several inventories: every inventory keeps its
+                # own name and inherits the shared gear.
+                for inv in invs:
+                    inv.equipment = dict(gears[0].equipment)
+                out.extend(invs)
+            elif len(invs) == 1:
+                for gear in gears:
+                    gear.inventory = dict(invs[0].inventory)
+                    if not gear.runes:
+                        gear.runes = dict(invs[0].runes)
+                out.extend(gears)
+            elif len(gears) == len(invs):
+                for gear, inv in zip(gears, invs):
+                    gear.inventory = dict(inv.inventory)
+                    if not gear.runes:
+                        gear.runes = dict(inv.runes)
+                out.extend(gears)
+            else:
+                # Ambiguous counts: keep both rather than guess a pairing.
+                out.extend(gears)
+                out.extend(invs)
+            i += 2
+            continue
+
+        out.extend(group)
+        i += 1
+
+    # Last resort: an inventory that still has no gear inherits it from the
+    # nearest preceding setup that does. Pages such as Lizardman shaman give one
+    # gear table per combat style and then an inventory per location, and the
+    # first of those locations consumes the table during scope-local pairing,
+    # orphaning the rest. Only fires when gear exists earlier on the page, so
+    # genuinely gearless activities (Vale Totems) are left alone.
+    carried: dict[str, str] = {}
+    for setup in out:
+        if setup.equipment:
+            carried = setup.equipment
+        elif carried:
+            setup.equipment = dict(carried)
+    return out
+
+
 def extract_page(title: str, text: str) -> tuple[list[Setup], list[str]]:
     occurrences = find_occurrences(text)
     scopes = build_scopes(text)
@@ -461,25 +551,7 @@ def extract_page(title: str, text: str) -> tuple[list[Setup], list[str]]:
     # inventory====). Scope-local pairing cannot see across that boundary, so
     # fold each shared inventory back onto the gear variants it follows.
     setups.sort(key=lambda s: s.order)
-    absorbed: list[Setup] = []
-    pending: list[Setup] = []
-    for setup in setups:
-        if setup.equipment and not setup.inventory:
-            pending.append(setup)
-        elif setup.inventory and not setup.equipment:
-            if pending:
-                for gear in pending:
-                    gear.inventory = dict(setup.inventory)
-                    if not gear.runes:
-                        gear.runes = dict(setup.runes)
-                absorbed.append(setup)
-                pending = []
-        else:
-            pending = []
-    if absorbed:
-        # Identity, not equality: two setups can be value-identical.
-        dropped = {id(s) for s in absorbed}
-        setups = [s for s in setups if id(s) not in dropped]
+    setups = _merge_shared(setups)
 
     # Many pages carry a {{Recommended equipment}} table in an ==Equipment==
     # section *and* full setups further down that already reflect it. Once the
