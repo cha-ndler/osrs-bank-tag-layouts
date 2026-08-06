@@ -86,7 +86,7 @@ the build if it drops, which is what stops a parser regression shipping quietly.
 ## How it works
 
 ```
-discover → extract → encode → validate → publish
+discover → extract → overrides → encode → validate → publish
 ```
 
 - **discover** — finds every article-space page transcluding `Template:Inventory`
@@ -98,6 +98,8 @@ discover → extract → encode → validate → publish
   several shapes: tabbers (Doom, Zulrah), wikitables whose header cells name the
   variants (Chambers of Xeric), and a tabbed set of gear variants followed by one
   shared inventory in a sibling section (Abyss, Gemstone Crab).
+- **overrides** — applies the curated corrections in `overrides.json` (see below).
+  Nothing else in the pipeline second-guesses the wiki.
 - **encode** — hands a synthesised `{{Loadout}}` call back to the wiki through
   `action=expandtemplates`, so `Module:Loadout` does the name-to-id resolution.
   No second implementation to keep in sync.
@@ -118,6 +120,23 @@ literally called that and the page it points at is a numbered family, in which
 case the highest number wins. When an exact item exists the wiki is already
 unambiguous and is left alone — which is why setups that explicitly ask for a
 `Ranging potion(3)` still get one. Every rewrite is logged to `report.json`.
+
+### When the wiki is out of date
+
+Extraction is faithful on purpose: it publishes what the strategy page says, even
+when the page has fallen behind the game. `Abyss/Strategies` still lists a small,
+medium, large *and* giant pouch, and never mentions the colossal pouch — which is
+made by stitching those four together, consuming them, and holds 40 essence in
+one slot against 30 across four.
+
+Corrections therefore live in **`overrides.json`**, applied by a separate stage,
+never folded into the parser. Each entry states the items it replaces and **why**,
+and affected layouts are badged `curated` on the site with that reason, so a
+correction is never passed off as the wiki's own answer.
+
+The file is designed to clean itself up. An override that matches nothing —
+because the wiki has caught up — **fails the build**, which forces the entry to be
+deleted rather than left to become a second source of staleness.
 
 ### Two equipment templates
 

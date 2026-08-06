@@ -33,6 +33,14 @@ from extract import (  # noqa: E402
     recommended_equipment,
     split_args,
 )
+from overrides import (  # noqa: E402
+    apply_overrides,
+    replace_in_inventory,
+    targets,
+)
+
+# Injected instead of the real wiki slot index so nothing here needs the network.
+TWO_HANDED = {"tumeken's shadow", "scythe of vitur", "twisted bow"}
 
 # Injected instead of the real wiki slot index so nothing here needs the network.
 TWO_HANDED = {"tumeken's shadow", "scythe of vitur", "twisted bow"}
@@ -361,6 +369,77 @@ class TestTwoHandedOffhand(unittest.TestCase):
         self.assertEqual(equipment["shield"], "Avernic defender")
 
 
+class TestOverrides(unittest.TestCase):
+    """Curated corrections, kept separate from the faithful extraction."""
+
+    RULE = {
+        "activity": "Abyss",
+        "variants": "*",
+        "reason": "The colossal pouch is made from the four smaller ones.",
+        "inventory": {
+            "replaceAll": ["Small pouch", "Medium pouch", "Large pouch", "Giant pouch"],
+            "with": ["Colossal pouch"],
+        },
+    }
+
+    def _page(self, inventory):
+        return [
+            {
+                "page": "Abyss/Strategies",
+                "setups": [{"variant": "Defensive", "equipment": {}, "inventory": inventory,
+                            "runes": {}}],
+            }
+        ]
+
+    def test_replacement_takes_the_first_slot_and_gaps_close(self):
+        inventory = {"1": "Giant pouch", "2": "Large pouch", "3": "Pure essence",
+                     "4": "Small pouch", "5": "Medium pouch", "6": "Pure essence"}
+        out = replace_in_inventory(
+            inventory, self.RULE["inventory"]["replaceAll"], ["Colossal pouch"]
+        )
+        self.assertEqual(
+            out, {"1": "Colossal pouch", "2": "Pure essence", "3": "Pure essence"}
+        )
+        # Contiguous: a tab with holes in it looks like a parsing failure.
+        self.assertEqual(list(out), [str(n) for n in range(1, len(out) + 1)])
+
+    def test_a_partial_match_is_not_applied(self):
+        # Missing the giant pouch: the rule no longer describes this setup, and
+        # applying half of it would produce something the wiki never said.
+        inventory = {"1": "Small pouch", "2": "Medium pouch", "3": "Large pouch"}
+        self.assertIsNone(
+            replace_in_inventory(
+                inventory, self.RULE["inventory"]["replaceAll"], ["Colossal pouch"]
+            )
+        )
+
+    def test_applying_marks_the_setup_and_records_the_reason(self):
+        pages = self._page({"1": "Small pouch", "2": "Medium pouch",
+                            "3": "Large pouch", "4": "Giant pouch"})
+        changed, stale = apply_overrides(pages, [self.RULE])
+        setup = pages[0]["setups"][0]
+        self.assertEqual(changed, 1)
+        self.assertEqual(stale, [])
+        self.assertTrue(setup["curated"])
+        self.assertIn("colossal", setup["curationReason"].lower())
+
+    def test_an_override_that_matches_nothing_is_reported(self):
+        # This is what makes the file self-cleaning: once the wiki catches up the
+        # rule stops matching, validation fails, and it gets deleted rather than
+        # rotting into a second source of staleness.
+        pages = self._page({"1": "Colossal pouch", "2": "Pure essence"})
+        changed, stale = apply_overrides(pages, [self.RULE])
+        self.assertEqual(changed, 0)
+        self.assertEqual(len(stale), 1)
+        self.assertIn("Abyss", stale[0])
+
+    def test_a_rule_only_touches_the_variants_it_names(self):
+        rule = dict(self.RULE, variants=["Graceful"])
+        self.assertFalse(targets(rule, "Abyss", "Defensive"))
+        self.assertTrue(targets(rule, "Abyss", "Graceful"))
+        self.assertFalse(targets(rule, "Zulrah", "Graceful"))
+
+
 class TestZigzag(unittest.TestCase):
     """Port fidelity against LayoutGenerator.toZigZagIndex."""
 
@@ -501,6 +580,25 @@ class TestPublishedData(unittest.TestCase):
                     12926,
                     f"{path.stem} / {variant['variant']} wears a blowpipe as an off-hand",
                 )
+
+    def test_abyss_carries_a_colossal_pouch_not_the_four_it_replaces(self):
+        path = REPO / "data" / "abyss.json"
+        if not path.exists():
+            self.skipTest("Abyss data not generated")
+        record = json.loads(path.read_text(encoding="utf-8"))
+        # 5509/5511/5513/5515 are the small, medium, large and giant pouches -
+        # consumed when the colossal pouch is made, so they cannot coexist.
+        superseded = {5509, 5510, 5511, 5512, 5513, 5514, 5515, 6819}
+        colossal = {26784, 26786, 26906}
+        for variant in record["variants"]:
+            ids = set(variant["layout"].values())
+            self.assertTrue(ids & colossal, f"{variant['variant']} has no colossal pouch")
+            self.assertFalse(
+                ids & superseded,
+                f"{variant['variant']} still carries a superseded pouch",
+            )
+            self.assertTrue(variant["curated"])
+            self.assertTrue(variant["curationReason"])
 
     def test_kreearra_keeps_its_two_handed_weapon(self):
         path = REPO / "data" / "kreearra.json"

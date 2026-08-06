@@ -38,6 +38,8 @@
         "24": 1929,
         "25": 1929
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "weapon": 21031,
         "boots": 25598,
@@ -105,6 +107,8 @@
         "33": 554,
         "34": 555
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "weapon": 11787,
         "boots": 25598,
@@ -158,6 +162,8 @@
         "10": 25598,
         "16": 1929
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "weapon": 21028,
         "boots": 25598,
@@ -208,6 +214,8 @@
         "33": 554,
         "34": 555
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "weapon": 23762,
         "boots": 25598,

@@ -266,6 +266,8 @@ def main() -> None:
                     "tagName": name,
                     "sourceNames": normalized,
                     "notes": notes,
+                    "curated": setup.get("curated", False),
+                    "curationReason": setup.get("curationReason", ""),
                 }
             )
 
@@ -332,6 +334,8 @@ def main() -> None:
                     "layoutZigzag": zigzag,
                     "completeness": status,
                     "completenessNote": note,
+                    "curated": job["curated"],
+                    "curationReason": job["curationReason"],
                     "equipment": equipment,
                     "inventory": inventory,
                     "runes": runes,

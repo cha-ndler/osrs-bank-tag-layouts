@@ -44,6 +44,8 @@
         "16": 2347,
         "24": 31043
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 9769,
         "ammo": 22947,

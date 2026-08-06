@@ -74,6 +74,8 @@
         "32": 23387,
         "40": 23184
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 21791,
         "ammo": 22947,
@@ -197,6 +199,8 @@
         "43": 7060,
         "44": 23387
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 6570,
         "ammo": 22947,
@@ -312,6 +316,8 @@
         "33": 23184,
         "40": 23387
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 28951,
         "ammo": 11212,

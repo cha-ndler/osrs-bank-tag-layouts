@@ -60,6 +60,8 @@
         "24": 5952,
         "25": 5952
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {},
       "inventory": {
         "19": 5952,
@@ -161,6 +163,8 @@
         "33": 952,
         "40": 5952
       },
+      "curated": false,
+      "curationReason": "",
       "equipment": {
         "cape": 6570,
         "ammo": 22947,

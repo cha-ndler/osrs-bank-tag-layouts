@@ -63,6 +63,10 @@ jobs:
                       sys.exit(f"{path.name}/{variant['variant']}: comma in tag name")
                   if sorted(variant["layout"].values()) != sorted(variant["layoutZigzag"].values()):
                       sys.exit(f"{path.name}/{variant['variant']}: layout styles disagree")
+                  # A layout that departs from the wiki must say why, or the
+                  # library is quietly asserting something the source does not.
+                  if variant.get("curated") and not variant.get("curationReason"):
+                      sys.exit(f"{path.name}/{variant['variant']}: curated with no reason")
           if total != index["layoutCount"]:
               sys.exit(f"index lists {index['layoutCount']} layouts but data/ has {total}")
           print(f"ok: {len(files)} activities, {total} layouts")

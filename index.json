@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-06T03:57:54Z",
+  "generatedAt": "2026-08-06T16:49:12Z",
   "activityCount": 99,
   "layoutCount": 330,
   "activities": [
@@ -9,7 +9,7 @@
       "file": "data/abyss.json",
       "variantCount": 2,
       "sourceRevId": 15082725,
-      "contentHash": "469e1e8c1c98a556"
+      "contentHash": "63455166ea7ef0dd"
     },
     {
       "activity": "Abyssal Sire",
