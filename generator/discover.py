@@ -21,7 +21,10 @@ STRATEGY_SUFFIX = "/Strategies"
 
 
 def discover(client: WikiClient) -> dict:
-    all_pages = client.embedded_in(INVENTORY_TEMPLATE)
+    # Article space only (namespace 0). User sandbox drafts such as
+    # "User:Discograph/Zulrah/Strategies" match the suffix too, but they are
+    # personal working copies, not the wiki's published meta.
+    all_pages = client.embedded_in(INVENTORY_TEMPLATE, namespace=0)
     strategies = sorted(p for p in all_pages if p.endswith(STRATEGY_SUFFIX))
     return {
         "template": INVENTORY_TEMPLATE,

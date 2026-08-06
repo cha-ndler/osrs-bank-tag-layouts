@@ -4,7 +4,7 @@ Bank tag layouts for Old School RuneScape bosses, raids and activities,
 generated automatically from the [OSRS Wiki](https://oldschool.runescape.wiki/)
 strategy pages.
 
-**330 layouts across 102 activities.** Browse and copy them at
+**319 layouts across 99 activities.** Browse and copy them at
 [the GitHub Pages site](https://cha-ndler.github.io/osrs-bank-tag-layouts/), or
 consume `data/*.json` directly.
 
@@ -64,8 +64,10 @@ through eight in their normal 4-wide shape.
 discover → extract → encode → validate → publish
 ```
 
-- **discover** — finds every page transcluding `Template:Inventory` and keeps the
-  `/Strategies` subpages (102 of 450 transclusions; the rest are illustrative).
+- **discover** — finds every article-space page transcluding `Template:Inventory`
+  and keeps the `/Strategies` subpages (99 of 268; the rest use the template
+  illustratively). `User:` sandbox drafts match the suffix too and are excluded —
+  they are personal working copies, not the wiki's published meta.
 - **extract** — parses `{{Equipment}}` / `{{Inventory}}` / `{{Rune pouch}}` and
   pairs them per scope. Pages use two different shapes: tabbers (Doom, Zulrah)
   and wikitables whose header cells name the variants (Chambers of Xeric).

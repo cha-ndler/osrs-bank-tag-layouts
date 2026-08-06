@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T22:33:49Z",
-  "activityCount": 102,
-  "layoutCount": 330,
+  "generatedAt": "2026-08-06T00:26:15Z",
+  "activityCount": 99,
+  "layoutCount": 319,
   "activities": [
     {
       "activity": "Abyss",
@@ -714,30 +714,6 @@
       "variantCount": 4,
       "sourceRevId": 15275221,
       "contentHash": "6a73e611b42ef434"
-    },
-    {
-      "activity": "User:Andmcadams/Mahogany Homes",
-      "slug": "user-andmcadams-mahogany-homes",
-      "file": "data/user-andmcadams-mahogany-homes.json",
-      "variantCount": 1,
-      "sourceRevId": 14348219,
-      "contentHash": "28ea28ad6323c355"
-    },
-    {
-      "activity": "User:Discograph/Zulrah",
-      "slug": "user-discograph-zulrah",
-      "file": "data/user-discograph-zulrah.json",
-      "variantCount": 5,
-      "sourceRevId": 15107783,
-      "contentHash": "c5ea46d1374dd3e5"
-    },
-    {
-      "activity": "User:Varied2350/Brutus",
-      "slug": "user-varied2350-brutus",
-      "file": "data/user-varied2350-brutus.json",
-      "variantCount": 5,
-      "sourceRevId": 15145091,
-      "contentHash": "8a2decb539648749"
     },
     {
       "activity": "Vale Totems",

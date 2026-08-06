@@ -93,8 +93,12 @@ class WikiClient:
 
     # -- public API --------------------------------------------------------
 
-    def embedded_in(self, template: str) -> list[str]:
-        """Every page that transcludes `template`, following continuations."""
+    def embedded_in(self, template: str, namespace: int | None = None) -> list[str]:
+        """Every page that transcludes `template`, following continuations.
+
+        Pass `namespace=0` to keep article space only. Personal sandbox drafts
+        under `User:` also end in "/Strategies" and are not wiki-endorsed meta.
+        """
         titles: list[str] = []
         cont: str | None = None
         while True:
@@ -104,6 +108,8 @@ class WikiClient:
                 "eititle": template,
                 "eilimit": 500,
             }
+            if namespace is not None:
+                params["einamespace"] = namespace
             if cont:
                 params["eicontinue"] = cont
             payload = self._request(params)
