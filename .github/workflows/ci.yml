@@ -1,0 +1,69 @@
+name: CI
+
+# Runs on every pull request so branch protection has a real check to require.
+# Without this, "require status checks" would have nothing to gate on and a PR
+# could be merged without the generator ever being exercised.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Least privilege: this job only reads the repository. Nothing here needs to
+# write contents, open pull requests, or touch packages.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # Actions are pinned to commit SHAs rather than tags. A tag can be moved
+      # to point at new code; a SHA cannot, so a compromised upstream release
+      # cannot silently execute here.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Check published data is well formed
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+
+          index = json.loads(pathlib.Path("index.json").read_text(encoding="utf-8"))
+          files = list(pathlib.Path("data").glob("*.json"))
+          if len(files) != index["activityCount"]:
+              sys.exit(f"index lists {index['activityCount']} activities but data/ has {len(files)}")
+
+          total = 0
+          for path in files:
+              record = json.loads(path.read_text(encoding="utf-8"))
+              for variant in record["variants"]:
+                  total += 1
+                  for key in ("importString", "importStringZigzag", "layout", "layoutZigzag"):
+                      if key not in variant:
+                          sys.exit(f"{path.name}/{variant['variant']}: missing {key}")
+                  if not variant["importString"].startswith("banktags,1,"):
+                      sys.exit(f"{path.name}/{variant['variant']}: malformed import string")
+                  if "," in variant["tagName"]:
+                      sys.exit(f"{path.name}/{variant['variant']}: comma in tag name")
+                  if sorted(variant["layout"].values()) != sorted(variant["layoutZigzag"].values()):
+                      sys.exit(f"{path.name}/{variant['variant']}: layout styles disagree")
+          if total != index["layoutCount"]:
+              sys.exit(f"index lists {index['layoutCount']} layouts but data/ has {total}")
+          print(f"ok: {len(files)} activities, {total} layouts")
+          PY

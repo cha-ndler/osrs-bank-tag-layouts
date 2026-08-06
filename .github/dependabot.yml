@@ -1,0 +1,21 @@
+version: 2
+
+# Actions are pinned to commit SHAs so a moved tag cannot inject code. That
+# also means security fixes never arrive on their own, so Dependabot watches
+# for updates and opens a pull request with the new SHA.
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci"
+
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"

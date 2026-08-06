@@ -1,0 +1,8 @@
+# Every change requires review from the owner. Combined with branch protection
+# this means nothing reaches main without going through a pull request.
+* @cha-ndler
+
+# The generator and CI configuration decide what gets published and what runs
+# with write access, so they are called out explicitly.
+/generator/ @cha-ndler
+/.github/ @cha-ndler
