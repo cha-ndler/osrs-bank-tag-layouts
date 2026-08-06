@@ -45,6 +45,9 @@ from overrides import (  # noqa: E402
 # Injected instead of the real wiki slot index so nothing here needs the network.
 TWO_HANDED = {"tumeken's shadow", "scythe of vitur", "twisted bow"}
 
+# Injected instead of the real wiki slot index so nothing here needs the network.
+TWO_HANDED = {"tumeken's shadow", "scythe of vitur", "twisted bow"}
+
 
 class TestRecommendedEquipment(unittest.TestCase):
     """{{Recommended equipment}} is used by 93 of 99 strategy pages."""
