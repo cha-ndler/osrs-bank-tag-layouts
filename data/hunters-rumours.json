@@ -3,7 +3,7 @@
   "slug": "hunters-rumours",
   "sourcePage": "Hunters' Rumours/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Hunters'_Rumours/Strategies",
-  "sourceRevId": 15288198,
+  "sourceRevId": 15289096,
   "contentHash": "afc0516aed9b3c3c",
   "variants": [
     {
@@ -78,6 +78,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -170,6 +171,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -274,6 +276,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     }
   ]

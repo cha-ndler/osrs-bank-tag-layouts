@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-06T17:50:51Z",
-  "activityCount": 99,
-  "layoutCount": 330,
+  "generatedAt": "2026-08-08T01:12:55Z",
+  "activityCount": 100,
+  "layoutCount": 336,
   "activities": [
     {
       "activity": "Abyss",
@@ -25,7 +25,7 @@
       "file": "data/adamant-dragon.json",
       "variantCount": 4,
       "sourceRevId": 15250956,
-      "contentHash": "e40ec88cb17bb925"
+      "contentHash": "acd0a23752c0e14c"
     },
     {
       "activity": "Alchemical Hydra",
@@ -80,7 +80,7 @@
       "slug": "barbarian-assault",
       "file": "data/barbarian-assault.json",
       "variantCount": 2,
-      "sourceRevId": 15265253,
+      "sourceRevId": 15289229,
       "contentHash": "2988fc464dccdd9d"
     },
     {
@@ -89,7 +89,7 @@
       "file": "data/barrows.json",
       "variantCount": 2,
       "sourceRevId": 15248428,
-      "contentHash": "e8e49bd2f089ff28"
+      "contentHash": "762c99a6db5887aa"
     },
     {
       "activity": "Basilisk Knight",
@@ -152,8 +152,8 @@
       "slug": "chambers-of-xeric-challenge-mode",
       "file": "data/chambers-of-xeric-challenge-mode.json",
       "variantCount": 2,
-      "sourceRevId": 15267240,
-      "contentHash": "e7da1c036b446949"
+      "sourceRevId": 15289283,
+      "contentHash": "0dcb989e124c2689"
     },
     {
       "activity": "Chaos Elemental",
@@ -170,6 +170,14 @@
       "variantCount": 1,
       "sourceRevId": 15270790,
       "contentHash": "6dce4a1d9f13ce6d"
+    },
+    {
+      "activity": "Chaos Temple (church)",
+      "slug": "chaos-temple-church",
+      "file": "data/chaos-temple-church.json",
+      "variantCount": 3,
+      "sourceRevId": 15289493,
+      "contentHash": "3f8f723a8ee2ec28"
     },
     {
       "activity": "Chest (Rogues' Castle)",
@@ -232,7 +240,7 @@
       "slug": "doom-of-mokhaiotl",
       "file": "data/doom-of-mokhaiotl.json",
       "variantCount": 2,
-      "sourceRevId": 15285926,
+      "sourceRevId": 15289622,
       "contentHash": "33019038a5778060"
     },
     {
@@ -241,7 +249,7 @@
       "file": "data/duke-sucellus.json",
       "variantCount": 1,
       "sourceRevId": 15273458,
-      "contentHash": "a75a22d4f589d96c"
+      "contentHash": "c12f62ab293c034f"
     },
     {
       "activity": "Ecumenical key",
@@ -281,7 +289,7 @@
       "file": "data/gemstone-crab.json",
       "variantCount": 10,
       "sourceRevId": 15285755,
-      "contentHash": "b523d1ea51e767db"
+      "contentHash": "e8ae2f18fe3e2acb"
     },
     {
       "activity": "General Graardor",
@@ -320,8 +328,8 @@
       "slug": "grotesque-guardians",
       "file": "data/grotesque-guardians.json",
       "variantCount": 4,
-      "sourceRevId": 15280739,
-      "contentHash": "3eb65375202f476b"
+      "sourceRevId": 15289013,
+      "contentHash": "f69b464dbbfaf366"
     },
     {
       "activity": "Guardians of the Rift",
@@ -360,7 +368,7 @@
       "slug": "hunters-rumours",
       "file": "data/hunters-rumours.json",
       "variantCount": 3,
-      "sourceRevId": 15288198,
+      "sourceRevId": 15289096,
       "contentHash": "afc0516aed9b3c3c"
     },
     {
@@ -432,7 +440,7 @@
       "slug": "mad-angel",
       "file": "data/mad-angel.json",
       "variantCount": 3,
-      "sourceRevId": 15288263,
+      "sourceRevId": 15289174,
       "contentHash": "66c4fd5993a1529e"
     },
     {
@@ -440,7 +448,7 @@
       "slug": "maggot-king",
       "file": "data/maggot-king.json",
       "variantCount": 2,
-      "sourceRevId": 15278205,
+      "sourceRevId": 15289689,
       "contentHash": "17ee0c485e7efa69"
     },
     {
@@ -489,14 +497,14 @@
       "file": "data/nightmare-zone.json",
       "variantCount": 6,
       "sourceRevId": 15286841,
-      "contentHash": "5e853d6797705102"
+      "contentHash": "d1ac19fbc6bad6d7"
     },
     {
       "activity": "Phantom Muspah",
       "slug": "phantom-muspah",
       "file": "data/phantom-muspah.json",
       "variantCount": 3,
-      "sourceRevId": 15286618,
+      "sourceRevId": 15290002,
       "contentHash": "b7921fd1ca6df488"
     },
     {
@@ -504,7 +512,7 @@
       "slug": "phosanis-nightmare",
       "file": "data/phosanis-nightmare.json",
       "variantCount": 3,
-      "sourceRevId": 15288321,
+      "sourceRevId": 15288784,
       "contentHash": "f8bfd9949a7f550a"
     },
     {
@@ -537,7 +545,7 @@
       "file": "data/rune-dragon.json",
       "variantCount": 3,
       "sourceRevId": 15287355,
-      "contentHash": "87ac6b75fa25ee4a"
+      "contentHash": "d1a5867fe1dc02c9"
     },
     {
       "activity": "Sarachnis",
@@ -584,7 +592,7 @@
       "slug": "skotizo",
       "file": "data/skotizo.json",
       "variantCount": 2,
-      "sourceRevId": 15278624,
+      "sourceRevId": 15288911,
       "contentHash": "f3967787777e825e"
     },
     {
@@ -609,7 +617,7 @@
       "file": "data/sulliuscep.json",
       "variantCount": 2,
       "sourceRevId": 15235146,
-      "contentHash": "6e97fb0e49c6b900"
+      "contentHash": "21d482a0af910112"
     },
     {
       "activity": "Tempoross",
@@ -633,14 +641,14 @@
       "file": "data/the-hueycoatl.json",
       "variantCount": 1,
       "sourceRevId": 15288167,
-      "contentHash": "5e49b4c8df8d321c"
+      "contentHash": "38adeeb618d2637f"
     },
     {
       "activity": "The Leviathan",
       "slug": "the-leviathan",
       "file": "data/the-leviathan.json",
       "variantCount": 2,
-      "sourceRevId": 15284393,
+      "sourceRevId": 15289551,
       "contentHash": "0100a21448076e50"
     },
     {
@@ -673,7 +681,7 @@
       "file": "data/theatre-of-blood.json",
       "variantCount": 5,
       "sourceRevId": 15277069,
-      "contentHash": "81246d4bcdc341a2"
+      "contentHash": "52dbedb102c11993"
     },
     {
       "activity": "Thermonuclear smoke devil",
@@ -688,16 +696,16 @@
       "slug": "tombs-of-amascut",
       "file": "data/tombs-of-amascut.json",
       "variantCount": 5,
-      "sourceRevId": 15285501,
-      "contentHash": "74c21365fc9b2a04"
+      "sourceRevId": 15289684,
+      "contentHash": "1c6ad46d1215ff3f"
     },
     {
       "activity": "Tormented Demon",
       "slug": "tormented-demon",
       "file": "data/tormented-demon.json",
       "variantCount": 4,
-      "sourceRevId": 15283490,
-      "contentHash": "2330ca8dafbb02ee"
+      "sourceRevId": 15289643,
+      "contentHash": "870c9d8e231335a2"
     },
     {
       "activity": "Treasure Trails",
@@ -719,9 +727,9 @@
       "activity": "Vale Totems",
       "slug": "vale-totems",
       "file": "data/vale-totems.json",
-      "variantCount": 2,
-      "sourceRevId": 15276918,
-      "contentHash": "8a1aa8a1629fe09a"
+      "variantCount": 5,
+      "sourceRevId": 15289479,
+      "contentHash": "22e5e35d8f120211"
     },
     {
       "activity": "Vardorvis",
@@ -776,7 +784,7 @@
       "slug": "yama",
       "file": "data/yama.json",
       "variantCount": 13,
-      "sourceRevId": 15287750,
+      "sourceRevId": 15288874,
       "contentHash": "5c7465c91516690c"
     },
     {

@@ -3,7 +3,7 @@
   "slug": "mad-angel",
   "sourcePage": "Mad Angel/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Mad_Angel/Strategies",
-  "sourceRevId": 15288263,
+  "sourceRevId": 15289174,
   "contentHash": "66c4fd5993a1529e",
   "variants": [
     {
@@ -240,8 +240,59 @@
         28997,
         29796
       ],
+      "switches": [
+        {
+          "name": "Crimson kisten",
+          "id": 33631
+        },
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Ancient godsword",
+          "id": 26233
+        },
+        {
+          "name": "Dragon mace",
+          "id": 1434
+        }
+      ],
       "warnings": [
-        "Divine super combat potion -> Divine super combat potion(4)"
+        "Divine super combat potion -> Divine super combat potion(4)",
+        "inventory 2 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 3 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 4 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 9 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 24 resolved via {{Cheap food}} (price-dependent)"
       ]
     },
     {
@@ -466,8 +517,59 @@
         28338,
         29796
       ],
+      "switches": [
+        {
+          "name": "Crimson kisten",
+          "id": 33631
+        },
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        },
+        {
+          "name": "Ancient godsword",
+          "id": 26233
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        }
+      ],
       "warnings": [
-        "Divine super combat potion -> Divine super combat potion(4)"
+        "Divine super combat potion -> Divine super combat potion(4)",
+        "inventory 2 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 3 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 4 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 9 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 24 resolved via {{Cheap food}} (price-dependent)"
       ]
     },
     {
@@ -673,9 +775,47 @@
       "twoHandedWeapons": [
         28997
       ],
+      "switches": [
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        },
+        {
+          "name": "Dragon mace",
+          "id": 1434
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        }
+      ],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
-        "Necklace of passage -> Necklace of passage(5)"
+        "Necklace of passage -> Necklace of passage(5)",
+        "inventory 2 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 3 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 4 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 9 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)"
       ]
     }
   ]

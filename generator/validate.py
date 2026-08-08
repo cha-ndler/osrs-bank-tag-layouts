@@ -31,9 +31,20 @@ REPORT = REPO / "report.json"
 
 VALID_POSITIONS = set(LOADOUT_MAP)
 
-# Ratchet. Raise it when the real figure improves; never lower it to make a
+# Ratchets. Raise them when the real figure improves; never lower one to make a
 # regression pass.
-COMPLETENESS_BASELINE = 0.88
+COMPLETENESS_BASELINE = 0.885
+
+# How much library must survive. A parser or discovery regression that halves
+# the corpus leaves the *ratio* untouched, so the ratio alone cannot catch it.
+ACTIVITY_BASELINE = 99
+LAYOUT_BASELINE = 330
+
+# Item references whose name resolves to no id at all. These cannot be checked,
+# so the count is held down rather than allowed to drift upward unnoticed. The
+# residue is slots whose value is a template call the wiki resolves at render
+# time ({{Cheap food}} and friends), which have no name to look up.
+UNRESOLVABLE_BASELINE = 780
 
 # The wiki's own slot vocabulary, mapped onto Module:Loadout argument names.
 WIKI_SLOT_TO_LOADOUT = {
@@ -94,6 +105,7 @@ def validate() -> int:
     errors: list[str] = []
     dose_flags: list[dict] = []
     unresolved: list[dict] = []
+    unresolvable: list[dict] = []
 
     for entry in layouts:
         label = f"{entry['activity']} / {entry['variant']}"
@@ -133,7 +145,20 @@ def validate() -> int:
             source = source_name_for(pos_s, entry["sourceNames"])
             if source:
                 valid_ids = norm.resolve_ids(source)
-                if valid_ids and item_id not in valid_ids:
+                if not valid_ids:
+                    # Skipping these was the hole that hid the dropped items: a
+                    # name the index cannot resolve is a name we cannot check,
+                    # and staying silent about it read as "verified".
+                    unresolvable.append(
+                        {
+                            "layout": label,
+                            "position": pos,
+                            "sourceName": source,
+                            "gotId": item_id,
+                            "gotName": norm.name_for_id(item_id),
+                        }
+                    )
+                elif item_id not in valid_ids:
                     unresolved.append(
                         {
                             "layout": label,
@@ -156,8 +181,11 @@ def validate() -> int:
                     }
                 )
 
-    # A part-dose item is only acceptable when the wiki asked for it by name.
-    bad_doses = [d for d in dose_flags if not (d["sourceName"] or "").endswith(")")]
+    # A part-dose item is only acceptable when the wiki asked for that dose by
+    # name. Accepting any trailing bracket instead let a *disambiguator* pass as
+    # a dose: "Overload (Nightmare Zone)" ends in ")" too, so every Nightmare
+    # Zone layout shipped the 3-dose overload and the report called it expected.
+    bad_doses = [d for d in dose_flags if not DOSE_RE.match(d["sourceName"] or "")]
 
     # --- completeness gate -------------------------------------------------
     # Half the library once shipped with no worn gear at all and nothing caught
@@ -169,6 +197,33 @@ def validate() -> int:
     if ratio < COMPLETENESS_BASELINE:
         gate_errors.append(
             f"complete ratio {ratio:.1%} is below the {COMPLETENESS_BASELINE:.0%} baseline"
+        )
+
+    # The ratio alone says nothing about how much library is left. Discovery
+    # returning half as many pages keeps every surviving layout complete and
+    # sails through - so floor the counts too.
+    activities = {e["activity"] for e in layouts}
+    if len(activities) < ACTIVITY_BASELINE:
+        gate_errors.append(
+            f"{len(activities)} activities is below the {ACTIVITY_BASELINE} baseline"
+        )
+    if len(layouts) < LAYOUT_BASELINE:
+        gate_errors.append(
+            f"{len(layouts)} layouts is below the {LAYOUT_BASELINE} baseline"
+        )
+
+    # An item id that does not match the name it came from is a position-map or
+    # resolution bug, and every one of them puts the wrong item in a real tab.
+    for u in unresolved:
+        gate_errors.append(
+            f"{u['layout']} pos {u['position']}: {u['sourceName']!r} resolved to "
+            f"{u['gotName']!r} ({u['gotId']}), not {u['expectedIds']}"
+        )
+
+    if len(unresolvable) > UNRESOLVABLE_BASELINE:
+        gate_errors.append(
+            f"{len(unresolvable)} item references cannot be resolved to any id, "
+            f"above the {UNRESOLVABLE_BASELINE} baseline"
         )
 
     # A variant that names a weapon must actually carry one.
@@ -291,9 +346,18 @@ def validate() -> int:
             status: len([e for e in layouts if e.get("completeness") == status])
             for status in ("complete", "minimal", "partial")
         },
+        "activities": len(activities),
+        "activityBaseline": ACTIVITY_BASELINE,
+        "layoutBaseline": LAYOUT_BASELINE,
         "encodeFailures": data.get("failures", []),
         "errors": errors,
         "roundTripMismatches": unresolved,
+        "unresolvableReferences": unresolvable,
+        "unresolvableBaseline": UNRESOLVABLE_BASELINE,
+        # What never became a layout. The README has always promised this;
+        # until now it was computed during extraction and then thrown away.
+        "skippedPages": data.get("extraction", {}).get("emptyPages", []),
+        "extractionWarnings": data.get("extraction", {}).get("warnings", {}),
         "slotDisagreements": slot_notes,
         "curatedLayouts": [
             {
@@ -316,8 +380,13 @@ def validate() -> int:
           f"{report['completenessCounts']['minimal']} / "
           f"{report['completenessCounts']['partial']}  "
           f"({ratio:.1%}, baseline {COMPLETENESS_BASELINE:.0%})")
+    print(f"  activities / layouts     : {len(activities)} / {len(layouts)} "
+          f"(baselines {ACTIVITY_BASELINE} / {LAYOUT_BASELINE})")
     print(f"  structural errors        : {len(errors)}")
     print(f"  round-trip mismatches    : {len(unresolved)}")
+    print(f"  unresolvable references  : {len(unresolvable)} "
+          f"(baseline {UNRESOLVABLE_BASELINE})")
+    print(f"  pages yielding no setup  : {len(report['skippedPages'])}")
     print(f"  slot disagreements (note): {len(slot_notes)}")
     print(f"  curated layouts          : {len(curated)}")
     print(f"  part-dose (explicit, ok) : {len(dose_flags) - len(bad_doses)}")

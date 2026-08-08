@@ -3,7 +3,7 @@
   "slug": "phantom-muspah",
   "sourcePage": "Phantom Muspah/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Phantom_Muspah/Strategies",
-  "sourceRevId": 15286618,
+  "sourceRevId": 15290002,
   "contentHash": "b7921fd1ca6df488",
   "variants": [
     {
@@ -214,6 +214,16 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [
+        {
+          "name": "Accursed sceptre",
+          "id": 27665
+        },
+        {
+          "name": "Eye of ayak",
+          "id": 31113
+        }
+      ],
       "warnings": [
         "Divine bastion potion -> Divine bastion potion(4)",
         "Super restore -> Super restore(4)",
@@ -405,11 +415,25 @@
         22325,
         28338
       ],
+      "switches": [
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        }
+      ],
       "warnings": [
         "Ranging potion -> Ranging potion(4)",
         "Divine super combat potion -> Divine super combat potion(4)",
         "Super restore -> Super restore(4)",
-        "Surge potion -> Surge potion(4)"
+        "Surge potion -> Surge potion(4)",
+        "inventory 13 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 14 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 15 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 16 resolved via {{MinPrice}} (price-dependent)"
       ]
     },
     {
@@ -645,11 +669,54 @@
         20997,
         25865
       ],
+      "switches": [
+        {
+          "name": "Zaryte crossbow",
+          "id": 26374
+        },
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        },
+        {
+          "name": "Tonalztics of ralos",
+          "id": 28922
+        },
+        {
+          "name": "Toxic blowpipe",
+          "id": 12926
+        },
+        {
+          "name": "Armadyl crossbow",
+          "id": 11785
+        },
+        {
+          "name": "Bone dagger",
+          "id": 8872
+        }
+      ],
       "warnings": [
         "Divine ranging potion -> Divine ranging potion(4)",
         "Stamina potion -> Stamina potion(4)",
         "Surge potion -> Surge potion(4)",
-        "Prayer potion -> Prayer potion(4)"
+        "Prayer potion -> Prayer potion(4)",
+        "inventory 10 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 11 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 12 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 14 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 15 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 16 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 18 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 19 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 20 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 22 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 23 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 24 resolved via {{MinPrice}} (price-dependent)",
+        "inventory 26 resolved via {{MinPrice}} (price-dependent)"
       ]
     }
   ]

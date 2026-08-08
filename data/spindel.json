@@ -231,6 +231,24 @@
         13263,
         28338
       ],
+      "switches": [
+        {
+          "name": "Ursine chainmace",
+          "id": 27660
+        },
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        },
+        {
+          "name": "Dragon mace",
+          "id": 1434
+        }
+      ],
       "warnings": [
         "Games necklace -> Games necklace(8)"
       ]
@@ -443,6 +461,16 @@
         22550,
         25865,
         27655
+      ],
+      "switches": [
+        {
+          "name": "Zaryte crossbow",
+          "id": 26374
+        },
+        {
+          "name": "Webweaver bow",
+          "id": 27655
+        }
       ],
       "warnings": []
     }

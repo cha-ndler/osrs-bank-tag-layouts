@@ -171,6 +171,7 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -357,6 +358,16 @@
       },
       "twoHandedWeapons": [
         27275
+      ],
+      "switches": [
+        {
+          "name": "Eldritch nightmare staff",
+          "id": 24425
+        },
+        {
+          "name": "Accursed sceptre",
+          "id": 27665
+        }
       ],
       "warnings": []
     },
@@ -547,6 +558,7 @@
       "twoHandedWeapons": [
         29796
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -761,6 +773,28 @@
       "twoHandedWeapons": [
         22325
       ],
+      "switches": [
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        },
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        },
+        {
+          "name": "Emberlight",
+          "id": 29589
+        },
+        {
+          "name": "Arclight",
+          "id": 19675
+        }
+      ],
       "warnings": []
     },
     {
@@ -962,6 +996,32 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Crystal halberd",
+          "id": 24125
+        },
+        {
+          "name": "Abyssal dagger",
+          "id": 13265
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        }
+      ],
       "warnings": []
     },
     {
@@ -1150,6 +1210,7 @@
         27655,
         29591
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -1355,6 +1416,24 @@
         25865,
         29591
       ],
+      "switches": [
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        },
+        {
+          "name": "Toxic blowpipe",
+          "id": 12926
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        }
+      ],
       "warnings": []
     },
     {
@@ -1544,6 +1623,7 @@
       "twoHandedWeapons": [
         29591
       ],
+      "switches": [],
       "warnings": []
     }
   ]

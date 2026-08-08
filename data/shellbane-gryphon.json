@@ -245,6 +245,36 @@
         28338,
         29796
       ],
+      "switches": [
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Crimson kisten",
+          "id": 33631
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        },
+        {
+          "name": "Bone dagger",
+          "id": 8872
+        }
+      ],
       "warnings": []
     },
     {
@@ -452,6 +482,24 @@
       "twoHandedWeapons": [
         22325,
         29796
+      ],
+      "switches": [
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        }
       ],
       "warnings": [
         "Surge potion -> Surge potion(4)",

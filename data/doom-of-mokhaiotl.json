@@ -3,7 +3,7 @@
   "slug": "doom-of-mokhaiotl",
   "sourcePage": "Doom of Mokhaiotl/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl/Strategies",
-  "sourceRevId": 15285926,
+  "sourceRevId": 15289622,
   "contentHash": "33019038a5778060",
   "variants": [
     {
@@ -156,6 +156,7 @@
       "twoHandedWeapons": [
         29591
       ],
+      "switches": [],
       "warnings": [
         "Divine ranging potion -> Divine ranging potion(4)",
         "Ranging potion -> Ranging potion(4)",
@@ -318,6 +319,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Divine ranging potion -> Divine ranging potion(4)",
         "Ranging potion -> Ranging potion(4)",

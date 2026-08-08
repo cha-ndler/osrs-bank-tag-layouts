@@ -144,6 +144,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -280,6 +281,7 @@
       "twoHandedWeapons": [
         27655
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -492,6 +494,16 @@
         20997,
         22550,
         27655
+      ],
+      "switches": [
+        {
+          "name": "Zaryte crossbow",
+          "id": 26374
+        },
+        {
+          "name": "Webweaver bow",
+          "id": 27655
+        }
       ],
       "warnings": []
     }

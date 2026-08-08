@@ -3,7 +3,7 @@
   "slug": "barbarian-assault",
   "sourcePage": "Barbarian Assault/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Barbarian_Assault/Strategies",
-  "sourceRevId": 15265253,
+  "sourceRevId": 15289229,
   "contentHash": "2988fc464dccdd9d",
   "variants": [
     {
@@ -78,6 +78,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -169,6 +170,7 @@
       "twoHandedWeapons": [
         27610
       ],
+      "switches": [],
       "warnings": []
     }
   ]

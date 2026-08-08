@@ -4,7 +4,7 @@ Bank tag layouts for Old School RuneScape bosses, raids and activities,
 generated automatically from the [OSRS Wiki](https://oldschool.runescape.wiki/)
 strategy pages.
 
-**330 layouts across 99 activities, in both plugin layout styles.** Browse and copy them at
+**336 layouts across 100 activities, in both plugin layout styles.** Browse and copy them at
 [the GitHub Pages site](https://cha-ndler.github.io/osrs-bank-tag-layouts/), or
 consume `data/*.json` directly.
 
@@ -55,6 +55,12 @@ Each variant carries a `completeness` field:
 `validate.py` holds the complete-ratio at or above a recorded baseline and fails
 the build if it drops, which is what stops a parser regression shipping quietly.
 
+The ratio alone is not enough: a discovery failure that halves the corpus leaves
+every surviving layout complete and sails through. Activity and layout **counts**
+are floored too, and so is the number of item references that resolve to no id at
+all — the check that would otherwise stay silent about exactly the items it
+failed to find.
+
 ## Data format
 
 `index.json` is the manifest. Each `data/<slug>.json` holds one activity:
@@ -74,6 +80,7 @@ the build if it drops, which is what stops a parser regression shipping quietly.
       "equipment":  { "weapon": 26374 },
       "inventory":  { "1": 6746 },
       "runes":      { "1": 560 },
+      "switches":   [{ "name": "Voidwaker", "id": 27690 }],
       "warnings":   ["Saradomin brew -> Saradomin brew(4)"]
     }
   ]
@@ -82,6 +89,8 @@ the build if it drops, which is what stops a parser regression shipping quietly.
 
 `layout` is the canonical form — a position-to-item map that needs no parsing.
 `equipment` / `inventory` / `runes` are the same data split by section.
+`switches` sits beside them: spec weapons the guide expects you to bring, which
+occupy no worn slot and so appear in no position.
 
 ## How it works
 
@@ -90,7 +99,7 @@ discover → extract → overrides → encode → validate → publish
 ```
 
 - **discover** — finds every article-space page transcluding `Template:Inventory`
-  and keeps the `/Strategies` subpages (99 of 268; the rest use the template
+  and keeps the `/Strategies` subpages (100 of 269; the rest use the template
   illustratively). `User:` sandbox drafts match the suffix too and are excluded —
   they are personal working copies, not the wiki's published meta.
 - **extract** — parses `{{Equipment}}`, `{{Recommended equipment}}`,
@@ -103,8 +112,9 @@ discover → extract → overrides → encode → validate → publish
 - **encode** — hands a synthesised `{{Loadout}}` call back to the wiki through
   `action=expandtemplates`, so `Module:Loadout` does the name-to-id resolution.
   No second implementation to keep in sync.
-- **validate** — structure, item existence, position round-trip and a dose
-  regression check. Publishing is blocked on failure.
+- **validate** — structure, item existence, position round-trip, a dose
+  regression check, and floors on how much library survived. Publishing is
+  blocked on failure.
 - **publish** — writes `data/`, `index.json`, `report.json` and the site payload.
 
 ### The dose correction
@@ -121,6 +131,17 @@ case the highest number wins. When an exact item exists the wiki is already
 unambiguous and is left alone — which is why setups that explicitly ask for a
 `Ranging potion(3)` still get one. Every rewrite is logged to `report.json`.
 
+A rewrite reuses the wiki's own spelling rather than rebuilding the name, which
+matters more than it sounds: 72 of the 189 dose families are written `X (4)`
+with a space, and `X(4)` is not an item at all. A rebuilt name resolves to
+nothing and `Module:Loadout` drops the slot silently, so the correction was
+deleting the very items it existed to fix.
+
+The same rule covers **disambiguated pages**. Nightmare Zone guides ask for an
+`Overload (Nightmare Zone)`; no item is called that, so the wiki falls through to
+the page and returns whichever dose comes first — the 3-dose one. Resolving the
+page ourselves picks `Overload (4)`.
+
 ### Stepping down from best-in-slot
 
 `{{Recommended equipment}}` ranks every slot best first, and **90% of filled
@@ -131,7 +152,7 @@ can actually afford. Copy then gives you *your* layout, not the wiki's.
 
 Two things follow from the data rather than from preference:
 
-- **About half the library has arrows.** 54% of setups come from
+- **About half the library has arrows.** 52% of setups come from
   `{{Recommended equipment}}`; the rest are `{{Equipment}}` blocks, which are a
   single hand-authored loadout with no ranking to offer. Inventing one is not
   this repo's job.
@@ -167,13 +188,33 @@ deleted rather than left to become a second source of staleness.
 
 ### Two equipment templates
 
-`{{Equipment}}` names slots directly. `{{Recommended equipment}}` — used by 93
-of the 99 pages — is different: it calls them `body` / `hands` / `feet` rather
+`{{Equipment}}` names slots directly. `{{Recommended equipment}}` — used by 94
+of the 100 pages — is different: it calls them `body` / `hands` / `feet` rather
 than torso / gloves / boots, wraps values in `{{plink}}`, and ranks options per
 slot as `weapon1`..`weapon4`, best first. We take the best-ranked option, and
 prefer a `plink`'s `pic=` over its link target when the link points at a
-category page such as "Barrows equipment". Its `special` list has no worn slot
-and is skipped.
+category page such as "Barrows equipment".
+
+Its `special` list is the one ranked group with no worn slot to occupy, so it
+cannot join `equipment` — but a guide that lists a Voidwaker means you to bring
+one. Those are published as **`switches`**, a name-and-id list beside the layout
+rather than a position inside it.
+
+A page often carries both templates in the same tab: a concrete `{{Equipment}}`
+setup, and a `{{Recommended equipment}}` upgrades-and-downgrades table beside it.
+The concrete block wins; between two of a kind, the one filling more slots does.
+Choosing by whichever sat nearer the inventory made the winner an accident of
+typing order, which is how The Hueycoatl published a melee layout wearing
+nothing but a weapon.
+
+### Slots the wiki decides at render time
+
+735 inventory slots hold a template call rather than an item name — `{{Cheap
+food}}`, `{{Cheap prayer}}`, `{{MinPrice|…}}`. These resolve to whatever is
+cheapest when the pipeline runs, so they move with the Grand Exchange and not
+with the guide. They are resolved as the wiki resolves them, and each one is
+noted in the variant's `warnings`, so a reviewer can tell price drift from a
+real upstream edit in the weekly refresh diff.
 
 ## Scope and limitations
 
@@ -183,7 +224,13 @@ and is skipped.
   of Amascut all tab by combat style, not by team size. Nothing upstream
   distinguishes a solo setup from a 3-scale one, so nothing here does either.
 - **Coverage follows the wiki.** If a page has no structured setup, it produces
-  no layout. `report.json` lists everything skipped and why.
+  no layout. `report.json` names every page that yielded nothing
+  (`skippedPages`) and every block extraction had to drop
+  (`extractionWarnings`).
+- **Discovery keys on `Template:Inventory`.** Eight `/Strategies` pages use
+  `{{Recommended equipment}}` without an inventory and are therefore not found:
+  Blast Furnace, Blast mine, Deranged archaeologist, Forestry, Frost dragon,
+  Giants' Foundry, Lava dragon, Trouble Brewing.
 - Layouts are a starting point. Swap in what you actually own.
 
 ## Running it yourself

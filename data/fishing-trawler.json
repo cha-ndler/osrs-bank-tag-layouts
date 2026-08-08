@@ -132,6 +132,12 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [
+        {
+          "name": "Dragon axe",
+          "id": 6739
+        }
+      ],
       "warnings": []
     }
   ]

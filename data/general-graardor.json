@@ -213,6 +213,16 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [
+        {
+          "name": "Accursed sceptre",
+          "id": 27665
+        },
+        {
+          "name": "Eye of ayak",
+          "id": 31113
+        }
+      ],
       "warnings": []
     },
     {
@@ -429,6 +439,16 @@
       },
       "twoHandedWeapons": [
         27275
+      ],
+      "switches": [
+        {
+          "name": "Accursed sceptre",
+          "id": 27665
+        },
+        {
+          "name": "Eye of ayak",
+          "id": 31113
+        }
       ],
       "warnings": []
     },
@@ -652,6 +672,32 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        },
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        }
+      ],
       "warnings": []
     },
     {
@@ -881,6 +927,32 @@
       "twoHandedWeapons": [
         22325
       ],
+      "switches": [
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        },
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        }
+      ],
       "warnings": []
     },
     {
@@ -1103,6 +1175,36 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Ancient godsword",
+          "id": 26233
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        },
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        }
+      ],
       "warnings": []
     },
     {
@@ -1321,6 +1423,12 @@
       },
       "twoHandedWeapons": [
         25865
+      ],
+      "switches": [
+        {
+          "name": "Toxic blowpipe",
+          "id": 12926
+        }
       ],
       "warnings": []
     },
@@ -1551,6 +1659,16 @@
         25865,
         29000
       ],
+      "switches": [
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        }
+      ],
       "warnings": []
     },
     {
@@ -1774,6 +1892,7 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     }
   ]

@@ -146,6 +146,36 @@
         29084,
         29796
       ],
+      "switches": [
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Crystal halberd",
+          "id": 24125
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Abyssal dagger",
+          "id": 13265
+        },
+        {
+          "name": "Dragon mace",
+          "id": 1434
+        }
+      ],
       "warnings": []
     },
     {
@@ -289,6 +319,32 @@
         28997,
         29889
       ],
+      "switches": [
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Crystal halberd",
+          "id": 24125
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        },
+        {
+          "name": "Dragon mace",
+          "id": 1434
+        }
+      ],
       "warnings": []
     },
     {
@@ -430,6 +486,28 @@
         22325,
         28338,
         29796
+      ],
+      "switches": [
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Crystal halberd",
+          "id": 24125
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        }
       ],
       "warnings": []
     },
@@ -573,6 +651,7 @@
         28338,
         29796
       ],
+      "switches": [],
       "warnings": []
     }
   ]

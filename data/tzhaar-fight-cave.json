@@ -217,6 +217,12 @@
         4734,
         24123
       ],
+      "switches": [
+        {
+          "name": "Ancient mace",
+          "id": 11061
+        }
+      ],
       "warnings": []
     },
     {
@@ -451,6 +457,28 @@
         22325,
         28338,
         29796
+      ],
+      "switches": [
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        },
+        {
+          "name": "Crystal halberd",
+          "id": 24125
+        }
       ],
       "warnings": []
     },
@@ -710,6 +738,7 @@
         24123,
         25865
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -882,6 +911,32 @@
       },
       "twoHandedWeapons": [
         29000
+      ],
+      "switches": [
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Eclipse atlatl",
+          "id": 29000
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        },
+        {
+          "name": "Toxic blowpipe",
+          "id": 12926
+        }
       ],
       "warnings": []
     }

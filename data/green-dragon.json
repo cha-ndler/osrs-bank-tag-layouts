@@ -177,6 +177,7 @@
       "twoHandedWeapons": [
         30957
       ],
+      "switches": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)",
         "Burning amulet -> Burning amulet(5)"
@@ -341,6 +342,7 @@
         22550,
         27655
       ],
+      "switches": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)",
         "Burning amulet -> Burning amulet(5)"

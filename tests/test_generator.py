@@ -34,8 +34,10 @@ from extract import (  # noqa: E402
     plink_items,
     recommended_alternatives,
     recommended_equipment,
+    recommended_switches,
     split_args,
 )
+from normalize import Normalizer  # noqa: E402
 from overrides import (  # noqa: E402
     apply_overrides,
     replace_in_inventory,
@@ -546,6 +548,207 @@ class TestOverrides(unittest.TestCase):
         self.assertFalse(targets(rule, "Abyss", "Defensive"))
         self.assertTrue(targets(rule, "Abyss", "Graceful"))
         self.assertFalse(targets(rule, "Zulrah", "Graceful"))
+
+
+class TestRunePouchPairing(unittest.TestCase):
+    """A pouch the page publishes must reach the setup it belongs to."""
+
+    def test_pouch_above_the_inventory_still_attaches(self):
+        # Pages put the pouch between the gear and the inventory as often as
+        # after it. Anchoring on the inventory's end missed every one of those,
+        # which left Tombs of Amascut with four of five variants runeless.
+        text = (
+            "<tabber>\nMelee=\n{{Equipment|head = Torva full helm}}\n"
+            "{{Rune pouch|1 = Blood rune|2 = Death rune}}\n"
+            "{{Inventory|1 = Shark}}\n|-|\nMagic=\n"
+            "{{Equipment|head = Ancestral hat}}\n"
+            "{{Rune pouch|1 = Chaos rune|2 = Nature rune}}\n"
+            "{{Inventory|1 = Anglerfish}}\n</tabber>"
+        )
+        setups, _ = extract_page("X/Strategies", text)
+        by_variant = {s.variant: s for s in setups}
+        self.assertEqual(by_variant["Melee"].runes["1"], "Blood rune")
+        self.assertEqual(by_variant["Magic"].runes["2"], "Nature rune")
+
+    def test_a_pouch_is_not_shared_between_setups(self):
+        # One pouch, two setups: it belongs to the setup it sits inside, and the
+        # other must not inherit it.
+        text = (
+            "<tabber>\nMelee=\n{{Equipment|head = Torva full helm}}\n"
+            "{{Inventory|1 = Shark}}\n|-|\nMagic=\n"
+            "{{Equipment|head = Ancestral hat}}\n"
+            "{{Rune pouch|1 = Chaos rune}}\n"
+            "{{Inventory|1 = Anglerfish}}\n</tabber>"
+        )
+        setups, _ = extract_page("X/Strategies", text)
+        by_variant = {s.variant: s for s in setups}
+        self.assertEqual(by_variant["Melee"].runes, {})
+        self.assertEqual(by_variant["Magic"].runes["1"], "Chaos rune")
+
+
+class TestGearBlockChoice(unittest.TestCase):
+    """Which block wins when a scope offers more gear than inventories."""
+
+    RICH = (
+        "{{Recommended equipment|style = Melee"
+        "|head1 = {{plink|Torva full helm}}|neck1 = {{plink|Amulet of rancour}}"
+        "|cape1 = {{plink|Infernal cape}}|body1 = {{plink|Torva platebody}}"
+        "|legs1 = {{plink|Torva platelegs}}|shield1 = {{plink|Avernic defender}}"
+        "|hands1 = {{plink|Ferocious gloves}}|feet1 = {{plink|Primordial boots}}"
+        "|ring1 = {{plink|Ultor ring}}|weapon1 = {{plink|Osmumten's fang}}}}"
+    )
+
+    def test_the_fuller_block_wins_over_the_nearer_one(self):
+        # The Hueycoatl shape: a one-slot table sat closer to the inventory than
+        # the real eleven-slot one, so the published melee layout wore nothing
+        # but a weapon.
+        text = (
+            "==Setup==\n" + self.RICH + "\n"
+            "{{Recommended equipment|style = Melee|weapon1 = {{plink|Dragon hunter lance}}}}\n"
+            "{{Inventory|1 = Shark}}\n"
+        )
+        setups, _ = extract_page("X/Strategies", text)
+        self.assertEqual(len(setups), 1)
+        self.assertGreaterEqual(len(setups[0].equipment), 10)
+        self.assertEqual(setups[0].equipment["head"], "Torva full helm")
+
+    def test_a_concrete_setup_beats_an_upgrades_table(self):
+        # Barrows shape: the hand-authored {{Equipment}} is the loadout; the
+        # {{Recommended equipment}} beside it is the upgrades reference.
+        text = (
+            "==Setup==\n"
+            "{{Equipment|head = Helm of neitiznot|cape = Fire cape|neck = Amulet of fury"
+            "|weapon = Abyssal whip|torso = Bandos chestplate|legs = Bandos tassets"
+            "|shield = Dragon defender|gloves = Barrows gloves|boots = Dragon boots"
+            "|ring = Berserker ring}}\n" + self.RICH + "\n"
+            "{{Inventory|1 = Shark}}\n"
+        )
+        setups, _ = extract_page("X/Strategies", text)
+        self.assertEqual(len(setups), 1)
+        self.assertEqual(setups[0].equipment["head"], "Helm of neitiznot")
+
+    def test_the_unpaired_block_is_still_reported(self):
+        text = (
+            "==Setup==\n" + self.RICH + "\n"
+            "{{Recommended equipment|style = Melee|weapon1 = {{plink|Dragon hunter lance}}}}\n"
+            "{{Inventory|1 = Shark}}\n"
+        )
+        _, warnings = extract_page("X/Strategies", text)
+        self.assertTrue(any("unpaired" in w for w in warnings))
+
+
+class TestSwitches(unittest.TestCase):
+    """`special` is a spec weapon to bring, not a slot to wear."""
+
+    def test_special_ranks_are_captured_best_first(self):
+        args = {
+            "style": "Melee",
+            "special2": "{{plink|Bandos godsword}}",
+            "special1": "{{plink|Voidwaker}}",
+            "head1": "{{plink|Torva full helm}}",
+        }
+        self.assertEqual(recommended_switches(args), ["Voidwaker", "Bandos godsword"])
+
+    def test_switches_never_become_worn_equipment(self):
+        args = {"special1": "{{plink|Dragon claws}}", "head1": "{{plink|Torva full helm}}"}
+        self.assertNotIn("special", recommended_equipment(args))
+        self.assertEqual(list(recommended_equipment(args)), ["head"])
+
+    def test_a_rank_naming_several_weapons_keeps_them_all(self):
+        args = {"special1": "{{plink|Voidwaker}} / {{plink|Dragon claws}}"}
+        self.assertEqual(recommended_switches(args), ["Voidwaker", "Dragon claws"])
+
+    def test_extraction_carries_switches_onto_the_setup(self):
+        text = (
+            "==Setup==\n{{Recommended equipment|style = Melee"
+            "|head1 = {{plink|Torva full helm}}|special1 = {{plink|Voidwaker}}}}\n"
+            "{{Inventory|1 = Shark}}\n"
+        )
+        setups, _ = extract_page("X/Strategies", text)
+        self.assertEqual(setups[0].switches, ["Voidwaker"])
+
+
+class TestNormalizer(unittest.TestCase):
+    """Name correction, against a miniature of the real bucket index.
+
+    Every case here is a name the live wiki resolves the way the assertion
+    says; the ids are the real ones.
+    """
+
+    INDEX = {
+        "version": 2,
+        "byName": {
+            # A family the wiki spells with a space before the dose.
+            "moonlight moth mix (1)": [29213],
+            "moonlight moth mix (2)": [29195],
+            # A family it spells without one.
+            "saradomin brew(3)": [6687],
+            "saradomin brew(4)": [6685],
+            "overload (1)": [11733],
+            "overload (2)": [11732],
+            "overload (3)": [11731],
+            "overload (4)": [11730],
+            "teleport to house": [8013],
+        },
+        "byPage": {
+            "moonlight moth mix": [29213, 29195],
+            "saradomin brew": [6687, 6685],
+            "overload (nightmare zone)": [11730, 11731, 11732, 11733],
+            "teleport to house (tablet)": [8013],
+        },
+        "byId": {
+            "29213": "Moonlight moth mix (1)",
+            "29195": "Moonlight moth mix (2)",
+            "6687": "Saradomin brew(3)",
+            "6685": "Saradomin brew(4)",
+            "11733": "Overload (1)",
+            "11732": "Overload (2)",
+            "11731": "Overload (3)",
+            "11730": "Overload (4)",
+            "8013": "Teleport to house",
+        },
+    }
+
+    def setUp(self):
+        self.norm = Normalizer(self.INDEX)
+
+    def test_spaced_family_keeps_the_wikis_spacing(self):
+        # Rebuilding this as "Moonlight moth mix(2)" names no item at all, so
+        # Module:Loadout returns nothing and the slot vanishes from the layout.
+        fixed, note = self.norm.normalize("Moonlight moth mix")
+        self.assertEqual(fixed, "Moonlight moth mix (2)")
+        self.assertEqual(self.norm.resolve_ids(fixed), [29195])
+        self.assertTrue(note)
+
+    def test_unspaced_family_is_still_unspaced(self):
+        fixed, _ = self.norm.normalize("Saradomin brew")
+        self.assertEqual(fixed, "Saradomin brew(4)")
+        self.assertEqual(self.norm.resolve_ids(fixed), [6685])
+
+    def test_disambiguated_page_resolves_to_the_full_dose(self):
+        # No item is called this, so the wiki falls through to the page and
+        # hands back whichever dose comes first - the 3-dose one.
+        fixed, _ = self.norm.normalize("Overload (Nightmare Zone)")
+        self.assertEqual(fixed, "Overload (4)")
+        self.assertEqual(self.norm.resolve_ids(fixed), [11730])
+
+    def test_an_explicit_dose_is_left_alone(self):
+        fixed, note = self.norm.normalize("Overload (3)")
+        self.assertEqual(fixed, "Overload (3)")
+        self.assertIsNone(note)
+
+    def test_resolve_falls_back_to_the_page_name(self):
+        # The item is called "Teleport to house"; the setup cites the page.
+        # Without this the round-trip check has nothing to compare against.
+        self.assertEqual(self.norm.resolve_ids("Teleport to house (tablet)"), [8013])
+
+    def test_every_rewrite_names_a_real_item(self):
+        for base in list(self.norm.dose_map) + list(self.norm.page_dose_map):
+            fixed, _ = self.norm.normalize(base)
+            self.assertTrue(
+                self.norm.resolve_ids(fixed),
+                f"{base!r} was rewritten to {fixed!r}, which is not an item",
+            )
 
 
 class TestZigzag(unittest.TestCase):

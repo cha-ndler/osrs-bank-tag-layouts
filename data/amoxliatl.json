@@ -250,6 +250,40 @@
         28997,
         29889
       ],
+      "switches": [
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Crimson kisten",
+          "id": 33631
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        }
+      ],
       "warnings": []
     }
   ]

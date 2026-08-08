@@ -198,6 +198,51 @@ def plink_item(value: str) -> str:
     return items[0] if items else ""
 
 
+def recommended_switches(args: dict[str, str]) -> list[str]:
+    """Spec weapons from a {{Recommended equipment}} block, best-ranked first.
+
+    `special` is the one ranked group with no worn slot to occupy, so it cannot
+    join `equipment`. It was previously discarded for that reason - but a guide
+    that lists a Voidwaker means you to bring one, and 78 of the pages list at
+    least one. Publishing them as their own field keeps the item without
+    pretending it is worn.
+    """
+    ranked: list[tuple[int, int, str]] = []
+    for key, raw in args.items():
+        m = RANKED_SLOT_RE.match(key)
+        if not m or m.group("slot") != "special":
+            continue
+        rank = int(m.group("rank")) if m.group("rank") else 1
+        for order, item in enumerate(plink_items(raw)):
+            ranked.append((rank, order, item))
+
+    out: list[str] = []
+    for _, _, item in sorted(ranked, key=lambda r: r[:2]):
+        if item not in out:
+            out.append(item)
+    return out
+
+
+def _block_rank(occ: Occurrence) -> tuple[int, int, int]:
+    """How strongly a gear block claims to be the scope's real loadout.
+
+    Pages routinely carry a concrete `{{Equipment}}` setup *and* a
+    `{{Recommended equipment}}` upgrades-and-downgrades table in the same tab.
+    Picking by document adjacency alone makes the winner an accident of which
+    one the author happened to type nearer the inventory - which is how The
+    Hueycoatl came to publish a melee layout wearing nothing but a weapon.
+
+    Concrete beats ranked; among equals the block that fills more slots is the
+    loadout and the other is a fragment; document order settles the rest.
+    """
+    concrete = 1 if occ.name == "Equipment" else 0
+    if occ.name == "Recommended equipment":
+        filled = len(recommended_equipment(occ.args))
+    else:
+        filled = len(_slots(occ, EQUIPMENT_SLOTS))
+    return (concrete, filled, occ.start)
+
+
 def recommended_equipment(args: dict[str, str]) -> dict[str, str]:
     """Best-ranked item per slot from a {{Recommended equipment}} block.
 
@@ -371,6 +416,9 @@ class Setup:
     # Ranked options per slot, best first, when the source ranked them. Empty
     # for {{Equipment}}, which is one hand-authored loadout with no ladder.
     alternatives: dict[str, list[str]] = field(default_factory=dict)
+    # Spec-attack weapons the guide expects you to bring. They occupy no worn
+    # slot, so they cannot live in `equipment`, but dropping them loses the item.
+    switches: list[str] = field(default_factory=list)
     order: int = 0  # document position, for page-level merging
 
 
@@ -502,6 +550,7 @@ def _merge_shared(setups: list[Setup]) -> list[Setup]:
                 for inv in invs:
                     inv.equipment = dict(gears[0].equipment)
                     inv.alternatives = dict(gears[0].alternatives)
+                    inv.switches = list(gears[0].switches)
                 out.extend(invs)
             elif len(invs) == 1:
                 for gear in gears:
@@ -533,13 +582,16 @@ def _merge_shared(setups: list[Setup]) -> list[Setup]:
     # genuinely gearless activities (Vale Totems) are left alone.
     carried: dict[str, str] = {}
     carried_alts: dict[str, list[str]] = {}
+    carried_switches: list[str] = []
     for setup in out:
         if setup.equipment:
             carried = setup.equipment
             carried_alts = setup.alternatives
+            carried_switches = setup.switches
         elif carried:
             setup.equipment = dict(carried)
             setup.alternatives = dict(carried_alts)
+            setup.switches = list(carried_switches)
     return out
 
 
@@ -614,14 +666,15 @@ def extract_page(
         elif len(equips) == len(invs):
             pairs = list(zip(equips, invs))
         else:
-            # Counts disagree: pair by adjacency, report the leftovers.
+            # Counts disagree: choose among the preceding blocks, report the
+            # leftovers. Nearest-wins would hand the inventory whichever block
+            # sits closest, which is a typing accident rather than a decision.
             claimed: set[int] = set()
             for inv in invs:
-                match = None
-                for e in reversed([e for e in equips if e.end <= inv.start]):
-                    if e.start not in claimed:
-                        match = e
-                        break
+                available = [
+                    e for e in equips if e.end <= inv.start and e.start not in claimed
+                ]
+                match = max(available, key=_block_rank) if available else None
                 if match:
                     claimed.add(match.start)
                 pairs.append((match, inv))
@@ -633,6 +686,12 @@ def extract_page(
                 )
 
         headers = table_headers(text, scope, len(pairs)) if len(pairs) > 1 else None
+
+        # A scope that publishes one {{Rune pouch}} per setup means them in
+        # order. The positional window below cannot see that when a pouch is
+        # printed above its inventory instead of below it, which is how Tombs of
+        # Amascut shipped four of five variants with no runes at all.
+        paired_pouches = list(pouches) if pairs and len(pouches) == len(pairs) else None
 
         for idx, (eq, inv) in enumerate(pairs):
             # {{Recommended equipment}} carries a `style` ("Melee", "Tekton"),
@@ -658,15 +717,23 @@ def extract_page(
                 if candidates:
                     next_start = min(candidates)
 
-            pouch = None
-            for p in pouches:
-                if anchor_end < p.start < next_start:
-                    pouch = p
-                    break
+            pouch = paired_pouches[idx] if paired_pouches else None
+            if pouch is None:
+                # Measured from where this setup *starts*, not where it ends, so
+                # a pouch printed between the gear and the inventory still
+                # belongs to it. The previous setup's window closes here, so
+                # widening cannot steal one from it.
+                starts = [o.start for o in (eq, inv) if o is not None]
+                anchor_start = min(starts) if starts else anchor_end
+                for p in pouches:
+                    if anchor_start < p.start < next_start:
+                        pouch = p
+                        break
 
             setup = Setup(variant=variant, order=anchor_end)
             if eq is not None and eq.name == "Recommended equipment":
                 setup.alternatives = recommended_alternatives(eq.args)
+                setup.switches = recommended_switches(eq.args)
                 setup.equipment = {
                     slot: options[0]
                     for slot, options in setup.alternatives.items()
@@ -768,6 +835,7 @@ def main() -> None:
                             for slot, options in s.alternatives.items()
                             if len(options) > 1
                         },
+                        "switches": s.switches,
                     }
                     for s in setups
                 ],

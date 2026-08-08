@@ -136,7 +136,23 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
-      "warnings": []
+      "switches": [],
+      "warnings": [
+        "inventory 6 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)"
+      ]
     },
     {
       "variant": "Ranged (blowpipe)",
@@ -285,7 +301,24 @@
       "twoHandedWeapons": [
         12926
       ],
-      "warnings": []
+      "switches": [],
+      "warnings": [
+        "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 9 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 24 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 26 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 27 resolved via {{Cheap food}} (price-dependent)"
+      ]
     },
     {
       "variant": "Ranged (crossbow)",
@@ -435,9 +468,18 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Extended anti-venom+ -> Extended anti-venom+(4)",
-        "Guthix rest -> Guthix rest(4)"
+        "Guthix rest -> Guthix rest(4)",
+        "inventory 6 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)"
       ]
     }
   ]
