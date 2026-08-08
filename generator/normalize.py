@@ -28,6 +28,10 @@ SLOTS = REPO / "generator" / "slots.json"
 DOSE_RE = re.compile(r"^(?P<base>.+?)\s*\((?P<n>\d{1,2})\)$")
 PAGE_SIZE = 5000
 
+# Bumped whenever the on-disk item index grows a field the pipeline relies on,
+# so a cache from an older shape is refetched rather than half-read.
+INDEX_VERSION = 2
+
 
 def sweep(client: WikiClient, table: str, fields: tuple[str, ...]) -> list[dict]:
     """Every row of a bucket table, following the offset pages."""
@@ -49,22 +53,42 @@ def sweep(client: WikiClient, table: str, fields: tuple[str, ...]) -> list[dict]
 def load_item_index(client: WikiClient, refresh: bool = False) -> dict:
     """All (item_name, page_name, item_id) rows from the wiki's bucket store."""
     if ITEMS.exists() and not refresh:
-        return json.loads(ITEMS.read_text(encoding="utf-8"))
+        cached = json.loads(ITEMS.read_text(encoding="utf-8"))
+        # An index written before `byPage` existed would make every page-name
+        # lookup silently return nothing, which is the failure this cache is
+        # meant to prevent. Re-fetch instead of trusting the old shape.
+        if cached.get("version") == INDEX_VERSION:
+            return cached
 
     rows = sweep(client, "infobox_item", ("item_id", "item_name", "page_name"))
 
     by_name: dict[str, list[int]] = {}
+    by_page: dict[str, list[int]] = {}
     by_id: dict[str, str] = {}
     for row in rows:
         name = (row.get("item_name") or "").strip()
+        page = (row.get("page_name") or "").strip()
         ids = row.get("item_id") or []
         numeric = [int(i) for i in ids if str(i).isdigit()]
-        if name and numeric:
+        if not numeric:
+            continue
+        if name:
             by_name.setdefault(name.lower(), []).extend(numeric)
             for i in numeric:
                 by_id.setdefault(str(i), name)
+        # `Module:Loadout` falls back to the page name when no item is called
+        # what the setup asked for, so a name we cannot resolve here is one we
+        # cannot verify either. Indexing pages is what closes that blind spot.
+        if page:
+            by_page.setdefault(page.lower(), []).extend(numeric)
 
-    index = {"count": len(rows), "byName": by_name, "byId": by_id}
+    index = {
+        "version": INDEX_VERSION,
+        "count": len(rows),
+        "byName": by_name,
+        "byPage": by_page,
+        "byId": by_id,
+    }
     ITEMS.write_text(json.dumps(index), encoding="utf-8")
     return index
 
@@ -141,10 +165,53 @@ def build_dose_map(index: dict) -> dict[str, str]:
     return dose_map
 
 
+def build_page_dose_map(index: dict) -> dict[str, str]:
+    """page name (lowercased) -> highest-numbered item that page holds.
+
+    Some setups cite a *disambiguated page* rather than an item: Nightmare Zone
+    guides ask for an ``Overload (Nightmare Zone)``. No item is called that, so
+    `Module:Loadout` falls through to the page and returns whichever dose the
+    store hands back first - which is how every NMZ layout came to ship the
+    3-dose overload. Resolving the page ourselves picks the full one.
+    """
+    page_map: dict[str, str] = {}
+    for page, ids in index.get("byPage", {}).items():
+        if page in index["byName"]:
+            # A real item is literally called this; the wiki is unambiguous.
+            continue
+        variants: list[tuple[int, str]] = []
+        for item_id in ids:
+            name = index["byId"].get(str(item_id))
+            if not name:
+                continue
+            m = DOSE_RE.match(name.lower())
+            if m:
+                variants.append((int(m.group("n")), name.lower()))
+        if len(variants) < 2:
+            continue
+        page_map[page] = max(variants, key=lambda v: v[0])[1]
+    return page_map
+
+
 class Normalizer:
     def __init__(self, index: dict) -> None:
         self.index = index
         self.dose_map = build_dose_map(index)
+        self.page_dose_map = build_page_dose_map(index)
+
+    def _canonical(self, lowered: str) -> str:
+        """The wiki's own spelling of a lowercased item name.
+
+        Rebuilding the name from the caller's spelling loses whatever the wiki
+        actually wrote. That matters: 72 of the dose families are spelled
+        ``X (4)`` with a space, and ``X(4)`` is not an item, so a rebuilt name
+        resolves to nothing and the slot is dropped from the layout entirely.
+        """
+        for item_id in self.index["byName"].get(lowered, []):
+            name = self.index["byId"].get(str(item_id))
+            if name:
+                return name
+        return lowered
 
     def normalize(self, name: str) -> tuple[str, str | None]:
         """Return (name, note). `note` is set when the name was rewritten."""
@@ -153,16 +220,20 @@ class Normalizer:
         lowered = name.lower()
         if lowered in self.index["byName"]:
             return name, None
-        target = self.dose_map.get(lowered)
+        target = self.dose_map.get(lowered) or self.page_dose_map.get(lowered)
         if not target:
             return name, None
-        # Restore the wiki's capitalisation for the chosen variant.
-        m = DOSE_RE.match(target)
-        fixed = f"{name}({m.group('n')})" if m else target
+        fixed = self._canonical(target)
+        if fixed == name:
+            return name, None
         return fixed, f"{name} -> {fixed}"
 
     def resolve_ids(self, name: str) -> list[int]:
-        return self.index["byName"].get(name.lower(), [])
+        lowered = name.lower()
+        # Item name first, then page name - the order `Module:Loadout` uses.
+        return self.index["byName"].get(lowered) or self.index.get("byPage", {}).get(
+            lowered, []
+        )
 
     def name_for_id(self, item_id: int) -> str | None:
         return self.index["byId"].get(str(item_id))

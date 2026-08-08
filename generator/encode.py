@@ -148,6 +148,51 @@ def normalize_alternatives(
     return out
 
 
+def normalize_switches(switches: list[str], norm: Normalizer) -> list[str]:
+    """Same dose correction the worn items get, applied to the spec weapons."""
+    out: list[str] = []
+    for name in switches:
+        corrected, _ = norm.normalize(name)
+        if corrected and corrected not in out:
+            out.append(corrected)
+    return out
+
+
+# The leading name of a template call left in a slot value, e.g. "Cheap food".
+DYNAMIC_CALL_RE = re.compile(r"\{\{\s*([^|}]+)")
+
+
+def dynamic_notes(setup: dict) -> list[str]:
+    """Flag slots whose item is chosen by a template rather than named outright.
+
+    `{{Cheap food}}` and `{{Cheap prayer}}` resolve to whatever is cheapest at
+    render time, so those slots move with the Grand Exchange rather than with
+    the guide - 735 of them across the library. Recording it is what lets a
+    reviewer tell price drift from a real upstream edit in the weekly refresh.
+
+    `{{#var:...}}` is a different problem: it is a page-local variable that
+    expands to nothing once the block is rendered on its own, so the slot is
+    lost rather than merely unstable.
+    """
+    notes: list[str] = []
+    for section in ("equipment", "inventory", "runes"):
+        for key, value in setup[section].items():
+            if "{{" not in value:
+                continue
+            m = DYNAMIC_CALL_RE.search(value)
+            call = (m.group(1).strip() if m else value)[:40]
+            if call.startswith("#"):
+                note = (
+                    f"{section} {key} uses {{{{{call}}}}}, a page-local value that "
+                    f"does not resolve on its own - the slot is dropped"
+                )
+            else:
+                note = f"{section} {key} resolved via {{{{{call}}}}} (price-dependent)"
+            if note not in notes:
+                notes.append(note)
+    return notes
+
+
 def normalize_setup(setup: dict, norm: Normalizer) -> tuple[dict, list[str]]:
     notes: list[str] = []
     out = {"equipment": {}, "inventory": {}, "runes": {}}
@@ -329,6 +374,59 @@ def resolve_alternatives(
         result_for[job["key"]]["alternatives"] = ladders
 
 
+def resolve_switches(
+    client: WikiClient, jobs: list[dict], result_for: dict[str, dict]
+) -> None:
+    """Give every spec weapon the id the wiki would have given it.
+
+    A switch occupies no worn slot, so it is resolved in the inventory of a
+    throwaway loadout - the same `Module:Loadout` pass the worn items take, so a
+    switch and a weapon naming the same item can never disagree.
+    """
+    pending = [j for j in jobs if j["switchNames"] and j["key"] in result_for]
+    if not pending:
+        return
+
+    for start in range(0, len(pending), BATCH_SIZE):
+        batch = pending[start : start + BATCH_SIZE]
+        text = "\n".join(
+            build_loadout_wikitext(
+                f"{j['key']}S",
+                "",
+                {
+                    "equipment": {},
+                    "inventory": {
+                        str(n): name
+                        for n, name in enumerate(j["switchNames"][:28], start=1)
+                    },
+                    "runes": {},
+                },
+            )
+            for j in batch
+        )
+        rendered = client.expand_templates(text)
+        codes = {}
+        for code in CODE_RE.findall(rendered):
+            parts = code.split(",")
+            if len(parts) > 2:
+                codes[parts[2]] = code.strip()
+
+        for job in batch:
+            code = codes.get(f"{job['key']}S")
+            if not code:
+                continue
+            _, inventory, _ = split_layout(parse_import_string(code))
+            resolved = []
+            for n, name in enumerate(job["switchNames"][:28], start=1):
+                item_id = inventory.get(str(n))
+                # A name the wiki cannot resolve is dropped rather than guessed
+                # at; the rest of the list is still usable.
+                if item_id:
+                    resolved.append({"name": name, "id": item_id})
+            result_for[job["key"]]["switches"] = resolved
+        print(f"  switches {min(start + BATCH_SIZE, len(pending))}/{len(pending)}", end="\r")
+
+
 def main() -> None:
     client = WikiClient()
     index = load_item_index(client)
@@ -352,7 +450,8 @@ def main() -> None:
                     "altNames": normalize_alternatives(
                         setup.get("alternatives", {}), norm
                     ),
-                    "notes": notes,
+                    "switchNames": normalize_switches(setup.get("switches", []), norm),
+                    "notes": notes + dynamic_notes(normalized),
                     "curated": setup.get("curated", False),
                     "curationReason": setup.get("curationReason", ""),
                 }
@@ -427,6 +526,8 @@ def main() -> None:
                 "runes": runes,
                 # Filled by resolve_alternatives once every option has an id.
                 "alternatives": {},
+                # Likewise, by resolve_switches.
+                "switches": [],
                 # Kept so validation can round-trip every name back to the
                 # id the wiki actually chose for it.
                 "sourceNames": job["sourceNames"],
@@ -436,6 +537,7 @@ def main() -> None:
         print(f"  encoded {min(start + BATCH_SIZE, len(jobs))}/{len(jobs)}", end="\r")
 
     resolve_alternatives(client, jobs, result_for)
+    resolve_switches(client, jobs, result_for)
 
     # Which weapon options need both hands. The site clears the off-hand when
     # one is chosen and restores it on the way back, so stepping through the
@@ -448,11 +550,27 @@ def main() -> None:
             {i for i in [*options, worn] if i and i in two_handed}
         )
 
+    # What extraction had to throw away never reached any published artifact,
+    # so a page that quietly stopped yielding a setup was invisible. Carry it
+    # forward so `report.json` can say what was skipped and why.
+    extraction = {
+        "emptyPages": data.get("emptyPages", []),
+        "warnings": {
+            page["page"]: page["warnings"] for page in data["pages"] if page["warnings"]
+        },
+    }
+
     ENCODED.write_text(
-        json.dumps({"layouts": results, "failures": failures}, indent=2, ensure_ascii=False),
+        json.dumps(
+            {"layouts": results, "failures": failures, "extraction": extraction},
+            indent=2,
+            ensure_ascii=False,
+        ),
         encoding="utf-8",
     )
     print(f"\nencode: {len(results)} layouts, {len(failures)} failures")
+    print(f"  {len(extraction['emptyPages'])} pages yielded no setup, "
+          f"{sum(len(w) for w in extraction['warnings'].values())} extraction warnings")
     print(f"  http={client.stats['http']} cache={client.stats['cache']}")
     print(f"  wrote {ENCODED.relative_to(REPO)}")
 

@@ -87,6 +87,9 @@ def main() -> None:
                     "runes": e["runes"],
                     "alternatives": e["alternatives"],
                     "twoHandedWeapons": e["twoHandedWeapons"],
+                    # Spec weapons the guide expects you to bring. They wear no
+                    # slot, so they sit beside the layout rather than in it.
+                    "switches": e["switches"],
                     "warnings": e["warnings"],
                 }
                 for e in entries
@@ -129,6 +132,9 @@ def main() -> None:
                     "runes": e["runes"],
                     "alternatives": e["alternatives"],
                     "twoHandedWeapons": e["twoHandedWeapons"],
+                    # Spec weapons the guide expects you to bring. They wear no
+                    # slot, so they sit beside the layout rather than in it.
+                    "switches": e["switches"],
                     "warnings": e["warnings"],
                 }
             )
