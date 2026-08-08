@@ -220,6 +220,7 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -446,6 +447,12 @@
         25865,
         27655,
         29000
+      ],
+      "switches": [
+        {
+          "name": "Zaryte crossbow",
+          "id": 26374
+        }
       ],
       "warnings": []
     }

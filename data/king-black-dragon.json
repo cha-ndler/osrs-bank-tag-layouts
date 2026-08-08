@@ -144,6 +144,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended antifire -> Extended antifire(4)"
@@ -287,6 +288,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Prayer regeneration potion -> Prayer regeneration potion(4)"
       ]
@@ -428,6 +430,7 @@
       "twoHandedWeapons": [
         20997
       ],
+      "switches": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended antifire -> Extended antifire(4)"
@@ -571,9 +574,29 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
-        "Extended antifire -> Extended antifire(4)"
+        "Extended antifire -> Extended antifire(4)",
+        "inventory 9 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 24 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 25 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 26 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 27 resolved via {{Cheap food}} (price-dependent)"
       ]
     },
     {
@@ -714,9 +737,17 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
-        "Extended super antifire -> Extended super antifire(4)"
+        "Extended super antifire -> Extended super antifire(4)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 24 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 25 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 26 resolved via {{Cheap food}} (price-dependent)"
       ]
     },
     {
@@ -856,6 +887,7 @@
       "twoHandedWeapons": [
         20997
       ],
+      "switches": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended antifire -> Extended antifire(4)"

@@ -252,6 +252,24 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [
+        {
+          "name": "Volatile nightmare staff",
+          "id": 24424
+        },
+        {
+          "name": "Eldritch nightmare staff",
+          "id": 24425
+        },
+        {
+          "name": "Toxic blowpipe",
+          "id": 12926
+        },
+        {
+          "name": "Eye of ayak",
+          "id": 31113
+        }
+      ],
       "warnings": [
         "Prayer potion -> Prayer potion(4)"
       ]

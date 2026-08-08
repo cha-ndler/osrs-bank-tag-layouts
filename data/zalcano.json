@@ -96,6 +96,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Saradomin brew -> Saradomin brew(4)"
       ]
@@ -268,6 +269,7 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Saradomin brew -> Saradomin brew(4)"
       ]

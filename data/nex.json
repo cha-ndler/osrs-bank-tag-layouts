@@ -160,6 +160,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -316,6 +317,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     }
   ]

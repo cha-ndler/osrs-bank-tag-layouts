@@ -231,6 +231,16 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [
+        {
+          "name": "Zaryte crossbow",
+          "id": 26374
+        },
+        {
+          "name": "Accursed sceptre",
+          "id": 27665
+        }
+      ],
       "warnings": []
     },
     {
@@ -410,7 +420,7 @@
         "shield": [
           11924,
           12612,
-          6273
+          6259
         ],
         "gloves": [
           7460,
@@ -427,6 +437,7 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -657,6 +668,28 @@
         28338,
         28997
       ],
+      "switches": [
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Crystal halberd",
+          "id": 24125
+        }
+      ],
       "warnings": []
     },
     {
@@ -861,6 +894,20 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        },
+        {
+          "name": "Dragon dagger(p++)",
+          "id": 5698
+        },
+        {
+          "name": "Crystal halberd",
+          "id": 24125
+        }
+      ],
       "warnings": []
     },
     {
@@ -1088,6 +1135,24 @@
         20997,
         28794
       ],
+      "switches": [
+        {
+          "name": "Zaryte crossbow",
+          "id": 26374
+        },
+        {
+          "name": "Toxic blowpipe",
+          "id": 12926
+        },
+        {
+          "name": "Dragon thrownaxe",
+          "id": 20849
+        },
+        {
+          "name": "Dragon knife",
+          "id": 22804
+        }
+      ],
       "warnings": []
     },
     {
@@ -1297,6 +1362,7 @@
         12788,
         28794
       ],
+      "switches": [],
       "warnings": []
     }
   ]

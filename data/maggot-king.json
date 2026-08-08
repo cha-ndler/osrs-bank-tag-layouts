@@ -3,7 +3,7 @@
   "slug": "maggot-king",
   "sourcePage": "Maggot King/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Maggot_King/Strategies",
-  "sourceRevId": 15278205,
+  "sourceRevId": 15289689,
   "contentHash": "17ee0c485e7efa69",
   "variants": [
     {
@@ -211,6 +211,16 @@
       },
       "twoHandedWeapons": [
         27275
+      ],
+      "switches": [
+        {
+          "name": "Eye of ayak",
+          "id": 31113
+        },
+        {
+          "name": "Accursed sceptre",
+          "id": 27665
+        }
       ],
       "warnings": []
     },
@@ -432,6 +442,12 @@
       },
       "twoHandedWeapons": [
         20997
+      ],
+      "switches": [
+        {
+          "name": "Zaryte crossbow",
+          "id": 26374
+        }
       ],
       "warnings": []
     }

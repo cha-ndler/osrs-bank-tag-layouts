@@ -3,7 +3,7 @@
   "slug": "yama",
   "sourcePage": "Yama/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Yama/Strategies",
-  "sourceRevId": 15287750,
+  "sourceRevId": 15288874,
   "contentHash": "5c7465c91516690c",
   "variants": [
     {
@@ -154,6 +154,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Guthix rest -> Guthix rest(4)",
         "Sanfew serum -> Sanfew serum(4)"
@@ -310,6 +311,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)"
       ]
@@ -452,6 +454,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Surge potion -> Surge potion(4)",
         "Sanfew serum -> Sanfew serum(4)"
@@ -608,6 +611,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)"
       ]
@@ -763,6 +767,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)",
         "Extended stamina potion -> Extended stamina potion(4)",
@@ -920,6 +925,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Super combat potion -> Super combat potion(4)",
         "Saradomin brew -> Saradomin brew(4)",
@@ -1077,6 +1083,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Super restore -> Super restore(4)",
         "Antidote++ -> Antidote++(4)",
@@ -1234,6 +1241,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)"
       ]
@@ -1389,6 +1397,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)"
       ]
@@ -1544,6 +1553,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Forgotten brew -> Forgotten brew(4)",
         "Saradomin brew -> Saradomin brew(4)",
@@ -1701,6 +1711,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Super restore -> Super restore(4)"
       ]
@@ -1856,6 +1867,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)",
         "Super restore -> Super restore(4)"
@@ -2012,6 +2024,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Sanfew serum -> Sanfew serum(4)",
         "Divine super combat potion -> Divine super combat potion(4)",

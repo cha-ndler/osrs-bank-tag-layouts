@@ -3,7 +3,7 @@
   "slug": "the-leviathan",
   "sourcePage": "The Leviathan/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/The_Leviathan/Strategies",
-  "sourceRevId": 15284393,
+  "sourceRevId": 15289551,
   "contentHash": "0100a21448076e50",
   "variants": [
     {
@@ -199,7 +199,37 @@
       "twoHandedWeapons": [
         27275
       ],
-      "warnings": []
+      "switches": [
+        {
+          "name": "Volatile nightmare staff",
+          "id": 24424
+        },
+        {
+          "name": "Accursed sceptre",
+          "id": 27665
+        }
+      ],
+      "warnings": [
+        "inventory 5 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 6 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 24 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 25 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 26 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 27 resolved via {{Cheap food}} (price-dependent)"
+      ]
     },
     {
       "variant": "Range",
@@ -400,6 +430,7 @@
           12926,
           11785,
           21902,
+          20997,
           25865,
           9185
         ],
@@ -411,7 +442,8 @@
         ],
         "ammo": [
           21944,
-          9242
+          9242,
+          33595
         ],
         "gloves": [
           26235,
@@ -439,9 +471,60 @@
       },
       "twoHandedWeapons": [
         12926,
+        20997,
         25865
       ],
-      "warnings": []
+      "switches": [
+        {
+          "name": "Zaryte crossbow",
+          "id": 26374
+        },
+        {
+          "name": "Webweaver bow",
+          "id": 27655
+        },
+        {
+          "name": "Armadyl crossbow",
+          "id": 11785
+        },
+        {
+          "name": "Toxic blowpipe",
+          "id": 12926
+        },
+        {
+          "name": "Tonalztics of ralos",
+          "id": 28922
+        },
+        {
+          "name": "Dragon knife",
+          "id": 22804
+        },
+        {
+          "name": "Rosewood blowpipe",
+          "id": 31583
+        }
+      ],
+      "warnings": [
+        "inventory 5 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 6 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 24 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 25 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 26 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 27 resolved via {{Cheap food}} (price-dependent)"
+      ]
     }
   ]
 }

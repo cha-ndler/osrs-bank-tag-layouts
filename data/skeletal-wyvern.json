@@ -127,6 +127,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -341,6 +342,7 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -488,6 +490,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -614,6 +617,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -836,6 +840,7 @@
       "twoHandedWeapons": [
         25865
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -962,6 +967,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -1159,6 +1165,7 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     }
   ]

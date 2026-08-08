@@ -211,6 +211,28 @@
         4755,
         29796
       ],
+      "switches": [
+        {
+          "name": "Ursine chainmace",
+          "id": 27660
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Dragon dagger(p)",
+          "id": 1231
+        },
+        {
+          "name": "Crystal halberd",
+          "id": 24125
+        }
+      ],
       "warnings": []
     },
     {
@@ -425,6 +447,7 @@
         25865,
         27655
       ],
+      "switches": [],
       "warnings": [
         "Anti-venom -> Anti-venom(4)"
       ]

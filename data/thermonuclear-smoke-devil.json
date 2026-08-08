@@ -181,6 +181,7 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [],
       "warnings": [
         "Super restore -> Super restore(4)"
       ]
@@ -414,9 +415,12 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [],
       "warnings": [
         "Menaphite remedy -> Menaphite remedy(4)",
-        "Zamorak brew -> Zamorak brew(4)"
+        "Zamorak brew -> Zamorak brew(4)",
+        "inventory 2 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 3 resolved via {{Cheap food}} (price-dependent)"
       ]
     },
     {
@@ -636,6 +640,40 @@
         22325,
         28338,
         29796
+      ],
+      "switches": [
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Crimson kisten",
+          "id": 33631
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        },
+        {
+          "name": "Osmumten's fang",
+          "id": 26219
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        }
       ],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
@@ -878,10 +916,46 @@
         28338,
         29796
       ],
+      "switches": [
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Crimson kisten",
+          "id": 33631
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        },
+        {
+          "name": "Osmumten's fang",
+          "id": 26219
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        }
+      ],
       "warnings": [
         "Super strength -> Super strength(4)",
         "Menaphite remedy -> Menaphite remedy(4)",
-        "Zamorak brew -> Zamorak brew(4)"
+        "Zamorak brew -> Zamorak brew(4)",
+        "inventory 2 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 3 resolved via {{Cheap food}} (price-dependent)"
       ]
     }
   ]

@@ -59,6 +59,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -111,6 +112,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -163,6 +165,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -215,6 +218,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -249,6 +253,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -377,6 +382,7 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     }
   ]

@@ -190,7 +190,7 @@
           25985,
           12612,
           3842,
-          6273
+          6259
         ],
         "weapon": [
           27665,
@@ -217,6 +217,16 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [
+        {
+          "name": "Accursed sceptre",
+          "id": 27665
+        },
+        {
+          "name": "Eye of ayak",
+          "id": 31113
+        }
+      ],
       "warnings": []
     },
     {
@@ -434,6 +444,12 @@
         22550,
         25865,
         27655
+      ],
+      "switches": [
+        {
+          "name": "Zaryte crossbow",
+          "id": 26374
+        }
       ],
       "warnings": []
     }

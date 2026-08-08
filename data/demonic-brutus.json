@@ -213,6 +213,24 @@
         28338,
         29796
       ],
+      "switches": [
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        }
+      ],
       "warnings": []
     }
   ]

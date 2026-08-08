@@ -207,6 +207,7 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -397,6 +398,7 @@
         20997,
         25865
       ],
+      "switches": [],
       "warnings": []
     }
   ]

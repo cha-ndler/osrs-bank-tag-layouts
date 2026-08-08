@@ -236,7 +236,64 @@
         28997,
         29796
       ],
-      "warnings": []
+      "switches": [
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        },
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Crimson kisten",
+          "id": 33631
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Bone dagger",
+          "id": 8872
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        }
+      ],
+      "warnings": [
+        "inventory 3 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 4 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 5 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 6 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 9 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap prayer}} (price-dependent)"
+      ]
     },
     {
       "variant": "Melee (2)",
@@ -474,6 +531,52 @@
         28997,
         29796
       ],
+      "switches": [
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        },
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Crimson kisten",
+          "id": 33631
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Bone dagger",
+          "id": 8872
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        }
+      ],
       "warnings": []
     },
     {
@@ -708,7 +811,37 @@
         25865,
         29000
       ],
-      "warnings": []
+      "switches": [
+        {
+          "name": "Zaryte crossbow",
+          "id": 26374
+        },
+        {
+          "name": "Tonalztics of ralos",
+          "id": 28922
+        },
+        {
+          "name": "Toxic blowpipe",
+          "id": 12926
+        },
+        {
+          "name": "Dragon warhammer",
+          "id": 13576
+        }
+      ],
+      "warnings": [
+        "inventory 6 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 9 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap prayer}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap prayer}} (price-dependent)"
+      ]
     }
   ]
 }

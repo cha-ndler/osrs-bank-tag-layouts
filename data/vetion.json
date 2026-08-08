@@ -144,6 +144,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -369,6 +370,20 @@
         21003,
         28338,
         28997
+      ],
+      "switches": [
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Abyssal bludgeon",
+          "id": 13263
+        },
+        {
+          "name": "Dragon mace",
+          "id": 1434
+        }
       ],
       "warnings": []
     }

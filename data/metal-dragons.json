@@ -189,7 +189,16 @@
       "twoHandedWeapons": [
         27275
       ],
-      "warnings": []
+      "switches": [],
+      "warnings": [
+        "inventory 6 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 7 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 9 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)"
+      ]
     },
     {
       "variant": "Melee",
@@ -385,7 +394,30 @@
         ]
       },
       "twoHandedWeapons": [],
-      "warnings": []
+      "switches": [
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        }
+      ],
+      "warnings": [
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)"
+      ]
     },
     {
       "variant": "Ranged",
@@ -559,7 +591,15 @@
         ]
       },
       "twoHandedWeapons": [],
-      "warnings": []
+      "switches": [],
+      "warnings": [
+        "inventory 7 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 9 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)"
+      ]
     }
   ]
 }

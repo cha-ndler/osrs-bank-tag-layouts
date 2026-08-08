@@ -231,6 +231,36 @@
         28338,
         29796
       ],
+      "switches": [
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Ancient godsword",
+          "id": 26233
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        }
+      ],
       "warnings": []
     },
     {
@@ -460,6 +490,36 @@
         22325,
         28338,
         29796
+      ],
+      "switches": [
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Ancient godsword",
+          "id": 26233
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        },
+        {
+          "name": "Dragon dagger",
+          "id": 1215
+        }
       ],
       "warnings": []
     }

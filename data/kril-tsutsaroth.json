@@ -211,6 +211,12 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [
+        {
+          "name": "Eldritch nightmare staff",
+          "id": 24425
+        }
+      ],
       "warnings": []
     },
     {
@@ -431,6 +437,32 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Emberlight",
+          "id": 29589
+        },
+        {
+          "name": "Arclight",
+          "id": 19675
+        },
+        {
+          "name": "Bandos godsword",
+          "id": 11804
+        }
+      ],
       "warnings": []
     },
     {
@@ -649,6 +681,28 @@
       },
       "twoHandedWeapons": [
         22325
+      ],
+      "switches": [
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Emberlight",
+          "id": 29589
+        },
+        {
+          "name": "Arclight",
+          "id": 19675
+        }
       ],
       "warnings": []
     },
@@ -870,6 +924,16 @@
         20997,
         25865,
         29591
+      ],
+      "switches": [
+        {
+          "name": "Scorching bow",
+          "id": 29591
+        },
+        {
+          "name": "Toxic blowpipe",
+          "id": 12926
+        }
       ],
       "warnings": []
     },
@@ -1097,6 +1161,36 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [
+        {
+          "name": "Saradomin godsword",
+          "id": 11806
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Ancient godsword",
+          "id": 26233
+        },
+        {
+          "name": "Elder maul",
+          "id": 21003
+        },
+        {
+          "name": "Emberlight",
+          "id": 29589
+        },
+        {
+          "name": "Arclight",
+          "id": 19675
+        }
+      ],
       "warnings": []
     }
   ]

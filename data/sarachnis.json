@@ -153,6 +153,7 @@
       "twoHandedWeapons": [
         28997
       ],
+      "switches": [],
       "warnings": [
         "Super combat potion -> Super combat potion(4)",
         "Prayer potion -> Prayer potion(4)"
@@ -308,9 +309,22 @@
       "twoHandedWeapons": [
         22325
       ],
+      "switches": [],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
-        "Super restore -> Super restore(4)"
+        "Super restore -> Super restore(4)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 24 resolved via {{Cheap food}} (price-dependent)"
       ]
     },
     {
@@ -460,7 +474,27 @@
       "twoHandedWeapons": [
         27275
       ],
-      "warnings": []
+      "switches": [],
+      "warnings": [
+        "inventory 6 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 7 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 8 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 9 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)"
+      ]
     }
   ]
 }

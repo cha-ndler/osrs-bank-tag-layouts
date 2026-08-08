@@ -4,7 +4,7 @@
   "sourcePage": "Rune dragon/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Rune_dragon/Strategies",
   "sourceRevId": 15287355,
-  "contentHash": "87ac6b75fa25ee4a",
+  "contentHash": "d1a5867fe1dc02c9",
   "variants": [
     {
       "variant": "Magic",
@@ -12,8 +12,8 @@
       "icon": 27275,
       "completeness": "complete",
       "completenessNote": "",
-      "importString": "banktags,1,Rune dragon Magic,27275,layout,38,11936,46,11936,54,11936,4,27641,5,2434,6,2434,7,11957,8,21791,10,22947,14,2434,16,27275,20,11936,28,11936,32,31106,33,7159,17,21021,21,11936,25,21024,29,11936,34,28313,9,12002,13,2434,15,11936,22,11936,30,11936,36,11936,44,11936,52,11936,55,12791,47,8013,37,11936,45,11936,53,11936,1,25177,39,11936,23,11936,31,11936",
-      "importStringZigzag": "banktags,1,Rune dragon Magic,27275,layout,0,25177,1,12002,2,21021,3,31106,4,28313,8,21791,9,27275,10,21024,11,7159,12,22947,16,27641,17,2434,18,2434,19,11936,20,11936,21,11936,22,11936,23,11936,24,2434,25,11957,26,2434,27,11936,28,11936,29,11936,30,11936,31,11936,32,11936,33,11936,34,11936,35,8013,36,11936,37,12791,40,11936,41,11936,42,11936,43,11936,44,11936",
+      "importString": "banktags,1,Rune dragon Magic,27275,layout,38,11936,46,11936,54,11936,4,27641,5,2434,6,2434,7,11957,8,21791,10,22947,12,11194,14,2434,16,27275,20,11936,28,11936,32,31106,33,7159,17,21021,21,11936,25,21024,29,11936,34,28313,9,12002,13,2434,15,11936,22,11936,30,11936,36,11936,44,11936,52,11936,55,12791,47,8013,37,11936,45,11936,53,11936,1,25177,39,11936,23,11936,31,11936",
+      "importStringZigzag": "banktags,1,Rune dragon Magic,27275,layout,0,25177,1,12002,2,21021,3,31106,4,28313,8,21791,9,27275,10,21024,11,7159,12,22947,16,27641,17,2434,18,11194,19,2434,20,11936,21,11936,22,11936,23,11936,24,2434,25,11957,26,2434,27,11936,28,11936,29,11936,30,11936,31,11936,32,11936,33,11936,34,11936,35,11936,36,11936,37,11936,40,11936,41,11936,42,11936,43,8013,44,11936,45,12791",
       "layout": {
         "38": 11936,
         "46": 11936,
@@ -24,6 +24,7 @@
         "7": 11957,
         "8": 21791,
         "10": 22947,
+        "12": 11194,
         "14": 2434,
         "16": 27275,
         "20": 11936,
@@ -66,8 +67,8 @@
         "12": 22947,
         "16": 27641,
         "17": 2434,
-        "18": 2434,
-        "19": 11936,
+        "18": 11194,
+        "19": 2434,
         "20": 11936,
         "21": 11936,
         "22": 11936,
@@ -83,14 +84,15 @@
         "32": 11936,
         "33": 11936,
         "34": 11936,
-        "35": 8013,
+        "35": 11936,
         "36": 11936,
-        "37": 12791,
+        "37": 11936,
         "40": 11936,
         "41": 11936,
         "42": 11936,
-        "43": 11936,
-        "44": 11936
+        "43": 8013,
+        "44": 11936,
+        "45": 12791
       },
       "curated": false,
       "curationReason": "",
@@ -114,6 +116,7 @@
         "2": 2434,
         "3": 2434,
         "4": 11957,
+        "5": 11194,
         "7": 2434,
         "9": 11936,
         "13": 11936,
@@ -219,8 +222,28 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [],
       "warnings": [
-        "Digsite pendant -> Digsite pendant(5)"
+        "Digsite pendant -> Digsite pendant (5)",
+        "inventory 8 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 9 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 25 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 26 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 27 resolved via {{Cheap food}} (price-dependent)"
       ]
     },
     {
@@ -229,13 +252,14 @@
       "icon": 22978,
       "completeness": "complete",
       "completenessNote": "",
-      "importString": "banktags,1,Rune dragon Melee,22978,layout,38,11936,46,11936,54,11936,4,27690,6,22215,7,23691,8,21295,10,22947,12,2434,14,2434,16,22978,20,11936,28,11936,32,22981,33,7159,17,26384,21,11936,25,26386,29,11936,34,28307,9,29801,13,2434,15,2434,18,22322,22,11936,30,11936,36,11936,44,11936,52,11936,55,27281,47,11936,37,11936,45,11936,53,11936,1,25177,39,11936,23,11936,31,11936",
-      "importStringZigzag": "banktags,1,Rune dragon Melee,22978,layout,0,25177,1,29801,2,26384,3,26386,4,7159,5,22947,8,21295,9,22978,10,22322,11,22981,12,28307,16,27690,17,23691,18,2434,19,2434,20,11936,21,11936,22,11936,23,11936,24,22215,25,2434,26,2434,27,11936,28,11936,29,11936,30,11936,31,11936,32,11936,33,11936,34,11936,35,11936,36,11936,37,27281,40,11936,41,11936,42,11936,43,11936,44,11936",
+      "importString": "banktags,1,Rune dragon Melee,22978,layout,38,11936,46,11936,54,11936,4,27690,5,11194,6,22215,7,23691,8,21295,10,22947,12,2434,14,2434,16,22978,20,11936,28,11936,32,22981,33,7159,17,26384,21,11936,25,26386,29,11936,34,28307,9,29801,13,2434,15,2434,18,22322,22,11936,30,11936,36,11936,44,11936,52,11936,55,27281,47,11936,37,11936,45,11936,53,11936,1,25177,39,11936,23,11936,31,11936",
+      "importStringZigzag": "banktags,1,Rune dragon Melee,22978,layout,0,25177,1,29801,2,26384,3,26386,4,7159,5,22947,8,21295,9,22978,10,22322,11,22981,12,28307,16,27690,17,22215,18,2434,19,2434,20,11936,21,11936,22,11936,23,11936,24,11194,25,23691,26,2434,27,2434,28,11936,29,11936,30,11936,31,11936,32,11936,33,11936,34,11936,35,11936,36,11936,37,11936,40,11936,41,11936,42,11936,43,11936,44,11936,45,27281",
       "layout": {
         "38": 11936,
         "46": 11936,
         "54": 11936,
         "4": 27690,
+        "5": 11194,
         "6": 22215,
         "7": 23691,
         "8": 21295,
@@ -284,17 +308,17 @@
         "11": 22981,
         "12": 28307,
         "16": 27690,
-        "17": 23691,
+        "17": 22215,
         "18": 2434,
         "19": 2434,
         "20": 11936,
         "21": 11936,
         "22": 11936,
         "23": 11936,
-        "24": 22215,
-        "25": 2434,
+        "24": 11194,
+        "25": 23691,
         "26": 2434,
-        "27": 11936,
+        "27": 2434,
         "28": 11936,
         "29": 11936,
         "30": 11936,
@@ -304,12 +328,13 @@
         "34": 11936,
         "35": 11936,
         "36": 11936,
-        "37": 27281,
+        "37": 11936,
         "40": 11936,
         "41": 11936,
         "42": 11936,
         "43": 11936,
-        "44": 11936
+        "44": 11936,
+        "45": 27281
       },
       "curated": false,
       "curationReason": "",
@@ -331,6 +356,7 @@
         "23": 11936,
         "27": 11936,
         "1": 27690,
+        "2": 11194,
         "3": 22215,
         "4": 23691,
         "5": 2434,
@@ -437,8 +463,49 @@
       "twoHandedWeapons": [
         29796
       ],
+      "switches": [
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
+        },
+        {
+          "name": "Dragon claws",
+          "id": 13652
+        },
+        {
+          "name": "Crimson kisten",
+          "id": 33631
+        },
+        {
+          "name": "Osmumten's fang",
+          "id": 26219
+        }
+      ],
       "warnings": [
-        "Digsite pendant -> Digsite pendant(5)"
+        "Digsite pendant -> Digsite pendant (5)",
+        "inventory 9 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 24 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 25 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 26 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 27 resolved via {{Cheap food}} (price-dependent)"
       ]
     },
     {
@@ -447,8 +514,8 @@
       "icon": 21012,
       "completeness": "complete",
       "completenessNote": "",
-      "importString": "banktags,1,Rune dragon Ranged,21012,layout,38,11936,46,11936,54,11936,4,23733,5,2434,6,2434,7,11957,8,28951,10,11212,14,2434,16,21012,20,11936,28,11936,32,26235,33,7159,17,27238,21,11936,25,27241,29,11936,34,28310,9,33639,13,2434,15,11936,18,21000,22,11936,30,11936,36,11936,44,11936,52,11936,55,12791,47,8013,37,11936,45,11936,53,11936,1,25177,39,11936,23,11936,31,11936",
-      "importStringZigzag": "banktags,1,Rune dragon Ranged,21012,layout,0,25177,1,33639,2,27238,3,27241,4,7159,5,11212,8,28951,9,21012,10,21000,11,26235,12,28310,16,23733,17,2434,18,2434,19,11936,20,11936,21,11936,22,11936,23,11936,24,2434,25,11957,26,2434,27,11936,28,11936,29,11936,30,11936,31,11936,32,11936,33,11936,34,11936,35,8013,36,11936,37,12791,40,11936,41,11936,42,11936,43,11936,44,11936",
+      "importString": "banktags,1,Rune dragon Ranged,21012,layout,38,11936,46,11936,54,11936,4,23733,5,2434,6,2434,7,11957,8,28951,10,11212,12,11194,14,2434,16,21012,20,11936,28,11936,32,26235,33,7159,17,27238,21,11936,25,27241,29,11936,34,28310,9,33639,13,2434,15,11936,18,21000,22,11936,30,11936,36,11936,44,11936,52,11936,55,12791,47,8013,37,11936,45,11936,53,11936,1,25177,39,11936,23,11936,31,11936",
+      "importStringZigzag": "banktags,1,Rune dragon Ranged,21012,layout,0,25177,1,33639,2,27238,3,27241,4,7159,5,11212,8,28951,9,21012,10,21000,11,26235,12,28310,16,23733,17,2434,18,11194,19,2434,20,11936,21,11936,22,11936,23,11936,24,2434,25,11957,26,2434,27,11936,28,11936,29,11936,30,11936,31,11936,32,11936,33,11936,34,11936,35,11936,36,11936,37,11936,40,11936,41,11936,42,11936,43,8013,44,11936,45,12791",
       "layout": {
         "38": 11936,
         "46": 11936,
@@ -459,6 +526,7 @@
         "7": 11957,
         "8": 28951,
         "10": 11212,
+        "12": 11194,
         "14": 2434,
         "16": 21012,
         "20": 11936,
@@ -503,8 +571,8 @@
         "12": 28310,
         "16": 23733,
         "17": 2434,
-        "18": 2434,
-        "19": 11936,
+        "18": 11194,
+        "19": 2434,
         "20": 11936,
         "21": 11936,
         "22": 11936,
@@ -520,14 +588,15 @@
         "32": 11936,
         "33": 11936,
         "34": 11936,
-        "35": 8013,
+        "35": 11936,
         "36": 11936,
-        "37": 12791,
+        "37": 11936,
         "40": 11936,
         "41": 11936,
         "42": 11936,
-        "43": 11936,
-        "44": 11936
+        "43": 8013,
+        "44": 11936,
+        "45": 12791
       },
       "curated": false,
       "curationReason": "",
@@ -552,6 +621,7 @@
         "2": 2434,
         "3": 2434,
         "4": 11957,
+        "5": 11194,
         "7": 2434,
         "9": 11936,
         "13": 11936,
@@ -659,8 +729,28 @@
         20997,
         25865
       ],
+      "switches": [],
       "warnings": [
-        "Digsite pendant -> Digsite pendant(5)"
+        "Digsite pendant -> Digsite pendant (5)",
+        "inventory 8 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 9 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 10 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 11 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 12 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 13 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 14 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 15 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 16 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 23 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 25 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 26 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 27 resolved via {{Cheap food}} (price-dependent)"
       ]
     }
   ]

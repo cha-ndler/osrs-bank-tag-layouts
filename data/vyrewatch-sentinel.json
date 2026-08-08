@@ -96,6 +96,7 @@
       "twoHandedWeapons": [
         33722
       ],
+      "switches": [],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)"
       ]
@@ -191,6 +192,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)"
       ]

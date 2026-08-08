@@ -99,6 +99,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Energy potion -> Energy potion(4)"
       ]
@@ -183,6 +184,7 @@
       "twoHandedWeapons": [
         12926
       ],
+      "switches": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)",
         "Stamina potion -> Stamina potion(4)"
@@ -302,6 +304,7 @@
       "runes": {},
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -432,6 +435,7 @@
       "twoHandedWeapons": [
         12926
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -559,6 +563,7 @@
       "twoHandedWeapons": [
         12926
       ],
+      "switches": [],
       "warnings": [
         "Necklace of passage -> Necklace of passage(5)"
       ]
@@ -655,6 +660,7 @@
       "twoHandedWeapons": [
         12926
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -767,6 +773,7 @@
       "twoHandedWeapons": [
         12926
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -902,6 +909,7 @@
       },
       "alternatives": {},
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": [
         "Necklace of passage -> Necklace of passage(5)",
         "Ring of dueling -> Ring of dueling(8)"

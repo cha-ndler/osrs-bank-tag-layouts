@@ -200,6 +200,20 @@
       "twoHandedWeapons": [
         27275
       ],
+      "switches": [
+        {
+          "name": "Eldritch nightmare staff",
+          "id": 24425
+        },
+        {
+          "name": "Eye of ayak",
+          "id": 31113
+        },
+        {
+          "name": "Accursed sceptre",
+          "id": 27665
+        }
+      ],
       "warnings": [
         "Saradomin brew -> Saradomin brew(4)",
         "Super restore -> Super restore(4)"
@@ -433,7 +447,32 @@
         20997,
         25865
       ],
-      "warnings": []
+      "switches": [
+        {
+          "name": "Toxic blowpipe",
+          "id": 12926
+        },
+        {
+          "name": "Zaryte crossbow",
+          "id": 26374
+        },
+        {
+          "name": "Armadyl crossbow",
+          "id": 11785
+        },
+        {
+          "name": "Tonalztics of ralos",
+          "id": 28922
+        }
+      ],
+      "warnings": [
+        "inventory 17 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 18 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 19 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 20 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 21 resolved via {{Cheap food}} (price-dependent)",
+        "inventory 22 resolved via {{Cheap food}} (price-dependent)"
+      ]
     }
   ]
 }

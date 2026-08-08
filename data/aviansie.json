@@ -185,6 +185,7 @@
         12788,
         12926
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -339,6 +340,7 @@
       "twoHandedWeapons": [
         29796
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -567,6 +569,7 @@
         29000,
         31583
       ],
+      "switches": [],
       "warnings": []
     }
   ]

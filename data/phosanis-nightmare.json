@@ -3,7 +3,7 @@
   "slug": "phosanis-nightmare",
   "sourcePage": "Phosani's Nightmare/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Phosani's_Nightmare/Strategies",
-  "sourceRevId": 15288321,
+  "sourceRevId": 15288784,
   "contentHash": "f8bfd9949a7f550a",
   "variants": [
     {
@@ -153,6 +153,7 @@
       "twoHandedWeapons": [
         28997
       ],
+      "switches": [],
       "warnings": [
         "Super combat potion -> Super combat potion(4)",
         "Prayer potion -> Prayer potion(4)",
@@ -309,6 +310,7 @@
       "twoHandedWeapons": [
         13263
       ],
+      "switches": [],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
         "Prayer potion -> Prayer potion(4)",
@@ -465,6 +467,7 @@
       "twoHandedWeapons": [
         22325
       ],
+      "switches": [],
       "warnings": [
         "Prayer potion -> Prayer potion(4)",
         "Sanfew serum -> Sanfew serum(4)",

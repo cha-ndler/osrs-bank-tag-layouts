@@ -218,6 +218,7 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -443,6 +444,12 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [
+        {
+          "name": "Voidwaker",
+          "id": 27690
+        }
+      ],
       "warnings": []
     },
     {
@@ -661,6 +668,7 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     },
     {
@@ -886,6 +894,7 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     }
   ]

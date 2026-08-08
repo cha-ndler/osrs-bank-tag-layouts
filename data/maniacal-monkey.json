@@ -183,7 +183,7 @@
           6889,
           11924,
           12612,
-          6273,
+          6259,
           3840
         ],
         "gloves": [
@@ -215,6 +215,7 @@
       "twoHandedWeapons": [
         28988
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -394,7 +395,7 @@
           6889,
           11924,
           12612,
-          6273,
+          6259,
           3840
         ],
         "gloves": [
@@ -426,6 +427,7 @@
       "twoHandedWeapons": [
         28988
       ],
+      "switches": [],
       "warnings": []
     },
     {
@@ -635,6 +637,7 @@
         ]
       },
       "twoHandedWeapons": [],
+      "switches": [],
       "warnings": []
     }
   ]
