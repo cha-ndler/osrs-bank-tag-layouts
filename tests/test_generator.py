@@ -43,6 +43,7 @@ from overrides import (  # noqa: E402
     replace_in_inventory,
     targets,
 )
+from validate import COMPLETE_BASELINE, completeness_errors  # noqa: E402
 
 # Injected instead of the real wiki slot index so nothing here needs the network.
 TWO_HANDED = {"tumeken's shadow", "scythe of vitur", "twisted bow"}
@@ -919,6 +920,49 @@ class TestPublishedData(unittest.TestCase):
         tbow = next(v for v in record["variants"] if "Tbow" in v["variant"])
         # 20997 = Twisted bow, supplied via the `2h1` argument.
         self.assertEqual(tbow["equipment"].get("weapon"), 20997)
+
+
+class TestCompletenessGate(unittest.TestCase):
+    """The ratchet must survive the wiki growing and still catch lost gear.
+
+    A ratio floor did neither: four new upstream pages - two of them the kind
+    MINIMAL_ACTIVITIES blesses as correctly small - dragged the ratio under its
+    floor while the number of complete layouts had not changed, and the weekly
+    refresh went a month without opening a pull request.
+    """
+
+    @staticmethod
+    def corpus(complete: int, minimal: int = 0, partial: int = 0) -> list[dict]:
+        return (
+            [{"completeness": "complete"}] * complete
+            + [{"completeness": "minimal"}] * minimal
+            + [{"completeness": "partial"}] * partial
+        )
+
+    def test_growth_alone_never_trips_the_gate(self):
+        # Ratio here is 290/400 = 72.5%, far under any ratio floor this library
+        # ever held - yet nothing was lost, so the gate must stay silent.
+        grown = self.corpus(COMPLETE_BASELINE, minimal=60, partial=50)
+        self.assertEqual(completeness_errors(grown), [])
+
+    def test_losing_one_complete_layout_trips_the_gate(self):
+        regressed = self.corpus(COMPLETE_BASELINE - 1, minimal=60, partial=50)
+        errors = completeness_errors(regressed)
+        self.assertEqual(len(errors), 1)
+        self.assertIn(str(COMPLETE_BASELINE - 1), errors[0])
+
+    def test_a_shrinking_corpus_is_judged_on_what_is_left(self):
+        # Discovery returning almost nothing: the ratio would read 100%.
+        self.assertEqual(len(completeness_errors(self.corpus(3))), 1)
+
+    def test_the_published_library_clears_the_baseline(self):
+        index = REPO / "index.json"
+        if not index.exists():
+            self.skipTest("library not generated")
+        counts = json.loads(
+            (REPO / "report.json").read_text(encoding="utf-8")
+        )["completenessCounts"]
+        self.assertGreaterEqual(counts["complete"], COMPLETE_BASELINE)
 
 
 if __name__ == "__main__":
