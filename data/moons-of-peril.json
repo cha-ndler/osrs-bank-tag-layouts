@@ -3,7 +3,7 @@
   "slug": "moons-of-peril",
   "sourcePage": "Moons of Peril/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Moons_of_Peril/Strategies",
-  "sourceRevId": 15284392,
+  "sourceRevId": 15326184,
   "contentHash": "4e2f767ddd09832a",
   "variants": [
     {
@@ -156,8 +156,8 @@
           "id": 24125
         },
         {
-          "name": "Voidwaker",
-          "id": 27690
+          "name": "Crimson kisten",
+          "id": 33631
         },
         {
           "name": "Dragon dagger",
@@ -166,6 +166,10 @@
         {
           "name": "Burning claws",
           "id": 29577
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
         },
         {
           "name": "Abyssal dagger",
@@ -329,12 +333,16 @@
           "id": 24125
         },
         {
-          "name": "Voidwaker",
-          "id": 27690
+          "name": "Crimson kisten",
+          "id": 33631
         },
         {
           "name": "Burning claws",
           "id": 29577
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
         },
         {
           "name": "Dragon dagger",
@@ -489,12 +497,16 @@
       ],
       "switches": [
         {
-          "name": "Voidwaker",
-          "id": 27690
+          "name": "Crimson kisten",
+          "id": 33631
         },
         {
           "name": "Crystal halberd",
           "id": 24125
+        },
+        {
+          "name": "Voidwaker",
+          "id": 27690
         },
         {
           "name": "Dragon claws",

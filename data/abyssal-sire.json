@@ -3,7 +3,7 @@
   "slug": "abyssal-sire",
   "sourcePage": "Abyssal Sire/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Abyssal_Sire/Strategies",
-  "sourceRevId": 15275785,
+  "sourceRevId": 15323806,
   "contentHash": "16b88981029d48aa",
   "variants": [
     {
@@ -361,7 +361,7 @@
       ],
       "switches": [
         {
-          "name": "Eldritch nightmare staff",
+          "name": "Eldritch Nightmare staff",
           "id": 24425
         },
         {

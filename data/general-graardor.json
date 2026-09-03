@@ -3,7 +3,7 @@
   "slug": "general-graardor",
   "sourcePage": "General Graardor/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/General_Graardor/Strategies",
-  "sourceRevId": 15275731,
+  "sourceRevId": 15328579,
   "contentHash": "eb7bc6a25a9fd197",
   "variants": [
     {
@@ -219,7 +219,7 @@
           "id": 27665
         },
         {
-          "name": "Eye of ayak",
+          "name": "Eye of Ayak",
           "id": 31113
         }
       ],
@@ -446,7 +446,7 @@
           "id": 27665
         },
         {
-          "name": "Eye of ayak",
+          "name": "Eye of Ayak",
           "id": 31113
         }
       ],
@@ -1171,7 +1171,7 @@
           28307,
           25252,
           25264,
-          2570
+          25193
         ]
       },
       "twoHandedWeapons": [],

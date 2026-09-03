@@ -3,7 +3,7 @@
   "slug": "nightmare-zone",
   "sourcePage": "Nightmare Zone/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Nightmare_Zone/Strategies",
-  "sourceRevId": 15286841,
+  "sourceRevId": 15316198,
   "contentHash": "d1ac19fbc6bad6d7",
   "variants": [
     {
@@ -247,11 +247,11 @@
       "twoHandedWeapons": [],
       "switches": [
         {
-          "name": "Volatile nightmare staff",
+          "name": "Volatile Nightmare staff",
           "id": 24424
         },
         {
-          "name": "Eldritch nightmare staff",
+          "name": "Eldritch Nightmare staff",
           "id": 24425
         },
         {
@@ -1390,8 +1390,10 @@
         "weapon": [
           27610,
           12926,
-          25849,
           810,
+          31583,
+          811,
+          868,
           25865,
           28869,
           12788
@@ -1439,9 +1441,19 @@
         12788,
         12926,
         25865,
-        27610
+        27610,
+        31583
       ],
-      "switches": [],
+      "switches": [
+        {
+          "name": "Rosewood blowpipe",
+          "id": 31583
+        },
+        {
+          "name": "Dragon knife",
+          "id": 22804
+        }
+      ],
       "warnings": []
     }
   ]

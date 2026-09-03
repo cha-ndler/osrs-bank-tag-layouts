@@ -3,7 +3,7 @@
   "slug": "kraken",
   "sourcePage": "Kraken/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Kraken/Strategies",
-  "sourceRevId": 15285886,
+  "sourceRevId": 15329069,
   "contentHash": "0a09fc1294113750",
   "variants": [
     {
@@ -217,6 +217,11 @@
           12821,
           22002
         ],
+        "ammo": [
+          22947,
+          20226,
+          22945
+        ],
         "gloves": [
           31106,
           21183,
@@ -241,12 +246,6 @@
           22975,
           28327,
           28329
-        ],
-        "ammo": [
-          22947,
-          27544,
-          20226,
-          22945
         ]
       },
       "twoHandedWeapons": [
@@ -254,11 +253,11 @@
       ],
       "switches": [
         {
-          "name": "Volatile nightmare staff",
+          "name": "Volatile Nightmare staff",
           "id": 24424
         },
         {
-          "name": "Eldritch nightmare staff",
+          "name": "Eldritch Nightmare staff",
           "id": 24425
         },
         {
@@ -266,7 +265,7 @@
           "id": 12926
         },
         {
-          "name": "Eye of ayak",
+          "name": "Eye of Ayak",
           "id": 31113
         }
       ],

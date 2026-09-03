@@ -3,7 +3,7 @@
   "slug": "duke-sucellus",
   "sourcePage": "Duke Sucellus/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Duke_Sucellus/Strategies",
-  "sourceRevId": 15273458,
+  "sourceRevId": 15329073,
   "contentHash": "c12f62ab293c034f",
   "variants": [
     {
@@ -212,7 +212,6 @@
         ],
         "ammo": [
           22947,
-          27544,
           20226,
           22945
         ],

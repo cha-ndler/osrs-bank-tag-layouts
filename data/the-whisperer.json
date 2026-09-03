@@ -3,7 +3,7 @@
   "slug": "the-whisperer",
   "sourcePage": "The Whisperer/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/The_Whisperer/Strategies",
-  "sourceRevId": 15283510,
+  "sourceRevId": 15326967,
   "contentHash": "d754b3b8564a5004",
   "variants": [
     {
@@ -231,7 +231,7 @@
       ],
       "switches": [
         {
-          "name": "Eldritch nightmare staff",
+          "name": "Eldritch Nightmare staff",
           "id": 24425
         },
         {
@@ -239,7 +239,7 @@
           "id": 27665
         },
         {
-          "name": "Eye of ayak",
+          "name": "Eye of Ayak",
           "id": 31113
         },
         {

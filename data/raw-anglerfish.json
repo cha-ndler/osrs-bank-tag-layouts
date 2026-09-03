@@ -1,0 +1,45 @@
+{
+  "activity": "Raw anglerfish",
+  "slug": "raw-anglerfish",
+  "sourcePage": "Raw anglerfish/Strategies",
+  "sourceUrl": "https://oldschool.runescape.wiki/w/Raw_anglerfish/Strategies",
+  "sourceRevId": 15296387,
+  "contentHash": "2ab98396d8825d8b",
+  "variants": [
+    {
+      "variant": "Basic Procedure",
+      "tagName": "Raw anglerfish Basic Procedure",
+      "icon": 307,
+      "completeness": "partial",
+      "completenessNote": "Fewer items than a typical setup; the wiki page may not list a full loadout.",
+      "importString": "banktags,1,Raw anglerfish Basic Procedure,307,layout,4,307,5,13431,6,25588,7,25582",
+      "importStringZigzag": "banktags,1,Raw anglerfish Basic Procedure,307,layout,0,307,1,25588,8,13431,9,25582",
+      "layout": {
+        "4": 307,
+        "5": 13431,
+        "6": 25588,
+        "7": 25582
+      },
+      "layoutZigzag": {
+        "0": 307,
+        "1": 25588,
+        "8": 13431,
+        "9": 25582
+      },
+      "curated": false,
+      "curationReason": "",
+      "equipment": {},
+      "inventory": {
+        "1": 307,
+        "2": 13431,
+        "3": 25588,
+        "4": 25582
+      },
+      "runes": {},
+      "alternatives": {},
+      "twoHandedWeapons": [],
+      "switches": [],
+      "warnings": []
+    }
+  ]
+}

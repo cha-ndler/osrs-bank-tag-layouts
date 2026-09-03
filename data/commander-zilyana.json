@@ -3,7 +3,7 @@
   "slug": "commander-zilyana",
   "sourcePage": "Commander Zilyana/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Commander_Zilyana/Strategies",
-  "sourceRevId": 15267374,
+  "sourceRevId": 15316256,
   "contentHash": "5856212635b83e12",
   "variants": [
     {
@@ -202,11 +202,11 @@
       ],
       "switches": [
         {
-          "name": "Eldritch nightmare staff",
+          "name": "Eldritch Nightmare staff",
           "id": 24425
         },
         {
-          "name": "Eye of ayak",
+          "name": "Eye of Ayak",
           "id": 31113
         },
         {
@@ -368,7 +368,7 @@
           25177,
           23971,
           22326,
-          4753,
+          4732,
           10390,
           10828
         ],
@@ -461,7 +461,7 @@
           "id": 11785
         },
         {
-          "name": "Tonalztics of ralos",
+          "name": "Tonalztics of Ralos",
           "id": 28922
         }
       ],
