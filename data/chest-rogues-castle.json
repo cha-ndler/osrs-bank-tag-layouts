@@ -3,8 +3,8 @@
   "slug": "chest-rogues-castle",
   "sourcePage": "Chest (Rogues' Castle)/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Chest_(Rogues'_Castle)/Strategies",
-  "sourceRevId": 15277206,
-  "contentHash": "5800310995746d08",
+  "sourceRevId": 15320436,
+  "contentHash": "205ae9691a1b1371",
   "variants": [
     {
       "variant": "Best 3 item + low risk",
@@ -259,15 +259,15 @@
     {
       "variant": "Prayer bonus",
       "tagName": "Chest (Rogues' Castle) Prayer bonus",
-      "icon": 12263,
+      "icon": 33718,
       "completeness": "minimal",
       "completenessNote": "Deliberately low-risk wilderness setups carry almost nothing.",
-      "importString": "banktags,1,Chest (Rogues' Castle) Prayer bonus,12263,layout,8,25346,10,22947,16,12263,32,19997,33,22954,17,28936,25,28939,34,25252,9,22986,18,13120,1,28933",
-      "importStringZigzag": "banktags,1,Chest (Rogues' Castle) Prayer bonus,12263,layout,0,28933,1,22986,2,28936,3,28939,4,22954,5,22947,8,25346,9,12263,10,13120,11,19997,12,25252",
+      "importString": "banktags,1,Chest (Rogues' Castle) Prayer bonus,33718,layout,8,25346,10,22947,16,33718,32,19997,33,22954,17,28936,25,28939,34,25252,9,22986,18,13120,1,28933",
+      "importStringZigzag": "banktags,1,Chest (Rogues' Castle) Prayer bonus,33718,layout,0,28933,1,22986,2,28936,3,28939,4,22954,5,22947,8,25346,9,33718,10,13120,11,19997,12,25252",
       "layout": {
         "8": 25346,
         "10": 22947,
-        "16": 12263,
+        "16": 33718,
         "32": 19997,
         "33": 22954,
         "17": 28936,
@@ -285,7 +285,7 @@
         "4": 22954,
         "5": 22947,
         "8": 25346,
-        "9": 12263,
+        "9": 33718,
         "10": 13120,
         "11": 19997,
         "12": 25252
@@ -295,7 +295,7 @@
       "equipment": {
         "cape": 25346,
         "ammo": 22947,
-        "weapon": 12263,
+        "weapon": 33718,
         "gloves": 19997,
         "boots": 22954,
         "torso": 28936,
@@ -343,6 +343,7 @@
           542
         ],
         "weapon": [
+          33718,
           12263,
           2952,
           2963,

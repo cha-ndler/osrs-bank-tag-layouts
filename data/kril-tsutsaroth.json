@@ -3,7 +3,7 @@
   "slug": "kril-tsutsaroth",
   "sourcePage": "K'ril Tsutsaroth/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/K'ril_Tsutsaroth/Strategies",
-  "sourceRevId": 15264271,
+  "sourceRevId": 15317619,
   "contentHash": "045e881a5bf2500b",
   "variants": [
     {
@@ -213,7 +213,7 @@
       ],
       "switches": [
         {
-          "name": "Eldritch nightmare staff",
+          "name": "Eldritch Nightmare staff",
           "id": 24425
         }
       ],
@@ -876,6 +876,7 @@
           23975,
           4736,
           30076,
+          29031,
           13072,
           10370
         ],
@@ -885,6 +886,7 @@
           23979,
           4738,
           30079,
+          29033,
           13073,
           10372
         ],

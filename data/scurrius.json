@@ -3,7 +3,7 @@
   "slug": "scurrius",
   "sourcePage": "Scurrius/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Scurrius/Strategies",
-  "sourceRevId": 15273053,
+  "sourceRevId": 15321408,
   "contentHash": "991471c5ee5cbd31",
   "variants": [
     {
@@ -670,12 +670,16 @@
       ],
       "switches": [
         {
-          "name": "Burning claws",
-          "id": 29577
-        },
-        {
           "name": "Dragon claws",
           "id": 13652
+        },
+        {
+          "name": "Crimson kisten",
+          "id": 33631
+        },
+        {
+          "name": "Burning claws",
+          "id": 29577
         },
         {
           "name": "Dragon dagger",
@@ -684,6 +688,10 @@
         {
           "name": "Voidwaker",
           "id": 27690
+        },
+        {
+          "name": "Arkan blade",
+          "id": 30955
         },
         {
           "name": "Crystal halberd",
@@ -862,6 +870,7 @@
           28792,
           12006,
           4151,
+          28810,
           23528,
           4587,
           30955,

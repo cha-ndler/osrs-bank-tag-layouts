@@ -3,7 +3,7 @@
   "slug": "kreearra",
   "sourcePage": "Kree'arra/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Kree'arra/Strategies",
-  "sourceRevId": 15265160,
+  "sourceRevId": 15299717,
   "contentHash": "4af03fc72e256005",
   "variants": [
     {
@@ -884,7 +884,7 @@
           "id": 26374
         },
         {
-          "name": "Eldritch nightmare staff",
+          "name": "Eldritch Nightmare staff",
           "id": 24425
         },
         {
@@ -1079,7 +1079,7 @@
       ],
       "switches": [
         {
-          "name": "Eldritch nightmare staff",
+          "name": "Eldritch Nightmare staff",
           "id": 24425
         }
       ],

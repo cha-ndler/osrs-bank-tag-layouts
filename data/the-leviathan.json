@@ -3,7 +3,7 @@
   "slug": "the-leviathan",
   "sourcePage": "The Leviathan/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/The_Leviathan/Strategies",
-  "sourceRevId": 15289551,
+  "sourceRevId": 15327684,
   "contentHash": "0100a21448076e50",
   "variants": [
     {
@@ -201,7 +201,7 @@
       ],
       "switches": [
         {
-          "name": "Volatile nightmare staff",
+          "name": "Volatile Nightmare staff",
           "id": 24424
         },
         {
@@ -492,7 +492,7 @@
           "id": 12926
         },
         {
-          "name": "Tonalztics of ralos",
+          "name": "Tonalztics of Ralos",
           "id": 28922
         },
         {

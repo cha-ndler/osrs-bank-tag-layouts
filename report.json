@@ -1,13 +1,13 @@
 {
-  "layouts": 336,
-  "completeRatio": 0.8899,
-  "completenessBaseline": 0.885,
+  "layouts": 340,
+  "completeRatio": 0.8794,
+  "completeBaseline": 290,
   "completenessCounts": {
     "complete": 299,
-    "minimal": 30,
-    "partial": 7
+    "minimal": 32,
+    "partial": 9
   },
-  "activities": 100,
+  "activities": 103,
   "activityBaseline": 99,
   "layoutBaseline": 330,
   "encodeFailures": [],
@@ -1815,17 +1815,17 @@
     },
     {
       "layout": "Mad Angel / Melee",
-      "position": 14,
+      "position": 12,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Mad Angel / Melee",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "position": 14,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Mad Angel / Melee",
@@ -1847,6 +1847,13 @@
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee",
+      "position": 13,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Mad Angel / Melee",
@@ -1879,13 +1886,6 @@
     {
       "layout": "Mad Angel / Melee",
       "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee",
-      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1962,17 +1962,17 @@
     },
     {
       "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 14,
+      "position": 12,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "position": 14,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Mad Angel / Melee (1 Defence Pure)",
@@ -1994,6 +1994,13 @@
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "position": 13,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Mad Angel / Melee (1 Defence Pure)",
@@ -2152,9 +2159,9 @@
     {
       "layout": "Mad Angel / Melee (Low level)",
       "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Mad Angel / Melee (Low level)",
@@ -2201,9 +2208,9 @@
     {
       "layout": "Mad Angel / Melee (Low level)",
       "position": 23,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Mad Angel / Melee (Low level)",
@@ -2983,139 +2990,6 @@
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Magic",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 46,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 54,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 15,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 53,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 39,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 23,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Magic",
-      "position": 31,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
       "layout": "Rune dragon / Melee",
       "position": 38,
       "sourceName": "{{Cheap food}}",
@@ -3138,35 +3012,7 @@
     },
     {
       "layout": "Rune dragon / Melee",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee",
-      "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee",
       "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee",
-      "position": 22,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3236,146 +3082,237 @@
     },
     {
       "layout": "Rune dragon / Melee",
-      "position": 23,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee",
       "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 54,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Ranged",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Ranged",
-      "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 29,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 15,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
-      "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 30,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 36,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 52,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 53,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
       "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
+      "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 38,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 54,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 20,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 21,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 15,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 22,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 53,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
       "position": 23,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (3)",
       "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -5165,30 +5102,30 @@
   "extractionWarnings": {
     "Abyssal Sire/Strategies": [
       "'Magic': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed",
-      "'Melee - Defence reduction': dropped off-hand Avernic defender - Scythe of vitur is two-handed",
+      "'Melee - Defence reduction': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
       "'Magic - Tumeken's Shadow': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed"
     ],
     "Alchemical Hydra/Strategies": [
       "'Ranged': dropped off-hand Twisted buckler - Twisted bow is two-handed",
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed",
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Amoxliatl/Strategies": [
-      "'Inventory': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Inventory': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Aquanite/Strategies": [
       "1 unpaired {{Equipment}} in 'Melee Slash/Stab' ignored (2 equipment vs 1 inventory)"
     ],
     "Araxxor/Strategies": [
       "1 unpaired {{Equipment}} in 'Fight overview' ignored (no inventory in scope)",
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Artio/Strategies": [
       "'Ranged': dropped off-hand Twisted buckler - Webweaver bow is two-handed"
     ],
     "Aviansie/Strategies": [
       "'Ranged': dropped off-hand Twisted buckler - Toxic blowpipe is two-handed",
-      "'Low Risk': dropped off-hand Book of law - Toxic blowpipe is two-handed"
+      "'Low Risk': dropped off-hand Book of Law - Toxic blowpipe is two-handed"
     ],
     "Barbarian Assault/Strategies": [
       "1 unpaired {{Equipment}} in 'Ranged' ignored (2 equipment vs 1 inventory)",
@@ -5205,23 +5142,23 @@
     ],
     "Brutal black dragon/Strategies": [
       "'Ranged': dropped off-hand Twisted buckler - Twisted bow is two-handed",
-      "'Magic': dropped off-hand Tome of water - Tumeken's shadow is two-handed"
+      "'Magic': dropped off-hand Tome of Water - Tumeken's shadow is two-handed"
     ],
     "Brutus/Strategies": [
-      "'Melee (high level)': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Melee (high level)': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Callisto/Strategies": [
       "'Ranged': dropped off-hand Twisted buckler - Webweaver bow is two-handed"
     ],
     "Cerberus/Strategies": [
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Chambers of Xeric/Challenge Mode/Strategies": [
       "1 unpaired {{Equipment}} in 'Tekton' ignored (no inventory in scope)",
       "1 unpaired {{Equipment}} in 'Vespula' ignored (no inventory in scope)",
       "1 unpaired {{Equipment}} in 'Guardians' ignored (no inventory in scope)",
       "1 unpaired {{Equipment}} in 'Vasa Nistirio' ignored (no inventory in scope)",
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed",
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
       "'Ranged': dropped off-hand Twisted buckler - Twisted bow is two-handed",
       "'Magic': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed"
     ],
@@ -5233,12 +5170,12 @@
       "1 unpaired {{Equipment}} in 'Guardians' ignored (no inventory in scope)",
       "2 unpaired {{Equipment}} in 'Muttadiles' ignored (no inventory in scope)",
       "3 unpaired {{Equipment}} in 'Phases' ignored (no inventory in scope)",
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed",
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
       "'Ranged': dropped off-hand Twisted buckler - Twisted bow is two-handed",
       "'Magic': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed"
     ],
     "Chaos Elemental/Strategies": [
-      "'Ranged': dropped off-hand Book of law - Webweaver bow is two-handed"
+      "'Ranged': dropped off-hand Book of Law - Webweaver bow is two-handed"
     ],
     "Chaos Temple (church)/Strategies": [
       "1 unpaired {{Equipment}} in 'High Magic defence' ignored (2 equipment vs 1 inventory)",
@@ -5257,17 +5194,17 @@
       "1 unpaired {{Equipment}} in 'Best in slot' ignored (2 equipment vs 1 inventory)"
     ],
     "Dagannoth Kings/Strategies": [
-      "'Tribrid (Solo)': dropped off-hand Spectral spirit shield - Scythe of vitur is two-handed",
+      "'Tribrid (Solo)': dropped off-hand Spectral spirit shield - Scythe of Vitur is two-handed",
       "'Ranged (Prime only)': dropped off-hand Elysian spirit shield - Twisted bow is two-handed"
     ],
     "Demonic Brutus/Strategies": [
-      "'Inventory': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Inventory': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Demonic gorilla/Strategies": [
       "'Ranged': dropped off-hand Twisted buckler - Twisted bow is two-handed"
     ],
     "Duke Sucellus/Strategies": [
-      "'Inventory recommendations': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Inventory recommendations': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Ecumenical key/Strategies": [
       "1 unpaired {{Equipment}} in '' ignored (3 equipment vs 2 inventory)"
@@ -5284,11 +5221,11 @@
     ],
     "General Graardor/Strategies": [
       "'Magic': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed",
-      "'Ranged': dropped off-hand Dragonfire ward - Bow of faerdhinen is two-handed",
+      "'Ranged': dropped off-hand Dragonfire ward - Bow of Faerdhinen is two-handed",
       "'Magic Attacker': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed"
     ],
     "Giant Mole/Strategies": [
-      "'Magic': dropped off-hand Tome of earth - Tumeken's shadow is two-handed"
+      "'Magic': dropped off-hand Tome of Earth - Tumeken's shadow is two-handed"
     ],
     "Gout tuber/Strategies": [
       "2 unpaired {{Equipment}} in 'Tank Method' ignored (3 equipment vs 1 inventory)"
@@ -5297,11 +5234,11 @@
       "'Ranged': dropped off-hand Anti-dragon shield - Webweaver bow is two-handed"
     ],
     "Grotesque Guardians/Strategies": [
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed",
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
       "'Ranged switches': dropped off-hand Twisted buckler - Venator bow is two-handed"
     ],
     "Hespori/Strategies": [
-      "'Best-in-slot': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Best-in-slot': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Inferno/Strategies": [
       "'Learner / First cape': dropped off-hand Elysian spirit shield - Toxic blowpipe is two-handed",
@@ -5322,7 +5259,7 @@
       "1 unpaired {{Equipment}} in 'Gravestone method' ignored (2 equipment vs 1 inventory)"
     ],
     "Krystilia/Strategies": [
-      "'Revenants': dropped off-hand Book of law - Webweaver bow is two-handed"
+      "'Revenants': dropped off-hand Book of Law - Webweaver bow is two-handed"
     ],
     "Lizardman shaman/Strategies": [
       "'Ranged': dropped off-hand Antler guard - Toxic blowpipe is two-handed",
@@ -5330,7 +5267,7 @@
       "'Ranged': dropped off-hand Antler guard - Toxic blowpipe is two-handed"
     ],
     "Metal dragons/Strategies": [
-      "'Magic': dropped off-hand Tome of earth - Tumeken's shadow is two-handed"
+      "'Magic': dropped off-hand Tome of Earth - Tumeken's shadow is two-handed"
     ],
     "Mithril dragon/Strategies": [
       "'Magic': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed"
@@ -5353,10 +5290,10 @@
     "Phantom Muspah/Strategies": [
       "'Magic': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed",
       "'Ranged': dropped off-hand Twisted buckler - Twisted bow is two-handed",
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Phosani's Nightmare/Strategies": [
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Revenants/Strategies": [
       "'Ranged': dropped off-hand Twisted buckler - Webweaver bow is two-handed"
@@ -5367,11 +5304,11 @@
     "Royal Titans/Strategies": [
       "'Melee (Low Level)': dropped off-hand Dragon defender - Dual macuahuitl is two-handed",
       "'Ranged (Low Level)': dropped off-hand Antler guard - Eclipse atlatl is two-handed",
-      "'Melee (High level)': dropped off-hand Avernic defender - Scythe of vitur is two-handed",
+      "'Melee (High level)': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
       "'Ranged (High Level)': dropped off-hand Twisted buckler - Toxic blowpipe is two-handed"
     ],
     "Rune dragon/Strategies": [
-      "'Magic': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed"
+      "'Melee': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed"
     ],
     "Sarachnis/Strategies": [
       "1 unpaired {{Equipment}} in 'Melee (Low level)' ignored (2 equipment vs 1 inventory)",
@@ -5379,13 +5316,13 @@
       "1 unpaired {{Equipment}} in '' ignored (2 equipment vs 1 inventory)"
     ],
     "Scurrius/Strategies": [
-      "'Ranged (mid level)': dropped off-hand Book of law - Bone shortbow is two-handed",
-      "'Melee (high level)': dropped off-hand Avernic defender - Scythe of vitur is two-handed",
+      "'Ranged (mid level)': dropped off-hand Book of Law - Bone shortbow is two-handed",
+      "'Melee (high level)': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
       "'Ranged (high level)': dropped off-hand Twisted buckler - Toxic blowpipe is two-handed"
     ],
     "Shellbane gryphon/Strategies": [
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed",
-      "'Melee (POH)': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
+      "'Melee (POH)': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Skeletal Wyvern/Strategies": [
       "1 unpaired {{Equipment}} in 'Melee' ignored (2 equipment vs 1 inventory)"
@@ -5402,7 +5339,7 @@
     ],
     "The Hueycoatl/Strategies": [
       "1 unpaired {{Equipment}} in 'Melee' ignored (2 equipment vs 1 inventory)",
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "The Mimic/Strategies": [
       "'Magic': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed",
@@ -5410,10 +5347,10 @@
     ],
     "The Nightmare/Strategies": [
       "1 unpaired {{Equipment}} in 'Melee' ignored (2 equipment vs 1 inventory)",
-      "'Totems': dropped off-hand Tome of fire - Tumeken's shadow is two-handed"
+      "'Totems': dropped off-hand Tome of Fire - Tumeken's shadow is two-handed"
     ],
     "The Whisperer/Strategies": [
-      "'Inventory recommendations': dropped off-hand Tome of earth - Tumeken's shadow is two-handed"
+      "'Inventory recommendations': dropped off-hand Tome of Earth - Tumeken's shadow is two-handed"
     ],
     "Theatre of Blood/Strategies": [
       "1 unpaired {{Equipment}} in 'Stacking 70s and 50s (advanced)' ignored (no inventory in scope)",
@@ -5423,14 +5360,14 @@
       "1 unpaired {{Equipment}} in 'Phase 3' ignored (no inventory in scope)",
       "1 unpaired {{Equipment}} in 'Strategy' ignored (no inventory in scope)",
       "1 unpaired {{Equipment}} in 'Enrage phase' ignored (no inventory in scope)",
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed",
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
       "'Range': dropped off-hand Twisted buckler - Twisted bow is two-handed"
     ],
     "Thermonuclear smoke devil/Strategies": [
       "'Magic': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed",
       "'Magic (redemption)': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed",
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed",
-      "'Melee (redemption)': dropped off-hand Avernic defender - Scythe of vitur is two-handed"
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
+      "'Melee (redemption)': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Tombs of Amascut/Strategies": [
       "1 unpaired {{Equipment}} in 'Zebak, Guardian of Crondis' ignored (no inventory in scope)",
@@ -5447,10 +5384,10 @@
     ],
     "TzHaar Fight Cave/Strategies": [
       "'Ranged': dropped off-hand Twisted buckler - Toxic blowpipe is two-handed",
-      "'Melee': dropped off-hand Avernic defender - Scythe of vitur is two-handed",
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
       "'Magic only': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed",
-      "'Pure': dropped off-hand Book of law - Toxic blowpipe is two-handed",
-      "'Early-game iron': dropped off-hand Book of law - Karil's crossbow is two-handed"
+      "'Pure': dropped off-hand Book of Law - Toxic blowpipe is two-handed",
+      "'Early-game iron': dropped off-hand Book of Law - Karil's crossbow is two-handed"
     ],
     "Vardorvis/Strategies": [
       "'Normal': dropped off-hand Avernic defender - Soulreaper axe is two-handed",
@@ -5467,7 +5404,7 @@
       "'Mage': dropped off-hand Elidinis' ward (f) - Tumeken's shadow is two-handed"
     ],
     "Zulrah/Strategies": [
-      "'Magic': dropped off-hand Tome of fire - Tumeken's shadow is two-handed"
+      "'Magic': dropped off-hand Tome of Fire - Tumeken's shadow is two-handed"
     ]
   },
   "slotDisagreements": [
@@ -5582,13 +5519,6 @@
       "sourceName": "Superantipoison(1)"
     },
     {
-      "layout": "Rune dragon / Magic",
-      "position": 7,
-      "item": "extended antifire(1)",
-      "itemId": 11957,
-      "sourceName": "Extended antifire(1)"
-    },
-    {
       "layout": "Rune dragon / Melee",
       "position": 6,
       "item": "extended super antifire(2)",
@@ -5603,7 +5533,14 @@
       "sourceName": "Divine super combat potion(2)"
     },
     {
-      "layout": "Rune dragon / Ranged",
+      "layout": "Rune dragon / Melee (2)",
+      "position": 7,
+      "item": "extended antifire(1)",
+      "itemId": 11957,
+      "sourceName": "Extended antifire(1)"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
       "position": 7,
       "item": "extended antifire(1)",
       "itemId": 11957,

@@ -3,7 +3,7 @@
   "slug": "zalcano",
   "sourcePage": "Zalcano/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Zalcano/Strategies",
-  "sourceRevId": 15275968,
+  "sourceRevId": 15328385,
   "contentHash": "05a1b6083ca13ef8",
   "variants": [
     {
@@ -241,7 +241,6 @@
         ],
         "ammo": [
           22947,
-          27544,
           20226,
           22945
         ],

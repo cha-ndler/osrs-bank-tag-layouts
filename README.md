@@ -4,7 +4,7 @@ Bank tag layouts for Old School RuneScape bosses, raids and activities,
 generated automatically from the [OSRS Wiki](https://oldschool.runescape.wiki/)
 strategy pages.
 
-**336 layouts across 100 activities, in both plugin layout styles.** Browse and copy them at
+**340 layouts across 103 activities, in both plugin layout styles.** Browse and copy them at
 [the GitHub Pages site](https://cha-ndler.github.io/osrs-bank-tag-layouts/), or
 consume `data/*.json` directly.
 
