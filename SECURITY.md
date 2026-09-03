@@ -67,6 +67,36 @@ Doing that means the weekly refresh can no longer be merged without either a
 personal access token on the refresh job (so its pull request triggers CI) or
 temporarily lifting the setting.
 
+## The refresh job needs permission to open pull requests
+
+Write access in the workflow's `permissions:` block is not sufficient on its
+own. A repository-level switch also has to allow it:
+
+```bash
+gh api repos/cha-ndler/osrs-bank-tag-layouts/actions/permissions/workflow
+# {"default_workflow_permissions":"read","can_approve_pull_request_reviews":true}
+```
+
+With `can_approve_pull_request_reviews` false, the refresh runs to completion,
+pushes `automated/refresh-layouts`, and then dies on the last step with *"GitHub
+Actions is not permitted to create or approve pull requests"* — leaving a branch
+nobody is looking at and no pull request. That is how it failed on 10 August
+2026, and because the branch is pushed before the failure the job looks like it
+did most of its work.
+
+The flag's name overstates what enabling it grants here. It covers creating and
+approving pull requests, and `main` requires **zero** approving reviews — the
+gate is the `test` status check, which a workflow cannot satisfy by approving
+anything. Turn it on:
+
+```bash
+gh api -X PUT repos/cha-ndler/osrs-bank-tag-layouts/actions/permissions/workflow   -F default_workflow_permissions=read   -F can_approve_pull_request_reviews=true
+```
+
+Leave `default_workflow_permissions` at `read`. The refresh job elevates itself
+through its own `permissions:` block; nothing else should get write access by
+default.
+
 ## Reviewing an automated refresh
 
 The weekly job regenerates the library from the wiki and opens a pull request.
@@ -75,5 +105,8 @@ Treat it as untrusted input — it reflects whatever the wiki said that morning:
 - A large unexpected diff usually means an upstream template changed, not that
   the meta moved.
 - `report.json` lists every item-name normalisation and any validation finding.
-- CI enforces that the complete-ratio has not regressed and that both layout
-  styles still describe the same items.
+- CI enforces that the **number** of complete layouts has not dropped and that
+  both layout styles still describe the same items. It is a count rather than a
+  ratio on purpose: new upstream pages dilute a ratio without anything having
+  regressed, which is what silently stopped the refresh for a month. See the
+  Completeness section of the README.

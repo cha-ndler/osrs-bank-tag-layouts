@@ -52,14 +52,23 @@ Each variant carries a `completeness` field:
 - `partial` — fewer items than expected and not a known-small activity, so the
   wiki page may not list a full loadout.
 
-`validate.py` holds the complete-ratio at or above a recorded baseline and fails
-the build if it drops, which is what stops a parser regression shipping quietly.
+`validate.py` floors the **number** of complete layouts and fails the build if
+it drops, which is what stops a parser regression shipping quietly. Counting
+rather than taking a ratio is deliberate. A ratio moves for two unrelated
+reasons — gear going missing, and the wiki simply publishing more pages — and
+every small setup upstream adds dilutes it, including the ones recognised as
+correctly `minimal`. Four new pages once walked an 89.0% library under an 88.5%
+floor while the number of complete layouts had not moved at all, and the weekly
+refresh stopped opening pull requests for a month. A count cannot be diluted by
+growth, and it is the stricter of the two on a real regression: growth can hide
+lost gear inside a ratio, never inside a count. The ratio is still reported in
+`report.json`, because it describes the library even when it cannot gate it.
 
-The ratio alone is not enough: a discovery failure that halves the corpus leaves
-every surviving layout complete and sails through. Activity and layout **counts**
-are floored too, and so is the number of item references that resolve to no id at
-all — the check that would otherwise stay silent about exactly the items it
-failed to find.
+Counts elsewhere are floored for the mirror-image reason: a discovery failure
+that halves the corpus leaves every surviving layout complete, so activity and
+layout counts are held down too, and so is the number of item references that
+resolve to no id at all — the check that would otherwise stay silent about
+exactly the items it failed to find.
 
 ## Data format
 

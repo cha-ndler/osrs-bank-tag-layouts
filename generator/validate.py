@@ -33,7 +33,17 @@ VALID_POSITIONS = set(LOADOUT_MAP)
 
 # Ratchets. Raise them when the real figure improves; never lower one to make a
 # regression pass.
-COMPLETENESS_BASELINE = 0.885
+
+# Counted, not a ratio. A ratio floor conflates two unrelated events: gear
+# silently dropped from layouts that already existed - what this guards against
+# - and the wiki simply publishing more pages. Every small setup upstream adds
+# dilutes a ratio, including the ones MINIMAL_ACTIVITIES blesses as correctly
+# small, so four new pages walked an 89.0% library under an 88.5% floor while
+# the number of complete layouts had not moved at all, and the weekly refresh
+# stopped opening pull requests for a month. A count cannot be diluted by
+# growth, and it is the stricter test of the two on a real regression: growth
+# can hide lost gear inside a ratio, never inside a count.
+COMPLETE_BASELINE = 290
 
 # How much library must survive. A parser or discovery regression that halves
 # the corpus leaves the *ratio* untouched, so the ratio alone cannot catch it.
@@ -70,6 +80,22 @@ def source_name_for(layout_pos: str, source: dict) -> str | None:
     if arg.startswith("rune"):
         return source["runes"].get(arg[4:])
     return source["equipment"].get(arg)
+
+
+def completeness_errors(layouts: list[dict]) -> list[str]:
+    """Gate the *number* of complete layouts, never the ratio.
+
+    Kept separate so it can be exercised without the wiki: the whole point of
+    this ratchet is that it stays quiet while the library grows and speaks up
+    when gear goes missing, and only a test can hold it to that.
+    """
+    complete = [e for e in layouts if e.get("completeness") == "complete"]
+    if len(complete) < COMPLETE_BASELINE:
+        return [
+            f"{len(complete)} complete layouts is below the "
+            f"{COMPLETE_BASELINE} baseline"
+        ]
+    return []
 
 
 def partial_dose_ids(index: dict) -> dict[int, str]:
@@ -189,15 +215,13 @@ def validate() -> int:
 
     # --- completeness gate -------------------------------------------------
     # Half the library once shipped with no worn gear at all and nothing caught
-    # it. Hold the ratio at or above the recorded baseline so the next parser
-    # regression fails the build instead of publishing quietly.
+    # it. Hold the *number* of complete layouts at or above the recorded
+    # baseline so the next parser regression fails the build instead of
+    # publishing quietly. The ratio is still reported because it describes the
+    # library, but it is not the gate - see COMPLETE_BASELINE.
     complete = [e for e in layouts if e.get("completeness") == "complete"]
     ratio = len(complete) / len(layouts) if layouts else 0
-    gate_errors: list[str] = []
-    if ratio < COMPLETENESS_BASELINE:
-        gate_errors.append(
-            f"complete ratio {ratio:.1%} is below the {COMPLETENESS_BASELINE:.0%} baseline"
-        )
+    gate_errors: list[str] = completeness_errors(layouts)
 
     # The ratio alone says nothing about how much library is left. Discovery
     # returning half as many pages keeps every surviving layout complete and
@@ -341,7 +365,7 @@ def validate() -> int:
     report = {
         "layouts": len(layouts),
         "completeRatio": round(ratio, 4),
-        "completenessBaseline": COMPLETENESS_BASELINE,
+        "completeBaseline": COMPLETE_BASELINE,
         "completenessCounts": {
             status: len([e for e in layouts if e.get("completeness") == status])
             for status in ("complete", "minimal", "partial")
@@ -379,7 +403,7 @@ def validate() -> int:
           f"{report['completenessCounts']['complete']} / "
           f"{report['completenessCounts']['minimal']} / "
           f"{report['completenessCounts']['partial']}  "
-          f"({ratio:.1%}, baseline {COMPLETENESS_BASELINE:.0%})")
+          f"({ratio:.1%}; complete baseline {COMPLETE_BASELINE})")
     print(f"  activities / layouts     : {len(activities)} / {len(layouts)} "
           f"(baselines {ACTIVITY_BASELINE} / {LAYOUT_BASELINE})")
     print(f"  structural errors        : {len(errors)}")
