@@ -39,6 +39,61 @@ def content_hash(layouts: list[dict]) -> str:
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
 
+def previous_provenance() -> dict[str, tuple[str, int]]:
+    """`{slug: (contentHash, sourceRevId)}` for the library already on disk.
+
+    Read before the old files are cleared, so a run can tell whether it is
+    republishing the same content under a newer revision id.
+    """
+    prior: dict[str, tuple[str, int]] = {}
+    for path in DATA.glob("*.json"):
+        try:
+            record = json.loads(path.read_text(encoding="utf-8"))
+            prior[record["slug"]] = (record["contentHash"], record["sourceRevId"])
+        except (ValueError, KeyError):
+            continue  # unreadable or pre-dating these fields; treat as absent
+    return prior
+
+
+def stable_rev_id(
+    slug: str, digest: str, rev_id: int, previous: dict[str, tuple[str, int]]
+) -> int:
+    """The revision id to publish: the recorded one while content is unchanged.
+
+    Most wiki edits touch prose, a category or a nearby table and leave the
+    setup alone, so taking the newest id rewrote three quarters of `data/` every
+    week for no change a player could see - and buried the handful of real
+    changes the refresh review exists to catch. The recorded id has not stopped
+    being true: this content did come from that revision. Freshness is not lost,
+    it is `generatedAt` in index.json.
+    """
+    prior = previous.get(slug)
+    if prior and prior[0] == digest:
+        return prior[1]
+    return rev_id
+
+
+def write_unless_only_timestamp(path: Path, payload: dict, **dump: object) -> bool:
+    """Write `payload`, unless `generatedAt` is the only thing that would move.
+
+    Returns whether anything was written. `generatedAt` says when the pipeline
+    ran, which is every week regardless of what it found - so on its own it
+    turned "nothing upstream changed" into a diff, and the weekly job into a
+    pull request nobody needed to read.
+    """
+    if path.exists():
+        try:
+            existing = json.loads(path.read_text(encoding="utf-8"))
+        except ValueError:
+            existing = None
+        if isinstance(existing, dict):
+            drop = lambda d: {k: v for k, v in d.items() if k != "generatedAt"}
+            if drop(existing) == drop(payload):
+                return False
+    path.write_text(json.dumps(payload, ensure_ascii=False, **dump), encoding="utf-8")
+    return True
+
+
 def main() -> None:
     data = json.loads(ENCODED.read_text(encoding="utf-8"))
     layouts = data["layouts"]
@@ -51,6 +106,8 @@ def main() -> None:
     # rmdir on a just-emptied directory intermittently fails with
     # PermissionError while the OS still holds a handle on it.
     DATA.mkdir(parents=True, exist_ok=True)
+    # Snapshot before clearing: the ids below are compared against it.
+    previous = previous_provenance()
     for stale in DATA.glob("*.json"):
         stale.unlink(missing_ok=True)
     DOCS.mkdir(parents=True, exist_ok=True)
@@ -62,13 +119,17 @@ def main() -> None:
     for activity in sorted(by_activity):
         entries = sorted(by_activity[activity], key=lambda e: e["variant"])
         slug = slugify(activity)
+        digest = content_hash(entries)
+        rev_id = stable_rev_id(
+            slug, digest, entries[0]["sourceRevId"], previous
+        )
         record = {
             "activity": activity,
             "slug": slug,
             "sourcePage": entries[0]["sourcePage"],
             "sourceUrl": WIKI + entries[0]["sourcePage"].replace(" ", "_"),
-            "sourceRevId": entries[0]["sourceRevId"],
-            "contentHash": content_hash(entries),
+            "sourceRevId": rev_id,
+            "contentHash": digest,
             "variants": [
                 {
                     "variant": e["variant"],
@@ -139,37 +200,38 @@ def main() -> None:
                 }
             )
 
-    INDEX.write_text(
-        json.dumps(
-            {
-                "generatedAt": generated_at,
-                "activityCount": len(manifest),
-                "layoutCount": len(layouts),
-                "activities": manifest,
-            },
-            indent=2,
-            ensure_ascii=False,
-        ),
-        encoding="utf-8",
+    wrote_index = write_unless_only_timestamp(
+        INDEX,
+        {
+            "generatedAt": generated_at,
+            "activityCount": len(manifest),
+            "layoutCount": len(layouts),
+            "activities": manifest,
+        },
+        indent=2,
     )
-    (DOCS / "layouts.json").write_text(
-        json.dumps(
-            {
-                "generatedAt": generated_at,
-                # Shipped rather than duplicated in JavaScript: the site rebuilds
-                # layouts client-side when a slot is swapped, and a second copy
-                # of these constants would be free to drift from encode.py.
-                "loadoutMap": {str(k): v for k, v in LOADOUT_MAP.items()},
-                "zigzagOrder": list(ZIGZAG_EQUIPMENT_ORDER),
-                "layouts": site_rows,
-            },
-            ensure_ascii=False,
-        ),
-        encoding="utf-8",
+    wrote_site = write_unless_only_timestamp(
+        DOCS / "layouts.json",
+        {
+            "generatedAt": generated_at,
+            # Shipped rather than duplicated in JavaScript: the site rebuilds
+            # layouts client-side when a slot is swapped, and a second copy of
+            # these constants would be free to drift from encode.py.
+            "loadoutMap": {str(k): v for k, v in LOADOUT_MAP.items()},
+            "zigzagOrder": list(ZIGZAG_EQUIPMENT_ORDER),
+            "layouts": site_rows,
+        },
     )
 
+    reused = sum(
+        1 for a in manifest if previous.get(a["slug"], (None,))[0] == a["contentHash"]
+    )
     print(f"publish: {len(manifest)} activities, {len(layouts)} layouts")
-    print(f"  wrote data/*.json, index.json, docs/layouts.json")
+    print(f"  wrote data/*.json")
+    print(f"  index.json / docs payload: "
+          f"{'written' if wrote_index else 'unchanged'} / "
+          f"{'written' if wrote_site else 'unchanged'}")
+    print(f"  unchanged activities keeping their recorded revision: {reused}")
 
 
 if __name__ == "__main__":

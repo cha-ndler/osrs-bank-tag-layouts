@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -42,6 +43,10 @@ from overrides import (  # noqa: E402
     apply_overrides,
     replace_in_inventory,
     targets,
+)
+from publish import (  # noqa: E402
+    stable_rev_id,
+    write_unless_only_timestamp,
 )
 from validate import COMPLETE_BASELINE, completeness_errors  # noqa: E402
 
@@ -963,6 +968,64 @@ class TestCompletenessGate(unittest.TestCase):
             (REPO / "report.json").read_text(encoding="utf-8")
         )["completenessCounts"]
         self.assertGreaterEqual(counts["complete"], COMPLETE_BASELINE)
+
+
+class TestRefreshChurn(unittest.TestCase):
+    """The weekly refresh must produce a diff only when a layout really moved.
+
+    Its own comment has always promised that. Two fields broke the promise on
+    their own: `generatedAt`, rewritten every run, and `sourceRevId`, rewritten
+    whenever the wiki page moved at all. A run that found the wiki completely
+    unchanged still opened a pull request, and a week of ordinary prose edits
+    rewrote three quarters of `data/` - burying the real changes the review
+    exists to catch.
+    """
+
+    def test_recorded_revision_survives_an_edit_that_changed_no_setup(self):
+        previous = {"vardorvis": ("abc123", 15082725)}
+        self.assertEqual(
+            stable_rev_id("vardorvis", "abc123", 15316292, previous), 15082725
+        )
+
+    def test_a_real_content_change_takes_the_new_revision(self):
+        previous = {"vardorvis": ("abc123", 15082725)}
+        self.assertEqual(
+            stable_rev_id("vardorvis", "def456", 15316292, previous), 15316292
+        )
+
+    def test_a_new_activity_takes_the_revision_it_came_from(self):
+        self.assertEqual(stable_rev_id("tangleroot", "abc123", 15316292, {}), 15316292)
+
+    def test_a_timestamp_only_change_is_not_written(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "index.json"
+            first = {"generatedAt": "2026-09-03T22:27:59Z", "layoutCount": 340}
+            self.assertTrue(write_unless_only_timestamp(path, first, indent=2))
+            before = path.read_bytes()
+
+            later = {"generatedAt": "2026-09-04T02:29:54Z", "layoutCount": 340}
+            self.assertFalse(write_unless_only_timestamp(path, later, indent=2))
+            # Byte-identical: the old timestamp is kept rather than rewritten.
+            self.assertEqual(path.read_bytes(), before)
+
+    def test_a_real_change_is_written_even_though_the_timestamp_moved_too(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "index.json"
+            write_unless_only_timestamp(
+                path, {"generatedAt": "2026-09-03T22:27:59Z", "layoutCount": 340}
+            )
+            self.assertTrue(
+                write_unless_only_timestamp(
+                    path, {"generatedAt": "2026-09-04T02:29:54Z", "layoutCount": 341}
+                )
+            )
+            self.assertEqual(json.loads(path.read_text())["layoutCount"], 341)
+
+    def test_a_missing_file_is_always_written(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "does-not-exist.json"
+            self.assertTrue(write_unless_only_timestamp(path, {"generatedAt": "x"}))
+            self.assertTrue(path.exists())
 
 
 if __name__ == "__main__":
