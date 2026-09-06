@@ -5,14 +5,15 @@ set of bugs), we hand a synthesised `{{Loadout}}` call back to the wiki via
 `action=expandtemplates` and let `Module:Loadout` do the encoding. The output is
 therefore bug-compatible with what the wiki itself publishes.
 
-Emitted format:
+What the wiki hands back is the built-in Bank Tags plugin's own format:
 
     banktags,1,<tagName>,<iconItemId>,layout,<pos>,<itemId>,<pos>,<itemId>,...
 
-Positions index an 8-wide bank grid. `LOADOUT_MAP` is copied from
-`Module:Loadout` and puts worn gear in columns 0-2 (shaped like the equipment
-panel), leaves column 3 empty as a spacer, and lays the 28 inventory slots out
-in columns 4-7 in their natural 4-wide shape.
+That is not what gets published - see `build_hub_import_string` for why - but it
+is what `layout` is parsed out of. Positions index an 8-wide bank grid.
+`LOADOUT_MAP` is copied from `Module:Loadout` and puts worn gear in columns 0-2
+(shaped like the equipment panel), leaves column 3 empty as a spacer, and lays
+the 28 inventory slots out in columns 4-7 in their natural 4-wide shape.
 """
 
 from __future__ import annotations
@@ -47,9 +48,12 @@ EQUIPMENT_SLOTS = (
 BATCH_SIZE = 10
 CODE_RE = re.compile(r"banktags,1,[^<\n]+")
 
-# In-game tag names cannot contain a comma: the import format is comma
-# separated, so a comma in the name silently corrupts the layout.
-UNSAFE_NAME = re.compile(r"[,\n\r|{}=]")
+# Characters a tag name cannot survive. A comma splits the CSV itself, so it
+# corrupts the layout outright; `<`, `>`, `/` and `:` are dropped on the way in
+# by RuneLite's own filter (`TabInterface.FILTERED_CHARS`, which both importers
+# and the hub plugin apply), which silently turned "Budget Melee/Range" into
+# "Budget MeleeRange" in game while the site went on showing the slash.
+UNSAFE_NAME = re.compile(r"[,\n\r|{}=<>/:]")
 
 
 def activity_name(page: str) -> str:
@@ -284,11 +288,133 @@ def zigzag_layout(equipment: dict[str, int], inventory: dict[str, int],
     return {str(k): v for k, v in sorted(layout.items())}
 
 
-def build_import_string(tag_name_: str, icon: int, layout: dict[str, int]) -> str:
-    parts = ["banktags", "1", tag_name_, str(icon), "layout"]
-    for pos, item_id in sorted(layout.items(), key=lambda kv: int(kv[0])):
-        parts.extend([pos, str(item_id)])
+# The Plugin Hub "Bank Tag Layouts" export format:
+#
+#   banktaglayoutsplugin:<name>,<itemId>:<pos>,...,banktag:<name>,<icon>,<itemId>,...
+#
+# This is what gets published, because it is the only one of the two RuneLite
+# formats both importers accept:
+#
+#   * "Import tag tab" (built-in) dispatches on the prefix and reads it in
+#     `TabInterface.importBtlTag`, producing a built-in layout. Shipped in
+#     RuneLite 1.10.34, the same release that added built-in layouts at all.
+#   * "Import tag tab with layout" (hub plugin) reads it and produces a hub
+#     layout.
+#
+# `banktags,1,...` only satisfies the first: handed to the hub importer it is
+# rejected outright, and imported through the built-in one it lands as a
+# built-in layout that a hub-mode player then has to "Convert to hub layout" by
+# hand. One string that needs no conversion in either plugin beats two strings
+# and a choice.
+#
+# Both importers take the tab's items from the `banktag:` tail and none from the
+# layout pairs, so every id in the layout has to appear there too or the tab
+# imports with a layout and nothing in it.
+HUB_PREFIX = "banktaglayoutsplugin:"
+HUB_TAG_MARKER = "banktag:"
+
+
+def build_hub_import_string(tag_name_: str, icon: int, layout: dict[str, int]) -> str:
+    pairs = sorted(layout.items(), key=lambda kv: int(kv[0]))
+    parts = [HUB_PREFIX + tag_name_]
+    parts.extend(f"{item_id}:{pos}" for pos, item_id in pairs)
+    parts.append(HUB_TAG_MARKER + tag_name_)
+    parts.append(str(icon))
+    # A tag is a set, and a layout is not: 24 pure essence is one tagged item in
+    # 24 positions. dict.fromkeys keeps first-seen order so the string is stable.
+    parts.extend(str(i) for i in dict.fromkeys(item_id for _, item_id in pairs))
     return ",".join(parts)
+
+
+def build_official_import_string(layout: dict[str, int]) -> str:
+    """The official client's own bank tag string, added 15 July 2026.
+
+        1,<itemCount>,(<itemId>,<column>,<row>)*
+
+    Same 8-wide grid, but positions are split into column and row, and the
+    string carries no name or icon - those are set on the tag in game. Format
+    taken from the wiki's own RuneLite-to-official converter
+    (`MediaWiki:Gadget-banktag-converter-core.js`).
+    """
+    pairs = sorted(layout.items(), key=lambda kv: int(kv[0]))
+    parts = ["1", str(len(pairs))]
+    for pos, item_id in pairs:
+        parts.extend([str(item_id), str(int(pos) % 8), str(int(pos) // 8)])
+    return ",".join(parts)
+
+
+def parse_hub_import_string(code: str) -> dict:
+    """`{tagName, icon, layout, tagItems}`, parsed the way the plugins parse it.
+
+    Mirrors `TabInterface.importBtlTag`: split on commas, take the name off the
+    prefix, read `<itemId>:<pos>` pairs until the `banktag:` marker, then the
+    icon, then the tagged items. Raises ValueError on anything neither importer
+    would accept, so validation fails loudly rather than shipping a dud string.
+    """
+    if not code.startswith(HUB_PREFIX):
+        raise ValueError("missing banktaglayoutsplugin: prefix")
+    # RuneLite splits with Guava's omitEmptyStrings().trimResults(), so an empty
+    # field would be dropped rather than shifting the pairs - and the shift is
+    # what a player would see. Reject it here instead.
+    parts = code.split(",")
+    if any(part.strip() != part or not part for part in parts):
+        raise ValueError("empty or padded field")
+
+    tag_name_ = parts[0][len(HUB_PREFIX) :]
+    layout: dict[str, int] = {}
+    i = 1
+    while i < len(parts) and not parts[i].startswith(HUB_TAG_MARKER):
+        item_s, _, pos_s = parts[i].partition(":")
+        if not item_s.isdigit() or not pos_s.isdigit():
+            raise ValueError(f"bad layout pair {parts[i]!r}")
+        if pos_s in layout:
+            raise ValueError(f"position {pos_s} used twice")
+        layout[pos_s] = int(item_s)
+        i += 1
+    if i >= len(parts):
+        raise ValueError("missing banktag: section")
+    if parts[i][len(HUB_TAG_MARKER) :] != tag_name_:
+        raise ValueError("layout name and tag name disagree")
+    i += 1
+    if i >= len(parts) or not parts[i].isdigit():
+        raise ValueError("missing icon")
+    icon = int(parts[i])
+    tag_items = []
+    for part in parts[i + 1 :]:
+        if not part.isdigit():
+            raise ValueError(f"bad tagged item {part!r}")
+        tag_items.append(int(part))
+    return {
+        "tagName": tag_name_,
+        "icon": icon,
+        "layout": layout,
+        "tagItems": tag_items,
+    }
+
+
+def parse_official_import_string(code: str) -> dict[str, int]:
+    """position -> itemId, from an official-client string. Raises on garbage."""
+    parts = code.split(",")
+    if len(parts) < 2 or parts[0] != "1":
+        raise ValueError("missing version 1 header")
+    if not parts[1].isdigit():
+        raise ValueError("non-numeric item count")
+    count = int(parts[1])
+    body = parts[2:]
+    if len(body) != count * 3:
+        raise ValueError(f"count says {count} items, body carries {len(body) / 3}")
+    layout: dict[str, int] = {}
+    for item_s, col_s, row_s in zip(body[0::3], body[1::3], body[2::3]):
+        if not (item_s.isdigit() and col_s.isdigit() and row_s.isdigit()):
+            raise ValueError("non-numeric triple")
+        col, row = int(col_s), int(row_s)
+        if col > 7:
+            raise ValueError(f"column {col} is off an 8-wide grid")
+        pos = str(row * 8 + col)
+        if pos in layout:
+            raise ValueError(f"position {pos} used twice")
+        layout[pos] = int(item_s)
+    return layout
 
 
 def choose_icon(setup: dict) -> str:
@@ -511,10 +637,17 @@ def main() -> None:
                 "variant": job["variant"],
                 "tagName": job["tagName"],
                 "icon": icon_id,
-                "importString": code,
-                "importStringZigzag": build_import_string(
+                # Built from the parsed layout rather than passed through from
+                # the wiki, so both styles and both clients come out of one
+                # place and cannot disagree about what the layout is.
+                "importString": build_hub_import_string(
+                    job["tagName"], icon_id, layout
+                ),
+                "importStringZigzag": build_hub_import_string(
                     job["tagName"], icon_id, zigzag
                 ),
+                "importStringOfficial": build_official_import_string(layout),
+                "importStringZigzagOfficial": build_official_import_string(zigzag),
                 "layout": layout,
                 "layoutZigzag": zigzag,
                 "completeness": status,

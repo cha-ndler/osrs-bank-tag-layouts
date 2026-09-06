@@ -4,9 +4,11 @@ Bank tag layouts for Old School RuneScape bosses, raids and activities,
 generated automatically from the [OSRS Wiki](https://oldschool.runescape.wiki/)
 strategy pages.
 
-**340 layouts across 103 activities, in both plugin layout styles.** Browse and copy them at
+**340 layouts across 103 activities, in both layout styles, for RuneLite and for
+the official client.** Browse and copy them at
 [the GitHub Pages site](https://cha-ndler.github.io/osrs-bank-tag-layouts/), or
-consume `data/*.json` directly.
+consume `data/*.json` directly. The RuneLite string imports as a working layout
+under both of RuneLite's layout plugins, with nothing to convert afterwards.
 
 ## Why
 
@@ -22,25 +24,70 @@ only ever wired up on a single page. This repository closes that gap.
 
 ## Using a layout
 
-1. Copy an import string (from the site, or `importString` in any `data/*.json`).
+### RuneLite
+
+1. Copy an import string (from the site with **Copy for → RuneLite**, or
+   `importString` in any `data/*.json`).
 2. In game, right-click the **New tag tab** button in your bank.
-3. Choose **Import tag tab**.
+3. Choose either **Import tag tab** or, if you have the Bank Tag Layouts plugin,
+   **Import tag tab with layout**. Both work, and neither leaves you anything to
+   convert afterwards.
+
+### Official client and mobile
+
+Old School added bank tags of its own on 17 June 2026 and an import/export
+string for them on 15 July 2026. Copy with **Copy for → Official client**, or
+take `importStringOfficial` from `data/*.json`, then import it on the tag in
+game. That format carries the items and their positions but no name or icon, so
+name the tab yourself — the site shows the name we would have used.
+
+### Why there are two RuneLite plugins, and why it no longer matters
+
+RuneLite has two layout implementations: the built-in Bank Tags plugin, which
+grew layouts of its own in 2024, and the older Plugin Hub **Bank Tag Layouts**
+plugin. Each has its own import string, and only one of the two crosses over:
+
+| String                                            | Import tag tab (built-in) | Import tag tab with layout (hub) |
+| ------------------------------------------------- | ------------------------- | -------------------------------- |
+| `banktags,1,…` (built-in format)                  | built-in layout           | **rejected**                     |
+| `banktaglayoutsplugin:…` (hub format)             | built-in layout           | hub layout                       |
+
+So a `banktags,1,…` string — which is what this repository used to publish, and
+what the wiki and every other layout site still hand out — can only be imported
+through the built-in option. A player running the hub plugin then lands on a
+built-in layout and has to right-click the tab and **Convert to hub layout** by
+hand, every single time.
+
+Publishing the hub format instead removes the choice: whichever import option
+you use, you get a layout in the plugin that put the option there. The built-in
+plugin has read this format since RuneLite 1.10.34 (June 2024), the same release
+that gave it layouts at all, so nothing is given up by preferring it.
 
 ### Layout styles
 
-The Bank Tag Layouts plugin supports two arrangements, and both are published
-for every layout. Pick one with the toggle on the site.
+Both RuneLite plugins support two arrangements, and both are published for every
+layout. Pick one with the toggle on the site.
 
-- **Presets** (`importString`, `layout`) — worn gear in the left three columns,
-  shaped like the equipment screen, column four blank as a spacer, and the 28
-  inventory slots filling columns five to eight in their normal 4-wide shape.
-- **Zigzag** (`importStringZigzag`, `layoutZigzag`) — the plugin's own default.
-  Items pack two per column across row pairs (0, 8, 1, 9, 2, 10 …), gear first,
-  then inventory, then the rune pouch laid out linearly.
+- **Presets** (`importString`, `importStringOfficial`, `layout`) — worn gear in
+  the left three columns, shaped like the equipment screen, column four blank as
+  a spacer, and the 28 inventory slots filling columns five to eight in their
+  normal 4-wide shape.
+- **Zigzag** (`importStringZigzag`, `importStringZigzagOfficial`,
+  `layoutZigzag`) — the hub plugin's own default. Items pack two per column
+  across row pairs (0, 8, 1, 9, 2, 10 …), gear first, then inventory, then the
+  rune pouch laid out linearly.
 
 Both describe the same items; only the positions differ. The zigzag generator is
 a direct port of `LayoutGenerator.toZigZagIndex`, and a test pins the index
 sequence against values traced from the plugin.
+
+### Tag names
+
+A tag name is filtered on the way in: RuneLite drops `<`, `>`, `/` and `:`
+(`TabInterface.FILTERED_CHARS`), and a comma would split the import string
+itself. Names are sanitised before publishing so what the site shows is what the
+tab is called in game — "Budget Melee/Range" is published as "Budget Melee
+Range" rather than arriving as "Budget MeleeRange".
 
 ### Completeness
 
@@ -84,7 +131,9 @@ exactly the items it failed to find.
     {
       "variant": "Max Ranged",
       "tagName": "Doom of Mokhaiotl Max Ranged",
-      "importString": "banktags,1,…",
+      "importString":         "banktaglayoutsplugin:…,banktag:…",
+      "importStringZigzag":   "banktaglayoutsplugin:…,banktag:…",
+      "importStringOfficial": "1,28,6746,4,0,…",
       "layout":     { "4": 6746, "5": 21255 },
       "equipment":  { "weapon": 26374 },
       "inventory":  { "1": 6746 },
@@ -97,6 +146,8 @@ exactly the items it failed to find.
 ```
 
 `layout` is the canonical form — a position-to-item map that needs no parsing.
+Every `importString*` field is derived from it, which is why the site ships the
+map alone and rebuilds whichever string you asked for in the browser.
 `equipment` / `inventory` / `runes` are the same data split by section.
 `switches` sits beside them: spec weapons the guide expects you to bring, which
 occupy no worn slot and so appear in no position.
@@ -122,8 +173,10 @@ discover → extract → overrides → encode → validate → publish
   `action=expandtemplates`, so `Module:Loadout` does the name-to-id resolution.
   No second implementation to keep in sync.
 - **validate** — structure, item existence, position round-trip, a dose
-  regression check, and floors on how much library survived. Publishing is
-  blocked on failure.
+  regression check, and floors on how much library survived. Every published
+  string is parsed back the way the client that reads it parses it and must
+  come out as the layout it was built from, so a format only one of the three
+  importers accepts cannot ship. Publishing is blocked on failure.
 - **publish** — writes `data/`, `index.json`, `report.json` and the site payload.
 
 ### The dose correction

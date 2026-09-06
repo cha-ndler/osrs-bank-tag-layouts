@@ -18,8 +18,12 @@ sys.path.insert(0, str(REPO / "generator"))
 
 from encode import (  # noqa: E402
     LOADOUT_MAP,
+    build_hub_import_string,
+    build_official_import_string,
     completeness,
+    parse_hub_import_string,
     parse_import_string,
+    parse_official_import_string,
     split_layout,
     tag_name,
     zigzag_index,
@@ -208,6 +212,15 @@ class TestImportString(unittest.TestCase):
         name = tag_name("Chest (Rogues' Castle)", "Best 3 item, low risk")
         self.assertNotIn(",", name)
 
+    def test_tag_name_survives_runelites_own_filter(self):
+        # RuneLite drops "</>:" from an imported name (TabInterface.FILTERED_CHARS),
+        # so "Budget Melee/Range" used to arrive in game as "Budget MeleeRange"
+        # while the site went on showing the slash.
+        name = tag_name("Tormented Demon", "Budget Melee/Range")
+        self.assertEqual(name, "Tormented Demon Budget Melee Range")
+        for char in "</>:":
+            self.assertNotIn(char, name)
+
     def test_generic_variants_do_not_repeat_the_activity(self):
         self.assertEqual(tag_name("Sarachnis", "Setup"), "Sarachnis")
         self.assertEqual(tag_name("Vorkath", "Ranged"), "Vorkath Ranged")
@@ -224,6 +237,104 @@ class TestImportString(unittest.TestCase):
         # Whatever survives must be whole words from the original.
         for word in name.split():
             self.assertIn(word, ("A" * 30 + " supercalifragilistic expialidocious extravaganza").split())
+
+
+class TestHubImportString(unittest.TestCase):
+    """The published RuneLite format, checked against how the plugins read it.
+
+    Both importers are transcribed here rather than pointed at: the failure
+    these guard against is a string that looks fine and imports as something
+    else, which only a parse can catch.
+    """
+
+    LAYOUT = {"1": 4151, "4": 995, "12": 995, "55": 565}
+
+    def code(self, name="Test Tag", icon=995, layout=None):
+        return build_hub_import_string(name, icon, layout or self.LAYOUT)
+
+    def test_prefix_is_what_both_importers_dispatch_on(self):
+        # TabInterface picks importBtlTag over importTag on this prefix, and the
+        # hub plugin rejects anything without it.
+        self.assertTrue(self.code().startswith("banktaglayoutsplugin:Test Tag,"))
+
+    def test_pairs_are_item_then_position(self):
+        # The built-in format is the other way round, so a swap here would put
+        # every item in the slot numbered after its own id.
+        self.assertIn("4151:1", self.code())
+        self.assertNotIn("1:4151", self.code())
+
+    def test_round_trips_to_the_layout_it_was_built_from(self):
+        parsed = parse_hub_import_string(self.code())
+        self.assertEqual(parsed["layout"], {k: int(v) for k, v in self.LAYOUT.items()})
+        self.assertEqual(parsed["tagName"], "Test Tag")
+        self.assertEqual(parsed["icon"], 995)
+
+    def test_every_laid_out_item_is_also_tagged(self):
+        # Neither importer tags anything from the layout pairs; an item missing
+        # from the tail is laid out into a tab that then filters it away.
+        parsed = parse_hub_import_string(self.code())
+        self.assertEqual(
+            set(parsed["tagItems"]), set(int(v) for v in self.LAYOUT.values())
+        )
+
+    def test_a_repeated_item_is_tagged_once(self):
+        # A tag is a set and a layout is not: 24 pure essence is one tagged item.
+        parsed = parse_hub_import_string(self.code())
+        self.assertEqual(parsed["tagItems"].count(995), 1)
+
+    def test_name_is_the_same_on_both_halves(self):
+        # The hub importer takes the name from the prefix and the built-in one
+        # skips the tail's copy, so a disagreement is silent in both.
+        code = self.code()
+        head = code.split(",")[0][len("banktaglayoutsplugin:") :]
+        tail = next(p for p in code.split(",") if p.startswith("banktag:"))
+        self.assertEqual(head, tail[len("banktag:") :])
+
+    def test_an_empty_field_is_rejected(self):
+        # RuneLite splits with omitEmptyStrings(), so an empty field would be
+        # dropped rather than noticed - and dropping one shifts the layout.
+        with self.assertRaises(ValueError):
+            parse_hub_import_string(self.code().replace("banktag:", ",banktag:"))
+
+    def test_a_missing_tag_section_is_rejected(self):
+        with self.assertRaises(ValueError):
+            parse_hub_import_string("banktaglayoutsplugin:Test Tag,4151:1")
+
+    def test_the_builtin_format_is_not_accepted(self):
+        with self.assertRaises(ValueError):
+            parse_hub_import_string("banktags,1,Test Tag,995,layout,1,4151")
+
+
+class TestOfficialImportString(unittest.TestCase):
+    """The official client's format, added to OSRS on 15 July 2026."""
+
+    def test_header_is_version_then_item_count(self):
+        code = build_official_import_string({"0": 4151, "9": 995})
+        self.assertEqual(code.split(",")[:2], ["1", "2"])
+
+    def test_position_becomes_column_then_row(self):
+        # Position 9 is column 1 of row 1 on the 8-wide grid. Column and row the
+        # wrong way round still parses, which is why this is pinned.
+        self.assertEqual(build_official_import_string({"9": 995}), "1,1,995,1,1")
+
+    def test_round_trips_to_the_layout_it_was_built_from(self):
+        layout = {"1": 4151, "4": 995, "12": 995, "55": 565}
+        self.assertEqual(
+            parse_official_import_string(build_official_import_string(layout)),
+            {k: int(v) for k, v in layout.items()},
+        )
+
+    def test_a_count_that_disagrees_with_the_body_is_rejected(self):
+        with self.assertRaises(ValueError):
+            parse_official_import_string("1,3,995,0,0")
+
+    def test_the_runelite_formats_are_not_accepted(self):
+        for code in (
+            "banktags,1,Test Tag,995,layout,1,4151",
+            "banktaglayoutsplugin:Test Tag,4151:1,banktag:Test Tag,995,4151",
+        ):
+            with self.assertRaises(ValueError):
+                parse_official_import_string(code)
 
 
 class TestExtractPairing(unittest.TestCase):
@@ -849,10 +960,24 @@ class TestPublishedData(unittest.TestCase):
 
     def test_import_string_is_well_formed(self):
         for v in self.record["variants"]:
-            for code in (v["importString"], v["importStringZigzag"]):
-                self.assertTrue(code.startswith("banktags,1,"))
-                self.assertIn(",layout,", code)
-                self.assertNotIn(",,", code)
+            for field, layout_field in (
+                ("importString", "layout"),
+                ("importStringZigzag", "layoutZigzag"),
+            ):
+                parsed = parse_hub_import_string(v[field])
+                self.assertEqual(parsed["tagName"], v["tagName"])
+                self.assertEqual(parsed["icon"], v["icon"])
+                self.assertEqual(
+                    parsed["layout"], {k: int(x) for k, x in v[layout_field].items()}
+                )
+            for field, layout_field in (
+                ("importStringOfficial", "layout"),
+                ("importStringZigzagOfficial", "layoutZigzag"),
+            ):
+                self.assertEqual(
+                    parse_official_import_string(v[field]),
+                    {k: int(x) for k, x in v[layout_field].items()},
+                )
 
     def test_both_styles_carry_the_same_items(self):
         for v in self.record["variants"]:

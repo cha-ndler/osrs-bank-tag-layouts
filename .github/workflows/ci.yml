@@ -58,6 +58,9 @@ jobs:
           python - <<'PY'
           import json, pathlib, sys
 
+          sys.path.insert(0, "generator")
+          from encode import UNSAFE_NAME, parse_hub_import_string, parse_official_import_string
+
           index = json.loads(pathlib.Path("index.json").read_text(encoding="utf-8"))
           files = list(pathlib.Path("data").glob("*.json"))
           if len(files) != index["activityCount"]:
@@ -68,13 +71,37 @@ jobs:
               record = json.loads(path.read_text(encoding="utf-8"))
               for variant in record["variants"]:
                   total += 1
-                  for key in ("importString", "importStringZigzag", "layout", "layoutZigzag"):
+                  where = f"{path.name}/{variant['variant']}"
+                  # RuneLite strips these on import, so a name carrying one
+                  # arrives in game as something other than what is published.
+                  if UNSAFE_NAME.search(variant["tagName"]):
+                      sys.exit(f"{where}: tag name {variant['tagName']!r} will not survive import")
+                  for key in (
+                      "importString", "importStringZigzag",
+                      "importStringOfficial", "importStringZigzagOfficial",
+                      "layout", "layoutZigzag",
+                  ):
                       if key not in variant:
-                          sys.exit(f"{path.name}/{variant['variant']}: missing {key}")
-                  if not variant["importString"].startswith("banktags,1,"):
-                      sys.exit(f"{path.name}/{variant['variant']}: malformed import string")
-                  if "," in variant["tagName"]:
-                      sys.exit(f"{path.name}/{variant['variant']}: comma in tag name")
+                          sys.exit(f"{where}: missing {key}")
+                  # Parsed the way each client parses it, so a string that only
+                  # looks right cannot pass. Both styles, both clients.
+                  for key, layout_key in (
+                      ("importString", "layout"),
+                      ("importStringZigzag", "layoutZigzag"),
+                  ):
+                      parsed = parse_hub_import_string(variant[key])
+                      want = {k: int(v) for k, v in variant[layout_key].items()}
+                      if parsed["layout"] != want or parsed["tagName"] != variant["tagName"]:
+                          sys.exit(f"{where}: {key} does not carry {layout_key}")
+                      if set(want.values()) - set(parsed["tagItems"]):
+                          sys.exit(f"{where}: {key} lays out items it does not tag")
+                  for key, layout_key in (
+                      ("importStringOfficial", "layout"),
+                      ("importStringZigzagOfficial", "layoutZigzag"),
+                  ):
+                      want = {k: int(v) for k, v in variant[layout_key].items()}
+                      if parse_official_import_string(variant[key]) != want:
+                          sys.exit(f"{where}: {key} does not carry {layout_key}")
                   if sorted(variant["layout"].values()) != sorted(variant["layoutZigzag"].values()):
                       sys.exit(f"{path.name}/{variant['variant']}: layout styles disagree")
                   # A layout that departs from the wiki must say why, or the

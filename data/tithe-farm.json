@@ -4,7 +4,7 @@
   "sourcePage": "Tithe Farm/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Tithe_Farm/Strategies",
   "sourceRevId": 15327249,
-  "contentHash": "23154b9ced3895ab",
+  "contentHash": "7735a2ad4b2b159b",
   "variants": [
     {
       "variant": "Basic strategy",
@@ -12,8 +12,10 @@
       "icon": 13425,
       "completeness": "partial",
       "completenessNote": "Fewer items than a typical setup; the wiki page may not list a full loadout.",
-      "importString": "banktags,1,Tithe Farm Basic strategy,13425,layout,4,13425,5,952,6,5343,12,5340,14,5340,20,5340,21,5340,13,5340,15,5340,22,5340,23,5340",
-      "importStringZigzag": "banktags,1,Tithe Farm Basic strategy,13425,layout,0,13425,1,5343,2,5340,3,5340,4,5340,5,5340,8,952,9,5340,10,5340,11,5340,12,5340",
+      "importString": "banktaglayoutsplugin:Tithe Farm Basic strategy,13425:4,952:5,5343:6,5340:12,5340:13,5340:14,5340:15,5340:20,5340:21,5340:22,5340:23,banktag:Tithe Farm Basic strategy,13425,13425,952,5343,5340",
+      "importStringZigzag": "banktaglayoutsplugin:Tithe Farm Basic strategy,13425:0,5343:1,5340:2,5340:3,5340:4,5340:5,952:8,5340:9,5340:10,5340:11,5340:12,banktag:Tithe Farm Basic strategy,13425,13425,5343,5340,952",
+      "importStringOfficial": "1,11,13425,4,0,952,5,0,5343,6,0,5340,4,1,5340,5,1,5340,6,1,5340,7,1,5340,4,2,5340,5,2,5340,6,2,5340,7,2",
+      "importStringZigzagOfficial": "1,11,13425,0,0,5343,1,0,5340,2,0,5340,3,0,5340,4,0,5340,5,0,952,0,1,5340,1,1,5340,2,1,5340,3,1,5340,4,1",
       "layout": {
         "4": 13425,
         "5": 952,

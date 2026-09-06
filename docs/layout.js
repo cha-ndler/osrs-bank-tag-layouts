@@ -102,19 +102,50 @@
     return { layout: layout, slots: slots, equipment: equipment };
   }
 
-  function importStringFor(entry, layout, icon) {
-    const parts = [
-      'banktags',
-      '1',
-      entry.tagName,
-      String(icon === undefined ? entry.icon : icon),
-      'layout',
-    ];
-    const positions = Object.keys(layout)
+  const sortedPositions = (layout) =>
+    Object.keys(layout)
       .map(Number)
       .sort((a, b) => a - b);
-    for (const pos of positions) parts.push(String(pos), String(layout[pos]));
+
+  /* Port of encode.build_hub_import_string. The Plugin Hub format is published
+   * rather than the built-in plugin's `banktags,1,...` because both RuneLite
+   * importers read it, so nobody has to convert a layout after importing it.
+   * See the comment above HUB_PREFIX in generator/encode.py.
+   */
+  function hubImportString(entry, layout, icon) {
+    const positions = sortedPositions(layout);
+    const parts = ['banktaglayoutsplugin:' + entry.tagName];
+    for (const pos of positions) parts.push(`${layout[pos]}:${pos}`);
+    parts.push('banktag:' + entry.tagName);
+    parts.push(String(icon === undefined ? entry.icon : icon));
+    // The tag is a set even though the layout is not - 24 pure essence is one
+    // tagged item in 24 slots - and both importers tag only what is listed here.
+    const seen = new Set();
+    for (const pos of positions) {
+      if (!seen.has(layout[pos])) {
+        seen.add(layout[pos]);
+        parts.push(String(layout[pos]));
+      }
+    }
     return parts.join(',');
+  }
+
+  /* Port of encode.build_official_import_string: the official client's own
+   * format, `1,<count>,(<item>,<column>,<row>)*`, with no name or icon.
+   */
+  function officialImportString(entry, layout) {
+    const positions = sortedPositions(layout);
+    const parts = ['1', String(positions.length)];
+    for (const pos of positions) {
+      parts.push(String(layout[pos]), String(pos % 8), String(Math.floor(pos / 8)));
+    }
+    return parts.join(',');
+  }
+
+  function importStringFor(entry, layout, icon, target) {
+    return target === 'official'
+      ? officialImportString(entry, layout)
+      : hubImportString(entry, layout, icon);
   }
 
   root.BTL = {

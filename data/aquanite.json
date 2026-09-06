@@ -4,16 +4,18 @@
   "sourcePage": "Aquanite/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Aquanite/Strategies",
   "sourceRevId": 15317546,
-  "contentHash": "fc26bdd55015107d",
+  "contentHash": "daae16ed99003b9c",
   "variants": [
     {
       "variant": "Melee Slash/Stab",
-      "tagName": "Aquanite Melee Slash/Stab",
+      "tagName": "Aquanite Melee Slash Stab",
       "icon": 22324,
       "completeness": "partial",
       "completenessNote": "Fewer items than a typical setup; the wiki page may not list a full loadout.",
-      "importString": "banktags,1,Aquanite Melee Slash/Stab,22324,layout,54,27281,4,11806,5,4151,8,21295,10,22947,16,22324,32,22981,40,561,33,31097,41,554,17,26384,25,26386,34,28307,9,29801,18,22322,55,8013,53,13639,1,25177",
-      "importStringZigzag": "banktags,1,Aquanite Melee Slash/Stab,22324,layout,0,25177,1,29801,2,26384,3,26386,4,31097,5,22947,8,21295,9,22324,10,22322,11,22981,12,28307,16,11806,17,13639,18,8013,24,4151,25,27281,32,561,33,554",
+      "importString": "banktaglayoutsplugin:Aquanite Melee Slash Stab,25177:1,11806:4,4151:5,21295:8,29801:9,22947:10,22324:16,26384:17,22322:18,26386:25,22981:32,31097:33,28307:34,561:40,554:41,13639:53,27281:54,8013:55,banktag:Aquanite Melee Slash Stab,22324,25177,11806,4151,21295,29801,22947,22324,26384,22322,26386,22981,31097,28307,561,554,13639,27281,8013",
+      "importStringZigzag": "banktaglayoutsplugin:Aquanite Melee Slash Stab,25177:0,29801:1,26384:2,26386:3,31097:4,22947:5,21295:8,22324:9,22322:10,22981:11,28307:12,11806:16,13639:17,8013:18,4151:24,27281:25,561:32,554:33,banktag:Aquanite Melee Slash Stab,22324,25177,29801,26384,26386,31097,22947,21295,22324,22322,22981,28307,11806,13639,8013,4151,27281,561,554",
+      "importStringOfficial": "1,18,25177,1,0,11806,4,0,4151,5,0,21295,0,1,29801,1,1,22947,2,1,22324,0,2,26384,1,2,22322,2,2,26386,1,3,22981,0,4,31097,1,4,28307,2,4,561,0,5,554,1,5,13639,5,6,27281,6,6,8013,7,6",
+      "importStringZigzagOfficial": "1,18,25177,0,0,29801,1,0,26384,2,0,26386,3,0,31097,4,0,22947,5,0,21295,0,1,22324,1,1,22322,2,1,22981,3,1,28307,4,1,11806,0,2,13639,1,2,8013,2,2,4151,0,3,27281,1,3,561,0,4,554,1,4",
       "layout": {
         "54": 27281,
         "4": 11806,
