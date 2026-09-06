@@ -39,14 +39,15 @@
     display: flex; align-items: center; justify-content: space-between;
     gap: 12px; margin-top: 8px; flex-wrap: wrap;
   }
+  .toggles { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
   .styles { display: flex; align-items: center; gap: 6px; }
   .styles-label { color: var(--muted); font-size: 12px; margin-right: 2px; }
-  button.style {
+  button.style, button.target {
     font: inherit; font-size: 12px; padding: 4px 10px; cursor: pointer;
     color: var(--muted); background: var(--panel);
     border: 1px solid var(--edge); border-radius: 999px;
   }
-  button.style[aria-pressed="true"] {
+  button.style[aria-pressed="true"], button.target[aria-pressed="true"] {
     color: var(--bg); background: var(--accent); border-color: var(--accent);
   }
   .badge {
@@ -127,16 +128,23 @@
     <p class="sub">
       Gear and inventory setups for bosses, raids and activities, generated from the
       <a href="https://oldschool.runescape.wiki/" rel="noopener">OSRS Wiki</a> strategy pages.
-      Copy a layout, then in your bank right-click <em>New tag tab</em> &rarr; <em>Import tag tab</em>.
+      <span id="howto"></span>
     </p>
     <label class="visually-hidden" for="q">Search layouts by activity or variant</label>
     <input id="q" type="search" placeholder="Search activity or variant - try &quot;doom&quot;, &quot;raids&quot;, &quot;budget&quot;" autocomplete="off">
     <div class="bar">
       <div id="count" role="status" aria-live="polite"></div>
-      <div class="styles" role="group" aria-label="Layout style">
-        <span class="styles-label">Layout style</span>
-        <button type="button" class="style" data-style="presets" aria-pressed="true">Presets</button>
-        <button type="button" class="style" data-style="zigzag" aria-pressed="false">Zigzag</button>
+      <div class="toggles">
+        <div class="styles" role="group" aria-label="Import string client">
+          <span class="styles-label">Copy for</span>
+          <button type="button" class="target" data-target="runelite" aria-pressed="true">RuneLite</button>
+          <button type="button" class="target" data-target="official" aria-pressed="false">Official client</button>
+        </div>
+        <div class="styles" role="group" aria-label="Layout style">
+          <span class="styles-label">Layout style</span>
+          <button type="button" class="style" data-style="presets" aria-pressed="true">Presets</button>
+          <button type="button" class="style" data-style="zigzag" aria-pressed="false">Zigzag</button>
+        </div>
       </div>
     </div>
   </div>

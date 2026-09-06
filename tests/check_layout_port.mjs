@@ -8,7 +8,7 @@
  *
  * Run: node tests/check_layout_port.mjs
  */
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -22,15 +22,6 @@ const { BTL } = globalThis;
 
 const data = JSON.parse(readFileSync(join(REPO, 'docs', 'layouts.json'), 'utf8'));
 const { loadoutMap, zigzagOrder, layouts } = data;
-
-function parsePairs(code) {
-  const parts = code.split(',');
-  const tail = parts.slice(parts.indexOf('layout') + 1);
-  const pairs = [];
-  for (let i = 0; i + 1 < tail.length; i += 2) pairs.push([Number(tail[i]), tail[i + 1]]);
-  pairs.sort((a, b) => a[0] - b[0]);
-  return `${parts.slice(0, 4).join(',')}|${pairs.map((p) => p.join(':')).join(',')}`;
-}
 
 const canonical = (layout) =>
   Object.keys(layout)
@@ -51,13 +42,34 @@ for (const entry of layouts) {
       failures.push(`${entry.activity} / ${entry.variant} [${style}]`);
       continue;
     }
-    // The copy button builds its string from the rebuilt layout, so that has to
-    // carry the same pairs. Compared as parsed pairs rather than literally:
-    // Module:Loadout emits them unsorted, and order is not meaningful to the
-    // plugin's importer.
-    const expected = style === 'zigzag' ? entry.importStringZigzag : entry.importString;
-    if (parsePairs(BTL.importStringFor(entry, rebuilt)) !== parsePairs(expected)) {
-      failures.push(`${entry.activity} / ${entry.variant} [${style}] import string`);
+  }
+}
+
+/* The site no longer ships import strings - the copy button builds one in the
+ * browser for every card - so the browser's encoders are pinned against the
+ * ones the generator wrote into data/*.json instead. All four combinations:
+ * a format only one client accepts is exactly the bug this is here to stop.
+ */
+const STRINGS = [
+  ['presets', 'runelite', 'importString'],
+  ['zigzag', 'runelite', 'importStringZigzag'],
+  ['presets', 'official', 'importStringOfficial'],
+  ['zigzag', 'official', 'importStringZigzagOfficial'],
+];
+
+let strings = 0;
+for (const file of readdirSync(join(REPO, 'data')).sort()) {
+  const record = JSON.parse(readFileSync(join(REPO, 'data', file), 'utf8'));
+  for (const variant of record.variants) {
+    // data/*.json splits a layout by section; the browser encoders read the
+    // whole entry, so give them the shape the site's rows have.
+    const entry = { ...variant, activity: record.activity };
+    for (const [style, target, field] of STRINGS) {
+      const layout = style === 'zigzag' ? variant.layoutZigzag : variant.layout;
+      strings++;
+      if (BTL.importStringFor(entry, layout, variant.icon, target) !== variant[field]) {
+        failures.push(`${record.activity} / ${variant.variant}: ${field} differs`);
+      }
     }
   }
 }
@@ -89,4 +101,7 @@ if (failures.length) {
   for (const f of failures.slice(0, 20)) console.error(`  ${f}`);
   process.exit(1);
 }
-console.log(`ok: ${checked} layouts rebuilt identically, ${swaps} swaps stay wearable`);
+console.log(
+  `ok: ${checked} layouts rebuilt identically, ${strings} import strings match ` +
+    `the generator, ${swaps} swaps stay wearable`
+);

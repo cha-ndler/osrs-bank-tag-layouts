@@ -32,9 +32,19 @@ def slugify(name: str) -> str:
 
 
 def content_hash(layouts: list[dict]) -> str:
-    """Stable over content, blind to when the run happened."""
+    """Stable over content, blind to when the run happened.
+
+    Hashes the layouts themselves rather than an import string built from them,
+    so changing how a string is encoded - which is a change to how the same
+    layout is spelled, not to the layout - cannot restate every activity's
+    provenance.
+    """
     payload = json.dumps(
-        [[x["tagName"], x["importString"]] for x in layouts], sort_keys=True
+        [
+            [x["tagName"], sorted(x["layout"].items()), sorted(x["layoutZigzag"].items())]
+            for x in layouts
+        ],
+        sort_keys=True,
     )
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
@@ -139,6 +149,8 @@ def main() -> None:
                     "completenessNote": e["completenessNote"],
                     "importString": e["importString"],
                     "importStringZigzag": e["importStringZigzag"],
+                    "importStringOfficial": e["importStringOfficial"],
+                    "importStringZigzagOfficial": e["importStringZigzagOfficial"],
                     "layout": e["layout"],
                     "layoutZigzag": e["layoutZigzag"],
                     "curated": e["curated"],
@@ -179,8 +191,11 @@ def main() -> None:
                     "icon": e["icon"],
                     "completeness": e["completeness"],
                     "completenessNote": e["completenessNote"],
-                    "importString": e["importString"],
-                    "importStringZigzag": e["importStringZigzag"],
+                    # No import strings: the site rebuilds one after every slot
+                    # swap anyway, so shipping four spellings of a layout it
+                    # already has cost a third of the payload to duplicate what
+                    # layout.js can derive. data/*.json still carries them, and
+                    # check_layout_port.mjs holds the browser to them.
                     "layout": e["layout"],
                     "layoutZigzag": e["layoutZigzag"],
                     "sourceUrl": record["sourceUrl"],

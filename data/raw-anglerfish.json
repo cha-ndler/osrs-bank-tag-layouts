@@ -4,7 +4,7 @@
   "sourcePage": "Raw anglerfish/Strategies",
   "sourceUrl": "https://oldschool.runescape.wiki/w/Raw_anglerfish/Strategies",
   "sourceRevId": 15296387,
-  "contentHash": "2ab98396d8825d8b",
+  "contentHash": "e7d51ac069a248ca",
   "variants": [
     {
       "variant": "Basic Procedure",
@@ -12,8 +12,10 @@
       "icon": 307,
       "completeness": "partial",
       "completenessNote": "Fewer items than a typical setup; the wiki page may not list a full loadout.",
-      "importString": "banktags,1,Raw anglerfish Basic Procedure,307,layout,4,307,5,13431,6,25588,7,25582",
-      "importStringZigzag": "banktags,1,Raw anglerfish Basic Procedure,307,layout,0,307,1,25588,8,13431,9,25582",
+      "importString": "banktaglayoutsplugin:Raw anglerfish Basic Procedure,307:4,13431:5,25588:6,25582:7,banktag:Raw anglerfish Basic Procedure,307,307,13431,25588,25582",
+      "importStringZigzag": "banktaglayoutsplugin:Raw anglerfish Basic Procedure,307:0,25588:1,13431:8,25582:9,banktag:Raw anglerfish Basic Procedure,307,307,25588,13431,25582",
+      "importStringOfficial": "1,4,307,4,0,13431,5,0,25588,6,0,25582,7,0",
+      "importStringZigzagOfficial": "1,4,307,0,0,25588,1,0,13431,0,1,25582,1,1",
       "layout": {
         "4": 307,
         "5": 13431,

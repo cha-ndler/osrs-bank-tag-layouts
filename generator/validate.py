@@ -2,9 +2,11 @@
 
 Checks, in order of how badly they would hurt a player:
 
-1. **Structure** - parses as `banktags,1,<name>,<icon>,layout,<pos>,<id>,...`,
-   the tag name carries no comma (which would corrupt the import), positions are
-   real grid slots, and no position is claimed twice.
+1. **Structure** - every published string parses back, the way the plugin that
+   reads it parses it, to exactly the layout it was built from; the tag name
+   survives RuneLite's own filter unchanged; positions are real grid slots and
+   none is claimed twice. Both RuneLite styles and both clients are checked, so
+   a format that only one of them accepts cannot ship.
 2. **Existence** - every id is a real item.
 3. **Round-trip** - the id sitting at each position is one the wiki genuinely
    resolves that slot's source name to. This is what catches a silent
@@ -20,7 +22,12 @@ import re
 import sys
 from pathlib import Path
 
-from encode import LOADOUT_MAP
+from encode import (
+    LOADOUT_MAP,
+    UNSAFE_NAME,
+    parse_hub_import_string,
+    parse_official_import_string,
+)
 from normalize import DOSE_RE, Normalizer, load_item_index, load_slot_index
 from wikiclient import WikiClient
 
@@ -117,6 +124,65 @@ def partial_dose_ids(index: dict) -> dict[int, str]:
     return partial
 
 
+# (field carrying the string, field carrying the layout it must encode).
+RUNELITE_STRINGS = (
+    ("importString", "layout"),
+    ("importStringZigzag", "layoutZigzag"),
+)
+OFFICIAL_STRINGS = (
+    ("importStringOfficial", "layout"),
+    ("importStringZigzagOfficial", "layoutZigzag"),
+)
+
+
+def string_errors(entry: dict, label: str) -> list[str]:
+    """Every published string, parsed back the way its own client parses it.
+
+    Round-tripping beats pattern-matching the string: it is the same question a
+    player's client asks, and it catches the failures that look fine in a regex
+    - a pair written the wrong way round, a name that disagrees between the two
+    halves of a hub string, a layout item missing from the tag tail (which
+    imports a laid-out tab with nothing in it).
+    """
+    errors = []
+    name = entry["tagName"]
+    if UNSAFE_NAME.search(name):
+        # RuneLite drops these on the way in, so the name in game would not be
+        # the name published beside the layout.
+        errors.append(f"{label}: tag name {name!r} carries a character RuneLite strips")
+
+    for field, layout_field in RUNELITE_STRINGS:
+        expected = {k: int(v) for k, v in entry[layout_field].items()}
+        try:
+            parsed = parse_hub_import_string(entry[field])
+        except ValueError as e:
+            errors.append(f"{label}: {field} is not importable ({e})")
+            continue
+        if parsed["layout"] != expected:
+            errors.append(f"{label}: {field} does not carry {layout_field}")
+        if parsed["tagName"] != name:
+            errors.append(f"{label}: {field} carries tag name {parsed['tagName']!r}")
+        if parsed["icon"] != entry["icon"]:
+            errors.append(f"{label}: {field} carries icon {parsed['icon']}")
+        # The importers tag only what the tail lists; anything laid out but
+        # untagged is filtered straight back out of the tab.
+        missing = set(expected.values()) - set(parsed["tagItems"])
+        if missing:
+            errors.append(f"{label}: {field} lays out untagged items {sorted(missing)}")
+
+    for field, layout_field in OFFICIAL_STRINGS:
+        expected = {k: int(v) for k, v in entry[layout_field].items()}
+        try:
+            parsed = parse_official_import_string(entry[field])
+        except ValueError as e:
+            errors.append(f"{label}: {field} is not importable ({e})")
+            continue
+        if parsed != expected:
+            errors.append(f"{label}: {field} does not carry {layout_field}")
+
+    return errors
+
+
 def validate() -> int:
     client = WikiClient()
     index = load_item_index(client)
@@ -135,29 +201,16 @@ def validate() -> int:
 
     for entry in layouts:
         label = f"{entry['activity']} / {entry['variant']}"
-        code = entry["importString"]
+        errors.extend(string_errors(entry, label))
 
-        if not code.startswith("banktags,1,"):
-            errors.append(f"{label}: bad prefix")
-            continue
-        parts = code.split(",")
-        if "layout" not in parts:
-            errors.append(f"{label}: missing layout marker")
-            continue
-        if "," in entry["tagName"]:
-            errors.append(f"{label}: tag name contains a comma")
-
-        tail = parts[parts.index("layout") + 1 :]
-        if len(tail) % 2 != 0:
-            errors.append(f"{label}: odd number of layout values")
-            continue
-
+        # Everything below reads the canonical layout rather than a string. The
+        # strings have just been proved to carry exactly it, so parsing one back
+        # here would only re-test the parser.
         seen: set[int] = set()
-        for pos_s, id_s in zip(tail[0::2], tail[1::2]):
-            if not pos_s.isdigit() or not id_s.isdigit():
-                errors.append(f"{label}: non-numeric pair {pos_s},{id_s}")
-                continue
-            pos, item_id = int(pos_s), int(id_s)
+        for pos_s, item_id in sorted(
+            entry["layout"].items(), key=lambda kv: int(kv[0])
+        ):
+            pos = int(pos_s)
             if pos not in VALID_POSITIONS:
                 errors.append(f"{label}: position {pos} is not a grid slot")
             if pos in seen:
