@@ -37,7 +37,21 @@
     },
     {
       "layout": "Alchemical Hydra / Melee",
+      "position": 13,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Alchemical Hydra / Melee",
       "position": 14,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Alchemical Hydra / Melee",
+      "position": 15,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -58,20 +72,6 @@
     },
     {
       "layout": "Alchemical Hydra / Melee",
-      "position": 13,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Alchemical Hydra / Melee",
-      "position": 15,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Alchemical Hydra / Melee",
       "position": 22,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
@@ -86,6 +86,13 @@
     },
     {
       "layout": "Alchemical Hydra / Ranged",
+      "position": 13,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Alchemical Hydra / Ranged",
       "position": 14,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
@@ -93,7 +100,35 @@
     },
     {
       "layout": "Alchemical Hydra / Ranged",
+      "position": 15,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Alchemical Hydra / Ranged",
       "position": 20,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Alchemical Hydra / Ranged",
+      "position": 21,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Alchemical Hydra / Ranged",
+      "position": 22,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Alchemical Hydra / Ranged",
+      "position": 23,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -107,35 +142,7 @@
     },
     {
       "layout": "Alchemical Hydra / Ranged",
-      "position": 21,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Alchemical Hydra / Ranged",
       "position": 29,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Alchemical Hydra / Ranged",
-      "position": 13,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Alchemical Hydra / Ranged",
-      "position": 15,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Alchemical Hydra / Ranged",
-      "position": 22,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -149,31 +156,10 @@
     },
     {
       "layout": "Alchemical Hydra / Ranged",
-      "position": 23,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Alchemical Hydra / Ranged",
       "position": 31,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Araxxor / Melee",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Araxxor / Melee",
-      "position": 46,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
     },
     {
       "layout": "Araxxor / Melee",
@@ -198,20 +184,6 @@
     },
     {
       "layout": "Araxxor / Melee",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Araxxor / Melee",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Araxxor / Melee",
       "position": 15,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
@@ -226,7 +198,35 @@
     },
     {
       "layout": "Araxxor / Melee",
+      "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Araxxor / Melee",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Araxxor / Melee",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Araxxor / Melee",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Araxxor / Melee",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -240,20 +240,6 @@
     },
     {
       "layout": "Araxxor / Melee",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Araxxor / Melee",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Araxxor / Melee",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -261,7 +247,7 @@
     },
     {
       "layout": "Araxxor / Melee",
-      "position": 45,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -275,49 +261,28 @@
     },
     {
       "layout": "Araxxor / Melee",
-      "position": 23,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "Araxxor / Melee",
-      "position": 31,
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Araxxor / Ranged",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Araxxor / Ranged",
+      "layout": "Araxxor / Melee",
       "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Araxxor / Ranged",
-      "position": 14,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Araxxor / Ranged",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Araxxor / Ranged",
-      "position": 29,
+      "layout": "Araxxor / Melee",
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -331,6 +296,13 @@
     },
     {
       "layout": "Araxxor / Ranged",
+      "position": 14,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Araxxor / Ranged",
       "position": 15,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
@@ -345,7 +317,35 @@
     },
     {
       "layout": "Araxxor / Ranged",
+      "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Araxxor / Ranged",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Araxxor / Ranged",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Araxxor / Ranged",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Araxxor / Ranged",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -359,27 +359,6 @@
     },
     {
       "layout": "Araxxor / Ranged",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Araxxor / Ranged",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Araxxor / Ranged",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Araxxor / Ranged",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -387,7 +366,7 @@
     },
     {
       "layout": "Araxxor / Ranged",
-      "position": 45,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -401,14 +380,35 @@
     },
     {
       "layout": "Araxxor / Ranged",
-      "position": 23,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "Araxxor / Ranged",
-      "position": 31,
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Araxxor / Ranged",
+      "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Araxxor / Ranged",
+      "position": 47,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Araxxor / Ranged",
+      "position": 52,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -443,7 +443,21 @@
     },
     {
       "layout": "Basilisk Knight / Magic",
+      "position": 13,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Magic",
       "position": 14,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Magic",
+      "position": 15,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -457,35 +471,7 @@
     },
     {
       "layout": "Basilisk Knight / Magic",
-      "position": 28,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Magic",
       "position": 21,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Magic",
-      "position": 29,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Magic",
-      "position": 13,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Magic",
-      "position": 15,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -499,13 +485,6 @@
     },
     {
       "layout": "Basilisk Knight / Magic",
-      "position": 30,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Magic",
       "position": 23,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
@@ -513,14 +492,28 @@
     },
     {
       "layout": "Basilisk Knight / Magic",
-      "position": 31,
+      "position": 28,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
     },
     {
-      "layout": "Basilisk Knight / Melee",
-      "position": 38,
+      "layout": "Basilisk Knight / Magic",
+      "position": 29,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Magic",
+      "position": 30,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Magic",
+      "position": 31,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -548,21 +541,14 @@
     },
     {
       "layout": "Basilisk Knight / Melee",
-      "position": 30,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Melee",
-      "position": 39,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Melee",
       "position": 23,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Melee",
+      "position": 30,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -575,29 +561,15 @@
       "gotName": "Prayer potion(4)"
     },
     {
-      "layout": "Basilisk Knight / Ranged",
+      "layout": "Basilisk Knight / Melee",
       "position": 38,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
     },
     {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 46,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 54,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 28,
+      "layout": "Basilisk Knight / Melee",
+      "position": 39,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -611,77 +583,7 @@
     },
     {
       "layout": "Basilisk Knight / Ranged",
-      "position": 29,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
       "position": 22,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 30,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 36,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 44,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 52,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 47,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 37,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 45,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 53,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Basilisk Knight / Ranged",
-      "position": 39,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -695,24 +597,108 @@
     },
     {
       "layout": "Basilisk Knight / Ranged",
+      "position": 28,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
+      "position": 29,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
+      "position": 30,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
       "position": 31,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
     },
     {
-      "layout": "Cerberus / Melee",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "layout": "Basilisk Knight / Ranged",
+      "position": 36,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
-      "layout": "Cerberus / Melee",
+      "layout": "Basilisk Knight / Ranged",
+      "position": 37,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
+      "position": 38,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
+      "position": 39,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
+      "position": 44,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
+      "position": 45,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
       "position": 46,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
+      "position": 47,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
+      "position": 52,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
+      "position": 53,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Basilisk Knight / Ranged",
+      "position": 54,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Cerberus / Melee",
@@ -737,14 +723,14 @@
     },
     {
       "layout": "Cerberus / Melee",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "position": 15,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Cerberus / Melee",
-      "position": 28,
+      "position": 20,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -758,20 +744,6 @@
     },
     {
       "layout": "Cerberus / Melee",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Melee",
-      "position": 15,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Cerberus / Melee",
       "position": 22,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
@@ -779,7 +751,35 @@
     },
     {
       "layout": "Cerberus / Melee",
+      "position": 23,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Cerberus / Melee",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Melee",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Melee",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Melee",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -793,20 +793,6 @@
     },
     {
       "layout": "Cerberus / Melee",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Melee",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Melee",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -814,7 +800,7 @@
     },
     {
       "layout": "Cerberus / Melee",
-      "position": 45,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -828,28 +814,28 @@
     },
     {
       "layout": "Cerberus / Melee",
-      "position": 23,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
     },
     {
       "layout": "Cerberus / Melee",
-      "position": 31,
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Cerberus / Ranged",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Ranged",
+      "layout": "Cerberus / Melee",
       "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Melee",
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -863,42 +849,14 @@
     },
     {
       "layout": "Cerberus / Ranged",
-      "position": 14,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Cerberus / Ranged",
-      "position": 20,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Cerberus / Ranged",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Ranged",
-      "position": 21,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Cerberus / Ranged",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Ranged",
       "position": 13,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Cerberus / Ranged",
+      "position": 14,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -912,6 +870,20 @@
     },
     {
       "layout": "Cerberus / Ranged",
+      "position": 20,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Cerberus / Ranged",
+      "position": 21,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Cerberus / Ranged",
       "position": 22,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
@@ -919,56 +891,28 @@
     },
     {
       "layout": "Cerberus / Ranged",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Ranged",
-      "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Ranged",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Ranged",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Ranged",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Ranged",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Ranged",
-      "position": 39,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Cerberus / Ranged",
       "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Ranged",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Ranged",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Ranged",
+      "position": 30,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -981,8 +925,57 @@
       "gotName": "Dark crab"
     },
     {
-      "layout": "Commander Zilyana / Ranged",
+      "layout": "Cerberus / Ranged",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Ranged",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Ranged",
       "position": 38,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Ranged",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Ranged",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Ranged",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Ranged",
+      "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Cerberus / Ranged",
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -996,13 +989,6 @@
     },
     {
       "layout": "Commander Zilyana / Ranged",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Commander Zilyana / Ranged",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -1010,7 +996,7 @@
     },
     {
       "layout": "Commander Zilyana / Ranged",
-      "position": 45,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1023,8 +1009,15 @@
       "gotName": "Dark crab"
     },
     {
-      "layout": "Corporeal Beast / Best in slot",
-      "position": 38,
+      "layout": "Commander Zilyana / Ranged",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Commander Zilyana / Ranged",
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1052,6 +1045,13 @@
     },
     {
       "layout": "Corporeal Beast / Best in slot",
+      "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Best in slot",
       "position": 36,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -1066,13 +1066,41 @@
     },
     {
       "layout": "Corporeal Beast / Best in slot",
-      "position": 39,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "Corporeal Beast / Best in slot",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Best in slot (2)",
+      "position": 20,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Best in slot (2)",
+      "position": 21,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Best in slot (2)",
+      "position": 22,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Best in slot (2)",
       "position": 23,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -1080,7 +1108,42 @@
     },
     {
       "layout": "Corporeal Beast / Best in slot (2)",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Best in slot (2)",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Best in slot (2)",
       "position": 38,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Best in slot (2)",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Best in slot (2)",
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Best in slot (2)",
+      "position": 53,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1093,78 +1156,8 @@
       "gotName": "Dark crab"
     },
     {
-      "layout": "Corporeal Beast / Best in slot (2)",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Corporeal Beast / Best in slot (2)",
-      "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Corporeal Beast / Best in slot (2)",
-      "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Corporeal Beast / Best in slot (2)",
-      "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Corporeal Beast / Best in slot (2)",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Corporeal Beast / Best in slot (2)",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Corporeal Beast / Best in slot (2)",
-      "position": 53,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Corporeal Beast / Best in slot (2)",
-      "position": 39,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Corporeal Beast / Best in slot (2)",
-      "position": 23,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
       "layout": "Corporeal Beast / Dolo",
       "position": 12,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Corporeal Beast / Dolo",
-      "position": 14,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1178,14 +1171,14 @@
     },
     {
       "layout": "Corporeal Beast / Dolo",
-      "position": 15,
+      "position": 14,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Corporeal Beast / Stat Draining",
-      "position": 46,
+      "layout": "Corporeal Beast / Dolo",
+      "position": 15,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1199,7 +1192,21 @@
     },
     {
       "layout": "Corporeal Beast / Stat Draining",
+      "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Stat Draining",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Corporeal Beast / Stat Draining",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1213,13 +1220,6 @@
     },
     {
       "layout": "Corporeal Beast / Stat Draining",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Corporeal Beast / Stat Draining",
       "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -1227,35 +1227,14 @@
     },
     {
       "layout": "Corporeal Beast / Stat Draining",
-      "position": 23,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Corporeal Beast / Stat Draining",
-      "position": 31,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "King Black Dragon / Melee",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "King Black Dragon / Melee",
       "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "King Black Dragon / Melee",
-      "position": 54,
+      "layout": "Corporeal Beast / Stat Draining",
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1269,21 +1248,7 @@
     },
     {
       "layout": "King Black Dragon / Melee",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "King Black Dragon / Melee",
       "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "King Black Dragon / Melee",
-      "position": 29,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1297,7 +1262,35 @@
     },
     {
       "layout": "King Black Dragon / Melee",
+      "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1311,27 +1304,6 @@
     },
     {
       "layout": "King Black Dragon / Melee",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "King Black Dragon / Melee",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "King Black Dragon / Melee",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "King Black Dragon / Melee",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -1339,14 +1311,7 @@
     },
     {
       "layout": "King Black Dragon / Melee",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "King Black Dragon / Melee",
-      "position": 53,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1360,14 +1325,70 @@
     },
     {
       "layout": "King Black Dragon / Melee",
-      "position": 23,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "King Black Dragon / Melee",
-      "position": 31,
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee",
+      "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee",
+      "position": 47,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee",
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee",
+      "position": 53,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee",
+      "position": 54,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee Gravestone method",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee Gravestone method",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "King Black Dragon / Melee Gravestone method",
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1381,7 +1402,7 @@
     },
     {
       "layout": "King Black Dragon / Melee Gravestone method",
-      "position": 44,
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1395,35 +1416,7 @@
     },
     {
       "layout": "King Black Dragon / Melee Gravestone method",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "King Black Dragon / Melee Gravestone method",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "King Black Dragon / Melee Gravestone method",
       "position": 53,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "King Black Dragon / Melee Gravestone method",
-      "position": 39,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Kree'arra / Melee (soulflame horn)",
-      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1451,21 +1444,14 @@
     },
     {
       "layout": "Kree'arra / Melee (soulflame horn)",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Kree'arra / Melee (soulflame horn)",
-      "position": 39,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Kree'arra / Melee (soulflame horn)",
       "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Kree'arra / Melee (soulflame horn)",
+      "position": 30,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1478,15 +1464,15 @@
       "gotName": "Dark crab"
     },
     {
-      "layout": "Lizardman shaman / Melee",
+      "layout": "Kree'arra / Melee (soulflame horn)",
       "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Lizardman shaman / Melee",
-      "position": 46,
+      "layout": "Kree'arra / Melee (soulflame horn)",
+      "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1500,49 +1486,7 @@
     },
     {
       "layout": "Lizardman shaman / Melee",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Melee",
       "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Melee",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Melee",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Melee",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Melee",
-      "position": 53,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Melee",
-      "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1556,21 +1500,63 @@
     },
     {
       "layout": "Lizardman shaman / Melee",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Melee",
+      "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Melee",
       "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Lizardman shaman / Melee (2)",
+      "layout": "Lizardman shaman / Melee",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Melee",
       "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Lizardman shaman / Melee (2)",
+      "layout": "Lizardman shaman / Melee",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Melee",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Melee",
       "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Melee",
+      "position": 53,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1598,21 +1584,14 @@
     },
     {
       "layout": "Lizardman shaman / Melee (2)",
+      "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Melee (2)",
       "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Melee (2)",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Melee (2)",
-      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1626,7 +1605,7 @@
     },
     {
       "layout": "Lizardman shaman / Melee (2)",
-      "position": 45,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1640,7 +1619,28 @@
     },
     {
       "layout": "Lizardman shaman / Melee (2)",
-      "position": 31,
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Melee (2)",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Melee (2)",
+      "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Melee (2)",
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1661,21 +1661,7 @@
     },
     {
       "layout": "Lizardman shaman / Ranged",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Ranged",
       "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Ranged",
-      "position": 29,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1689,21 +1675,21 @@
     },
     {
       "layout": "Lizardman shaman / Ranged",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Ranged",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Ranged",
       "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Ranged (2)",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Ranged (2)",
-      "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1731,21 +1717,14 @@
     },
     {
       "layout": "Lizardman shaman / Ranged (2)",
+      "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Ranged (2)",
       "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Ranged (2)",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Lizardman shaman / Ranged (2)",
-      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1759,7 +1738,7 @@
     },
     {
       "layout": "Lizardman shaman / Ranged (2)",
-      "position": 45,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1773,21 +1752,28 @@
     },
     {
       "layout": "Lizardman shaman / Ranged (2)",
-      "position": 31,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mad Angel / Melee",
-      "position": 38,
+      "layout": "Lizardman shaman / Ranged (2)",
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mad Angel / Melee",
+      "layout": "Lizardman shaman / Ranged (2)",
       "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Lizardman shaman / Ranged (2)",
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1822,35 +1808,14 @@
     },
     {
       "layout": "Mad Angel / Melee",
-      "position": 14,
+      "position": 13,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Mad Angel / Melee",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee",
-      "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee",
-      "position": 13,
+      "position": 14,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -1864,49 +1829,14 @@
     },
     {
       "layout": "Mad Angel / Melee",
+      "position": 21,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee",
       "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee",
-      "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee",
-      "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -1920,20 +1850,76 @@
     },
     {
       "layout": "Mad Angel / Melee",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee",
+      "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee",
       "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "layout": "Mad Angel / Melee",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee",
       "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "layout": "Mad Angel / Melee",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee",
       "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -1969,35 +1955,14 @@
     },
     {
       "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 14,
+      "position": 13,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 13,
+      "position": 14,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -2011,56 +1976,14 @@
     },
     {
       "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "position": 21,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
       "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee (1 Defence Pure)",
-      "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2074,21 +1997,84 @@
     },
     {
       "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
       "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mad Angel / Melee (Low level)",
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
       "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mad Angel / Melee (Low level)",
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
       "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (1 Defence Pure)",
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2123,6 +2109,13 @@
     },
     {
       "layout": "Mad Angel / Melee (Low level)",
+      "position": 15,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Mad Angel / Melee (Low level)",
       "position": 20,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -2130,14 +2123,28 @@
     },
     {
       "layout": "Mad Angel / Melee (Low level)",
-      "position": 28,
+      "position": 21,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "Mad Angel / Melee (Low level)",
-      "position": 21,
+      "position": 22,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Mad Angel / Melee (Low level)",
+      "position": 23,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Mad Angel / Melee (Low level)",
+      "position": 28,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2151,21 +2158,14 @@
     },
     {
       "layout": "Mad Angel / Melee (Low level)",
-      "position": 15,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Mad Angel / Melee (Low level)",
-      "position": 22,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Mad Angel / Melee (Low level)",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mad Angel / Melee (Low level)",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2179,13 +2179,6 @@
     },
     {
       "layout": "Mad Angel / Melee (Low level)",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mad Angel / Melee (Low level)",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -2193,7 +2186,7 @@
     },
     {
       "layout": "Mad Angel / Melee (Low level)",
-      "position": 45,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2207,35 +2200,21 @@
     },
     {
       "layout": "Mad Angel / Melee (Low level)",
-      "position": 23,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
     },
     {
       "layout": "Mad Angel / Melee (Low level)",
-      "position": 31,
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Metal dragons / Magic",
-      "position": 14,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Metal dragons / Magic",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Metal dragons / Magic",
-      "position": 21,
+      "layout": "Mad Angel / Melee (Low level)",
+      "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2249,7 +2228,28 @@
     },
     {
       "layout": "Metal dragons / Magic",
+      "position": 14,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Metal dragons / Magic",
       "position": 15,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Metal dragons / Magic",
+      "position": 20,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Metal dragons / Magic",
+      "position": 21,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2270,7 +2270,7 @@
     },
     {
       "layout": "Metal dragons / Melee",
-      "position": 38,
+      "position": 23,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2298,6 +2298,13 @@
     },
     {
       "layout": "Metal dragons / Melee",
+      "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Metal dragons / Melee",
       "position": 36,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -2312,14 +2319,7 @@
     },
     {
       "layout": "Metal dragons / Melee",
-      "position": 23,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Metal dragons / Melee",
-      "position": 31,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2327,6 +2327,13 @@
     {
       "layout": "Metal dragons / Ranged",
       "position": 14,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Metal dragons / Ranged",
+      "position": 15,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2347,13 +2354,6 @@
     },
     {
       "layout": "Metal dragons / Ranged",
-      "position": 15,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Metal dragons / Ranged",
       "position": 22,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -2368,42 +2368,7 @@
     },
     {
       "layout": "Mithril dragon / Magic",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Magic",
-      "position": 46,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Magic",
-      "position": 54,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Magic",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Magic",
       "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Magic",
-      "position": 29,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2417,6 +2382,27 @@
     },
     {
       "layout": "Mithril dragon / Magic",
+      "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Magic",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Magic",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Magic",
       "position": 30,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -2424,28 +2410,14 @@
     },
     {
       "layout": "Mithril dragon / Magic",
+      "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Magic",
       "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Magic",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Magic",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Magic",
-      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2459,14 +2431,7 @@
     },
     {
       "layout": "Mithril dragon / Magic",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Magic",
-      "position": 53,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2480,42 +2445,49 @@
     },
     {
       "layout": "Mithril dragon / Magic",
-      "position": 23,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "Mithril dragon / Magic",
-      "position": 31,
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mithril dragon / Melee",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee",
+      "layout": "Mithril dragon / Magic",
       "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mithril dragon / Melee",
-      "position": 54,
+      "layout": "Mithril dragon / Magic",
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mithril dragon / Melee",
-      "position": 28,
+      "layout": "Mithril dragon / Magic",
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Magic",
+      "position": 53,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Magic",
+      "position": 54,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2529,14 +2501,28 @@
     },
     {
       "layout": "Mithril dragon / Melee",
-      "position": 29,
+      "position": 22,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "Mithril dragon / Melee",
-      "position": 22,
+      "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee",
+      "position": 29,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2550,7 +2536,35 @@
     },
     {
       "layout": "Mithril dragon / Melee",
+      "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee",
       "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee",
+      "position": 38,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee",
+      "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2564,7 +2578,42 @@
     },
     {
       "layout": "Mithril dragon / Melee",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee",
+      "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee",
+      "position": 47,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee",
       "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee",
+      "position": 53,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee",
+      "position": 54,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2577,76 +2626,6 @@
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mithril dragon / Melee",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee",
-      "position": 53,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee",
-      "position": 39,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee",
-      "position": 23,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee",
-      "position": 31,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee tank",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee tank",
-      "position": 46,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee tank",
-      "position": 54,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
       "layout": "Mithril dragon / Melee tank",
       "position": 28,
       "sourceName": "{{Cheap food}}",
@@ -2669,35 +2648,14 @@
     },
     {
       "layout": "Mithril dragon / Melee tank",
+      "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee tank",
       "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee tank",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee tank",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee tank",
-      "position": 55,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee tank",
-      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2711,14 +2669,7 @@
     },
     {
       "layout": "Mithril dragon / Melee tank",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Melee tank",
-      "position": 53,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2732,35 +2683,56 @@
     },
     {
       "layout": "Mithril dragon / Melee tank",
-      "position": 31,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mithril dragon / Ranged",
-      "position": 38,
+      "layout": "Mithril dragon / Melee tank",
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mithril dragon / Ranged",
+      "layout": "Mithril dragon / Melee tank",
       "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mithril dragon / Ranged",
+      "layout": "Mithril dragon / Melee tank",
+      "position": 47,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee tank",
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee tank",
+      "position": 53,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Melee tank",
       "position": 54,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Mithril dragon / Ranged",
-      "position": 28,
+      "layout": "Mithril dragon / Melee tank",
+      "position": 55,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2774,84 +2746,7 @@
     },
     {
       "layout": "Mithril dragon / Ranged",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Ranged",
       "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Ranged",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Ranged",
-      "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Ranged",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Ranged",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Ranged",
-      "position": 55,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Ranged",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Ranged",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Ranged",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Ranged",
-      "position": 53,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Mithril dragon / Ranged",
-      "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2865,7 +2760,112 @@
     },
     {
       "layout": "Mithril dragon / Ranged",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
       "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 38,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 47,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 53,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 54,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Mithril dragon / Ranged",
+      "position": 55,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2900,28 +2900,7 @@
     },
     {
       "layout": "Phantom Muspah / Ranged",
-      "position": 38,
-      "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Phantom Muspah / Ranged",
-      "position": 46,
-      "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Phantom Muspah / Ranged",
       "position": 21,
-      "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Phantom Muspah / Ranged",
-      "position": 29,
       "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2935,6 +2914,20 @@
     },
     {
       "layout": "Phantom Muspah / Ranged",
+      "position": 23,
+      "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Phantom Muspah / Ranged",
+      "position": 29,
+      "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Phantom Muspah / Ranged",
       "position": 30,
       "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
       "gotId": 11936,
@@ -2942,7 +2935,7 @@
     },
     {
       "layout": "Phantom Muspah / Ranged",
-      "position": 47,
+      "position": 31,
       "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2956,14 +2949,7 @@
     },
     {
       "layout": "Phantom Muspah / Ranged",
-      "position": 45,
-      "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Phantom Muspah / Ranged",
-      "position": 53,
+      "position": 38,
       "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -2977,36 +2963,29 @@
     },
     {
       "layout": "Phantom Muspah / Ranged",
-      "position": 23,
+      "position": 45,
       "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "Phantom Muspah / Ranged",
-      "position": 31,
+      "position": 46,
       "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Melee",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
+      "layout": "Phantom Muspah / Ranged",
+      "position": 47,
+      "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Melee",
-      "position": 46,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee",
-      "position": 54,
-      "sourceName": "{{Cheap food}}",
+      "layout": "Phantom Muspah / Ranged",
+      "position": 53,
+      "sourceName": "{{MinPrice|format=item|link=n|Manta ray|Tuna potato|Anglerfish|Dark crab}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
@@ -3020,6 +2999,13 @@
     {
       "layout": "Rune dragon / Melee",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3033,27 +3019,6 @@
     },
     {
       "layout": "Rune dragon / Melee",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -3061,14 +3026,7 @@
     },
     {
       "layout": "Rune dragon / Melee",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee",
-      "position": 53,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3082,35 +3040,49 @@
     },
     {
       "layout": "Rune dragon / Melee",
-      "position": 31,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Melee (2)",
-      "position": 38,
+      "layout": "Rune dragon / Melee",
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Melee (2)",
+      "layout": "Rune dragon / Melee",
       "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Melee (2)",
-      "position": 54,
+      "layout": "Rune dragon / Melee",
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Melee (2)",
-      "position": 29,
+      "layout": "Rune dragon / Melee",
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee",
+      "position": 53,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee",
+      "position": 54,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3124,7 +3096,21 @@
     },
     {
       "layout": "Rune dragon / Melee (2)",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (2)",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (2)",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3138,20 +3124,6 @@
     },
     {
       "layout": "Rune dragon / Melee (2)",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (2)",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (2)",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -3159,14 +3131,7 @@
     },
     {
       "layout": "Rune dragon / Melee (2)",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (2)",
-      "position": 53,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3180,56 +3145,42 @@
     },
     {
       "layout": "Rune dragon / Melee (2)",
-      "position": 31,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 38,
+      "layout": "Rune dragon / Melee (2)",
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Melee (3)",
+      "layout": "Rune dragon / Melee (2)",
       "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Rune dragon / Melee (3)",
+      "layout": "Rune dragon / Melee (2)",
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (2)",
+      "position": 53,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (2)",
       "position": 54,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 29,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3243,63 +3194,21 @@
     },
     {
       "layout": "Rune dragon / Melee (3)",
+      "position": 20,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 21,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
       "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 53,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Rune dragon / Melee (3)",
-      "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3313,21 +3222,98 @@
     },
     {
       "layout": "Rune dragon / Melee (3)",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
       "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Sarachnis / Setup",
+      "layout": "Rune dragon / Melee (3)",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
       "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Sarachnis / Setup",
+      "layout": "Rune dragon / Melee (3)",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
       "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 53,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Rune dragon / Melee (3)",
+      "position": 54,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3355,21 +3341,14 @@
     },
     {
       "layout": "Sarachnis / Setup",
+      "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Sarachnis / Setup",
       "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Sarachnis / Setup",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Sarachnis / Setup",
-      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3383,7 +3362,7 @@
     },
     {
       "layout": "Sarachnis / Setup",
-      "position": 45,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3397,56 +3376,28 @@
     },
     {
       "layout": "Sarachnis / Setup",
-      "position": 31,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Sarachnis / Setup (2)",
-      "position": 38,
+      "layout": "Sarachnis / Setup",
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Sarachnis / Setup (2)",
+      "layout": "Sarachnis / Setup",
       "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Sarachnis / Setup (2)",
-      "position": 14,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Sarachnis / Setup (2)",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Sarachnis / Setup (2)",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Sarachnis / Setup (2)",
-      "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Sarachnis / Setup (2)",
-      "position": 29,
+      "layout": "Sarachnis / Setup",
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3460,7 +3411,28 @@
     },
     {
       "layout": "Sarachnis / Setup (2)",
+      "position": 14,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Sarachnis / Setup (2)",
       "position": 15,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Sarachnis / Setup (2)",
+      "position": 20,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Sarachnis / Setup (2)",
+      "position": 21,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3474,7 +3446,35 @@
     },
     {
       "layout": "Sarachnis / Setup (2)",
+      "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Sarachnis / Setup (2)",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Sarachnis / Setup (2)",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Sarachnis / Setup (2)",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Sarachnis / Setup (2)",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3488,13 +3488,6 @@
     },
     {
       "layout": "Sarachnis / Setup (2)",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Sarachnis / Setup (2)",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -3502,7 +3495,7 @@
     },
     {
       "layout": "Sarachnis / Setup (2)",
-      "position": 45,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3516,35 +3509,21 @@
     },
     {
       "layout": "Sarachnis / Setup (2)",
-      "position": 23,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "Sarachnis / Setup (2)",
-      "position": 31,
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Skotizo / Melee",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
+      "layout": "Sarachnis / Setup (2)",
       "position": 46,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 54,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3558,42 +3537,14 @@
     },
     {
       "layout": "Skotizo / Melee",
-      "position": 14,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
       "position": 13,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 14,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3607,56 +3558,21 @@
     },
     {
       "layout": "Skotizo / Melee",
+      "position": 20,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 21,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
       "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3670,7 +3586,182 @@
     },
     {
       "layout": "Skotizo / Melee",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
       "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 38,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 47,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Melee",
+      "position": 54,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 13,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 14,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 15,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 20,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 21,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 22,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3684,84 +3775,7 @@
     },
     {
       "layout": "Skotizo / Ranged",
-      "position": 46,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 54,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 14,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 13,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 15,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 36,
+      "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3775,20 +3789,6 @@
     },
     {
       "layout": "Skotizo / Ranged",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
       "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -3796,21 +3796,21 @@
     },
     {
       "layout": "Skotizo / Ranged",
-      "position": 39,
+      "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "Skotizo / Ranged",
-      "position": 23,
+      "position": 47,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "Skotizo / Ranged",
-      "position": 31,
+      "position": 54,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3831,27 +3831,6 @@
     },
     {
       "layout": "The Leviathan / Mage (Tumeken's shadow)",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "The Leviathan / Mage (Tumeken's shadow)",
-      "position": 46,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "The Leviathan / Mage (Tumeken's shadow)",
-      "position": 54,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "The Leviathan / Mage (Tumeken's shadow)",
       "position": 12,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
@@ -3859,7 +3838,21 @@
     },
     {
       "layout": "The Leviathan / Mage (Tumeken's shadow)",
+      "position": 13,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Leviathan / Mage (Tumeken's shadow)",
       "position": 14,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Leviathan / Mage (Tumeken's shadow)",
+      "position": 15,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -3880,21 +3873,14 @@
     },
     {
       "layout": "The Leviathan / Mage (Tumeken's shadow)",
-      "position": 13,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Leviathan / Mage (Tumeken's shadow)",
-      "position": 15,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Leviathan / Mage (Tumeken's shadow)",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "The Leviathan / Mage (Tumeken's shadow)",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3908,27 +3894,6 @@
     },
     {
       "layout": "The Leviathan / Mage (Tumeken's shadow)",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "The Leviathan / Mage (Tumeken's shadow)",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "The Leviathan / Mage (Tumeken's shadow)",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "The Leviathan / Mage (Tumeken's shadow)",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -3936,14 +3901,7 @@
     },
     {
       "layout": "The Leviathan / Mage (Tumeken's shadow)",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "The Leviathan / Mage (Tumeken's shadow)",
-      "position": 53,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3957,27 +3915,48 @@
     },
     {
       "layout": "The Leviathan / Mage (Tumeken's shadow)",
-      "position": 31,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "The Leviathan / Range",
-      "position": 38,
+      "layout": "The Leviathan / Mage (Tumeken's shadow)",
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "The Leviathan / Range",
+      "layout": "The Leviathan / Mage (Tumeken's shadow)",
       "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "The Leviathan / Range",
+      "layout": "The Leviathan / Mage (Tumeken's shadow)",
+      "position": 47,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "The Leviathan / Mage (Tumeken's shadow)",
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "The Leviathan / Mage (Tumeken's shadow)",
+      "position": 53,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "The Leviathan / Mage (Tumeken's shadow)",
       "position": 54,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -3992,7 +3971,21 @@
     },
     {
       "layout": "The Leviathan / Range",
+      "position": 13,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Leviathan / Range",
       "position": 14,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Leviathan / Range",
+      "position": 15,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -4013,21 +4006,14 @@
     },
     {
       "layout": "The Leviathan / Range",
-      "position": 13,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Leviathan / Range",
-      "position": 15,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Leviathan / Range",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "The Leviathan / Range",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4041,27 +4027,6 @@
     },
     {
       "layout": "The Leviathan / Range",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "The Leviathan / Range",
-      "position": 52,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "The Leviathan / Range",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "The Leviathan / Range",
       "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -4069,14 +4034,7 @@
     },
     {
       "layout": "The Leviathan / Range",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "The Leviathan / Range",
-      "position": 53,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4090,7 +4048,49 @@
     },
     {
       "layout": "The Leviathan / Range",
-      "position": 31,
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "The Leviathan / Range",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "The Leviathan / Range",
+      "position": 46,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "The Leviathan / Range",
+      "position": 47,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "The Leviathan / Range",
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "The Leviathan / Range",
+      "position": 53,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "The Leviathan / Range",
+      "position": 54,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4125,42 +4125,14 @@
     },
     {
       "layout": "The Whisperer / Inventory recommendations",
-      "position": 38,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Whisperer / Inventory recommendations",
-      "position": 14,
+      "position": 13,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "The Whisperer / Inventory recommendations",
-      "position": 28,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Whisperer / Inventory recommendations",
-      "position": 21,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Whisperer / Inventory recommendations",
-      "position": 29,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Whisperer / Inventory recommendations",
-      "position": 13,
+      "position": 14,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4174,49 +4146,14 @@
     },
     {
       "layout": "The Whisperer / Inventory recommendations",
+      "position": 21,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Whisperer / Inventory recommendations",
       "position": 22,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Whisperer / Inventory recommendations",
-      "position": 30,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Whisperer / Inventory recommendations",
-      "position": 36,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Whisperer / Inventory recommendations",
-      "position": 44,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Whisperer / Inventory recommendations",
-      "position": 37,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Whisperer / Inventory recommendations",
-      "position": 45,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "The Whisperer / Inventory recommendations",
-      "position": 39,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -4230,49 +4167,112 @@
     },
     {
       "layout": "The Whisperer / Inventory recommendations",
-      "position": 31,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Thermonuclear smoke devil / Magic (redemption)",
-      "position": 5,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Thermonuclear smoke devil / Magic (redemption)",
-      "position": 6,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Thermonuclear smoke devil / Melee (redemption)",
-      "position": 5,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Thermonuclear smoke devil / Melee (redemption)",
-      "position": 6,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Tormented Demon / Budget Melee/Mage",
       "position": 28,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
     },
     {
+      "layout": "The Whisperer / Inventory recommendations",
+      "position": 29,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Whisperer / Inventory recommendations",
+      "position": 30,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Whisperer / Inventory recommendations",
+      "position": 31,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Whisperer / Inventory recommendations",
+      "position": 36,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Whisperer / Inventory recommendations",
+      "position": 37,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Whisperer / Inventory recommendations",
+      "position": 38,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Whisperer / Inventory recommendations",
+      "position": 39,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Whisperer / Inventory recommendations",
+      "position": 44,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "The Whisperer / Inventory recommendations",
+      "position": 45,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Thermonuclear smoke devil / Magic (redemption)",
+      "position": 5,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Thermonuclear smoke devil / Magic (redemption)",
+      "position": 6,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Thermonuclear smoke devil / Melee (redemption)",
+      "position": 5,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Thermonuclear smoke devil / Melee (redemption)",
+      "position": 6,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
       "layout": "Tormented Demon / Budget Melee/Mage",
       "position": 21,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Tormented Demon / Budget Melee/Mage",
+      "position": 28,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -4314,13 +4314,6 @@
     },
     {
       "layout": "Tormented Demon / Budget Melee/Range",
-      "position": 28,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Tormented Demon / Budget Melee/Range",
       "position": 21,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
@@ -4328,6 +4321,13 @@
     },
     {
       "layout": "Tormented Demon / Budget Melee/Range",
+      "position": 28,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Tormented Demon / Budget Melee/Range",
       "position": 29,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
@@ -4346,13 +4346,6 @@
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Tormented Demon / Max Melee/Mage",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
     },
     {
       "layout": "Tormented Demon / Max Melee/Mage",
@@ -4377,21 +4370,14 @@
     },
     {
       "layout": "Tormented Demon / Max Melee/Mage",
+      "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Tormented Demon / Max Melee/Mage",
       "position": 36,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Tormented Demon / Max Melee/Mage",
-      "position": 44,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Tormented Demon / Max Melee/Mage",
-      "position": 52,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -4405,10 +4391,10 @@
     },
     {
       "layout": "Tormented Demon / Max Melee/Mage",
-      "position": 45,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
+      "position": 38,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
     },
     {
       "layout": "Tormented Demon / Max Melee/Mage",
@@ -4419,17 +4405,24 @@
     },
     {
       "layout": "Tormented Demon / Max Melee/Mage",
-      "position": 31,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "position": 44,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
-      "layout": "Tormented Demon / Max Melee/Range",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "layout": "Tormented Demon / Max Melee/Mage",
+      "position": 45,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Tormented Demon / Max Melee/Mage",
+      "position": 52,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Tormented Demon / Max Melee/Range",
@@ -4454,21 +4447,14 @@
     },
     {
       "layout": "Tormented Demon / Max Melee/Range",
+      "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Tormented Demon / Max Melee/Range",
       "position": 36,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Tormented Demon / Max Melee/Range",
-      "position": 44,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Tormented Demon / Max Melee/Range",
-      "position": 52,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -4482,10 +4468,10 @@
     },
     {
       "layout": "Tormented Demon / Max Melee/Range",
-      "position": 45,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
+      "position": 38,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
     },
     {
       "layout": "Tormented Demon / Max Melee/Range",
@@ -4496,42 +4482,35 @@
     },
     {
       "layout": "Tormented Demon / Max Melee/Range",
-      "position": 31,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Vorkath / Melee",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Vorkath / Melee",
-      "position": 14,
+      "position": 44,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
     },
     {
-      "layout": "Vorkath / Melee",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "layout": "Tormented Demon / Max Melee/Range",
+      "position": 45,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
-      "layout": "Vorkath / Melee",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "layout": "Tormented Demon / Max Melee/Range",
+      "position": 52,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Vorkath / Melee",
       "position": 13,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Vorkath / Melee",
+      "position": 14,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -4552,7 +4531,35 @@
     },
     {
       "layout": "Vorkath / Melee",
+      "position": 23,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Melee",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Melee",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Melee",
       "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Melee",
+      "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4566,14 +4573,14 @@
     },
     {
       "layout": "Vorkath / Melee",
-      "position": 44,
+      "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
       "layout": "Vorkath / Melee",
-      "position": 37,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4587,14 +4594,56 @@
     },
     {
       "layout": "Vorkath / Melee",
-      "position": 23,
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Vorkath / Melee",
-      "position": 31,
+      "layout": "Vorkath / Ranged (blowpipe)",
+      "position": 15,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Vorkath / Ranged (blowpipe)",
+      "position": 20,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Ranged (blowpipe)",
+      "position": 21,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Ranged (blowpipe)",
+      "position": 22,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Vorkath / Ranged (blowpipe)",
+      "position": 23,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
+    },
+    {
+      "layout": "Vorkath / Ranged (blowpipe)",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Ranged (blowpipe)",
+      "position": 37,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4602,6 +4651,27 @@
     {
       "layout": "Vorkath / Ranged (blowpipe)",
       "position": 38,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Ranged (blowpipe)",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Ranged (blowpipe)",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Ranged (blowpipe)",
+      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4615,70 +4685,7 @@
     },
     {
       "layout": "Vorkath / Ranged (blowpipe)",
-      "position": 54,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Vorkath / Ranged (blowpipe)",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Vorkath / Ranged (blowpipe)",
-      "position": 21,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Vorkath / Ranged (blowpipe)",
-      "position": 15,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Vorkath / Ranged (blowpipe)",
-      "position": 22,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Vorkath / Ranged (blowpipe)",
-      "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Vorkath / Ranged (blowpipe)",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Vorkath / Ranged (blowpipe)",
       "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Vorkath / Ranged (blowpipe)",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Vorkath / Ranged (blowpipe)",
-      "position": 45,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4692,14 +4699,14 @@
     },
     {
       "layout": "Vorkath / Ranged (blowpipe)",
-      "position": 39,
+      "position": 54,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Vorkath / Ranged (blowpipe)",
-      "position": 23,
+      "layout": "Vorkath / Ranged (crossbow)",
+      "position": 13,
       "sourceName": "{{Cheap prayer}}",
       "gotId": 2434,
       "gotName": "Prayer potion(4)"
@@ -4713,10 +4720,10 @@
     },
     {
       "layout": "Vorkath / Ranged (crossbow)",
-      "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "position": 15,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Vorkath / Ranged (crossbow)",
@@ -4724,27 +4731,6 @@
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
-    },
-    {
-      "layout": "Vorkath / Ranged (crossbow)",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Vorkath / Ranged (crossbow)",
-      "position": 13,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Vorkath / Ranged (crossbow)",
-      "position": 15,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Vorkath / Ranged (crossbow)",
@@ -4759,6 +4745,27 @@
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Ranged (crossbow)",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Vorkath / Ranged (crossbow)",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Magic Only",
+      "position": 39,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Zulrah / Magic Only",
@@ -4768,15 +4775,8 @@
       "gotName": "Prayer potion(4)"
     },
     {
-      "layout": "Zulrah / Magic Only",
-      "position": 39,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
       "layout": "Zulrah / Max Magic & Ranged",
-      "position": 38,
+      "position": 22,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4784,13 +4784,6 @@
     {
       "layout": "Zulrah / Max Magic & Ranged",
       "position": 28,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Max Magic & Ranged",
-      "position": 22,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4811,7 +4804,7 @@
     },
     {
       "layout": "Zulrah / Max Magic & Ranged",
-      "position": 44,
+      "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4824,15 +4817,8 @@
       "gotName": "Prayer potion(4)"
     },
     {
-      "layout": "Zulrah / Melee Only",
-      "position": 38,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Melee Only",
-      "position": 46,
+      "layout": "Zulrah / Max Magic & Ranged",
+      "position": 44,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4853,14 +4839,14 @@
     },
     {
       "layout": "Zulrah / Melee Only",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "position": 13,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Zulrah / Melee Only",
-      "position": 28,
+      "position": 20,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4874,63 +4860,7 @@
     },
     {
       "layout": "Zulrah / Melee Only",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Melee Only",
-      "position": 13,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Zulrah / Melee Only",
       "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Melee Only",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Melee Only",
-      "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Melee Only",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Melee Only",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Melee Only",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Melee Only",
-      "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -4944,20 +4874,76 @@
     },
     {
       "layout": "Zulrah / Melee Only",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Melee Only",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Melee Only",
+      "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Melee Only",
       "position": 31,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Zulrah / Ranged Only",
+      "layout": "Zulrah / Melee Only",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Melee Only",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Melee Only",
       "position": 38,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Zulrah / Ranged Only",
+      "layout": "Zulrah / Melee Only",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Melee Only",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Melee Only",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Melee Only",
       "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -4979,14 +4965,14 @@
     },
     {
       "layout": "Zulrah / Ranged Only",
-      "position": 20,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
+      "position": 13,
+      "sourceName": "{{Cheap prayer}}",
+      "gotId": 2434,
+      "gotName": "Prayer potion(4)"
     },
     {
       "layout": "Zulrah / Ranged Only",
-      "position": 28,
+      "position": 20,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -5000,63 +4986,7 @@
     },
     {
       "layout": "Zulrah / Ranged Only",
-      "position": 29,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Ranged Only",
-      "position": 13,
-      "sourceName": "{{Cheap prayer}}",
-      "gotId": 2434,
-      "gotName": "Prayer potion(4)"
-    },
-    {
-      "layout": "Zulrah / Ranged Only",
       "position": 22,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Ranged Only",
-      "position": 30,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Ranged Only",
-      "position": 36,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Ranged Only",
-      "position": 44,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Ranged Only",
-      "position": 37,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Ranged Only",
-      "position": 45,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Zulrah / Ranged Only",
-      "position": 39,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -5070,7 +5000,77 @@
     },
     {
       "layout": "Zulrah / Ranged Only",
+      "position": 28,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Ranged Only",
+      "position": 29,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Ranged Only",
+      "position": 30,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Ranged Only",
       "position": 31,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Ranged Only",
+      "position": 36,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Ranged Only",
+      "position": 37,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Ranged Only",
+      "position": 38,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Ranged Only",
+      "position": 39,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Ranged Only",
+      "position": 44,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Ranged Only",
+      "position": 45,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Zulrah / Ranged Only",
+      "position": 46,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
