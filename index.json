@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T22:27:59Z",
+  "generatedAt": "2026-09-07T12:08:51Z",
   "activityCount": 103,
   "layoutCount": 340,
   "activities": [
@@ -184,8 +184,8 @@
       "slug": "chest-rogues-castle",
       "file": "data/chest-rogues-castle.json",
       "variantCount": 6,
-      "sourceRevId": 15320436,
-      "contentHash": "d4b08976cab4e734"
+      "sourceRevId": 15331132,
+      "contentHash": "9164af4b83b88a9f"
     },
     {
       "activity": "Commander Zilyana",
@@ -616,8 +616,8 @@
       "slug": "spindel",
       "file": "data/spindel.json",
       "variantCount": 2,
-      "sourceRevId": 15325033,
-      "contentHash": "7f0adc7fcc4541ef"
+      "sourceRevId": 15330947,
+      "contentHash": "7243499280d7e16b"
     },
     {
       "activity": "Sulliuscep",
@@ -728,8 +728,8 @@
       "slug": "tormented-demon",
       "file": "data/tormented-demon.json",
       "variantCount": 4,
-      "sourceRevId": 15325376,
-      "contentHash": "7e81187cf3874359"
+      "sourceRevId": 15332199,
+      "contentHash": "c8b586c9195715de"
     },
     {
       "activity": "Treasure Trails",
@@ -768,8 +768,8 @@
       "slug": "venenatis",
       "file": "data/venenatis.json",
       "variantCount": 3,
-      "sourceRevId": 15316251,
-      "contentHash": "33c170de2395bda6"
+      "sourceRevId": 15330927,
+      "contentHash": "f1533eb5c1a57c9c"
     },
     {
       "activity": "Vet'ion",
