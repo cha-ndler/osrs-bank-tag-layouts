@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T12:08:51Z",
+  "generatedAt": "2026-09-14T12:24:52Z",
   "activityCount": 103,
   "layoutCount": 340,
   "activities": [
@@ -56,8 +56,8 @@
       "slug": "araxxor",
       "file": "data/araxxor.json",
       "variantCount": 2,
-      "sourceRevId": 15322538,
-      "contentHash": "459870e77f1bbef3"
+      "sourceRevId": 15339746,
+      "contentHash": "8e231459a11700e3"
     },
     {
       "activity": "Artio",

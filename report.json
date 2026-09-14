@@ -281,13 +281,6 @@
       "gotName": "Dark crab"
     },
     {
-      "layout": "Araxxor / Melee",
-      "position": 47,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
       "layout": "Araxxor / Ranged",
       "position": 13,
       "sourceName": "{{Cheap prayer}}",
