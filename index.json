@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T12:24:52Z",
+  "generatedAt": "2026-09-21T12:31:37Z",
   "activityCount": 103,
   "layoutCount": 340,
   "activities": [
@@ -152,8 +152,8 @@
       "slug": "chambers-of-xeric-challenge-mode",
       "file": "data/chambers-of-xeric-challenge-mode.json",
       "variantCount": 2,
-      "sourceRevId": 15324665,
-      "contentHash": "763f886f70d505f8"
+      "sourceRevId": 15349459,
+      "contentHash": "3af54faf57c6b8bc"
     },
     {
       "activity": "Chaos Elemental",
@@ -728,8 +728,8 @@
       "slug": "tormented-demon",
       "file": "data/tormented-demon.json",
       "variantCount": 4,
-      "sourceRevId": 15332199,
-      "contentHash": "c8b586c9195715de"
+      "sourceRevId": 15352244,
+      "contentHash": "7a026f062996ddfb"
     },
     {
       "activity": "Treasure Trails",
