@@ -23,7 +23,9 @@ from encode import (  # noqa: E402
     completeness,
     parse_hub_import_string,
     parse_import_string,
+    parse_loadout_map,
     parse_official_import_string,
+    relay_positions,
     split_layout,
     tag_name,
     zigzag_index,
@@ -52,6 +54,7 @@ from publish import (  # noqa: E402
     stable_rev_id,
     write_unless_only_timestamp,
 )
+from classify import ADD_LIMIT, CHANGE_LIMIT, classify  # noqa: E402
 from validate import COMPLETE_BASELINE, completeness_errors  # noqa: E402
 
 # Injected instead of the real wiki slot index so nothing here needs the network.
@@ -191,6 +194,65 @@ class TestLoadoutMap(unittest.TestCase):
         # Column 3 is the spacer between worn gear and inventory.
         self.assertTrue(all(0 <= p <= 55 for p in LOADOUT_MAP))
         self.assertFalse(any(p % 8 == 3 for p in LOADOUT_MAP))
+
+
+class TestUpstreamLoadoutMap(unittest.TestCase):
+    """The wiki's grid is read live and re-laid onto ours.
+
+    On 2026-09-25 `Module:Loadout` moved rune4 from 48 to 43. The copy pinned
+    here did not follow, every wiki-built layout came back with an item at a
+    position the pipeline did not recognise, and the weekly refresh failed for
+    three weeks. Decoding through the module's own table makes a rearrangement
+    upstream a no-op for the published library.
+    """
+
+    # Trimmed from the real module source, rune4 at its new position.
+    LUA = """
+local p = {}
+local loadoutmap = {
+    [1] = 'head',
+    [4] = '1',
+    [42] = 'rune3',
+    [43] = 'rune4',
+}
+
+function p._cleanItem(item)
+    local t = { [1] = 'not part of the map' }
+end
+"""
+
+    def test_reads_the_module_table(self):
+        self.assertEqual(
+            parse_loadout_map(self.LUA),
+            {1: "head", 4: "1", 42: "rune3", 43: "rune4"},
+        )
+
+    def test_missing_table_is_an_error_not_an_empty_map(self):
+        with self.assertRaises(ValueError):
+            parse_loadout_map("local p = {}\nreturn p")
+
+    def test_moved_slot_lands_back_on_our_position(self):
+        upstream = dict(LOADOUT_MAP)
+        del upstream[48]
+        upstream[43] = "rune4"
+        relay = relay_positions(upstream)
+        code = "banktags,1,T,995,layout,43,560,1,4151"
+        self.assertEqual(parse_import_string(code, relay), {"48": 560, "1": 4151})
+
+    def test_unchanged_map_is_the_identity(self):
+        relay = relay_positions(dict(LOADOUT_MAP))
+        self.assertTrue(all(k == v for k, v in relay.items()))
+
+    def test_new_or_renamed_argument_fails_loudly(self):
+        # A slot we have no position for cannot be laid out, so guessing one
+        # would publish a layout the README does not describe.
+        upstream = dict(LOADOUT_MAP)
+        upstream[3] = "quiver"
+        with self.assertRaisesRegex(ValueError, "quiver"):
+            relay_positions(upstream)
+        upstream = {k: v for k, v in LOADOUT_MAP.items() if v != "ring"}
+        with self.assertRaisesRegex(ValueError, "ring"):
+            relay_positions(upstream)
 
 
 class TestImportString(unittest.TestCase):
@@ -335,6 +397,66 @@ class TestOfficialImportString(unittest.TestCase):
         ):
             with self.assertRaises(ValueError):
                 parse_official_import_string(code)
+
+
+class TestLoadoutBlocks(unittest.TestCase):
+    """`{{Loadout}}` carries a whole setup in one call.
+
+    Zulrah and Treasure Trails moved to it in September 2026 and stopped
+    transcluding `{{Inventory}}`, so both fell out of the library without a
+    single error: 13 layouts gone, hidden in the activity count by new pages.
+    """
+
+    ZULRAH = (
+        "==Equipment==\n{{Recommended equipment|style = Magic|head1 = Ancestral hat}}\n"
+        "==Inventory Setups==\n<tabber>\nMax Magic & Ranged=\n{{Loadout\n"
+        "|loadoutname = Zulrah (max hybrid)\n|loadouticon = Pet Snakeling\n"
+        "|align = right\n|display = stacked\n|head = Ancestral hat\n"
+        "|weapon = Eye of Ayak\n|shield = Elidinis' ward (f)\n|1=Twisted bow\n"
+        "|2=Masori body (f)\n|28 = Shark\n|rune1 = Blood rune\n|rune4 = Death rune\n}}\n"
+        "|-|\nMagic Only=\n{{Loadout\n|head = Ahrim's hood\n|1=Shark\n}}\n</tabber>"
+    )
+
+    def test_each_block_is_one_setup_named_by_its_tab(self):
+        setups, warnings = extract_page("Zulrah/Strategies", self.ZULRAH)
+        self.assertEqual([s.variant for s in setups], ["Magic Only", "Max Magic & Ranged"])
+        hybrid = setups[1]
+        self.assertEqual(hybrid.equipment["weapon"], "Eye of Ayak")
+        self.assertEqual(hybrid.inventory["1"], "Twisted bow")
+        self.assertEqual(hybrid.inventory["28"], "Shark")
+        self.assertEqual(hybrid.runes, {"1": "Blood rune", "4": "Death rune"})
+        self.assertEqual(warnings, [])
+
+    def test_display_arguments_are_not_items(self):
+        setups, _ = extract_page("Zulrah/Strategies", self.ZULRAH)
+        hybrid = setups[1]
+        everything = {**hybrid.equipment, **hybrid.inventory, **hybrid.runes}.values()
+        for leaked in ("right", "stacked", "Pet Snakeling", "Zulrah (max hybrid)"):
+            self.assertNotIn(leaked, everything)
+
+    def test_outside_a_tab_the_block_names_itself(self):
+        text = (
+            "==Medium clue scrolls==\n{{Loadout|loadoutname = Medium clues"
+            "|head = Graceful hood|1 = Spade}}\n"
+            "{{Loadout|loadoutname = Medium clues (implings)|1 = Butterfly net}}\n"
+        )
+        setups, _ = extract_page("Treasure Trails/Strategies", text)
+        self.assertEqual(
+            [s.variant for s in setups], ["Medium clues", "Medium clues (implings)"]
+        )
+
+    def test_does_not_steal_a_neighbouring_equipment_block(self):
+        # The older templates in the same scope still pair among themselves.
+        text = (
+            "<tabber>\nMelee=\n{{Equipment|head = Torva full helm}}\n"
+            "{{Inventory|1 = Shark}}\n|-|\nRanged=\n"
+            "{{Loadout|head = Masori mask (f)|1 = Anglerfish}}\n</tabber>"
+        )
+        setups, warnings = extract_page("X/Strategies", text)
+        by_variant = {s.variant: s for s in setups}
+        self.assertEqual(by_variant["Melee"].inventory, {"1": "Shark"})
+        self.assertEqual(by_variant["Ranged"].equipment, {"head": "Masori mask (f)"})
+        self.assertEqual(warnings, [])
 
 
 class TestExtractPairing(unittest.TestCase):
@@ -1151,6 +1273,71 @@ class TestRefreshChurn(unittest.TestCase):
             path = Path(tmp) / "does-not-exist.json"
             self.assertTrue(write_unless_only_timestamp(path, {"generatedAt": "x"}))
             self.assertTrue(path.exists())
+
+
+def _variant(layout, completeness="complete"):
+    return {"layout": layout, "completeness": completeness}
+
+
+class TestRefreshClassifier(unittest.TestCase):
+    """Which refreshes merge themselves, and which wait for a person.
+
+    Calibrated on the merged refreshes: an ordinary week changed 1-4 layouts
+    and removed nothing.
+    """
+
+    BASE = {
+        ("Vorkath", "Ranged"): _variant({"1": 1}),
+        ("Vorkath", "Melee"): _variant({"1": 2}),
+        ("Zulrah", "Magic"): _variant({"1": 3}),
+    }
+
+    def test_an_ordinary_week_is_routine(self):
+        new = dict(self.BASE)
+        new[("Vorkath", "Ranged")] = _variant({"1": 9})
+        new[("Nex", "Max")] = _variant({"1": 4})
+        result = classify(self.BASE, new)
+        self.assertTrue(result["routine"], result["reasons"])
+        self.assertEqual(result["changed"], [("Vorkath", "Ranged")])
+        self.assertEqual(result["added"], [("Nex", "Max")])
+
+    def test_no_change_is_routine(self):
+        self.assertTrue(classify(self.BASE, dict(self.BASE))["routine"])
+
+    def test_a_vanished_activity_waits_for_review(self):
+        # The failure this exists for: Zulrah fell out of the library silently.
+        new = {k: v for k, v in self.BASE.items() if k[0] != "Zulrah"}
+        result = classify(self.BASE, new)
+        self.assertFalse(result["routine"])
+        self.assertTrue(any("Zulrah" in r for r in result["reasons"]))
+
+    def test_a_removed_variant_waits_for_review(self):
+        new = {k: v for k, v in self.BASE.items() if k != ("Vorkath", "Melee")}
+        result = classify(self.BASE, new)
+        self.assertFalse(result["routine"])
+        self.assertEqual(result["removed"], [("Vorkath", "Melee")])
+
+    def test_lost_completeness_waits_for_review(self):
+        new = dict(self.BASE)
+        new[("Vorkath", "Melee")] = _variant({"1": 2}, "partial")
+        result = classify(self.BASE, new)
+        self.assertFalse(result["routine"])
+        self.assertTrue(any("Vorkath / Melee" in r for r in result["reasons"]))
+
+    def test_a_wide_change_waits_for_review(self):
+        base = {("A", str(i)): _variant({"1": i}) for i in range(CHANGE_LIMIT + 1)}
+        new = {k: _variant({"1": 1000 + i}) for i, k in enumerate(base)}
+        self.assertFalse(classify(base, new)["routine"])
+        within = dict(base)
+        for k in list(base)[:CHANGE_LIMIT]:
+            within[k] = _variant({"1": -1})
+        self.assertTrue(classify(base, within)["routine"])
+
+    def test_a_flood_of_new_layouts_waits_for_review(self):
+        new = dict(self.BASE)
+        for i in range(ADD_LIMIT + 1):
+            new[("New", str(i))] = _variant({"1": i})
+        self.assertFalse(classify(self.BASE, new)["routine"])
 
 
 if __name__ == "__main__":

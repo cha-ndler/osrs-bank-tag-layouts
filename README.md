@@ -269,6 +269,26 @@ Choosing by whichever sat nearer the inventory made the winner an accident of
 typing order, which is how The Hueycoatl published a melee layout wearing
 nothing but a weapon.
 
+### `{{Loadout}}` pages
+
+Since September 2026 some guides (Zulrah, Treasure Trails) write each setup as
+one `{{Loadout}}` call carrying gear, inventory and rune pouch together, with no
+`{{Inventory}}` at all. Each such block is a complete setup and needs no pairing;
+it is named by its tab, or by its own `loadoutname` when a section holds several.
+Before discovery searched for it, both pages dropped out of the library without
+a single error.
+
+### The wiki's grid is not ours
+
+Item ids come from handing the setup back to the wiki's `Module:Loadout` and
+reading the import string it builds. That string is laid out on the module's
+grid, which is the wiki's to change: in September 2026 it moved the fourth rune
+pouch slot into the spacer column. The module's position table is therefore read
+live on every run and used only to decode what it returns; every layout is
+re-laid onto the grid described above. A slot that merely moves upstream changes
+nothing here. A slot that is added, removed or renamed has no position in our
+grid, so the run stops and names it.
+
 ### Slots the wiki decides at render time
 
 735 inventory slots hold a template call rather than an item name — `{{Cheap
@@ -277,6 +297,28 @@ cheapest when the pipeline runs, so they move with the Grand Exchange and not
 with the guide. They are resolved as the wiki resolves them, and each one is
 noted in the variant's `warnings`, so a reviewer can tell price drift from a
 real upstream edit in the weekly refresh diff.
+
+## Keeping it current
+
+`Refresh layouts` regenerates the library from the wiki every Monday and opens a
+pull request only when a layout actually changed. What happens next depends on
+what changed, judged by `generator/classify.py` against the published library:
+
+- **Routine** — nothing removed, nothing lost its `complete` status, and at most
+  ten layouts changed and ten were added (an ordinary week has changed one to
+  four). The job runs CI on the pull request itself and merges it once the
+  required check passes, then triggers the site rebuild.
+- **Needs review** — anything else. The pull request is labelled `needs-review`
+  and its body lists the reasons. Next week's run updates the same pull request
+  rather than opening another.
+
+Converting a refresh pull request to a draft holds it. A run that fails, at any
+step, opens a single `Weekly layout refresh is failing` issue (or comments on
+the open one) with the validation findings, and the next healthy run closes it.
+
+The validation floors stay hard failures: they guard against catastrophic loss.
+Anything smaller, such as one layout losing gear, is the classifier's to route
+to a person.
 
 ## Scope and limitations
 
@@ -289,9 +331,9 @@ real upstream edit in the weekly refresh diff.
   no layout. `report.json` names every page that yielded nothing
   (`skippedPages`) and every block extraction had to drop
   (`extractionWarnings`).
-- **Discovery keys on `Template:Inventory`.** Eight `/Strategies` pages use
-  `{{Recommended equipment}}` without an inventory and are therefore not found:
-  Blast Furnace, Blast mine, Deranged archaeologist, Forestry, Frost dragon,
+- **Discovery keys on `Template:Inventory` and `Template:Loadout`.** Seven
+  `/Strategies` pages use `{{Recommended equipment}}` without an inventory and
+  are therefore not found: Blast Furnace, Blast mine, Forestry, Frost dragon,
   Giants' Foundry, Lava dragon, Trouble Brewing.
 - Layouts are a starting point. Swap in what you actually own.
 

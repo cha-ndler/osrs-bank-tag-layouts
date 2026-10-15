@@ -9,6 +9,10 @@ guessing is not acceptable:
   variants, with a row of five `{{Equipment}}` blocks followed by a row of five
   `{{Inventory}}` blocks.
 
+A third shape needs no pairing at all: `{{Loadout}}` (Zulrah, Treasure Trails
+since 2026-09) carries gear, inventory and runes in one call, so each block is
+a setup by itself.
+
 Pairing therefore works per *scope* (a tabber chunk, or a heading section).
 Within a scope, if the equipment and inventory counts match they are zipped in
 document order - which is correct for interleaved and blocked layouts alike.
@@ -31,7 +35,7 @@ REPO = Path(__file__).parent.parent
 CORPUS = REPO / "generator" / "corpus.json"
 SETUPS = REPO / "generator" / "setups.json"
 
-TEMPLATES = ("Equipment", "Recommended equipment", "Inventory", "Rune pouch")
+TEMPLATES = ("Equipment", "Recommended equipment", "Inventory", "Rune pouch", "Loadout")
 
 # Equipment slots Module:Loadout understands. `*quantity` args are display-only.
 EQUIPMENT_SLOTS = (
@@ -646,6 +650,28 @@ def extract_page(
         equips = [o for o in occs if o.name in ("Equipment", "Recommended equipment")]
         invs = [o for o in occs if o.name == "Inventory"]
         pouches = [o for o in occs if o.name == "Rune pouch"]
+
+        loadouts = [o for o in occs if o.name == "Loadout"]
+        for occ in loadouts:
+            # The tab is the name a reader picked the setup by; the block's own
+            # `loadoutname` only decides when a section holds several.
+            own = clean_item(occ.args.get("loadoutname", ""))
+            if scope.kind == "tab" and scope.label:
+                variant = scope.label
+            elif own and (len(loadouts) > 1 or not scope.label):
+                variant = own
+            else:
+                variant = scope.label or own or "Setup"
+            setup = Setup(variant=variant, order=occ.end)
+            setup.equipment = _slots(occ, EQUIPMENT_SLOTS)
+            setup.inventory = _slots(occ, [str(n) for n in range(1, 29)])
+            setup.runes = {
+                str(n): item
+                for n in range(1, 5)
+                if (item := clean_item(occ.args.get(f"rune{n}", "")))
+            }
+            if setup.inventory or setup.equipment:
+                setups.append(setup)
 
         pairs: list[tuple[Occurrence | None, Occurrence | None]] = []
 

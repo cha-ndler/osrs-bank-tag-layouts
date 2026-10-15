@@ -11,9 +11,11 @@ What the wiki hands back is the built-in Bank Tags plugin's own format:
 
 That is not what gets published - see `build_hub_import_string` for why - but it
 is what `layout` is parsed out of. Positions index an 8-wide bank grid.
-`LOADOUT_MAP` is copied from `Module:Loadout` and puts worn gear in columns 0-2
-(shaped like the equipment panel), leaves column 3 empty as a spacer, and lays
-the 28 inventory slots out in columns 4-7 in their natural 4-wide shape.
+`LOADOUT_MAP` is the grid this library publishes: worn gear in columns 0-2
+(shaped like the equipment panel), column 3 empty as a spacer, and the 28
+inventory slots in columns 4-7 in their natural 4-wide shape. The wiki's own
+grid is read live from `Module:Loadout` and only used to decode what it hands
+back, so the module being rearranged upstream cannot move anything here.
 """
 
 from __future__ import annotations
@@ -29,7 +31,8 @@ REPO = Path(__file__).parent.parent
 SETUPS = REPO / "generator" / "setups.json"
 ENCODED = REPO / "generator" / "encoded.json"
 
-# Bank grid position -> Loadout argument name. Straight from Module:Loadout.
+# Bank grid position -> Loadout argument name. Taken from Module:Loadout as of
+# 2025-09 and pinned: this is the published grid, not a copy to keep in sync.
 LOADOUT_MAP: dict[int, str] = {
     1: "head", 2: "ammo2", 4: "1", 5: "2", 6: "3", 7: "4",
     8: "cape", 9: "neck", 10: "ammo", 12: "5", 13: "6", 14: "7", 15: "8",
@@ -44,6 +47,11 @@ EQUIPMENT_SLOTS = (
     "head", "cape", "neck", "ammo", "ammo2", "weapon",
     "torso", "legs", "shield", "gloves", "boots", "ring",
 )
+
+MODULE_PAGE = "Module:Loadout"
+# `local loadoutmap = { [1] = 'head', ... }` in the module source.
+MODULE_TABLE_RE = re.compile(r"local\s+loadoutmap\s*=\s*\{(?P<body>.*?)\n\s*\}", re.DOTALL)
+MODULE_ENTRY_RE = re.compile(r"\[(\d+)\]\s*=\s*'([^']+)'")
 
 BATCH_SIZE = 10
 CODE_RE = re.compile(r"banktags,1,[^<\n]+")
@@ -209,8 +217,51 @@ def normalize_setup(setup: dict, norm: Normalizer) -> tuple[dict, list[str]]:
     return out, notes
 
 
-def parse_import_string(code: str) -> dict[str, int]:
-    """position -> itemId, from the tail of a banktags string."""
+def parse_loadout_map(source: str) -> dict[int, str]:
+    """The position table out of `Module:Loadout`'s Lua source."""
+    m = MODULE_TABLE_RE.search(source)
+    if not m:
+        raise ValueError(f"{MODULE_PAGE} no longer defines loadoutmap")
+    return {int(pos): arg for pos, arg in MODULE_ENTRY_RE.findall(m.group("body"))}
+
+
+def relay_positions(upstream: dict[int, str]) -> dict[int, int]:
+    """Wiki grid position -> the position the same slot takes in ours.
+
+    A slot that only moved is translated silently; that is the whole point.
+    A slot that appeared, vanished or was renamed has no answer here, and
+    guessing one would publish a grid nobody designed, so it stops the run.
+    """
+    ours = {arg: pos for pos, arg in LOADOUT_MAP.items()}
+    theirs = set(upstream.values())
+    added, removed = sorted(theirs - set(ours)), sorted(set(ours) - theirs)
+    if added or removed or len(theirs) != len(upstream):
+        raise ValueError(
+            f"{MODULE_PAGE} slot arguments changed (added {added}, removed "
+            f"{removed}); LOADOUT_MAP needs a position for each by hand"
+        )
+    return {pos: ours[arg] for pos, arg in upstream.items()}
+
+
+def load_relay(client: WikiClient) -> tuple[dict[int, int], list[str]]:
+    """The live relay, plus a note for every slot the wiki has moved."""
+    source, _ = client.page_wikitext(MODULE_PAGE)
+    upstream = parse_loadout_map(source)
+    relay = relay_positions(upstream)
+    moved = [
+        f"{arg}: wiki {pos}, published {relay[pos]}"
+        for pos, arg in sorted(upstream.items())
+        if relay[pos] != pos
+    ]
+    return relay, moved
+
+
+def parse_import_string(code: str, relay: dict[int, int] | None = None) -> dict[str, int]:
+    """position -> itemId, from the tail of a banktags string.
+
+    `relay` translates positions from the grid the string was built on (the
+    wiki's) onto `LOADOUT_MAP`. Without it positions are taken as they are.
+    """
     parts = code.split(",")
     try:
         tail = parts[parts.index("layout") + 1 :]
@@ -219,7 +270,13 @@ def parse_import_string(code: str) -> dict[str, int]:
     layout: dict[str, int] = {}
     for pos, item in zip(tail[0::2], tail[1::2]):
         if pos.strip().isdigit() and item.strip().isdigit():
-            layout[pos.strip()] = int(item.strip())
+            at = int(pos)
+            if relay is not None:
+                # A position the module does not map holds nothing it laid out.
+                if at not in relay:
+                    continue
+                at = relay[at]
+            layout[str(at)] = int(item.strip())
     return layout
 
 
@@ -433,7 +490,8 @@ def choose_icon(setup: dict) -> str:
 
 
 def resolve_alternatives(
-    client: WikiClient, jobs: list[dict], result_for: dict[str, dict]
+    client: WikiClient, jobs: list[dict], result_for: dict[str, dict],
+    relay: dict[int, int],
 ) -> None:
     """Give every ranked option the id the wiki would have given it.
 
@@ -478,7 +536,7 @@ def resolve_alternatives(
             code = codes.get(rung["key"])
             if not code:
                 continue
-            equipment, _, _ = split_layout(parse_import_string(code))
+            equipment, _, _ = split_layout(parse_import_string(code, relay))
             resolved.setdefault(rung["parent"], {})[rung["depth"]] = equipment
         print(f"  options {min(start + BATCH_SIZE, len(rungs))}/{len(rungs)}", end="\r")
 
@@ -501,7 +559,8 @@ def resolve_alternatives(
 
 
 def resolve_switches(
-    client: WikiClient, jobs: list[dict], result_for: dict[str, dict]
+    client: WikiClient, jobs: list[dict], result_for: dict[str, dict],
+    relay: dict[int, int],
 ) -> None:
     """Give every spec weapon the id the wiki would have given it.
 
@@ -541,7 +600,7 @@ def resolve_switches(
             code = codes.get(f"{job['key']}S")
             if not code:
                 continue
-            _, inventory, _ = split_layout(parse_import_string(code))
+            _, inventory, _ = split_layout(parse_import_string(code, relay))
             resolved = []
             for n, name in enumerate(job["switchNames"][:28], start=1):
                 item_id = inventory.get(str(n))
@@ -558,6 +617,9 @@ def main() -> None:
     index = load_item_index(client)
     norm = Normalizer(index)
     data = json.loads(SETUPS.read_text(encoding="utf-8"))
+    relay, moved = load_relay(client)
+    for note in moved:
+        print(f"  {MODULE_PAGE} moved {note}")
 
     jobs = []
     for page in data["pages"]:
@@ -622,7 +684,7 @@ def main() -> None:
             if not code:
                 failures.append(f"{job['page']} / {job['variant']}: no loadout code returned")
                 continue
-            layout = parse_import_string(code)
+            layout = parse_import_string(code, relay)
             if not layout:
                 failures.append(f"{job['page']} / {job['variant']}: empty layout")
                 continue
@@ -669,8 +731,8 @@ def main() -> None:
             results.append(result_for[job["key"]])
         print(f"  encoded {min(start + BATCH_SIZE, len(jobs))}/{len(jobs)}", end="\r")
 
-    resolve_alternatives(client, jobs, result_for)
-    resolve_switches(client, jobs, result_for)
+    resolve_alternatives(client, jobs, result_for, relay)
+    resolve_switches(client, jobs, result_for, relay)
 
     # Which weapon options need both hands. The site clears the off-hand when
     # one is chosen and restores it on the way back, so stepping through the
@@ -695,7 +757,12 @@ def main() -> None:
 
     ENCODED.write_text(
         json.dumps(
-            {"layouts": results, "failures": failures, "extraction": extraction},
+            {
+                "layouts": results,
+                "failures": failures,
+                "extraction": extraction,
+                "upstreamGridMoves": moved,
+            },
             indent=2,
             ensure_ascii=False,
         ),
