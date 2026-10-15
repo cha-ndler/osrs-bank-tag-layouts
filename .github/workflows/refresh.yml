@@ -3,22 +3,45 @@ name: Refresh layouts
 # The wiki changes; a one-time dump would rot. This re-runs the pipeline weekly
 # and opens a pull request *only* when a layout's content actually changed, so
 # vandalism or a template rewrite upstream cannot silently republish the library.
+#
+# An ordinary week merges itself: `generator/classify.py` compares the run with
+# the published library, and when nothing was removed, nothing lost
+# completeness and the change is the size the merged refreshes have been, the
+# job runs CI on the pull request and merges it once the required check passes.
+# Anything else waits, labelled `needs-review`, with the reasons in its body.
+# Converting the pull request to a draft holds it - a draft cannot be merged.
+#
+# A failure opens (or comments on) one issue rather than going quiet. The
+# refresh once failed for three weeks with nothing to show for it but red runs.
 
 on:
   schedule:
     - cron: "0 6 * * 1"
   workflow_dispatch:
 
-# Only this job may write, and only to open its own pull request. It never
-# pushes to main - branch protection forbids that, and a refresh should be
-# reviewed before it replaces the published library.
+# Branch protection still applies to this job: it can only merge a pull request
+# whose required `test` check is green, and it never pushes to main.
 permissions:
-  contents: write
-  pull-requests: write
+  contents: write        # push the refresh branch
+  pull-requests: write   # open, label and merge the refresh pull request
+  actions: write         # dispatch CI, which a pull request from this token never starts
+  issues: write          # report a failing refresh
+  pages: write           # rebuild the site after a merge this token made
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+env:
+  BRANCH: automated/refresh-layouts
+  FAILURE_TITLE: Weekly layout refresh is failing
+  RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+  GH_REPO: ${{ github.repository }}
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       # Pinned to commit SHAs: a tag can be repointed at new code by a
       # compromised upstream account, a SHA cannot. Dependabot proposes bumps.
@@ -36,39 +59,116 @@ jobs:
 
       - name: Regenerate library
         run: python generator/run.py --fresh
-        working-directory: ${{ github.workspace }}
 
+      # The port check also runs here, not only in CI: a needs-review pull
+      # request merged by an administrator never waits for CI at all.
       - name: Re-run tests against fresh data
-        run: python -m unittest discover -s tests
-
-      - name: Summarise
         run: |
-          python - <<'PY'
-          import json, pathlib
-          index = json.loads(pathlib.Path("index.json").read_text(encoding="utf-8"))
-          report = json.loads(pathlib.Path("report.json").read_text(encoding="utf-8"))
-          print(f"{index['layoutCount']} layouts across {index['activityCount']} activities")
-          print(f"structural errors: {len(report['errors'])}")
-          print(f"round-trip mismatches: {len(report['roundTripMismatches'])}")
-          PY
+          python -m unittest discover -s tests
+          node tests/check_layout_port.mjs
+
+      - name: Classify the change
+        id: classify
+        run: |
+          python generator/classify.py --base HEAD --body "$RUNNER_TEMP/pr-body.md" >> "$GITHUB_OUTPUT"
+          cat "$RUNNER_TEMP/pr-body.md" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Open pull request on change
+        id: pr
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           commit-message: "data: refresh layouts from wiki"
-          branch: automated/refresh-layouts
+          branch: ${{ env.BRANCH }}
           delete-branch: true
           title: "Refresh bank tag layouts from the wiki"
-          body: |
-            Automated weekly regeneration from the OSRS Wiki strategy pages.
-
-            Review the diff in `data/` before merging - a large unexpected change
-            usually means an upstream template or page structure changed.
-
-            `report.json` lists every item-name normalisation and any validation
-            findings for this run.
+          body-path: ${{ runner.temp }}/pr-body.md
+          labels: ${{ steps.classify.outputs.routine == 'true' && 'automated' || 'needs-review' }}
           add-paths: |
             data/**
             index.json
             report.json
             docs/layouts.json
+
+      # Also retried on a run that changed nothing, so a merge that failed last
+      # week (a flaky CI run, an outage) is picked up instead of stranded.
+      - name: Merge a routine refresh once CI passes
+        if: >-
+          steps.classify.outputs.routine == 'true' &&
+          steps.pr.outputs.pull-request-number != '' &&
+          steps.pr.outputs.pull-request-operation != 'closed'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ steps.pr.outputs.pull-request-number }}
+        run: |
+          sha=$(gh pr view "$PR" --json headRefOid --jq .headRefOid)
+          gh workflow run ci.yml --ref "$BRANCH"
+
+          # Dispatching returns no run id, so find the run for this exact commit.
+          run=""
+          for _ in $(seq 1 30); do
+            run=$(gh run list --workflow ci.yml --event workflow_dispatch \
+              --commit "$sha" --limit 1 --json databaseId --jq '.[0].databaseId // empty')
+            [ -n "$run" ] && break
+            sleep 10
+          done
+          if [ -z "$run" ]; then
+            echo "::error::no CI run appeared for $sha"
+            exit 1
+          fi
+          gh run watch "$run" --exit-status
+
+          # Pinned to the commit CI just passed, so nothing pushed since can ride along.
+          gh pr merge "$PR" --squash --match-head-commit "$sha" --delete-branch
+
+          # A merge made with this token starts no workflows of its own: ask for
+          # the push-time CI run and the Pages build that a person's merge gets.
+          gh workflow run ci.yml --ref main
+          gh api -X POST "repos/$GH_REPO/pages/builds" > /dev/null
+
+      - name: Report a failing refresh
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "The [refresh run]($RUN_URL) failed on $(date -u +%F)."
+            echo
+            # report.json is only this run's if validation rewrote it; otherwise
+            # it is the committed one and says nothing about this failure.
+            if ! git diff --quiet -- report.json; then
+              echo "Validation findings from this run:"
+              echo
+              python -c 'import json; [print(f"- {e}") for e in json.load(open("report.json", encoding="utf-8"))["errors"][:25]]'
+            else
+              echo "No validation findings were recorded; the run log has the error."
+            fi
+            echo
+            echo "Nothing was published. This issue closes itself on the next green refresh."
+          } > "$RUNNER_TEMP/issue.md"
+          issue=$(gh issue list --state open --search "\"$FAILURE_TITLE\" in:title" \
+            --json number --jq '.[0].number // empty')
+          if [ -n "$issue" ]; then
+            gh issue comment "$issue" --body-file "$RUNNER_TEMP/issue.md"
+          else
+            gh issue create --title "$FAILURE_TITLE" --body-file "$RUNNER_TEMP/issue.md"
+          fi
+
+      - name: Close the failure issue once the refresh is healthy
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          issue=$(gh issue list --state open --search "\"$FAILURE_TITLE\" in:title" \
+            --json number --jq '.[0].number // empty')
+          if [ -n "$issue" ]; then
+            gh issue close "$issue" --comment "Healthy again as of [this run]($RUN_URL)."
+          fi
+
+      # GitHub disables a public repository's scheduled workflows after 60 days
+      # without activity. A quiet stretch on the wiki, or a refresh waiting on
+      # review, would otherwise switch the schedule off for good.
+      - name: Keep the schedule enabled
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/$GH_REPO/actions/workflows/refresh.yml/enable"
