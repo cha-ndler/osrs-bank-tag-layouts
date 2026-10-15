@@ -1,13 +1,13 @@
 {
-  "layouts": 340,
-  "completeRatio": 0.8794,
+  "layouts": 345,
+  "completeRatio": 0.8725,
   "completeBaseline": 290,
   "completenessCounts": {
-    "complete": 299,
+    "complete": 301,
     "minimal": 32,
-    "partial": 9
+    "partial": 12
   },
-  "activities": 103,
+  "activities": 105,
   "activityBaseline": 99,
   "layoutBaseline": 330,
   "encodeFailures": [],
@@ -3523,20 +3523,6 @@
     },
     {
       "layout": "Skotizo / Melee",
-      "position": 12,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
-      "position": 13,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Melee",
       "position": 14,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
@@ -3663,21 +3649,14 @@
     },
     {
       "layout": "Skotizo / Melee",
-      "position": 54,
+      "position": 52,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
     },
     {
-      "layout": "Skotizo / Ranged",
-      "position": 13,
-      "sourceName": "{{Cheap food}}",
-      "gotId": 11936,
-      "gotName": "Dark crab"
-    },
-    {
-      "layout": "Skotizo / Ranged",
-      "position": 14,
+      "layout": "Skotizo / Melee",
+      "position": 53,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -3803,7 +3782,14 @@
     },
     {
       "layout": "Skotizo / Ranged",
-      "position": 54,
+      "position": 52,
+      "sourceName": "{{Cheap food}}",
+      "gotId": 11936,
+      "gotName": "Dark crab"
+    },
+    {
+      "layout": "Skotizo / Ranged",
+      "position": 53,
       "sourceName": "{{Cheap food}}",
       "gotId": 11936,
       "gotName": "Dark crab"
@@ -5196,6 +5182,9 @@
     "Demonic gorilla/Strategies": [
       "'Ranged': dropped off-hand Twisted buckler - Twisted bow is two-handed"
     ],
+    "Deranged archaeologist/Strategies": [
+      "'Magic': dropped off-hand Tome of Fire - Tumeken's shadow is two-handed"
+    ],
     "Duke Sucellus/Strategies": [
       "'Inventory recommendations': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
@@ -5259,6 +5248,9 @@
       "'Ranged': dropped off-hand Antler guard - Toxic blowpipe is two-handed",
       "'Ranged': dropped off-hand Antler guard - Toxic blowpipe is two-handed"
     ],
+    "Maggot King/Strategies": [
+      "1 unpaired {{Equipment}} in 'Ur-maggot larvae' ignored (no inventory in scope)"
+    ],
     "Metal dragons/Strategies": [
       "'Magic': dropped off-hand Tome of Earth - Tumeken's shadow is two-handed"
     ],
@@ -5286,7 +5278,8 @@
       "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
     ],
     "Phosani's Nightmare/Strategies": [
-      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed"
+      "'Melee': dropped off-hand Avernic defender - Scythe of Vitur is two-handed",
+      "'Mage': dropped off-hand Tome of Fire - Tumeken's shadow is two-handed"
     ],
     "Revenants/Strategies": [
       "'Ranged': dropped off-hand Twisted buckler - Webweaver bow is two-handed"
@@ -5615,6 +5608,13 @@
       "item": "ranging potion(2)",
       "itemId": 171,
       "sourceName": "Ranging potion(2)"
+    },
+    {
+      "layout": "Treasure Trails / Medium clues",
+      "position": 28,
+      "item": "skills necklace(4)",
+      "itemId": 11105,
+      "sourceName": "Skills necklace(4)"
     },
     {
       "layout": "Vorkath / Melee",

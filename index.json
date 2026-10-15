@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-21T12:31:37Z",
-  "activityCount": 103,
-  "layoutCount": 340,
+  "generatedAt": "2026-10-15T12:49:59Z",
+  "activityCount": 105,
+  "layoutCount": 345,
   "activities": [
     {
       "activity": "Abyss",
@@ -24,16 +24,16 @@
       "slug": "adamant-dragon",
       "file": "data/adamant-dragon.json",
       "variantCount": 4,
-      "sourceRevId": 15316240,
-      "contentHash": "d5c5c10f4bca9d7c"
+      "sourceRevId": 15357788,
+      "contentHash": "2d85112a7fec8295"
     },
     {
       "activity": "Alchemical Hydra",
       "slug": "alchemical-hydra",
       "file": "data/alchemical-hydra.json",
       "variantCount": 3,
-      "sourceRevId": 15313162,
-      "contentHash": "94551238f7578529"
+      "sourceRevId": 15357786,
+      "contentHash": "4110afd0f461444b"
     },
     {
       "activity": "Amoxliatl",
@@ -96,8 +96,8 @@
       "slug": "basilisk-knight",
       "file": "data/basilisk-knight.json",
       "variantCount": 3,
-      "sourceRevId": 15328957,
-      "contentHash": "f5a269c381907829"
+      "sourceRevId": 15366194,
+      "contentHash": "04c382ef15c231fa"
     },
     {
       "activity": "Brutal black dragon",
@@ -152,8 +152,8 @@
       "slug": "chambers-of-xeric-challenge-mode",
       "file": "data/chambers-of-xeric-challenge-mode.json",
       "variantCount": 2,
-      "sourceRevId": 15349459,
-      "contentHash": "3af54faf57c6b8bc"
+      "sourceRevId": 15370919,
+      "contentHash": "2b826b61046b2092"
     },
     {
       "activity": "Chaos Elemental",
@@ -192,8 +192,8 @@
       "slug": "commander-zilyana",
       "file": "data/commander-zilyana.json",
       "variantCount": 2,
-      "sourceRevId": 15316256,
-      "contentHash": "bf656fe48377e091"
+      "sourceRevId": 15356593,
+      "contentHash": "6ac07fc23ae69784"
     },
     {
       "activity": "Corporeal Beast",
@@ -236,6 +236,14 @@
       "contentHash": "d515e9557a89a0f3"
     },
     {
+      "activity": "Deranged archaeologist",
+      "slug": "deranged-archaeologist",
+      "file": "data/deranged-archaeologist.json",
+      "variantCount": 1,
+      "sourceRevId": 15367003,
+      "contentHash": "f3324eb21b092a4e"
+    },
+    {
       "activity": "Doom of Mokhaiotl",
       "slug": "doom-of-mokhaiotl",
       "file": "data/doom-of-mokhaiotl.json",
@@ -248,8 +256,8 @@
       "slug": "duke-sucellus",
       "file": "data/duke-sucellus.json",
       "variantCount": 1,
-      "sourceRevId": 15329073,
-      "contentHash": "a0ebb18067e0fcbd"
+      "sourceRevId": 15372792,
+      "contentHash": "58aa0274c90c5aa3"
     },
     {
       "activity": "Ecumenical key",
@@ -288,8 +296,8 @@
       "slug": "gemstone-crab",
       "file": "data/gemstone-crab.json",
       "variantCount": 10,
-      "sourceRevId": 15329106,
-      "contentHash": "696ed5ca7b2d6a7c"
+      "sourceRevId": 15365918,
+      "contentHash": "3a95a2f4facacf7f"
     },
     {
       "activity": "General Graardor",
@@ -304,8 +312,8 @@
       "slug": "giant-mole",
       "file": "data/giant-mole.json",
       "variantCount": 5,
-      "sourceRevId": 15316208,
-      "contentHash": "026f9c8a3295bdcd"
+      "sourceRevId": 15361945,
+      "contentHash": "9bc446d08963174d"
     },
     {
       "activity": "Gout tuber",
@@ -368,8 +376,8 @@
       "slug": "hunters-rumours",
       "file": "data/hunters-rumours.json",
       "variantCount": 3,
-      "sourceRevId": 15326217,
-      "contentHash": "134b9081442bff16"
+      "sourceRevId": 15368319,
+      "contentHash": "f0b3192c9fccbed5"
     },
     {
       "activity": "Inferno",
@@ -552,8 +560,8 @@
       "slug": "rune-dragon",
       "file": "data/rune-dragon.json",
       "variantCount": 3,
-      "sourceRevId": 15316712,
-      "contentHash": "1c0b09a8db266d74"
+      "sourceRevId": 15357785,
+      "contentHash": "f4e218fd71ae9c48"
     },
     {
       "activity": "Sarachnis",
@@ -580,6 +588,14 @@
       "contentHash": "9fb62f415f0393a6"
     },
     {
+      "activity": "Shades of Mort'ton (minigame)",
+      "slug": "shades-of-mortton-minigame",
+      "file": "data/shades-of-mortton-minigame.json",
+      "variantCount": 3,
+      "sourceRevId": 15368066,
+      "contentHash": "860078b895fda33a"
+    },
+    {
       "activity": "Shellbane gryphon",
       "slug": "shellbane-gryphon",
       "file": "data/shellbane-gryphon.json",
@@ -592,16 +608,16 @@
       "slug": "skeletal-wyvern",
       "file": "data/skeletal-wyvern.json",
       "variantCount": 7,
-      "sourceRevId": 15316206,
-      "contentHash": "fd5fc3fa7bebd0fd"
+      "sourceRevId": 15370340,
+      "contentHash": "50e99b6522d0c80f"
     },
     {
       "activity": "Skotizo",
       "slug": "skotizo",
       "file": "data/skotizo.json",
       "variantCount": 2,
-      "sourceRevId": 15316231,
-      "contentHash": "7f0dbfaa997b6f5e"
+      "sourceRevId": 15372838,
+      "contentHash": "c7ebc332d7eefe66"
     },
     {
       "activity": "Smoke devil",
@@ -672,8 +688,8 @@
       "slug": "the-mimic",
       "file": "data/the-mimic.json",
       "variantCount": 3,
-      "sourceRevId": 15325288,
-      "contentHash": "ea633994ca3b7fab"
+      "sourceRevId": 15357787,
+      "contentHash": "b0dc16b1af7b90db"
     },
     {
       "activity": "The Nightmare",
@@ -696,8 +712,8 @@
       "slug": "theatre-of-blood",
       "file": "data/theatre-of-blood.json",
       "variantCount": 5,
-      "sourceRevId": 15329064,
-      "contentHash": "6aad1bf57061c8c0"
+      "sourceRevId": 15372089,
+      "contentHash": "196454ab38a3d7ae"
     },
     {
       "activity": "Thermonuclear smoke devil",
@@ -720,24 +736,24 @@
       "slug": "tombs-of-amascut",
       "file": "data/tombs-of-amascut.json",
       "variantCount": 5,
-      "sourceRevId": 15319758,
-      "contentHash": "c2848ad038913496"
+      "sourceRevId": 15372772,
+      "contentHash": "a72e067f8dbebae5"
     },
     {
       "activity": "Tormented Demon",
       "slug": "tormented-demon",
       "file": "data/tormented-demon.json",
       "variantCount": 4,
-      "sourceRevId": 15352244,
-      "contentHash": "7a026f062996ddfb"
+      "sourceRevId": 15372901,
+      "contentHash": "bb7edee14cce1dc4"
     },
     {
       "activity": "Treasure Trails",
       "slug": "treasure-trails",
       "file": "data/treasure-trails.json",
-      "variantCount": 8,
-      "sourceRevId": 15327759,
-      "contentHash": "fb98b929c9793541"
+      "variantCount": 9,
+      "sourceRevId": 15360896,
+      "contentHash": "3071ba2bea662bdc"
     },
     {
       "activity": "TzHaar Fight Cave",
