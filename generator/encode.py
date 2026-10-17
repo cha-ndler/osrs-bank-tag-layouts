@@ -24,12 +24,13 @@ import json
 import re
 from pathlib import Path
 
-from normalize import Normalizer, load_item_index, load_slot_index
+from normalize import DOSE_RE, Normalizer, load_item_index, load_slot_index
 from wikiclient import WikiClient
 
 REPO = Path(__file__).parent.parent
 SETUPS = REPO / "generator" / "setups.json"
 ENCODED = REPO / "generator" / "encoded.json"
+EQUIVALENTS = REPO / "equivalents.json"
 
 # Bank grid position -> Loadout argument name. Taken from Module:Loadout as of
 # 2025-09 and pinned: this is the published grid, not a copy to keep in sync.
@@ -371,15 +372,53 @@ HUB_PREFIX = "banktaglayoutsplugin:"
 HUB_TAG_MARKER = "banktag:"
 
 
-def build_hub_import_string(tag_name_: str, icon: int, layout: dict[str, int]) -> str:
+def tag_tail(
+    ids: list[int],
+    exact_only: set[int] | frozenset[int] = frozenset(),
+    equivalents: dict[int, list[int]] | None = None,
+) -> list[int]:
+    """The items a tag lists, in the order the string carries them.
+
+    1. Every laid-out id, exactly. An importer that ignores the sign below
+       still tags the layout.
+    2. The same ids negated, which RuneLite reads as "and every variant of
+       it" (`TagManager.getItemId`): the (l), (i), (or), broken, charged and
+       recoloured forms. Its layouts then draw a variant in the original's
+       slot. Doses and charges stay exact (`exact_only`), or one potion would
+       pull every part-used dose into the tab.
+    3. Curated equivalents that carry a different name (Infernal max cape for
+       Infernal cape), which no variant mapping links. They are tagged, so they
+       show in the tab, but cannot share the original's slot.
+
+    A tag is a set, and a layout is not: 24 pure essence is one tagged item.
+    """
+    equivalents = equivalents or {}
+    seen = list(dict.fromkeys(ids))
+    tail = list(seen)
+    tail += [-i for i in seen if i not in exact_only]
+    for i in seen:
+        for e in equivalents.get(i, []):
+            tail.append(e)
+            if e not in exact_only:
+                tail.append(-e)
+    return list(dict.fromkeys(tail))
+
+
+def build_hub_import_string(
+    tag_name_: str,
+    icon: int,
+    layout: dict[str, int],
+    exact_only: set[int] | frozenset[int] = frozenset(),
+    equivalents: dict[int, list[int]] | None = None,
+) -> str:
     pairs = sorted(layout.items(), key=lambda kv: int(kv[0]))
     parts = [HUB_PREFIX + tag_name_]
     parts.extend(f"{item_id}:{pos}" for pos, item_id in pairs)
     parts.append(HUB_TAG_MARKER + tag_name_)
     parts.append(str(icon))
-    # A tag is a set, and a layout is not: 24 pure essence is one tagged item in
-    # 24 positions. dict.fromkeys keeps first-seen order so the string is stable.
-    parts.extend(str(i) for i in dict.fromkeys(item_id for _, item_id in pairs))
+    parts.extend(
+        str(i) for i in tag_tail([item_id for _, item_id in pairs], exact_only, equivalents)
+    )
     return ",".join(parts)
 
 
@@ -438,7 +477,9 @@ def parse_hub_import_string(code: str) -> dict:
     icon = int(parts[i])
     tag_items = []
     for part in parts[i + 1 :]:
-        if not part.isdigit():
+        # A leading minus is a variation tag; anything else non-numeric would
+        # throw out of Integer.parseInt and fail the whole import.
+        if not part.removeprefix("-").isdigit():
             raise ValueError(f"bad tagged item {part!r}")
         tag_items.append(int(part))
     return {
@@ -612,6 +653,86 @@ def resolve_switches(
         print(f"  switches {min(start + BATCH_SIZE, len(pending))}/{len(pending)}", end="\r")
 
 
+def library_tagging(
+    results: list[dict], exact_only: set[int], equivalents: dict[int, list[int]]
+) -> dict:
+    reachable: set[int] = set()
+    for entry in results:
+        reachable |= set(entry["layout"].values())
+        for options in entry["alternatives"].values():
+            reachable |= set(options)
+    eq = {i: equivalents[i] for i in sorted(reachable) if i in equivalents}
+    reachable |= {e for ids in eq.values() for e in ids}
+    return {
+        "exactOnly": sorted(reachable & exact_only),
+        "equivalents": {str(i): ids for i, ids in eq.items()},
+    }
+
+
+def resolve_names(
+    client: WikiClient, names: list[str], relay: dict[int, int]
+) -> dict[str, int]:
+    """name -> the id `Module:Loadout` gives it, via throwaway inventories.
+
+    The same pass worn items take, so a curated name and a layout naming the
+    same item can never disagree about its id. A name the wiki cannot resolve
+    is simply absent from the result.
+    """
+    names = list(dict.fromkeys(names))
+    chunks = [names[i : i + 28] for i in range(0, len(names), 28)]
+    out: dict[str, int] = {}
+    for start in range(0, len(chunks), BATCH_SIZE):
+        batch = list(enumerate(chunks[start : start + BATCH_SIZE], start=start))
+        text = "\n".join(
+            build_loadout_wikitext(
+                f"BTLNAMES{n:04d}",
+                "",
+                {
+                    "equipment": {},
+                    "inventory": {str(k): name for k, name in enumerate(chunk, start=1)},
+                    "runes": {},
+                },
+            )
+            for n, chunk in batch
+        )
+        rendered = client.expand_templates(text)
+        codes = {}
+        for code in CODE_RE.findall(rendered):
+            parts = code.split(",")
+            if len(parts) > 2:
+                codes[parts[2]] = code.strip()
+        for n, chunk in batch:
+            code = codes.get(f"BTLNAMES{n:04d}")
+            if not code:
+                continue
+            _, inventory, _ = split_layout(parse_import_string(code, relay))
+            for k, name in enumerate(chunk, start=1):
+                if inventory.get(str(k)):
+                    out[name] = inventory[str(k)]
+    return out
+
+
+def load_equivalents(
+    client: WikiClient, relay: dict[int, int], path: Path | None = None
+) -> tuple[dict[int, list[int]], list[str]]:
+    """`equivalents.json` as id -> [ids], plus every name that did not resolve."""
+    path = path or EQUIVALENTS
+    if not path.exists():
+        return {}, []
+    rules = json.loads(path.read_text(encoding="utf-8")).get("equivalents", [])
+    names = [n for r in rules for n in (r["item"], *r["accept"])]
+    ids = resolve_names(client, names, relay)
+    unresolved = [n for n in dict.fromkeys(names) if n not in ids]
+    mapping: dict[int, list[int]] = {}
+    for rule in rules:
+        if rule["item"] not in ids:
+            continue
+        accepted = [ids[n] for n in rule["accept"] if n in ids]
+        mapping.setdefault(ids[rule["item"]], [])
+        mapping[ids[rule["item"]]] += [i for i in accepted if i not in mapping[ids[rule["item"]]]]
+    return mapping, unresolved
+
+
 def main() -> None:
     client = WikiClient()
     index = load_item_index(client)
@@ -620,6 +741,13 @@ def main() -> None:
     relay, moved = load_relay(client)
     for note in moved:
         print(f"  {MODULE_PAGE} moved {note}")
+    equivalents, unresolved_equivalents = load_equivalents(client, relay)
+    # Doses and charges: tagging their variants would pull every part-used
+    # potion and part-charged jewellery into the tab.
+    exact_only = {
+        int(item_id) for item_id, name in index["byId"].items() if DOSE_RE.match(name)
+    }
+    tagging = {"exact_only": exact_only, "equivalents": equivalents}
 
     jobs = []
     for page in data["pages"]:
@@ -703,10 +831,10 @@ def main() -> None:
                 # the wiki, so both styles and both clients come out of one
                 # place and cannot disagree about what the layout is.
                 "importString": build_hub_import_string(
-                    job["tagName"], icon_id, layout
+                    job["tagName"], icon_id, layout, **tagging
                 ),
                 "importStringZigzag": build_hub_import_string(
-                    job["tagName"], icon_id, zigzag
+                    job["tagName"], icon_id, zigzag, **tagging
                 ),
                 "importStringOfficial": build_official_import_string(layout),
                 "importStringZigzagOfficial": build_official_import_string(zigzag),
@@ -762,6 +890,10 @@ def main() -> None:
                 "failures": failures,
                 "extraction": extraction,
                 "upstreamGridMoves": moved,
+                # What the site needs to build the same tag tail after a swap:
+                # only the ids this library can actually reach, not the index.
+                "tagging": library_tagging(results, exact_only, equivalents),
+                "unresolvedEquivalents": unresolved_equivalents,
             },
             indent=2,
             ensure_ascii=False,

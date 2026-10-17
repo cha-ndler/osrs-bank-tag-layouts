@@ -105,6 +105,18 @@ def completeness_errors(layouts: list[dict]) -> list[str]:
     return []
 
 
+def equivalence_errors(unresolved: list[str]) -> list[str]:
+    """A curated equivalent the wiki no longer resolves fails the build.
+
+    Same contract as an override that stopped matching: the entry gets fixed
+    or deleted instead of quietly tagging nothing.
+    """
+    return [
+        f"equivalents.json: {name!r} resolves to no item on the wiki"
+        for name in unresolved
+    ]
+
+
 def partial_dose_ids(index: dict) -> dict[int, str]:
     """ids whose name is X(n) when some X(m>n) also exists."""
     families: dict[str, list[tuple[int, str]]] = {}
@@ -202,6 +214,16 @@ def validate() -> int:
     for entry in layouts:
         label = f"{entry['activity']} / {entry['variant']}"
         errors.extend(string_errors(entry, label))
+        # The tail carries variant and equivalent tags beyond the layout's own
+        # ids, and a dud there tags nothing while looking fine.
+        for field, _ in RUNELITE_STRINGS:
+            try:
+                tail = parse_hub_import_string(entry[field])["tagItems"]
+            except ValueError:
+                continue  # already reported by string_errors
+            for item_id in tail:
+                if norm.name_for_id(abs(item_id)) is None:
+                    errors.append(f"{label}: {field} tags unknown item {item_id}")
 
         # Everything below reads the canonical layout rather than a string. The
         # strings have just been proved to carry exactly it, so parsing one back
@@ -396,6 +418,7 @@ def validate() -> int:
     setups_doc = json.loads(SETUPS.read_text(encoding="utf-8"))
     for note in setups_doc.get("overrideNotes", []):
         gate_errors.append(note)
+    gate_errors.extend(equivalence_errors(data.get("unresolvedEquivalents", [])))
 
     curated = [e for e in layouts if e.get("curated")]
     for e in curated:

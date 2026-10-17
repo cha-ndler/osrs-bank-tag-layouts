@@ -234,6 +234,9 @@ def main() -> None:
             # these constants would be free to drift from encode.py.
             "loadoutMap": {str(k): v for k, v in LOADOUT_MAP.items()},
             "zigzagOrder": list(ZIGZAG_EQUIPMENT_ORDER),
+            # Which ids stay exact and which pull in curated equivalents, so a
+            # string rebuilt after a swap tags what the generator's would.
+            "tagging": data.get("tagging", {"exactOnly": [], "equivalents": {}}),
             "layouts": site_rows,
         },
     )

@@ -21,7 +21,7 @@ createRequire(import.meta.url)(join(REPO, 'docs', 'layout.js'));
 const { BTL } = globalThis;
 
 const data = JSON.parse(readFileSync(join(REPO, 'docs', 'layouts.json'), 'utf8'));
-const { loadoutMap, zigzagOrder, layouts } = data;
+const { loadoutMap, zigzagOrder, layouts, tagging } = data;
 
 const canonical = (layout) =>
   Object.keys(layout)
@@ -67,7 +67,7 @@ for (const file of readdirSync(join(REPO, 'data')).sort()) {
     for (const [style, target, field] of STRINGS) {
       const layout = style === 'zigzag' ? variant.layoutZigzag : variant.layout;
       strings++;
-      if (BTL.importStringFor(entry, layout, variant.icon, target) !== variant[field]) {
+      if (BTL.importStringFor(entry, layout, variant.icon, target, tagging) !== variant[field]) {
         failures.push(`${record.activity} / ${variant.variant}: ${field} differs`);
       }
     }

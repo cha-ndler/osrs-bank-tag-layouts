@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "_comment": "Items that do the same job under a different name, so no variant mapping links them. A tag that lists an item also lists these, so a player who owns one sees it in the tab. RuneLite cannot put them in the original's layout slot; they land in the next free one. Same-name variants ((l), (i), (or), broken, charged, recolours) need no entry: the tag accepts those already. Upgrades with different stats (Avernic defender, Abyssal tentacle, Masori assembler over Ava's assembler) do not belong here. Every name must resolve on the wiki, or validation fails.",
+  "equivalents": [
+    {"item": "Infernal cape", "accept": ["Infernal max cape"]},
+    {"item": "Fire cape", "accept": ["Fire max cape"]},
+    {"item": "Ava's accumulator", "accept": ["Accumulator max cape"]},
+    {"item": "Ava's assembler", "accept": ["Assembler max cape"]},
+    {"item": "Masori assembler", "accept": ["Masori assembler max cape"]},
+    {"item": "Dizana's quiver", "accept": ["Blessed dizana's quiver", "Dizana's max cape"]},
+    {"item": "Blessed dizana's quiver", "accept": ["Dizana's max cape"]},
+    {"item": "Imbued saradomin cape", "accept": ["Imbued saradomin max cape"]},
+    {"item": "Imbued guthix cape", "accept": ["Imbued guthix max cape"]},
+    {"item": "Imbued zamorak cape", "accept": ["Imbued zamorak max cape"]},
+    {"item": "Saradomin cape", "accept": ["Saradomin max cape"]},
+    {"item": "Guthix cape", "accept": ["Guthix max cape"]},
+    {"item": "Zamorak cape", "accept": ["Zamorak max cape"]},
+    {"item": "Ardougne cloak 4", "accept": ["Ardougne max cape"]},
+    {"item": "Mythical cape", "accept": ["Mythical max cape"]}
+  ]
+}

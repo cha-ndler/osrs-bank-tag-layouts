@@ -81,6 +81,31 @@ Both describe the same items; only the positions differ. The zigzag generator is
 a direct port of `LayoutGenerator.toZigZagIndex`, and a test pins the index
 sequence against values traced from the plugin.
 
+### Variants you own
+
+A layout names one item per slot, but you may own a different version of it. The
+RuneLite strings tag each piece of gear **with all its variants**: its (l), (i),
+(or), broken, charged and recoloured forms. RuneLite draws whichever one is in
+your bank in the original's slot, so an Infernal cape (l) or a coloured Slayer
+helmet (i) shows where the Infernal cape or Slayer helmet would.
+
+Two exceptions:
+
+- **Doses and charges stay exact.** A layout asks for a full potion and fully
+  charged jewellery. Tagging their variants would pull every part-used dose into
+  the tab, so a Prayer potion(4) slot does not accept a Prayer potion(3).
+- **Different names need a list.** RuneLite links variants by name, so nothing
+  connects an Infernal cape to an Infernal max cape. `equivalents.json` lists
+  those pairs: max-cape combinations, imbued god capes, Dizana's quiver and its
+  blessed and max forms. They are tagged, so they show in the tab, but RuneLite
+  can't put them in the original's slot; they go in the next free one. Upgrades
+  with different stats (Avernic defender, Abyssal tentacle) are not listed. A
+  name that stops resolving on the wiki fails the build.
+
+The official client's string carries positions only, with no tag list, so none of
+this reaches it. A variant you own shows there only if the client matches it
+itself.
+
 ### Tag names
 
 A tag name is filtered on the way in: RuneLite drops `<`, `>`, `/` and `:`
