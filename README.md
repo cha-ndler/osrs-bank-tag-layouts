@@ -26,7 +26,7 @@ only ever wired up on a single page. This repository closes that gap.
 
 ### RuneLite
 
-1. Copy an import string (from the site with **Copy for → RuneLite**, or
+1. Copy an import string (from the site with **Client → RuneLite**, or
    `importString` in any `data/*.json`).
 2. In game, right-click the **New tag tab** button in your bank.
 3. Choose either **Import tag tab** or, if you have the Bank Tag Layouts plugin,
@@ -36,7 +36,7 @@ only ever wired up on a single page. This repository closes that gap.
 ### Official client and mobile
 
 Old School added bank tags of its own on 17 June 2026 and an import/export
-string for them on 15 July 2026. Copy with **Copy for → Official client**, or
+string for them on 15 July 2026. Copy with **Client → Official**, or
 take `importStringOfficial` from `data/*.json`, then import it on the tag in
 game. That format carries the items and their positions but no name or icon, so
 name the tab yourself — the site shows the name we would have used.
