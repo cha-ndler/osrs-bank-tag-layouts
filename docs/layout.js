@@ -112,7 +112,27 @@
    * importers read it, so nobody has to convert a layout after importing it.
    * See the comment above HUB_PREFIX in generator/encode.py.
    */
-  function hubImportString(entry, layout, icon) {
+  /* Port of encode.tag_tail: the layout's ids exactly, then negated (RuneLite's
+   * "and every variant of it") unless a dose or charge item, then curated
+   * equivalents, each both ways. Listed once each, first-seen order.
+   */
+  function tagTail(ids, tagging) {
+    const exactOnly = new Set((tagging && tagging.exactOnly) || []);
+    const equivalents = (tagging && tagging.equivalents) || {};
+    const seen = [];
+    for (const id of ids) if (seen.indexOf(id) === -1) seen.push(id);
+    const tail = seen.slice();
+    for (const id of seen) if (!exactOnly.has(id)) tail.push(-id);
+    for (const id of seen) {
+      for (const e of equivalents[String(id)] || []) {
+        tail.push(e);
+        if (!exactOnly.has(e)) tail.push(-e);
+      }
+    }
+    return tail.filter((id, i) => tail.indexOf(id) === i);
+  }
+
+  function hubImportString(entry, layout, icon, tagging) {
     const positions = sortedPositions(layout);
     const parts = ['banktaglayoutsplugin:' + entry.tagName];
     for (const pos of positions) parts.push(`${layout[pos]}:${pos}`);
@@ -120,12 +140,8 @@
     parts.push(String(icon === undefined ? entry.icon : icon));
     // The tag is a set even though the layout is not - 24 pure essence is one
     // tagged item in 24 slots - and both importers tag only what is listed here.
-    const seen = new Set();
-    for (const pos of positions) {
-      if (!seen.has(layout[pos])) {
-        seen.add(layout[pos]);
-        parts.push(String(layout[pos]));
-      }
+    for (const id of tagTail(positions.map((pos) => layout[pos]), tagging)) {
+      parts.push(String(id));
     }
     return parts.join(',');
   }
@@ -142,10 +158,10 @@
     return parts.join(',');
   }
 
-  function importStringFor(entry, layout, icon, target) {
+  function importStringFor(entry, layout, icon, target, tagging) {
     return target === 'official'
       ? officialImportString(entry, layout)
-      : hubImportString(entry, layout, icon);
+      : hubImportString(entry, layout, icon, tagging);
   }
 
   root.BTL = {
@@ -153,5 +169,6 @@
     wornItems: wornItems,
     buildLayout: buildLayout,
     importStringFor: importStringFor,
+    tagTail: tagTail,
   };
 })(typeof globalThis !== 'undefined' ? globalThis : this);

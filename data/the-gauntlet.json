@@ -12,8 +12,8 @@
       "icon": 23903,
       "completeness": "minimal",
       "completenessNote": "Gear and supplies are crafted inside the Gauntlet.",
-      "importString": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory,23886:1,23900:4,23884:5,23884:6,23874:12,23874:13,23874:14,23874:15,23903:16,23889:17,23874:20,23874:21,23874:22,23874:23,23892:25,23874:28,23874:29,23874:30,23874:31,23874:36,23874:37,23874:38,23874:39,banktag:The Gauntlet Desired equipment and inventory,23903,23886,23900,23884,23874,23903,23889,23892",
-      "importStringZigzag": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory,23886:0,23889:1,23903:8,23892:9,23900:16,23884:17,23874:18,23874:19,23874:20,23874:21,23874:22,23874:23,23884:24,23874:25,23874:26,23874:27,23874:28,23874:29,23874:30,23874:31,23874:32,23874:33,23874:40,banktag:The Gauntlet Desired equipment and inventory,23903,23886,23889,23903,23892,23900,23884,23874",
+      "importString": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory,23886:1,23900:4,23884:5,23884:6,23874:12,23874:13,23874:14,23874:15,23903:16,23889:17,23874:20,23874:21,23874:22,23874:23,23892:25,23874:28,23874:29,23874:30,23874:31,23874:36,23874:37,23874:38,23874:39,banktag:The Gauntlet Desired equipment and inventory,23903,23886,23900,23884,23874,23903,23889,23892,-23886,-23900,-23874,-23903,-23889,-23892",
+      "importStringZigzag": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory,23886:0,23889:1,23903:8,23892:9,23900:16,23884:17,23874:18,23874:19,23874:20,23874:21,23874:22,23874:23,23884:24,23874:25,23874:26,23874:27,23874:28,23874:29,23874:30,23874:31,23874:32,23874:33,23874:40,banktag:The Gauntlet Desired equipment and inventory,23903,23886,23889,23903,23892,23900,23884,23874,-23886,-23889,-23903,-23892,-23900,-23874",
       "importStringOfficial": "1,23,23886,1,0,23900,4,0,23884,5,0,23884,6,0,23874,4,1,23874,5,1,23874,6,1,23874,7,1,23903,0,2,23889,1,2,23874,4,2,23874,5,2,23874,6,2,23874,7,2,23892,1,3,23874,4,3,23874,5,3,23874,6,3,23874,7,3,23874,4,4,23874,5,4,23874,6,4,23874,7,4",
       "importStringZigzagOfficial": "1,23,23886,0,0,23889,1,0,23903,0,1,23892,1,1,23900,0,2,23884,1,2,23874,2,2,23874,3,2,23874,4,2,23874,5,2,23874,6,2,23874,7,2,23884,0,3,23874,1,3,23874,2,3,23874,3,3,23874,4,3,23874,5,3,23874,6,3,23874,7,3,23874,0,4,23874,1,4,23874,0,5",
       "layout": {
@@ -109,8 +109,8 @@
       "icon": 23903,
       "completeness": "minimal",
       "completenessNote": "Gear and supplies are crafted inside the Gauntlet.",
-      "importString": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (2),23899:4,23884:5,23884:6,23874:12,23874:13,23874:14,23903:16,banktag:The Gauntlet Desired equipment and inventory (2),23903,23899,23884,23874,23903",
-      "importStringZigzag": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (2),23903:0,23899:16,23884:17,23874:18,23884:24,23874:25,23874:26,banktag:The Gauntlet Desired equipment and inventory (2),23903,23903,23899,23884,23874",
+      "importString": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (2),23899:4,23884:5,23884:6,23874:12,23874:13,23874:14,23903:16,banktag:The Gauntlet Desired equipment and inventory (2),23903,23899,23884,23874,23903,-23899,-23874,-23903",
+      "importStringZigzag": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (2),23903:0,23899:16,23884:17,23874:18,23884:24,23874:25,23874:26,banktag:The Gauntlet Desired equipment and inventory (2),23903,23903,23899,23884,23874,-23903,-23899,-23874",
       "importStringOfficial": "1,7,23899,4,0,23884,5,0,23884,6,0,23874,4,1,23874,5,1,23874,6,1,23903,0,2",
       "importStringZigzagOfficial": "1,7,23903,0,0,23899,0,2,23884,1,2,23874,2,2,23884,0,3,23874,1,3,23874,2,3",
       "layout": {
@@ -158,8 +158,8 @@
       "icon": 23857,
       "completeness": "minimal",
       "completenessNote": "Gear and supplies are crafted inside the Gauntlet.",
-      "importString": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (3),23841:1,23854:4,23884:5,23884:6,23884:7,23874:12,23874:13,23874:14,23874:15,23857:16,23844:17,23874:20,23874:21,23874:22,23874:23,23847:25,23874:28,23874:29,23874:30,23874:31,23874:36,23874:37,23874:38,23874:39,23874:44,23874:45,23874:46,23874:47,banktag:The Gauntlet Desired equipment and inventory (3),23857,23841,23854,23884,23874,23857,23844,23847",
-      "importStringZigzag": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (3),23841:0,23844:1,23857:8,23847:9,23854:16,23884:17,23874:18,23874:19,23874:20,23874:21,23874:22,23874:23,23884:24,23884:25,23874:26,23874:27,23874:28,23874:29,23874:30,23874:31,23874:32,23874:33,23874:34,23874:35,23874:40,23874:41,23874:42,23874:43,banktag:The Gauntlet Desired equipment and inventory (3),23857,23841,23844,23857,23847,23854,23884,23874",
+      "importString": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (3),23841:1,23854:4,23884:5,23884:6,23884:7,23874:12,23874:13,23874:14,23874:15,23857:16,23844:17,23874:20,23874:21,23874:22,23874:23,23847:25,23874:28,23874:29,23874:30,23874:31,23874:36,23874:37,23874:38,23874:39,23874:44,23874:45,23874:46,23874:47,banktag:The Gauntlet Desired equipment and inventory (3),23857,23841,23854,23884,23874,23857,23844,23847,-23841,-23854,-23874,-23857,-23844,-23847",
+      "importStringZigzag": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (3),23841:0,23844:1,23857:8,23847:9,23854:16,23884:17,23874:18,23874:19,23874:20,23874:21,23874:22,23874:23,23884:24,23884:25,23874:26,23874:27,23874:28,23874:29,23874:30,23874:31,23874:32,23874:33,23874:34,23874:35,23874:40,23874:41,23874:42,23874:43,banktag:The Gauntlet Desired equipment and inventory (3),23857,23841,23844,23857,23847,23854,23884,23874,-23841,-23844,-23857,-23847,-23854,-23874",
       "importStringOfficial": "1,28,23841,1,0,23854,4,0,23884,5,0,23884,6,0,23884,7,0,23874,4,1,23874,5,1,23874,6,1,23874,7,1,23857,0,2,23844,1,2,23874,4,2,23874,5,2,23874,6,2,23874,7,2,23847,1,3,23874,4,3,23874,5,3,23874,6,3,23874,7,3,23874,4,4,23874,5,4,23874,6,4,23874,7,4,23874,4,5,23874,5,5,23874,6,5,23874,7,5",
       "importStringZigzagOfficial": "1,28,23841,0,0,23844,1,0,23857,0,1,23847,1,1,23854,0,2,23884,1,2,23874,2,2,23874,3,2,23874,4,2,23874,5,2,23874,6,2,23874,7,2,23884,0,3,23884,1,3,23874,2,3,23874,3,3,23874,4,3,23874,5,3,23874,6,3,23874,7,3,23874,0,4,23874,1,4,23874,2,4,23874,3,4,23874,0,5,23874,1,5,23874,2,5,23874,3,5",
       "layout": {
@@ -270,8 +270,8 @@
       "icon": 23857,
       "completeness": "minimal",
       "completenessNote": "Gear and supplies are crafted inside the Gauntlet.",
-      "importString": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (4),23840:1,23852:4,23884:5,23884:6,23874:12,23874:13,23874:14,23874:15,23857:16,23843:17,23846:25,banktag:The Gauntlet Desired equipment and inventory (4),23857,23840,23852,23884,23874,23857,23843,23846",
-      "importStringZigzag": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (4),23840:0,23843:1,23857:8,23846:9,23852:16,23884:17,23874:18,23874:19,23884:24,23874:25,23874:26,banktag:The Gauntlet Desired equipment and inventory (4),23857,23840,23843,23857,23846,23852,23884,23874",
+      "importString": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (4),23840:1,23852:4,23884:5,23884:6,23874:12,23874:13,23874:14,23874:15,23857:16,23843:17,23846:25,banktag:The Gauntlet Desired equipment and inventory (4),23857,23840,23852,23884,23874,23857,23843,23846,-23840,-23852,-23874,-23857,-23843,-23846",
+      "importStringZigzag": "banktaglayoutsplugin:The Gauntlet Desired equipment and inventory (4),23840:0,23843:1,23857:8,23846:9,23852:16,23884:17,23874:18,23874:19,23884:24,23874:25,23874:26,banktag:The Gauntlet Desired equipment and inventory (4),23857,23840,23843,23857,23846,23852,23884,23874,-23840,-23843,-23857,-23846,-23852,-23874",
       "importStringOfficial": "1,11,23840,1,0,23852,4,0,23884,5,0,23884,6,0,23874,4,1,23874,5,1,23874,6,1,23874,7,1,23857,0,2,23843,1,2,23846,1,3",
       "importStringZigzagOfficial": "1,11,23840,0,0,23843,1,0,23857,0,1,23846,1,1,23852,0,2,23884,1,2,23874,2,2,23874,3,2,23884,0,3,23874,1,3,23874,2,3",
       "layout": {

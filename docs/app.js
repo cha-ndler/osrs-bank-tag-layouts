@@ -51,6 +51,7 @@ const els = {
 let LAYOUTS = [];
 let LOADOUT_MAP = {};
 let ZIGZAG_ORDER = [];
+let TAGGING = {};
 // Per-card slot choices, keyed by activity + variant so they survive a re-render
 // (searching, or flipping between layout styles).
 const CHOICES = new Map();
@@ -82,7 +83,7 @@ const buildLayout = (entry, choices) =>
 function importStringFor(entry, layout, equipment) {
   const icon =
     entry.icon === entry.equipment.weapon && equipment.weapon ? equipment.weapon : entry.icon;
-  return BTL.importStringFor(entry, layout, icon, target);
+  return BTL.importStringFor(entry, layout, icon, target, TAGGING);
 }
 
 const isModified = (choices) => Object.values(choices).some((i) => i > 0);
@@ -362,6 +363,7 @@ fetch('layouts.json')
     LAYOUTS = data.layouts;
     LOADOUT_MAP = data.loadoutMap || {};
     ZIGZAG_ORDER = data.zigzagOrder || [];
+    TAGGING = data.tagging || {};
     els.meta.textContent = `${LAYOUTS.length} layouts generated ${data.generatedAt} from the OSRS Wiki.`;
     syncToggles();
     checkPortAgainstGenerator();

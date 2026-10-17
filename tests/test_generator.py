@@ -28,6 +28,7 @@ from encode import (  # noqa: E402
     relay_positions,
     split_layout,
     tag_name,
+    tag_tail,
     zigzag_index,
     zigzag_layout,
 )
@@ -55,7 +56,7 @@ from publish import (  # noqa: E402
     write_unless_only_timestamp,
 )
 from classify import ADD_LIMIT, CHANGE_LIMIT, classify  # noqa: E402
-from validate import COMPLETE_BASELINE, completeness_errors  # noqa: E402
+from validate import COMPLETE_BASELINE, completeness_errors, equivalence_errors  # noqa: E402
 
 # Injected instead of the real wiki slot index so nothing here needs the network.
 TWO_HANDED = {"tumeken's shadow", "scythe of vitur", "twisted bow"}
@@ -335,8 +336,11 @@ class TestHubImportString(unittest.TestCase):
         # Neither importer tags anything from the layout pairs; an item missing
         # from the tail is laid out into a tab that then filters it away.
         parsed = parse_hub_import_string(self.code())
+        # Negatives are variant tags (TestVariantTags); the exact ones must
+        # cover the layout on their own for an importer that ignores the sign.
         self.assertEqual(
-            set(parsed["tagItems"]), set(int(v) for v in self.LAYOUT.values())
+            {i for i in parsed["tagItems"] if i > 0},
+            set(int(v) for v in self.LAYOUT.values()),
         )
 
     def test_a_repeated_item_is_tagged_once(self):
@@ -365,6 +369,55 @@ class TestHubImportString(unittest.TestCase):
     def test_the_builtin_format_is_not_accepted(self):
         with self.assertRaises(ValueError):
             parse_hub_import_string("banktags,1,Test Tag,995,layout,1,4151")
+
+
+class TestVariantTags(unittest.TestCase):
+    """A tag that accepts the item a player actually owns.
+
+    RuneLite reads a negative id in the tag list as "this item and every
+    variant of it" (TagManager.getItemId: abs, canonicalize, then
+    -ItemVariationMapping.map). Its layouts already draw a variant in the
+    original's slot, but only once the variant passes the tag filter, so an
+    exact-only tag left an Infernal cape (l) owner looking at a faded slot.
+    """
+
+    def test_gear_also_accepts_its_variants(self):
+        self.assertEqual(tag_tail([21295, 6685]), [21295, 6685, -21295, -6685])
+
+    def test_doses_and_charges_stay_exact(self):
+        # A variant tag on a potion pulls every dose into the tab.
+        self.assertEqual(tag_tail([21295, 6685], exact_only={6685}), [21295, 6685, -21295])
+
+    def test_curated_equivalents_follow_and_accept_variants_too(self):
+        tail = tag_tail([21295, 6685], equivalents={21295: [21285]})
+        self.assertEqual(tail, [21295, 6685, -21295, -6685, 21285, -21285])
+
+    def test_nothing_is_listed_twice(self):
+        tail = tag_tail([1, 2, 1], equivalents={1: [2, 3], 2: [3]})
+        self.assertEqual(len(tail), len(set(tail)))
+        self.assertEqual(tail[:2], [1, 2])
+
+    def test_string_carries_the_tail_and_still_round_trips(self):
+        code = build_hub_import_string(
+            "Inferno", 21295, {"8": 21295, "4": 6685},
+            exact_only={6685}, equivalents={21295: [21285]},
+        )
+        self.assertTrue(code.endswith(",banktag:Inferno,21295,6685,21295,-21295,21285,-21285"))
+        parsed = parse_hub_import_string(code)
+        self.assertEqual(parsed["layout"], {"8": 21295, "4": 6685})
+        self.assertEqual(parsed["tagItems"], [6685, 21295, -21295, 21285, -21285])
+
+    def test_a_malformed_negative_is_still_rejected(self):
+        with self.assertRaises(ValueError):
+            parse_hub_import_string("banktaglayoutsplugin:T,1:1,banktag:T,1,1,--5")
+
+    def test_an_equivalent_that_resolves_to_nothing_fails_the_build(self):
+        # Same contract as overrides.json: a curated entry that stops matching
+        # must be fixed or deleted, not left to rot.
+        self.assertEqual(equivalence_errors([]), [])
+        errors = equivalence_errors(["Infernal max cape"])
+        self.assertEqual(len(errors), 1)
+        self.assertIn("Infernal max cape", errors[0])
 
 
 class TestOfficialImportString(unittest.TestCase):
