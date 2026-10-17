@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T12:49:59Z",
+  "generatedAt": "2026-10-17T18:38:16Z",
   "activityCount": 105,
   "layoutCount": 345,
   "activities": [
@@ -753,7 +753,7 @@
       "file": "data/treasure-trails.json",
       "variantCount": 9,
       "sourceRevId": 15360896,
-      "contentHash": "3071ba2bea662bdc"
+      "contentHash": "7bdcee30d86ddb7e"
     },
     {
       "activity": "TzHaar Fight Cave",

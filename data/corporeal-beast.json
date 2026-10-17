@@ -157,6 +157,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "inventory 9 resolved via {{Cheap food}} (price-dependent)",
         "inventory 10 resolved via {{Cheap food}} (price-dependent)",
@@ -309,6 +310,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "inventory 9 resolved via {{Cheap food}} (price-dependent)",
         "inventory 10 resolved via {{Cheap food}} (price-dependent)",
@@ -474,6 +476,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "inventory 5 resolved via {{Cheap food}} (price-dependent)",
         "inventory 6 resolved via {{Cheap food}} (price-dependent)",
@@ -631,6 +634,7 @@
         29796
       ],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -787,6 +791,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -939,6 +944,7 @@
         29796
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "inventory 11 resolved via {{Cheap food}} (price-dependent)",
         "inventory 12 resolved via {{Cheap food}} (price-dependent)",

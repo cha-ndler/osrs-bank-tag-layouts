@@ -99,7 +99,27 @@
         if (id) layout[pos] = id;
       }
     }
+    placeSupplies(layout, entry.supplies || []);
     return { layout: layout, slots: slots, equipment: equipment };
+  }
+
+  /* Port of supplies.place_supplies: a blank row below the layout, then each
+   * clue supply group on rows of its own, in both styles alike.
+   */
+  function placeSupplies(layout, supplies) {
+    const groups = supplies.map((g) => g.items.map((i) => i.id)).filter((ids) => ids.length);
+    if (!groups.length) return layout;
+    const positions = Object.keys(layout).map(Number);
+    const top = positions.length ? Math.max.apply(null, positions) : -1;
+    // Never above row 8: the presets grid owns rows 0-6, rune pouch included.
+    let cursor = Math.max(Math.floor(top / 8) + 2, 8) * 8;
+    for (const ids of groups) {
+      ids.forEach((id, i) => {
+        layout[cursor + i] = id;
+      });
+      cursor = (Math.floor((cursor + ids.length - 1) / 8) + 1) * 8;
+    }
+    return layout;
   }
 
   const sortedPositions = (layout) =>

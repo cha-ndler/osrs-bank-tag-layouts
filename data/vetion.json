@@ -147,6 +147,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -389,6 +390,7 @@
           "id": 1434
         }
       ],
+      "supplies": [],
       "warnings": []
     }
   ]

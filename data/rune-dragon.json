@@ -248,6 +248,7 @@
           "id": 26219
         }
       ],
+      "supplies": [],
       "warnings": [
         "Digsite pendant -> Digsite pendant (5)",
         "inventory 14 resolved via {{Cheap food}} (price-dependent)",
@@ -498,6 +499,7 @@
         25865
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Digsite pendant -> Digsite pendant (5)",
         "inventory 8 resolved via {{Cheap food}} (price-dependent)",
@@ -735,6 +737,7 @@
         27275
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Digsite pendant -> Digsite pendant (5)",
         "inventory 8 resolved via {{Cheap food}} (price-dependent)",

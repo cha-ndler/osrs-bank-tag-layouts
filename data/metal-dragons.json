@@ -192,6 +192,7 @@
         27275
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "inventory 6 resolved via {{Cheap food}} (price-dependent)",
         "inventory 7 resolved via {{Cheap food}} (price-dependent)",
@@ -412,6 +413,7 @@
           "id": 29577
         }
       ],
+      "supplies": [],
       "warnings": [
         "inventory 12 resolved via {{Cheap food}} (price-dependent)",
         "inventory 13 resolved via {{Cheap food}} (price-dependent)",
@@ -598,6 +600,7 @@
       },
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "inventory 7 resolved via {{Cheap food}} (price-dependent)",
         "inventory 8 resolved via {{Cheap food}} (price-dependent)",

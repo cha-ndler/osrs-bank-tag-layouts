@@ -229,11 +229,17 @@ def validate() -> int:
         # strings have just been proved to carry exactly it, so parsing one back
         # here would only re-test the parser.
         seen: set[int] = set()
+        # Rows below the grid are the clue supply groups, which name their own
+        # source items. Anything else down there is a layout bug.
+        supply_names = {
+            i["id"]: i["name"] for g in entry.get("supplies", []) for i in g["items"]
+        }
         for pos_s, item_id in sorted(
             entry["layout"].items(), key=lambda kv: int(kv[0])
         ):
             pos = int(pos_s)
-            if pos not in VALID_POSITIONS:
+            in_supplies = pos > max(VALID_POSITIONS) and item_id in supply_names
+            if pos not in VALID_POSITIONS and not in_supplies:
                 errors.append(f"{label}: position {pos} is not a grid slot")
             if pos in seen:
                 errors.append(f"{label}: position {pos} used twice")
@@ -243,7 +249,9 @@ def validate() -> int:
                 errors.append(f"{label}: unknown item id {item_id}")
                 continue
 
-            source = source_name_for(pos_s, entry["sourceNames"])
+            source = supply_names.get(item_id) if in_supplies else source_name_for(
+                pos_s, entry["sourceNames"]
+            )
             if source:
                 valid_ids = norm.resolve_ids(source)
                 if not valid_ids:
@@ -459,6 +467,8 @@ def validate() -> int:
         "skippedPages": data.get("extraction", {}).get("emptyPages", []),
         "extractionWarnings": data.get("extraction", {}).get("warnings", {}),
         "slotDisagreements": slot_notes,
+        # Supply names the wiki would not resolve to an item, by layout and group.
+        "supplyDropped": data.get("supplyDropped", []),
         "curatedLayouts": [
             {
                 "layout": f"{e['activity']} / {e['variant']}",
@@ -489,6 +499,7 @@ def validate() -> int:
     print(f"  pages yielding no setup  : {len(report['skippedPages'])}")
     print(f"  slot disagreements (note): {len(slot_notes)}")
     print(f"  curated layouts          : {len(curated)}")
+    print(f"  supply names dropped     : {len(data.get('supplyDropped', []))}")
     print(f"  part-dose (explicit, ok) : {len(dose_flags) - len(bad_doses)}")
     print(f"  part-dose (unexpected)   : {len(bad_doses)}")
     print(f"  distinct normalizations  : {len(report['normalizations'])}")

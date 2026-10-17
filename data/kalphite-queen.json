@@ -156,6 +156,7 @@
         4755
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Superantipoison -> Superantipoison(4)",
         "Prayer potion -> Prayer potion(4)"
@@ -312,6 +313,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -465,6 +467,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -617,6 +620,7 @@
         27275
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Super restore -> Super restore(4)"
       ]

@@ -182,6 +182,7 @@
           "id": 1434
         }
       ],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -357,6 +358,7 @@
           "id": 1434
         }
       ],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -527,6 +529,7 @@
           "id": 29577
         }
       ],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -672,6 +675,7 @@
         29796
       ],
       "switches": [],
+      "supplies": [],
       "warnings": []
     }
   ]

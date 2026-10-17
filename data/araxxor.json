@@ -255,6 +255,7 @@
           "id": 27690
         }
       ],
+      "supplies": [],
       "warnings": [
         "inventory 3 resolved via {{Cheap prayer}} (price-dependent)",
         "inventory 4 resolved via {{Cheap prayer}} (price-dependent)",
@@ -476,6 +477,7 @@
           "id": 26374
         }
       ],
+      "supplies": [],
       "warnings": [
         "inventory 6 resolved via {{Cheap prayer}} (price-dependent)",
         "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",

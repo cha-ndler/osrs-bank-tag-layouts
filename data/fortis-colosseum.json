@@ -157,6 +157,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -313,6 +314,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Surge potion -> Surge potion(4)"
       ]
@@ -470,6 +472,7 @@
         27275
       ],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -622,6 +625,7 @@
         22325
       ],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -778,6 +782,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -930,6 +935,7 @@
         20997
       ],
       "switches": [],
+      "supplies": [],
       "warnings": []
     }
   ]
