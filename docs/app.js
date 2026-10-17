@@ -39,6 +39,7 @@ const HOWTO = {
 };
 
 const ICON = (id) => `https://static.runelite.net/cache/item/icon/${id}.png`;
+const WIKI = (page) => `https://oldschool.runescape.wiki/w/${encodeURI(page.replace(/ /g, '_'))}`;
 
 const els = {
   q: document.getElementById('q'),
@@ -100,7 +101,26 @@ function renderGrid(entry, choices, onChange) {
   const highest = positions.length ? Math.max(...positions) : 0;
   const cells = (Math.floor(highest / 8) + 1) * 8;
 
+  // Clue supply groups start on a row of their own (see placeSupplies), so a
+  // label spanning the grid above that row names it without moving any cell.
+  const groupAt = new Map();
+  const names = new Map();
+  for (const g of built.supplyGroups) {
+    groupAt.set(g.start, g);
+    g.items.forEach((item, n) => names.set(g.start + n, item.name));
+  }
+
   for (let i = 0; i < cells; i++) {
+    const g = groupAt.get(i);
+    if (g) {
+      const label = document.createElement('a');
+      label.className = 'group-label';
+      label.href = WIKI(g.source.page);
+      label.rel = 'noopener';
+      label.textContent = g.group;
+      label.title = `${g.group}: items from the wiki's ${g.source.page} page`;
+      grid.appendChild(label);
+    }
     const cell = document.createElement('div');
     cell.className = 'cell';
     const id = built.layout[String(i)] ?? built.layout[i];
@@ -110,6 +130,7 @@ function renderGrid(entry, choices, onChange) {
       img.loading = 'lazy';
       img.alt = '';
       cell.appendChild(img);
+      if (names.has(i)) cell.title = names.get(i);
 
       const slot = built.slots[String(i)] ?? built.slots[i];
       const options = slot ? (entry.alternatives || {})[slot] : null;

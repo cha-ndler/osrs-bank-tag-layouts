@@ -99,27 +99,30 @@
         if (id) layout[pos] = id;
       }
     }
-    placeSupplies(layout, entry.supplies || []);
-    return { layout: layout, slots: slots, equipment: equipment };
+    const supplyGroups = placeSupplies(layout, entry.supplies || []);
+    return { layout: layout, slots: slots, equipment: equipment, supplyGroups: supplyGroups };
   }
 
   /* Port of supplies.place_supplies: a blank row below the layout, then each
-   * clue supply group on rows of its own, in both styles alike.
+   * clue supply group on rows of its own, in both styles alike. Returns where
+   * each placed group starts, so the page can label it without redoing this.
    */
   function placeSupplies(layout, supplies) {
-    const groups = supplies.map((g) => g.items.map((i) => i.id)).filter((ids) => ids.length);
-    if (!groups.length) return layout;
+    const groups = supplies.filter((g) => g.items.length);
+    if (!groups.length) return [];
     const positions = Object.keys(layout).map(Number);
     const top = positions.length ? Math.max.apply(null, positions) : -1;
     // Never above row 8: the presets grid owns rows 0-6, rune pouch included.
     let cursor = Math.max(Math.floor(top / 8) + 2, 8) * 8;
-    for (const ids of groups) {
-      ids.forEach((id, i) => {
-        layout[cursor + i] = id;
+    const placed = [];
+    for (const g of groups) {
+      placed.push({ group: g.group, source: g.source, start: cursor, items: g.items });
+      g.items.forEach((item, i) => {
+        layout[cursor + i] = item.id;
       });
-      cursor = (Math.floor((cursor + ids.length - 1) / 8) + 1) * 8;
+      cursor = (Math.floor((cursor + g.items.length - 1) / 8) + 1) * 8;
     }
-    return layout;
+    return placed;
   }
 
   const sortedPositions = (layout) =>
