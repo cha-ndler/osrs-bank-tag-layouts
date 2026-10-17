@@ -305,8 +305,14 @@ of those items below the grid: one blank row, then each group on rows of its own
 |---|---|---|
 | Bank | every tier that has one | the tier's `Bank` table on Treasure Trails/Strategies |
 | STASH unit | all except free-to-play beginner | the STASH build recipe: planks, nails (any metal except dragon), hammer, saw, and gold leaf at master |
-| Falo the Bard | master | the first item listed for each verse; other accepted forms are variants the tag covers |
+| Falo the Bard | master | the first item the wiki lists for each verse |
 | Sherlock | elite, master | the items each challenge names, read from the requirement and not its notes |
+
+Falo accepts more than one item for some verses. Forms of the same item, such as
+Dragon scimitar (or) or Infernal axe (or), are variants the tag already accepts.
+Separate items are not: the other god books, Bow of Faerdhinen for the crystal
+bow, Avernic defender, the other Ivandis weapons and the (bh) anchor. Only the
+first one listed is tagged.
 
 Each group in `supplies` records the page and revision it came from, because a
 change to Falo's page changes the Master layout while the Strategies revision
