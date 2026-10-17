@@ -56,6 +56,14 @@ from publish import (  # noqa: E402
     write_unless_only_timestamp,
 )
 from classify import ADD_LIMIT, CHANGE_LIMIT, classify  # noqa: E402
+from supplies import (  # noqa: E402
+    bank_sections,
+    falo_items,
+    groups_for,
+    place_supplies,
+    sherlock_items,
+    stash_materials,
+)
 from validate import COMPLETE_BASELINE, completeness_errors, equivalence_errors  # noqa: E402
 
 # Injected instead of the real wiki slot index so nothing here needs the network.
@@ -1330,6 +1338,101 @@ class TestRefreshChurn(unittest.TestCase):
 
 def _variant(layout, completeness="complete"):
     return {"layout": layout, "completeness": completeness}
+
+
+class TestClueSupplies(unittest.TestCase):
+    """Rows below a clue layout for what later steps ask for."""
+
+    FALO = (
+        "{| class=\"wikitable lighttable\"\n!Lyric\n! colspan=\"2\" |Item\n|-\n"
+        "| rowspan=\"2\" |A blood red weapon, a strong curved sword.\n"
+        "|{{plinkt|Dragon scimitar}}\n|-\n|{{plinkt|Dragon scimitar (or)}}\n|-\n"
+        "|A mark used to increase one's grace.\n|{{plinkt|Mark of Grace}}\n|-\n"
+        "| rowspan=\"2\" |A book that preaches.\n"
+        "|{{plinkt|God book|pic=Book of Balance}}<ref group=n name=god>Any book.</ref>\n"
+        "|-\n|{{plinkt|God book (or)|pic=Book of Balance (or)}}\n|}"
+    )
+
+    def test_falo_takes_one_item_per_verse(self):
+        self.assertEqual(
+            falo_items(self.FALO), ["Dragon scimitar", "Mark of Grace", "Book of Balance"]
+        )
+
+    SHERLOCK = (
+        "{| class=\"wikitable\"\n!Task\n!Skill\n!Other\n!Items required\n|-\n"
+        "|Equip a whip.\n|{{SCP|Attack|70}}\n|None\n"
+        "|[[Abyssal whip]] ([[Abyssal tentacle]] also works, "
+        "[[Abyssal whip (or)|ornament]] does not)\n|-\n"
+        "|Teleport to a spirit tree.\n|{{SCP|Farming|83}}\n|None\n"
+        "|[[Spirit sapling]], [[spade]]. A [[superior garden]] works too.\n\nMore prose.\n"
+        "|-\n|Slay a Nechryael.\n|{{SCP|Slayer|80}}\n|None\n|None\n|}"
+    )
+
+    def test_sherlock_reads_the_requirement_not_the_notes(self):
+        self.assertEqual(
+            sherlock_items(self.SHERLOCK), ["Abyssal whip", "Spirit sapling", "Spade"]
+        )
+
+    def test_bank_tables_are_keyed_by_their_setup_heading(self):
+        text = (
+            "===Master clues===\n{{Loadout|1=Spade}}\n====Inventory====\nprose\n"
+            "====Bank====\n{|\n|{{plinkt|Ring of visibility}}\n|{{plinkp|Lockpick}}\n|}\n"
+            "===Elite clues===\n====Inventory====\n"
+        )
+        self.assertEqual(
+            bank_sections(text), {"Master clues": ["Ring of visibility", "Lockpick"]}
+        )
+
+    def test_stash_recipe_per_tier(self):
+        rows = [{"production_json": json.dumps({
+            "materials": [{"name": "Mahogany plank"}, {"name": "Bronze nails"},
+                          {"name": "Gold leaf"}],
+            "tools": "Hammer, Saw", "output": {"subtxt": "Master"}})}]
+        self.assertEqual(
+            stash_materials(rows),
+            {"master": ["Mahogany plank", "Bronze nails", "Gold leaf", "Hammer", "Saw"]},
+        )
+
+    SOURCES = {
+        "revIds": {"Treasure Trails/Strategies": 1, "STASH": 2, "Falo the Bard": 3,
+                   "Sherlock/Master": 4, "Sherlock/Elite": 5},
+        "bank": {"Master clues": ["Lockpick"], "Beginner clues (free-to-play)": ["Trout"]},
+        "stash": {"master": ["Gold leaf"], "beginner": ["Plank"]},
+        "falo": ["Basalt"],
+        "sherlock": {"master": ["Knife"], "elite": ["Needle"]},
+    }
+
+    def test_master_carries_every_group_with_its_source(self):
+        groups = groups_for("Master clues", self.SOURCES)
+        self.assertEqual(
+            [g["group"] for g in groups], ["Bank", "STASH unit", "Falo the Bard", "Sherlock"]
+        )
+        self.assertEqual(groups[2]["source"], {"page": "Falo the Bard", "revId": 3})
+
+    def test_free_to_play_skips_the_members_only_stash(self):
+        groups = groups_for("Beginner clues (free-to-play)", self.SOURCES)
+        self.assertEqual([g["group"] for g in groups], ["Bank"])
+
+    def test_supplies_start_after_a_blank_row_and_each_group_on_its_own(self):
+        layout = {"1": 10, "55": 11}  # last used row is 6
+        placed = place_supplies(layout, [[1, 2, 3], list(range(100, 109)), [7]])
+        self.assertEqual(placed["1"], 10)
+        self.assertEqual([placed[str(p)] for p in (64, 65, 66)], [1, 2, 3])
+        self.assertNotIn("67", placed)
+        # Nine items run onto a second row; the next group starts after them.
+        self.assertEqual(placed["72"], 100)
+        self.assertEqual(placed["80"], 108)
+        self.assertEqual(placed["88"], 7)
+
+    def test_a_short_layout_still_keeps_supplies_out_of_the_grid(self):
+        # Master clues stops at row 4; its supplies once landed in the rune
+        # pouch row, at positions that are not grid slots.
+        placed = place_supplies({"1": 10, "39": 11}, [[1]])
+        self.assertEqual(placed["64"], 1)
+        self.assertNotIn("48", placed)
+
+    def test_no_groups_leaves_the_layout_alone(self):
+        self.assertEqual(place_supplies({"1": 10}, [[], []]), {"1": 10})
 
 
 class TestRefreshClassifier(unittest.TestCase):

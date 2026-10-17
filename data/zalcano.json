@@ -99,6 +99,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Saradomin brew -> Saradomin brew(4)"
       ]
@@ -273,6 +274,7 @@
       },
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Saradomin brew -> Saradomin brew(4)"
       ]

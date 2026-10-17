@@ -227,6 +227,7 @@
           "id": 31113
         }
       ],
+      "supplies": [],
       "warnings": [
         "Divine bastion potion -> Divine bastion potion(4)",
         "Super restore -> Super restore(4)",
@@ -430,6 +431,7 @@
           "id": 13576
         }
       ],
+      "supplies": [],
       "warnings": [
         "Ranging potion -> Ranging potion(4)",
         "Divine super combat potion -> Divine super combat potion(4)",
@@ -706,6 +708,7 @@
           "id": 8872
         }
       ],
+      "supplies": [],
       "warnings": [
         "Divine ranging potion -> Divine ranging potion(4)",
         "Stamina potion -> Stamina potion(4)",

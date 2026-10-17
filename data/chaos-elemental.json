@@ -235,6 +235,7 @@
           "id": 24125
         }
       ],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -452,6 +453,7 @@
         27655
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Anti-venom -> Anti-venom(4)"
       ]

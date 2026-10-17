@@ -5402,6 +5402,22 @@
       "wikiSlot": "weapon"
     }
   ],
+  "supplyDropped": [
+    "Elite clues / Sherlock: Cadantine potion",
+    "Elite clues / Sherlock: Pickaxe",
+    "Elite clues / Sherlock: Axe",
+    "Master clues / Sherlock: Spiritual mage",
+    "Master clues / Sherlock: Graceful outfit",
+    "Master clues / Sherlock: Pickaxe",
+    "Master clues / Sherlock: Prospector kit",
+    "Master clues / Sherlock: Blast Mine",
+    "Master clues / Sherlock: Angler's outfit",
+    "Master clues / Sherlock: Spirit angler's outfit",
+    "Master clues / Sherlock: Axe",
+    "Master clues / Sherlock: Lumberjack outfit",
+    "Master clues / Sherlock: Forestry outfit",
+    "Master clues / Sherlock: Shade key"
+  ],
   "curatedLayouts": [
     {
       "layout": "Abyss / Defensive",

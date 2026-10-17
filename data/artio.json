@@ -223,6 +223,7 @@
         27275
       ],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -458,6 +459,7 @@
           "id": 26374
         }
       ],
+      "supplies": [],
       "warnings": []
     }
   ]

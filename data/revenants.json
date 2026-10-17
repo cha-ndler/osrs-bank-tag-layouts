@@ -197,6 +197,7 @@
       },
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Blighted super restore -> Blighted super restore(4)",
         "Saradomin brew -> Saradomin brew(4)",
@@ -413,6 +414,7 @@
         11838
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Blighted super restore -> Blighted super restore(4)",
         "Saradomin brew -> Saradomin brew(4)",
@@ -635,6 +637,7 @@
         27655
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Blighted super restore -> Blighted super restore(4)",
         "Saradomin brew -> Saradomin brew(4)",
@@ -822,6 +825,7 @@
         27655
       ],
       "switches": [],
+      "supplies": [],
       "warnings": []
     }
   ]

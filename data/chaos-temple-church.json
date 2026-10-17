@@ -143,6 +143,7 @@
         21015
       ],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -283,6 +284,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -392,6 +394,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": []
     }
   ]

@@ -240,6 +240,7 @@
           "id": 27690
         }
       ],
+      "supplies": [],
       "warnings": [
         "inventory 10 resolved via {{Cheap food}} (price-dependent)",
         "inventory 11 resolved via {{Cheap food}} (price-dependent)",
@@ -489,6 +490,7 @@
           "id": 27690
         }
       ],
+      "supplies": [],
       "warnings": [
         "inventory 13 resolved via {{Cheap food}} (price-dependent)",
         "inventory 14 resolved via {{Cheap food}} (price-dependent)",
@@ -721,6 +723,7 @@
         31583
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "inventory 5 resolved via {{Cheap food}} (price-dependent)",
         "inventory 9 resolved via {{Cheap food}} (price-dependent)",
@@ -948,6 +951,7 @@
         31583
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "inventory 13 resolved via {{Cheap food}} (price-dependent)",
         "inventory 14 resolved via {{Cheap food}} (price-dependent)",
@@ -1180,6 +1184,7 @@
         31583
       ],
       "switches": [],
+      "supplies": [],
       "warnings": []
     }
   ]

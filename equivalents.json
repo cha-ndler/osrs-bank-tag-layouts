@@ -16,6 +16,7 @@
     {"item": "Guthix cape", "accept": ["Guthix max cape"]},
     {"item": "Zamorak cape", "accept": ["Zamorak max cape"]},
     {"item": "Ardougne cloak 4", "accept": ["Ardougne max cape"]},
-    {"item": "Mythical cape", "accept": ["Mythical max cape"]}
+    {"item": "Mythical cape", "accept": ["Mythical max cape"]},
+    {"item": "Bronze nails", "accept": ["Iron nails", "Steel nails", "Black nails", "Mithril nails", "Adamantite nails", "Rune nails"], "reason": "A STASH unit takes ten nails of any one metal except dragon."}
   ]
 }

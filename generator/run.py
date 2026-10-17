@@ -14,6 +14,7 @@ import encode
 import extract
 import overrides
 import publish
+import supplies
 import validate
 from normalize import ITEMS, SLOTS
 from wikiclient import CACHE_DIR
@@ -43,7 +44,7 @@ def main() -> int:
         ITEMS.unlink(missing_ok=True)
         SLOTS.unlink(missing_ok=True)
 
-    for stage in (discover, extract, overrides, encode):
+    for stage in (discover, extract, overrides, supplies, encode):
         stage.main()
 
     code = validate.validate()

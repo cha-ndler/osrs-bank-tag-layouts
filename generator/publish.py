@@ -163,6 +163,9 @@ def main() -> None:
                     # Spec weapons the guide expects you to bring. They wear no
                     # slot, so they sit beside the layout rather than in it.
                     "switches": e["switches"],
+                    # Items a clue's later steps ask for, laid out below the
+                    # grid, each group with the page and revision it came from.
+                    "supplies": e.get("supplies", []),
                     "warnings": e["warnings"],
                 }
                 for e in entries
@@ -211,6 +214,8 @@ def main() -> None:
                     # Spec weapons the guide expects you to bring. They wear no
                     # slot, so they sit beside the layout rather than in it.
                     "switches": e["switches"],
+                    # layout.js re-lays these below the grid after a swap.
+                    "supplies": e.get("supplies", []),
                     "warnings": e["warnings"],
                 }
             )

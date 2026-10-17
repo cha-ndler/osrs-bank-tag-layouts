@@ -265,6 +265,7 @@
           "id": 11061
         }
       ],
+      "supplies": [],
       "warnings": []
     },
     {
@@ -490,6 +491,7 @@
           "id": 5698
         }
       ],
+      "supplies": [],
       "warnings": [
         "Overload (Nightmare Zone) -> Overload (4)"
       ]
@@ -723,6 +725,7 @@
         28997
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Overload (Nightmare Zone) -> Overload (4)",
         "Absorption -> Absorption (4)"
@@ -977,6 +980,7 @@
           "id": 11061
         }
       ],
+      "supplies": [],
       "warnings": [
         "Overload (Nightmare Zone) -> Overload (4)",
         "Prayer regeneration potion -> Prayer regeneration potion(4)",
@@ -1219,6 +1223,7 @@
           "id": 5698
         }
       ],
+      "supplies": [],
       "warnings": [
         "Overload (Nightmare Zone) -> Overload (4)"
       ]
@@ -1466,6 +1471,7 @@
           "id": 22804
         }
       ],
+      "supplies": [],
       "warnings": []
     }
   ]

@@ -113,6 +113,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Prayer potion -> Prayer potion(4)",
         "Antipoison -> Antipoison(4)"

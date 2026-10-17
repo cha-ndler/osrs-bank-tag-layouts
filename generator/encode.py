@@ -25,6 +25,7 @@ import re
 from pathlib import Path
 
 from normalize import DOSE_RE, Normalizer, load_item_index, load_slot_index
+from supplies import ACTIVITY as SUPPLY_ACTIVITY, SUPPLIES, groups_for, place_supplies
 from wikiclient import WikiClient
 
 REPO = Path(__file__).parent.parent
@@ -653,6 +654,70 @@ def resolve_switches(
         print(f"  switches {min(start + BATCH_SIZE, len(pending))}/{len(pending)}", end="\r")
 
 
+def add_supplies(
+    client: WikiClient,
+    results: list[dict],
+    norm: Normalizer,
+    relay: dict[int, int],
+    tagging: dict,
+) -> list[str]:
+    """Lay each clue tier's supply groups out below its layout.
+
+    Returns every name the wiki could not resolve. Those are reported rather
+    than guessed at: the source columns mix items with page links ("Graceful
+    outfit", "Blast Mine"), and a bank tag cannot hold a page.
+    """
+    for entry in results:
+        entry["supplies"] = []
+    if not SUPPLIES.exists():
+        return []
+    sources = json.loads(SUPPLIES.read_text(encoding="utf-8"))
+    clue = [e for e in results if e["activity"] == SUPPLY_ACTIVITY]
+    planned = {id(e): groups_for(e["variant"], sources) for e in clue}
+    # The dose fix applies here as everywhere: a bare "Ranging potion" would
+    # otherwise resolve to the 3-dose one.
+    named = {
+        n: norm.normalize(n)[0]
+        for groups in planned.values() for g in groups for n in g["names"]
+    }
+    ids = resolve_names(client, list(named.values()), relay)
+
+    dropped: list[str] = []
+    for entry in clue:
+        used = set(entry["layout"].values())
+        supplies = []
+        for group in planned[id(entry)]:
+            items = []
+            for name in group["names"]:
+                item_id = ids.get(named[name])
+                if not item_id:
+                    dropped.append(f"{entry['variant']} / {group['group']}: {name}")
+                    continue
+                # Already in the layout or an earlier group: one copy is enough.
+                if item_id in used:
+                    continue
+                used.add(item_id)
+                items.append({"name": named[name], "id": item_id})
+            if items:
+                supplies.append(
+                    {"group": group["group"], "source": group["source"], "items": items}
+                )
+        entry["supplies"] = supplies
+        rows = [[i["id"] for i in g["items"]] for g in supplies]
+        entry["layout"] = place_supplies(entry["layout"], rows)
+        entry["layoutZigzag"] = place_supplies(entry["layoutZigzag"], rows)
+        icon, name = entry["icon"], entry["tagName"]
+        entry["importString"] = build_hub_import_string(name, icon, entry["layout"], **tagging)
+        entry["importStringZigzag"] = build_hub_import_string(
+            name, icon, entry["layoutZigzag"], **tagging
+        )
+        entry["importStringOfficial"] = build_official_import_string(entry["layout"])
+        entry["importStringZigzagOfficial"] = build_official_import_string(
+            entry["layoutZigzag"]
+        )
+    return dropped
+
+
 def library_tagging(
     results: list[dict], exact_only: set[int], equivalents: dict[int, list[int]]
 ) -> dict:
@@ -861,6 +926,7 @@ def main() -> None:
 
     resolve_alternatives(client, jobs, result_for, relay)
     resolve_switches(client, jobs, result_for, relay)
+    supply_dropped = add_supplies(client, results, norm, relay, tagging)
 
     # Which weapon options need both hands. The site clears the off-hand when
     # one is chosen and restores it on the way back, so stepping through the
@@ -894,6 +960,7 @@ def main() -> None:
                 # only the ids this library can actually reach, not the index.
                 "tagging": library_tagging(results, exact_only, equivalents),
                 "unresolvedEquivalents": unresolved_equivalents,
+                "supplyDropped": supply_dropped,
             },
             indent=2,
             ensure_ascii=False,

@@ -154,6 +154,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)",
         "inventory 20 resolved via {{Cheap prayer}} (price-dependent)",
@@ -314,6 +315,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)",
         "inventory 11 resolved via {{Cheap food}} (price-dependent)",
@@ -478,6 +480,7 @@
         29796
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "inventory 2 resolved via {{Cheap prayer}} (price-dependent)",
         "inventory 5 resolved via {{Cheap prayer}} (price-dependent)",
@@ -652,6 +655,7 @@
         25865
       ],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)",
         "inventory 2 resolved via {{Cheap prayer}} (price-dependent)",
@@ -822,6 +826,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)",
         "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",

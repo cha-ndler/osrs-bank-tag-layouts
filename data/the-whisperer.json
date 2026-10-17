@@ -262,6 +262,7 @@
           "id": 805
         }
       ],
+      "supplies": [],
       "warnings": [
         "Super restore -> Super restore(4)",
         "inventory 6 resolved via {{Cheap food}} (price-dependent)",

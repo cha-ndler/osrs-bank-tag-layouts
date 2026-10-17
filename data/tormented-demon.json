@@ -157,6 +157,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Super combat potion -> Super combat potion(4)",
         "inventory 10 resolved via {{Cheap prayer}} (price-dependent)",
@@ -318,6 +319,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "Super combat potion -> Super combat potion(4)",
         "Ranging potion -> Ranging potion(4)",
@@ -483,6 +485,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "inventory 13 resolved via {{Cheap prayer}} (price-dependent)",
         "inventory 14 resolved via {{Cheap prayer}} (price-dependent)",
@@ -654,6 +657,7 @@
       "alternatives": {},
       "twoHandedWeapons": [],
       "switches": [],
+      "supplies": [],
       "warnings": [
         "inventory 13 resolved via {{Cheap prayer}} (price-dependent)",
         "inventory 14 resolved via {{Cheap prayer}} (price-dependent)",

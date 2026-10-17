@@ -5,6 +5,7 @@ generator/slots.json
 generator/corpus.json
 generator/setups.json
 generator/encoded.json
+generator/supplies.json
 
 # Scratch scripts
 generator/_*.py

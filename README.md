@@ -294,6 +294,32 @@ Choosing by whichever sat nearer the inventory made the winner an accident of
 typing order, which is how The Hueycoatl published a melee layout wearing
 nothing but a weapon.
 
+### Treasure Trails: the whole clue, not just the first step
+
+A clue's starting inventory is not everything it asks for. Falo the Bard wants to
+see one item per verse, Sherlock sets a skilling task, and an emote step needs a
+STASH unit you may not have built. So each Treasure Trails layout carries rows
+of those items below the grid: one blank row, then each group on rows of its own.
+
+| Group | Tiers | Source |
+|---|---|---|
+| Bank | every tier that has one | the tier's `Bank` table on Treasure Trails/Strategies |
+| STASH unit | all except free-to-play beginner | the STASH build recipe: planks, nails (any metal except dragon), hammer, saw, and gold leaf at master |
+| Falo the Bard | master | the first item the wiki lists for each verse |
+| Sherlock | elite, master | the items each challenge names, read from the requirement and not its notes |
+
+Falo accepts more than one item for some verses. Forms of the same item, such as
+Dragon scimitar (or) or Infernal axe (or), are variants the tag already accepts.
+Separate items are not: the other god books, Bow of Faerdhinen for the crystal
+bow, Avernic defender, the other Ivandis weapons and the (bh) anchor. Only the
+first one listed is tagged.
+
+Each group in `supplies` records the page and revision it came from, because a
+change to Falo's page changes the Master layout while the Strategies revision
+stays put. An item already in the layout, or in an earlier group, appears once.
+Names the wiki does not resolve to an item, such as outfits or generic
+"Pickaxe" pages, are listed under `supplyDropped` in `report.json`, not guessed.
+
 ### `{{Loadout}}` pages
 
 Since September 2026 some guides (Zulrah, Treasure Trails) write each setup as

@@ -216,6 +216,7 @@
           "id": 27665
         }
       ],
+      "supplies": [],
       "warnings": [
         "Saradomin brew -> Saradomin brew(4)",
         "Super restore -> Super restore(4)"
@@ -470,6 +471,7 @@
           "id": 28922
         }
       ],
+      "supplies": [],
       "warnings": [
         "inventory 17 resolved via {{Cheap food}} (price-dependent)",
         "inventory 18 resolved via {{Cheap food}} (price-dependent)",
