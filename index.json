@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-17T18:38:16Z",
+  "generatedAt": "2026-10-19T12:45:55Z",
   "activityCount": 105,
-  "layoutCount": 345,
+  "layoutCount": 349,
   "activities": [
     {
       "activity": "Abyss",
@@ -79,9 +79,9 @@
       "activity": "Barbarian Assault",
       "slug": "barbarian-assault",
       "file": "data/barbarian-assault.json",
-      "variantCount": 2,
-      "sourceRevId": 15316197,
-      "contentHash": "d5427157150ce2c8"
+      "variantCount": 6,
+      "sourceRevId": 15375465,
+      "contentHash": "668cb6d59a76dd0e"
     },
     {
       "activity": "Barrows",
@@ -568,8 +568,8 @@
       "slug": "sarachnis",
       "file": "data/sarachnis.json",
       "variantCount": 3,
-      "sourceRevId": 15319183,
-      "contentHash": "e63dfa42dea122aa"
+      "sourceRevId": 15375372,
+      "contentHash": "58f42825aa385e74"
     },
     {
       "activity": "Scorpia",
@@ -753,7 +753,7 @@
       "file": "data/treasure-trails.json",
       "variantCount": 9,
       "sourceRevId": 15360896,
-      "contentHash": "7bdcee30d86ddb7e"
+      "contentHash": "d941b357993525ae"
     },
     {
       "activity": "TzHaar Fight Cave",

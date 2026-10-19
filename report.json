@@ -1,10 +1,10 @@
 {
-  "layouts": 345,
-  "completeRatio": 0.8725,
+  "layouts": 349,
+  "completeRatio": 0.8682,
   "completeBaseline": 290,
   "completenessCounts": {
-    "complete": 301,
-    "minimal": 32,
+    "complete": 303,
+    "minimal": 34,
     "partial": 12
   },
   "activities": 105,
@@ -5107,8 +5107,10 @@
       "'Low Risk': dropped off-hand Book of Law - Toxic blowpipe is two-handed"
     ],
     "Barbarian Assault/Strategies": [
-      "1 unpaired {{Equipment}} in 'Ranged' ignored (2 equipment vs 1 inventory)",
-      "1 unpaired {{Equipment}} in 'Melee (mid level)' ignored (2 equipment vs 1 inventory)"
+      "1 unpaired {{Equipment}} in 'Ranged (High level)' ignored (2 equipment vs 1 inventory)",
+      "1 unpaired {{Equipment}} in 'Ranged (Low level)' ignored (2 equipment vs 1 inventory)",
+      "1 unpaired {{Equipment}} in 'Melee' ignored (2 equipment vs 1 inventory)",
+      "1 unpaired {{Equipment}} in 'Non-attacker Equipment' ignored (1 equipment vs 3 inventory)"
     ],
     "Barrows/Strategies": [
       "1 unpaired {{Equipment}} in 'Magic (Low level)' ignored (2 equipment vs 1 inventory)",
@@ -5696,6 +5698,7 @@
     "Stamina potion -> Stamina potion(4)",
     "Super attack -> Super attack(4)",
     "Super combat potion -> Super combat potion(4)",
+    "Super defence -> Super defence(4)",
     "Super restore -> Super restore(4)",
     "Super strength -> Super strength(4)",
     "Superantipoison -> Superantipoison(4)",
