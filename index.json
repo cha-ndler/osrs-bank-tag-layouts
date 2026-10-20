@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-19T12:45:55Z",
-  "activityCount": 105,
-  "layoutCount": 349,
+  "generatedAt": "2026-10-20T21:05:10Z",
+  "activityCount": 106,
+  "layoutCount": 351,
   "activities": [
     {
       "activity": "Abyss",
@@ -658,6 +658,14 @@
       "variantCount": 4,
       "sourceRevId": 15328452,
       "contentHash": "94a2982bdca3921e"
+    },
+    {
+      "activity": "The Fractured Archive",
+      "slug": "the-fractured-archive",
+      "file": "data/the-fractured-archive.json",
+      "variantCount": 2,
+      "sourceRevId": 15378044,
+      "contentHash": "00a9bc38234d5853"
     },
     {
       "activity": "The Gauntlet",

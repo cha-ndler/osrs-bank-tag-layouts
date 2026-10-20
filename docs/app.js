@@ -177,6 +177,7 @@ function renderGrid(entry, choices) {
     groupAt.set(g.start, g);
     g.items.forEach((item, n) => names.set(g.start + n, item.name));
   }
+  for (const p of built.prepotAt) names.set(p.pos, `Prepot: ${p.name}`);
 
   for (let i = 0; i < cells; i++) {
     const g = groupAt.get(i);

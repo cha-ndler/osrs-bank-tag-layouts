@@ -97,7 +97,8 @@ Two exceptions:
 - **Different names need a list.** RuneLite links variants by name, so nothing
   connects an Infernal cape to an Infernal max cape. `equivalents.json` lists
   those pairs: max-cape combinations, imbued god capes, Dizana's quiver and its
-  blessed and max forms. They are tagged, so they show in the tab, but RuneLite
+  blessed and max forms, and ornament kits that rename an item (Sanguine
+  torva, Twisted ancestral). They are tagged, so they show in the tab, but RuneLite
   can't put them in the original's slot; they go in the next free one. Upgrades
   with different stats (Avernic defender, Abyssal tentacle) are not listed. A
   name that stops resolving on the wiki fails the build.
@@ -164,6 +165,7 @@ exactly the items it failed to find.
       "inventory":  { "1": 6746 },
       "runes":      { "1": 560 },
       "switches":   [{ "name": "Voidwaker", "id": 27690 }],
+      "prepots":    [],
       "warnings":   ["Saradomin brew -> Saradomin brew(4)"]
     }
   ]
@@ -176,11 +178,16 @@ map alone and rebuilds whichever string you asked for in the browser.
 `equipment` / `inventory` / `runes` are the same data split by section.
 `switches` sits beside them: spec weapons the guide expects you to bring, which
 occupy no worn slot and so appear in no position.
+`prepots` lists potions drunk before the fight, as `{name, id}`. Unlike switches
+they are laid out, since you bank them with the setup: in the row under the
+inventory (positions 60-63) in presets, and straight after the worn items in
+zigzag, where a full set of gear leaves exactly four free cells. Only curated
+setups carry any (see below); the wiki's templates have no field for them.
 
 ## How it works
 
 ```
-discover → extract → overrides → encode → validate → publish
+discover → extract → overrides → curated → encode → validate → publish
 ```
 
 - **discover** — finds every article-space page transcluding `Template:Inventory`
@@ -194,6 +201,8 @@ discover → extract → overrides → encode → validate → publish
   shared inventory in a sibling section (Abyss, Gemstone Crab).
 - **overrides** — applies the curated corrections in `overrides.json` (see below).
   Nothing else in the pipeline second-guesses the wiki.
+- **curated** — adds the whole hand-written setups in `curated.json` for
+  activities whose page has none yet (see below).
 - **encode** — hands a synthesised `{{Loadout}}` call back to the wiki through
   `action=expandtemplates`, so `Module:Loadout` does the name-to-id resolution.
   No second implementation to keep in sync.
@@ -272,6 +281,27 @@ correction is never passed off as the wiki's own answer.
 The file is designed to clean itself up. An override that matches nothing —
 because the wiki has caught up — **fails the build**, which forces the entry to be
 deleted rather than left to become a second source of staleness.
+
+### When the wiki has no setup yet
+
+A new activity's strategy page starts as prose and an empty tabber. Extraction
+finds nothing, so the library would skip the activity until someone writes a
+loadout on the wiki, which for a new raid can take weeks.
+
+**`curated.json`** covers that gap with whole setups written by hand: the
+activity, the strategy page it stands in for, the reason it exists, and each
+variant's gear, inventory and rune pouch **by item name**, plus any prepots.
+The `curated` stage appends them as if extraction had found them on that page,
+so the names still go through `Module:Loadout` for their ids, the page's live
+revision is recorded, and the layouts are badged `curated` with the reason.
+
+Like an override, an entry is meant to go away:
+
+- Once the page carries a setup of its own, or discovery finds the activity,
+  the entry **fails the build**, and it should be deleted in favour of the
+  wiki's.
+- A name that no longer resolves to an item fails the build too. The wiki drops
+  such a slot without a word, which a hand-written layout cannot afford.
 
 ### Two equipment templates
 

@@ -102,6 +102,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -152,6 +153,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -265,6 +267,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -327,6 +330,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     }
   ]

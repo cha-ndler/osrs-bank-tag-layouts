@@ -16,8 +16,10 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "generator"))
 
+from curated import add_curated  # noqa: E402
 from encode import (  # noqa: E402
     LOADOUT_MAP,
+    PREPOT_POSITIONS,
     build_hub_import_string,
     build_official_import_string,
     completeness,
@@ -25,6 +27,7 @@ from encode import (  # noqa: E402
     parse_import_string,
     parse_loadout_map,
     parse_official_import_string,
+    place_prepots,
     relay_positions,
     split_layout,
     tag_name,
@@ -64,7 +67,12 @@ from supplies import (  # noqa: E402
     sherlock_items,
     stash_materials,
 )
-from validate import COMPLETE_BASELINE, completeness_errors, equivalence_errors  # noqa: E402
+from validate import (  # noqa: E402
+    COMPLETE_BASELINE,
+    completeness_errors,
+    curated_errors,
+    equivalence_errors,
+)
 
 # Injected instead of the real wiki slot index so nothing here needs the network.
 TWO_HANDED = {"tumeken's shadow", "scythe of vitur", "twisted bow"}
@@ -848,6 +856,186 @@ class TestOverrides(unittest.TestCase):
         self.assertFalse(targets(rule, "Abyss", "Defensive"))
         self.assertTrue(targets(rule, "Abyss", "Graceful"))
         self.assertFalse(targets(rule, "Zulrah", "Graceful"))
+
+
+class TestCurated(unittest.TestCase):
+    """Whole setups for an activity the wiki has no loadout for yet."""
+
+    ENTRY = {
+        "activity": "The Fractured Archive",
+        "sourcePage": "The Fractured Archive/Strategies",
+        "reason": "Curated from launch-day play; the wiki had no loadout yet.",
+        "prepots": ["Divine ranging potion(4)", "Saturated heart"],
+        "setups": [
+            {
+                "variant": "Setup",
+                "equipment": {"weapon": "Zaryte crossbow"},
+                "inventory": {"1": "Twisted bow"},
+                "runes": {"1": "Blood rune"},
+            }
+        ],
+    }
+    # What the page looked like on release day: an empty equipment tabber.
+    EMPTY = "==Equipment==\n<tabber>\n\n</tabber>\n==Bosses==\nProse only."
+    CAUGHT_UP = (
+        "==Equipment==\n<tabber>\nMax=\n{{Loadout\n|weapon = Twisted bow\n"
+        "|1 = Shark\n}}\n</tabber>"
+    )
+
+    def _doc(self, pages=None, empty=None):
+        return {"pages": pages or [], "emptyPages": empty or []}
+
+    def _fetch(self, text, rev=123):
+        return lambda title: (text, rev)
+
+    def test_an_entry_becomes_a_page_shaped_like_extraction(self):
+        doc = self._doc()
+        notes = add_curated(doc, [self.ENTRY], self._fetch(self.EMPTY, 15378036))
+        self.assertEqual(notes, [])
+        page = doc["pages"][0]
+        self.assertEqual(page["page"], "The Fractured Archive/Strategies")
+        # The live revision of the page it stands in for, so provenance says
+        # which version of the page had nothing to offer.
+        self.assertEqual(page["revId"], 15378036)
+        setup = page["setups"][0]
+        self.assertEqual(setup["variant"], "Setup")
+        self.assertEqual(setup["equipment"], {"weapon": "Zaryte crossbow"})
+        self.assertEqual(setup["prepots"], ["Divine ranging potion(4)", "Saturated heart"])
+        self.assertEqual(setup["alternatives"], {})
+        self.assertEqual(setup["switches"], [])
+        self.assertTrue(setup["curated"])
+        self.assertEqual(setup["curationReason"], self.ENTRY["reason"])
+
+    def test_the_page_is_no_longer_reported_as_yielding_nothing(self):
+        title = self.ENTRY["sourcePage"]
+        doc = self._doc(
+            pages=[{"page": title, "revId": 1, "warnings": [], "setups": []}],
+            empty=[title],
+        )
+        add_curated(doc, [self.ENTRY], self._fetch(self.EMPTY))
+        self.assertEqual(doc["emptyPages"], [])
+        self.assertEqual([p["page"] for p in doc["pages"]], [title])
+        self.assertEqual(len(doc["pages"][0]["setups"]), 1)
+
+    def test_an_entry_retires_once_the_page_has_a_setup(self):
+        # The same contract as an override that stopped matching: the wiki has
+        # caught up, so the build fails until the entry is deleted.
+        doc = self._doc()
+        notes = add_curated(doc, [self.ENTRY], self._fetch(self.CAUGHT_UP))
+        self.assertEqual(doc["pages"], [])
+        self.assertEqual(len(notes), 1)
+        self.assertIn("The Fractured Archive", notes[0])
+
+    def test_an_entry_retires_once_discovery_finds_the_activity(self):
+        discovered = {
+            "page": "The Fractured Archive/Strategies",
+            "revId": 2,
+            "warnings": [],
+            "setups": [{"variant": "Max", "equipment": {}, "inventory": {"1": "Shark"},
+                        "runes": {}}],
+        }
+        doc = self._doc(pages=[discovered])
+        notes = add_curated(doc, [self.ENTRY], self._fetch(self.EMPTY))
+        self.assertEqual(doc["pages"], [discovered])
+        self.assertEqual(len(notes), 1)
+
+
+class TestPrepots(unittest.TestCase):
+    """Potions drunk before the fight: banked beside the layout, never carried."""
+
+    EQUIPMENT = {
+        "head": 26382, "cape": 28951, "neck": 33639, "ammo": 33595, "ammo2": 21944,
+        "weapon": 26374, "torso": 27238, "shield": 21000, "legs": 27241,
+        "gloves": 22981, "boots": 31097, "ring": 28307,
+    }
+    INVENTORY = dict(zip(
+        (str(n) for n in range(1, 29)),
+        (30634, 21021, 20714, 33631, 12002, 21024, 28313, 22325, 24420, 29801,
+         13441, 21295, 24421, 20997, 13441, 6685, 6685, 6685, 10925, 6685, 6685,
+         10925, 10925, 6685, 6685, 10925, 27281, 28922),
+    ))
+    RUNES = {"1": 21880, "2": 565, "3": 4696}
+    PREPOTS = [23685, 23733, 23745, 27641]
+
+    # The Fractured Archive's layout as first built and checked by hand: the
+    # prepots fill the four gear-band cells the twelve worn items leave free.
+    REFERENCE = (
+        "banktaglayoutsplugin:The Fractured Archive,26382:0,33639:1,27238:2,27241:3,"
+        "31097:4,33595:5,23685:6,23745:7,28951:8,26374:9,21000:10,22981:11,28307:12,"
+        "21944:13,23733:14,27641:15,30634:16,20714:17,12002:18,28313:19,24420:20,"
+        "13441:21,24421:22,13441:23,21021:24,33631:25,21024:26,22325:27,29801:28,"
+        "21295:29,20997:30,6685:31,6685:32,10925:33,6685:34,10925:35,6685:36,"
+        "27281:37,6685:40,6685:41,10925:42,6685:43,10925:44,28922:45,21880:48,"
+        "565:49,4696:50,banktag:The Fractured Archive,26374"
+    )
+
+    def test_zigzag_puts_prepots_straight_after_the_worn_items(self):
+        layout = zigzag_layout(self.EQUIPMENT, self.INVENTORY, self.RUNES, self.PREPOTS)
+        self.assertEqual(layout, parse_hub_import_string(self.REFERENCE)["layout"])
+
+    def test_without_prepots_zigzag_is_unchanged(self):
+        self.assertEqual(
+            zigzag_layout(self.EQUIPMENT, self.INVENTORY, self.RUNES, []),
+            zigzag_layout(self.EQUIPMENT, self.INVENTORY, self.RUNES),
+        )
+
+    def test_presets_put_prepots_in_the_row_under_the_inventory(self):
+        out = place_prepots({"4": 1}, self.PREPOTS)
+        self.assertEqual(
+            out, {"4": 1, "60": 23685, "61": 23733, "62": 23745, "63": 27641}
+        )
+        # Row 7, the inventory's four columns: below slot 25-28, clear of the
+        # rune pouch and of every LOADOUT_MAP position.
+        self.assertEqual(PREPOT_POSITIONS, (60, 61, 62, 63))
+        self.assertFalse(set(PREPOT_POSITIONS) & set(LOADOUT_MAP))
+
+    def test_more_prepots_than_the_row_holds_is_refused(self):
+        with self.assertRaises(ValueError):
+            place_prepots({}, [1, 2, 3, 4, 5])
+
+
+class TestCuratedErrors(unittest.TestCase):
+    """A curated name that stops resolving must fail, not vanish."""
+
+    def _entry(self, **over):
+        entry = {
+            "activity": "The Fractured Archive",
+            "variant": "Setup",
+            "curated": True,
+            "sourceNames": {
+                "equipment": {"weapon": "Zaryte crossbow"},
+                "inventory": {"1": "Twisted bow", "2": "Obligator"},
+                "runes": {"1": "Blood rune"},
+            },
+            "equipment": {"weapon": 26374},
+            "inventory": {"1": 20997, "2": 34715},
+            "runes": {"1": 565},
+            "sourcePrepots": ["Saturated heart"],
+            "prepots": [{"name": "Saturated heart", "id": 27641}],
+        }
+        entry.update(over)
+        return entry
+
+    def test_a_fully_resolved_entry_passes(self):
+        self.assertEqual(curated_errors(self._entry()), [])
+
+    def test_a_slot_the_wiki_dropped_is_reported(self):
+        # Module:Loadout drops a name it cannot resolve without a word, so
+        # nothing else would notice the Obligator going missing.
+        errors = curated_errors(self._entry(inventory={"1": 20997}))
+        self.assertEqual(len(errors), 1)
+        self.assertIn("Obligator", errors[0])
+
+    def test_a_prepot_the_wiki_dropped_is_reported(self):
+        errors = curated_errors(self._entry(prepots=[]))
+        self.assertEqual(len(errors), 1)
+        self.assertIn("Saturated heart", errors[0])
+
+    def test_wiki_layouts_are_not_held_to_it(self):
+        # {{Cheap food}} and friends legitimately resolve to nothing at times.
+        self.assertEqual(
+            curated_errors(self._entry(curated=False, inventory={"1": 20997})), []
+        )
 
 
 class TestRunePouchPairing(unittest.TestCase):

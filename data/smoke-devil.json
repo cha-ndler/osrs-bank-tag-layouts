@@ -119,6 +119,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "inventory 2 resolved via {{Cheap prayer}} (price-dependent)",
         "inventory 3 resolved via {{Cheap prayer}} (price-dependent)"

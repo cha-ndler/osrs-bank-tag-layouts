@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "_comment": "Whole setups for activities whose strategy page has no loadout yet. Appended by generator/curated.py as if extraction had found them on sourcePage, so every name still resolves through the wiki's Module:Loadout. A stopgap, not a second source: once the wiki publishes a setup for the activity, validation fails the build and the entry should be deleted. A name that stops resolving fails it too. prepots are potions drunk before the fight, banked beside the layout (at most four).",
+  "curated": [
+    {
+      "activity": "The Fractured Archive",
+      "sourcePage": "The Fractured Archive/Strategies",
+      "reason": "Curated from launch-day play on 20 October 2026, because the wiki had no loadout for the raid yet. A hybrid ranged base (Twisted bow, worn Zaryte crossbow) with an Inquisitor's switch for crush, the weakest defence on nearly every boss. The Twinflame staff with a Tome of fire casts the waves that hit the bosses' elemental weaknesses, using blood runes, and dust runes cover earth spells for the Guardian battery and the Smorks. Ruby dragon bolts (e) sit in the quiver so the worn crossbow can fire. Tonalztics of Ralos is there because Ocellus keeps defence reductions across phases, and Sanfew serums cover Dreadnoth's venom tiles. The Obligator variant swaps the Scythe of vitur for the Obligator.",
+      "prepots": [
+        "Divine super combat potion(4)",
+        "Divine ranging potion(4)",
+        "Divine magic potion(4)",
+        "Saturated heart"
+      ],
+      "setups": [
+        {
+          "variant": "Setup",
+          "equipment": {
+            "head": "Torva full helm",
+            "cape": "Dizana's quiver",
+            "neck": "Necklace of rupture",
+            "ammo": "Seeking dragon arrow",
+            "ammo2": "Ruby dragon bolts (e)",
+            "weapon": "Zaryte crossbow",
+            "torso": "Masori body (f)",
+            "shield": "Twisted buckler",
+            "legs": "Masori chaps (f)",
+            "gloves": "Ferocious gloves",
+            "boots": "Avernic treads (max)",
+            "ring": "Ultor ring"
+          },
+          "inventory": {
+            "1": "Twinflame staff",
+            "2": "Ancestral robe top",
+            "3": "Tome of fire",
+            "4": "Crimson kisten",
+            "5": "Occult necklace",
+            "6": "Ancestral robe bottom",
+            "7": "Magus ring",
+            "8": "Scythe of vitur",
+            "9": "Inquisitor's hauberk",
+            "10": "Amulet of rancour",
+            "11": "Anglerfish",
+            "12": "Infernal cape",
+            "13": "Inquisitor's plateskirt",
+            "14": "Twisted bow",
+            "15": "Anglerfish",
+            "16": "Saradomin brew(4)",
+            "17": "Saradomin brew(4)",
+            "18": "Saradomin brew(4)",
+            "19": "Sanfew serum(4)",
+            "20": "Saradomin brew(4)",
+            "21": "Saradomin brew(4)",
+            "22": "Sanfew serum(4)",
+            "23": "Sanfew serum(4)",
+            "24": "Saradomin brew(4)",
+            "25": "Saradomin brew(4)",
+            "26": "Sanfew serum(4)",
+            "27": "Divine rune pouch",
+            "28": "Tonalztics of ralos"
+          },
+          "runes": {
+            "1": "Wrath rune",
+            "2": "Blood rune",
+            "3": "Dust rune"
+          }
+        },
+        {
+          "variant": "Obligator",
+          "equipment": {
+            "head": "Torva full helm",
+            "cape": "Dizana's quiver",
+            "neck": "Necklace of rupture",
+            "ammo": "Seeking dragon arrow",
+            "ammo2": "Ruby dragon bolts (e)",
+            "weapon": "Zaryte crossbow",
+            "torso": "Masori body (f)",
+            "shield": "Twisted buckler",
+            "legs": "Masori chaps (f)",
+            "gloves": "Ferocious gloves",
+            "boots": "Avernic treads (max)",
+            "ring": "Ultor ring"
+          },
+          "inventory": {
+            "1": "Twinflame staff",
+            "2": "Ancestral robe top",
+            "3": "Tome of fire",
+            "4": "Crimson kisten",
+            "5": "Occult necklace",
+            "6": "Ancestral robe bottom",
+            "7": "Magus ring",
+            "8": "Obligator",
+            "9": "Inquisitor's hauberk",
+            "10": "Amulet of rancour",
+            "11": "Anglerfish",
+            "12": "Infernal cape",
+            "13": "Inquisitor's plateskirt",
+            "14": "Twisted bow",
+            "15": "Anglerfish",
+            "16": "Saradomin brew(4)",
+            "17": "Saradomin brew(4)",
+            "18": "Saradomin brew(4)",
+            "19": "Sanfew serum(4)",
+            "20": "Saradomin brew(4)",
+            "21": "Saradomin brew(4)",
+            "22": "Sanfew serum(4)",
+            "23": "Sanfew serum(4)",
+            "24": "Saradomin brew(4)",
+            "25": "Saradomin brew(4)",
+            "26": "Sanfew serum(4)",
+            "27": "Divine rune pouch",
+            "28": "Tonalztics of ralos"
+          },
+          "runes": {
+            "1": "Wrath rune",
+            "2": "Blood rune",
+            "3": "Dust rune"
+          }
+        }
+      ]
+    }
+  ]
+}

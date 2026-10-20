@@ -133,6 +133,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Stamina potion -> Stamina potion(4)"
       ]
@@ -270,6 +271,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -336,6 +338,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -466,6 +469,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -593,6 +597,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     }
   ]

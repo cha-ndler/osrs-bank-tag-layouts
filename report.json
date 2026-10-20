@@ -1,13 +1,13 @@
 {
-  "layouts": 349,
-  "completeRatio": 0.8682,
+  "layouts": 351,
+  "completeRatio": 0.8689,
   "completeBaseline": 290,
   "completenessCounts": {
-    "complete": 303,
+    "complete": 305,
     "minimal": 34,
     "partial": 12
   },
-  "activities": 105,
+  "activities": 106,
   "activityBaseline": 99,
   "layoutBaseline": 330,
   "encodeFailures": [],
@@ -5428,6 +5428,14 @@
     {
       "layout": "Abyss / Graceful",
       "reason": "The colossal pouch is made by stitching the small, medium, large and giant pouches together, which consumes them, so a player cannot carry both. It holds 40 essence in one inventory slot against 30 across four. The Abyss strategy page predates it and never mentions it; Guardians of the Rift lists both tiers."
+    },
+    {
+      "layout": "The Fractured Archive / Setup",
+      "reason": "Curated from launch-day play on 20 October 2026, because the wiki had no loadout for the raid yet. A hybrid ranged base (Twisted bow, worn Zaryte crossbow) with an Inquisitor's switch for crush, the weakest defence on nearly every boss. The Twinflame staff with a Tome of fire casts the waves that hit the bosses' elemental weaknesses, using blood runes, and dust runes cover earth spells for the Guardian battery and the Smorks. Ruby dragon bolts (e) sit in the quiver so the worn crossbow can fire. Tonalztics of Ralos is there because Ocellus keeps defence reductions across phases, and Sanfew serums cover Dreadnoth's venom tiles. The Obligator variant swaps the Scythe of vitur for the Obligator."
+    },
+    {
+      "layout": "The Fractured Archive / Obligator",
+      "reason": "Curated from launch-day play on 20 October 2026, because the wiki had no loadout for the raid yet. A hybrid ranged base (Twisted bow, worn Zaryte crossbow) with an Inquisitor's switch for crush, the weakest defence on nearly every boss. The Twinflame staff with a Tome of fire casts the waves that hit the bosses' elemental weaknesses, using blood runes, and dust runes cover earth spells for the Guardian battery and the Smorks. Ruby dragon bolts (e) sit in the quiver so the worn crossbow can fire. Tonalztics of Ralos is there because Ocellus keeps defence reductions across phases, and Sanfew serums cover Dreadnoth's venom tiles. The Obligator variant swaps the Scythe of vitur for the Obligator."
     }
   ],
   "partialDoseAccepted": [

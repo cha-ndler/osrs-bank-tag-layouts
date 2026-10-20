@@ -282,6 +282,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "inventory 7 resolved via {{Cheap food}} (price-dependent)",
         "inventory 8 resolved via {{Cheap food}} (price-dependent)",
@@ -567,6 +568,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "inventory 8 resolved via {{Cheap food}} (price-dependent)",
         "inventory 9 resolved via {{Cheap food}} (price-dependent)",

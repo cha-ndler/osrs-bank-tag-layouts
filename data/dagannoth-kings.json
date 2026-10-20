@@ -148,6 +148,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -292,6 +293,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -436,6 +438,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Ranging potion -> Ranging potion(4)",
         "Super combat potion -> Super combat potion(4)",
@@ -587,6 +590,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Prayer potion -> Prayer potion(4)"
       ]

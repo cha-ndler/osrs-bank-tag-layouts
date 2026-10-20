@@ -252,6 +252,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Games necklace -> Games necklace(8)"
       ]
@@ -479,6 +480,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     }
   ]

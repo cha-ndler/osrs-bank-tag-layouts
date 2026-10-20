@@ -166,6 +166,8 @@ def main() -> None:
                     # Items a clue's later steps ask for, laid out below the
                     # grid, each group with the page and revision it came from.
                     "supplies": e.get("supplies", []),
+                    # Potions drunk before the fight, banked beside the layout.
+                    "prepots": e.get("prepots", []),
                     "warnings": e["warnings"],
                 }
                 for e in entries
@@ -216,6 +218,8 @@ def main() -> None:
                     "switches": e["switches"],
                     # layout.js re-lays these below the grid after a swap.
                     "supplies": e.get("supplies", []),
+                    # Likewise, beside the worn items or under the inventory.
+                    "prepots": e.get("prepots", []),
                     "warnings": e["warnings"],
                 }
             )
