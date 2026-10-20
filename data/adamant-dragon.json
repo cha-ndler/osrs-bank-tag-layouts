@@ -231,6 +231,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Digsite pendant -> Digsite pendant (5)",
         "Antidote++ -> Antidote++(4)"
@@ -448,6 +449,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -683,6 +685,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Digsite pendant -> Digsite pendant (5)",
         "Antidote++ -> Antidote++(4)"
@@ -921,6 +924,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Digsite pendant -> Digsite pendant (5)",
         "Antidote++ -> Antidote++(4)"

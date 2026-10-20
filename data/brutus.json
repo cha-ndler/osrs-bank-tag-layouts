@@ -150,6 +150,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -321,6 +322,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -575,6 +577,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -733,6 +736,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     }
   ]

@@ -284,6 +284,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
         "inventory 2 resolved via {{Cheap prayer}} (price-dependent)",
@@ -566,6 +567,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
         "inventory 2 resolved via {{Cheap prayer}} (price-dependent)",
@@ -829,6 +831,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
         "Necklace of passage -> Necklace of passage(5)",

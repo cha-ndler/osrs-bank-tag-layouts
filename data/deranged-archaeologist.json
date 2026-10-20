@@ -202,6 +202,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Digsite pendant -> Digsite pendant (5)",
         "Ring of dueling -> Ring of dueling(8)"

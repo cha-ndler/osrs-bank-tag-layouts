@@ -185,6 +185,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Super restore -> Super restore(4)"
       ]
@@ -422,6 +423,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Menaphite remedy -> Menaphite remedy(4)",
         "Zamorak brew -> Zamorak brew(4)",
@@ -684,6 +686,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
         "Super restore -> Super restore(4)"
@@ -962,6 +965,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Super strength -> Super strength(4)",
         "Menaphite remedy -> Menaphite remedy(4)",

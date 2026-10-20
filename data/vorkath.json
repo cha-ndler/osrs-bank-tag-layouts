@@ -140,6 +140,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "inventory 6 resolved via {{Cheap prayer}} (price-dependent)",
         "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",
@@ -308,6 +309,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "inventory 8 resolved via {{Cheap prayer}} (price-dependent)",
         "inventory 9 resolved via {{Cheap food}} (price-dependent)",
@@ -478,6 +480,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Extended anti-venom+ -> Extended anti-venom+(4)",
         "Guthix rest -> Guthix rest(4)",

@@ -233,6 +233,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Games necklace -> Games necklace(8)",
         "inventory 10 resolved via {{Cheap food}} (price-dependent)",
@@ -495,6 +496,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Games necklace -> Games necklace(8)",
         "inventory 10 resolved via {{Cheap food}} (price-dependent)",
@@ -745,6 +747,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "inventory 13 resolved via {{Cheap food}} (price-dependent)",
         "inventory 14 resolved via {{Cheap food}} (price-dependent)",
@@ -983,6 +986,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Games necklace -> Games necklace(8)",
         "inventory 10 resolved via {{Cheap food}} (price-dependent)",

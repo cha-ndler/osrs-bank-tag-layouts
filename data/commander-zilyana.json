@@ -217,6 +217,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Saradomin brew -> Saradomin brew(4)",
         "Super restore -> Super restore(4)"
@@ -472,6 +473,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "inventory 17 resolved via {{Cheap food}} (price-dependent)",
         "inventory 18 resolved via {{Cheap food}} (price-dependent)",

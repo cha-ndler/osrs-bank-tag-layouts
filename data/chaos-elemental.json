@@ -236,6 +236,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -454,6 +455,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Anti-venom -> Anti-venom(4)"
       ]

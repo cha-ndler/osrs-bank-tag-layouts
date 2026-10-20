@@ -181,6 +181,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)",
         "Burning amulet -> Burning amulet(5)"
@@ -349,6 +350,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)",
         "Burning amulet -> Burning amulet(5)"

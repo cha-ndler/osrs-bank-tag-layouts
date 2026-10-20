@@ -161,6 +161,7 @@
           ]
         }
       ],
+      "prepots": [],
       "warnings": [
         "Energy potion -> Energy potion(4)"
       ]
@@ -340,6 +341,7 @@
           ]
         }
       ],
+      "prepots": [],
       "warnings": [
         "Ring of dueling -> Ring of dueling(8)",
         "Stamina potion -> Stamina potion(4)"
@@ -524,6 +526,7 @@
           ]
         }
       ],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -1010,6 +1013,7 @@
           ]
         }
       ],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -1244,6 +1248,7 @@
           ]
         }
       ],
+      "prepots": [],
       "warnings": [
         "Necklace of passage -> Necklace of passage(5)"
       ]
@@ -1378,6 +1383,7 @@
           ]
         }
       ],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -1993,6 +1999,7 @@
           ]
         }
       ],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -2193,6 +2200,7 @@
           ]
         }
       ],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -2405,6 +2413,7 @@
           ]
         }
       ],
+      "prepots": [],
       "warnings": [
         "Necklace of passage -> Necklace of passage(5)",
         "Ring of dueling -> Ring of dueling(8)"

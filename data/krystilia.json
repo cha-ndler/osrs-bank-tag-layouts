@@ -221,6 +221,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Blighted super restore -> Blighted super restore(4)",
         "Saradomin brew -> Saradomin brew(4)",

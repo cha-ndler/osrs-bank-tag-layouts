@@ -148,6 +148,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended antifire -> Extended antifire(4)"
@@ -295,6 +296,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Prayer regeneration potion -> Prayer regeneration potion(4)"
       ]
@@ -440,6 +442,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended antifire -> Extended antifire(4)"
@@ -587,6 +590,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended antifire -> Extended antifire(4)",
@@ -753,6 +757,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended super antifire -> Extended super antifire(4)",
@@ -906,6 +911,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Antidote++ -> Antidote++(4)",
         "Extended antifire -> Extended antifire(4)"

@@ -226,6 +226,7 @@
       "twoHandedWeapons": [],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -436,6 +437,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "inventory 7 resolved via {{Cheap food}} (price-dependent)",
         "inventory 8 resolved via {{Cheap food}} (price-dependent)",
@@ -672,6 +674,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -904,6 +907,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -1098,6 +1102,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     }
   ]

@@ -157,6 +157,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Super combat potion -> Super combat potion(4)",
         "Prayer potion -> Prayer potion(4)"
@@ -316,6 +317,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Divine super combat potion -> Divine super combat potion(4)",
         "Super restore -> Super restore(4)",
@@ -481,6 +483,7 @@
       ],
       "switches": [],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "inventory 6 resolved via {{Cheap food}} (price-dependent)",
         "inventory 7 resolved via {{Cheap food}} (price-dependent)",

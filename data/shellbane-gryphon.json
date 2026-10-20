@@ -279,6 +279,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -507,6 +508,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "Surge potion -> Surge potion(4)",
         "Divine super combat potion -> Divine super combat potion(4)"

@@ -286,6 +286,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "inventory 3 resolved via {{Cheap prayer}} (price-dependent)",
         "inventory 4 resolved via {{Cheap prayer}} (price-dependent)",
@@ -585,6 +586,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": []
     },
     {
@@ -844,6 +846,7 @@
         }
       ],
       "supplies": [],
+      "prepots": [],
       "warnings": [
         "inventory 6 resolved via {{Cheap prayer}} (price-dependent)",
         "inventory 7 resolved via {{Cheap prayer}} (price-dependent)",
