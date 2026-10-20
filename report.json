@@ -1,9 +1,9 @@
 {
-  "layouts": 351,
-  "completeRatio": 0.8689,
+  "layouts": 350,
+  "completeRatio": 0.8686,
   "completeBaseline": 290,
   "completenessCounts": {
-    "complete": 305,
+    "complete": 304,
     "minimal": 34,
     "partial": 12
   },
@@ -5431,11 +5431,7 @@
     },
     {
       "layout": "The Fractured Archive / Setup",
-      "reason": "Curated from launch-day play on 20 October 2026, because the wiki had no loadout for the raid yet. A hybrid ranged base (Twisted bow, worn Zaryte crossbow) with an Inquisitor's switch for crush, the weakest defence on nearly every boss. The Twinflame staff with a Tome of fire casts the waves that hit the bosses' elemental weaknesses, using blood runes, and dust runes cover earth spells for the Guardian battery and the Smorks. Ruby dragon bolts (e) sit in the quiver so the worn crossbow can fire. Tonalztics of Ralos is there because Ocellus keeps defence reductions across phases, and Sanfew serums cover Dreadnoth's venom tiles. The Obligator variant swaps the Scythe of vitur for the Obligator."
-    },
-    {
-      "layout": "The Fractured Archive / Obligator",
-      "reason": "Curated from launch-day play on 20 October 2026, because the wiki had no loadout for the raid yet. A hybrid ranged base (Twisted bow, worn Zaryte crossbow) with an Inquisitor's switch for crush, the weakest defence on nearly every boss. The Twinflame staff with a Tome of fire casts the waves that hit the bosses' elemental weaknesses, using blood runes, and dust runes cover earth spells for the Guardian battery and the Smorks. Ruby dragon bolts (e) sit in the quiver so the worn crossbow can fire. Tonalztics of Ralos is there because Ocellus keeps defence reductions across phases, and Sanfew serums cover Dreadnoth's venom tiles. The Obligator variant swaps the Scythe of vitur for the Obligator."
+      "reason": "Curated from launch-day play on 20 October 2026, because the wiki had no loadout for the raid yet. Min/maxed: the best overall item is worn for the whole raid (Twisted bow in Masori), and a switch earns an inventory slot only for a boss it is needed on. Crush is the weakest defence on nearly every boss, so a four-item melee swap (Scythe of vitur, the Inquisitor's hauberk and plateskirt, Amulet of rancour) covers the downed Guardian, Bork, Xarth's second phase and Ocellus's final quadrant, which requires melee. The Twinflame staff with a Tome of fire makes two utility casts: water on Xarth's corpses, air on Ezekiel's swords and earth on the Guardian battery. Those targets have Magic levels of 50-100, so the casts land from Masori without a mage switch. Tonalztics of Ralos is the spec, because Ocellus keeps defence reductions across phases. Sanfew serums cover Dreadnoth's venom tiles, and every other freed slot goes to supplies. Dropped as too small an upgrade for a slot: the mage armour switch (the casts are utility only), the Zaryte crossbow, Twisted buckler and ruby bolts (the Twisted bow out-damages them over a fight, and Ralos covers the spec), and the Infernal cape (+8 melee strength over Dizana's quiver, for a whole slot)."
     }
   ],
   "partialDoseAccepted": [
