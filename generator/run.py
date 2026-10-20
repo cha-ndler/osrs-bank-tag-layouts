@@ -1,4 +1,4 @@
-"""Run the pipeline: discover -> extract -> overrides -> encode -> validate -> publish.
+"""Run the pipeline: discover -> extract -> overrides -> curated -> encode -> validate -> publish.
 
 Exits non-zero if validation finds anything wrong, so CI refuses to publish a
 broken library rather than quietly shipping it.
@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import sys
 
+import curated
 import discover
 import encode
 import extract
@@ -44,7 +45,7 @@ def main() -> int:
         ITEMS.unlink(missing_ok=True)
         SLOTS.unlink(missing_ok=True)
 
-    for stage in (discover, extract, overrides, supplies, encode):
+    for stage in (discover, extract, overrides, curated, supplies, encode):
         stage.main()
 
     code = validate.validate()

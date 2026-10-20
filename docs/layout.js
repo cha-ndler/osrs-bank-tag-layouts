@@ -64,17 +64,25 @@
     return equipment;
   }
 
-  /** {layout, slots, equipment} for a card in the given style. */
+  // Port of encode.PREPOT_POSITIONS: the row under the inventory, in its columns.
+  const PREPOT_POSITIONS = [60, 61, 62, 63];
+
+  /** {layout, slots, equipment, prepotAt} for a card in the given style. */
   function buildLayout(entry, choices, style, loadoutMap, zigzagOrder) {
     const equipment = wornItems(entry, choices);
     const inventory = entry.inventory || {};
     const runes = entry.runes || {};
+    const prepots = entry.prepots || [];
     const layout = {};
     const slots = {};
+    const prepotAt = [];
 
     if (style === 'zigzag') {
       const order = zigzagOrder.filter((s) => equipment[s]);
-      let i = place(order.map((s) => equipment[s]), layout, slots, order, 0, true);
+      // Prepots follow the worn items in the same run, as in encode.zigzag_layout.
+      const worn = order.map((s) => equipment[s]).concat(prepots.map((p) => p.id));
+      prepots.forEach((p, n) => prepotAt.push({ pos: zigzagIndex(order.length + n), name: p.name }));
+      let i = place(worn, layout, slots, order, 0, true);
       const inv = [];
       for (let n = 1; n <= 28; n++) {
         if (inventory[String(n)]) inv.push(inventory[String(n)]);
@@ -98,9 +106,19 @@
         }
         if (id) layout[pos] = id;
       }
+      prepots.forEach((p, n) => {
+        layout[PREPOT_POSITIONS[n]] = p.id;
+        prepotAt.push({ pos: PREPOT_POSITIONS[n], name: p.name });
+      });
     }
     const supplyGroups = placeSupplies(layout, entry.supplies || []);
-    return { layout: layout, slots: slots, equipment: equipment, supplyGroups: supplyGroups };
+    return {
+      layout: layout,
+      slots: slots,
+      equipment: equipment,
+      supplyGroups: supplyGroups,
+      prepotAt: prepotAt,
+    };
   }
 
   /* Port of supplies.place_supplies: a blank row below the layout, then each

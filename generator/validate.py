@@ -24,6 +24,7 @@ from pathlib import Path
 
 from encode import (
     LOADOUT_MAP,
+    PREPOT_POSITIONS,
     UNSAFE_NAME,
     parse_hub_import_string,
     parse_official_import_string,
@@ -115,6 +116,32 @@ def equivalence_errors(unresolved: list[str]) -> list[str]:
         f"equivalents.json: {name!r} resolves to no item on the wiki"
         for name in unresolved
     ]
+
+
+def curated_errors(entry: dict) -> list[str]:
+    """Every name a curated layout gives must reach the layout.
+
+    `Module:Loadout` drops a name it cannot resolve without a word, and the
+    round-trip check only looks at positions that exist, so a renamed item
+    would simply disappear from a hand-written layout. Wiki layouts are spared:
+    their template-chosen slots ({{Cheap food}}) are counted separately.
+    """
+    if not entry.get("curated"):
+        return []
+    label = f"{entry['activity']} / {entry['variant']}"
+    errors = [
+        f"{label}: curated {section} {key} {name!r} resolves to no item"
+        for section in ("equipment", "inventory", "runes")
+        for key, name in entry["sourceNames"][section].items()
+        if name and key not in entry[section]
+    ]
+    resolved = {p["name"] for p in entry.get("prepots", [])}
+    errors += [
+        f"{label}: curated prepot {name!r} resolves to no item"
+        for name in entry.get("sourcePrepots", [])
+        if name not in resolved
+    ]
+    return errors
 
 
 def partial_dose_ids(index: dict) -> dict[int, str]:
@@ -234,12 +261,15 @@ def validate() -> int:
         supply_names = {
             i["id"]: i["name"] for g in entry.get("supplies", []) for i in g["items"]
         }
+        # So are the prepots in the row under the inventory.
+        prepot_names = {p["id"]: p["name"] for p in entry.get("prepots", [])}
         for pos_s, item_id in sorted(
             entry["layout"].items(), key=lambda kv: int(kv[0])
         ):
             pos = int(pos_s)
             in_supplies = pos > max(VALID_POSITIONS) and item_id in supply_names
-            if pos not in VALID_POSITIONS and not in_supplies:
+            in_prepots = pos in PREPOT_POSITIONS and item_id in prepot_names
+            if pos not in VALID_POSITIONS and not in_supplies and not in_prepots:
                 errors.append(f"{label}: position {pos} is not a grid slot")
             if pos in seen:
                 errors.append(f"{label}: position {pos} used twice")
@@ -249,9 +279,12 @@ def validate() -> int:
                 errors.append(f"{label}: unknown item id {item_id}")
                 continue
 
-            source = supply_names.get(item_id) if in_supplies else source_name_for(
-                pos_s, entry["sourceNames"]
-            )
+            if in_prepots:
+                source = prepot_names[item_id]
+            elif in_supplies:
+                source = supply_names[item_id]
+            else:
+                source = source_name_for(pos_s, entry["sourceNames"])
             if source:
                 valid_ids = norm.resolve_ids(source)
                 if not valid_ids:
@@ -426,10 +459,14 @@ def validate() -> int:
     setups_doc = json.loads(SETUPS.read_text(encoding="utf-8"))
     for note in setups_doc.get("overrideNotes", []):
         gate_errors.append(note)
+    # Same contract for a curated setup once the wiki publishes its own.
+    for note in setups_doc.get("curatedNotes", []):
+        gate_errors.append(note)
     gate_errors.extend(equivalence_errors(data.get("unresolvedEquivalents", [])))
 
     curated = [e for e in layouts if e.get("curated")]
     for e in curated:
+        gate_errors.extend(curated_errors(e))
         if not e.get("curationReason"):
             gate_errors.append(
                 f"{e['activity']} / {e['variant']}: curated with no stated reason"

@@ -45,6 +45,11 @@ LOADOUT_MAP: dict[int, str] = {
     48: "rune4", 52: "25", 53: "26", 54: "27", 55: "28",
 }
 
+# Prepots - potions drunk before the fight, so banked with the layout but never
+# carried in it - go in the row under the inventory, in its four columns. Clear
+# of every LOADOUT_MAP position and of the rune pouch's row.
+PREPOT_POSITIONS = (60, 61, 62, 63)
+
 EQUIPMENT_SLOTS = (
     "head", "cape", "neck", "ammo", "ammo2", "weapon",
     "torso", "legs", "shield", "gloves", "boots", "ring",
@@ -333,9 +338,14 @@ def _place(items: list[int], layout: dict[int, int], i: int, use_zigzag: bool) -
 
 
 def zigzag_layout(equipment: dict[str, int], inventory: dict[str, int],
-                  runes: dict[str, int]) -> dict[str, int]:
-    """Build the plugin's ZIGZAG arrangement from resolved item ids."""
+                  runes: dict[str, int], prepots: list[int] = ()) -> dict[str, int]:
+    """Build the plugin's ZIGZAG arrangement from resolved item ids.
+
+    Prepots follow the worn items in the same run, so after a full set of
+    twelve they fill the four gear-band cells left over.
+    """
     worn = [equipment[s] for s in ZIGZAG_EQUIPMENT_ORDER if equipment.get(s)]
+    worn += list(prepots)
     inv = [inventory[str(n)] for n in range(1, 29) if inventory.get(str(n))]
     pouch = [runes[str(n)] for n in range(1, 5) if runes.get(str(n))]
 
@@ -345,6 +355,19 @@ def zigzag_layout(equipment: dict[str, int], inventory: dict[str, int],
     # The plugin lays the rune pouch out linearly, not zigzag.
     _place(pouch, layout, i, False)
     return {str(k): v for k, v in sorted(layout.items())}
+
+
+def place_prepots(layout: dict[str, int], ids: list[int]) -> dict[str, int]:
+    """The presets layout with its prepots in the row under the inventory."""
+    if len(ids) > len(PREPOT_POSITIONS):
+        raise ValueError(
+            f"{len(ids)} prepots, but the row under the inventory holds "
+            f"{len(PREPOT_POSITIONS)}"
+        )
+    out = dict(layout)
+    for pos, item_id in zip(PREPOT_POSITIONS, ids):
+        out[str(pos)] = item_id
+    return out
 
 
 # The Plugin Hub "Bank Tag Layouts" export format:
@@ -832,6 +855,7 @@ def main() -> None:
                         setup.get("alternatives", {}), norm
                     ),
                     "switchNames": normalize_switches(setup.get("switches", []), norm),
+                    "prepotNames": normalize_switches(setup.get("prepots", []), norm),
                     "notes": notes + dynamic_notes(normalized),
                     "curated": setup.get("curated", False),
                     "curationReason": setup.get("curationReason", ""),
@@ -850,6 +874,11 @@ def main() -> None:
         used[base] = used.get(base, 0) + 1
         if used[base] > 1:
             job["tagName"] = f"{base[:56]} {used[base]}".strip()
+
+    # Prepots wear no slot either, so they resolve the way supplies do.
+    prepot_ids = resolve_names(
+        client, [n for j in jobs for n in j["prepotNames"]], relay
+    )
 
     results = []
     result_for: dict[str, dict] = {}
@@ -882,7 +911,15 @@ def main() -> None:
                 failures.append(f"{job['page']} / {job['variant']}: empty layout")
                 continue
             equipment, inventory, runes = split_layout(layout)
-            zigzag = zigzag_layout(equipment, inventory, runes)
+            # A name the wiki cannot resolve is dropped here; validation then
+            # fails the curated entry that named it.
+            prepots = [
+                {"name": n, "id": prepot_ids[n]}
+                for n in job["prepotNames"] if n in prepot_ids
+            ]
+            ids = [p["id"] for p in prepots]
+            layout = place_prepots(layout, ids)
+            zigzag = zigzag_layout(equipment, inventory, runes, ids)
             status, note = completeness(job["activity"], equipment, inventory)
             icon_id = int(code.split(",")[3]) if code.split(",")[3].isdigit() else 0
             result_for[job["key"]] = {
@@ -916,9 +953,11 @@ def main() -> None:
                 "alternatives": {},
                 # Likewise, by resolve_switches.
                 "switches": [],
+                "prepots": prepots,
                 # Kept so validation can round-trip every name back to the
                 # id the wiki actually chose for it.
                 "sourceNames": job["sourceNames"],
+                "sourcePrepots": job["prepotNames"],
                 "warnings": job["notes"],
             }
             results.append(result_for[job["key"]])
