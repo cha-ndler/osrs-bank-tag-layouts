@@ -180,8 +180,9 @@ map alone and rebuilds whichever string you asked for in the browser.
 occupy no worn slot and so appear in no position.
 `prepots` lists potions drunk before the fight, as `{name, id}`. Unlike switches
 they are laid out, since you bank them with the setup: in the row under the
-inventory (positions 60-63) in presets, and straight after the worn items in
-zigzag, where a full set of gear leaves exactly four free cells. Only curated
+inventory (positions 60-63) in presets, and in the gear band's free cells at its
+top right in zigzag: right-aligned on the top row, then on the bottom row once
+the top row is full (a full set of gear leaves exactly four free cells). Only curated
 setups carry any (see below); the wiki's templates have no field for them.
 
 ## How it works

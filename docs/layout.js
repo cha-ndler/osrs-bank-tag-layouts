@@ -79,10 +79,23 @@
 
     if (style === 'zigzag') {
       const order = zigzagOrder.filter((s) => equipment[s]);
-      // Prepots follow the worn items in the same run, as in encode.zigzag_layout.
-      const worn = order.map((s) => equipment[s]).concat(prepots.map((p) => p.id));
-      prepots.forEach((p, n) => prepotAt.push({ pos: zigzagIndex(order.length + n), name: p.name }));
+      const worn = order.map((s) => equipment[s]);
       let i = place(worn, layout, slots, order, 0, true);
+      // Port of encode.prepot_cells: the gear band's free cells at its top
+      // right, right-aligned on the top row before any spill to the bottom row.
+      const top = [];
+      const bottom = [];
+      for (let c = 0; c < 16; c++) {
+        if (!(c in layout)) (c < 8 ? top : bottom).push(c);
+      }
+      const onTop = Math.min(prepots.length, top.length);
+      const cells = top.slice(top.length - onTop)
+        .concat(bottom.slice(bottom.length - (prepots.length - onTop)));
+      prepots.forEach((p, n) => {
+        layout[cells[n]] = p.id;
+        prepotAt.push({ pos: cells[n], name: p.name });
+      });
+      if (prepots.length) i = Math.max(i, 16);
       const inv = [];
       for (let n = 1; n <= 28; n++) {
         if (inventory[String(n)]) inv.push(inventory[String(n)]);

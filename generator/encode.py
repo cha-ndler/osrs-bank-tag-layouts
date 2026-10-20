@@ -341,20 +341,34 @@ def zigzag_layout(equipment: dict[str, int], inventory: dict[str, int],
                   runes: dict[str, int], prepots: list[int] = ()) -> dict[str, int]:
     """Build the plugin's ZIGZAG arrangement from resolved item ids.
 
-    Prepots follow the worn items in the same run, so after a full set of
-    twelve they fill the four gear-band cells left over.
+    Prepots go in the gear band's free cells at its top right: right-aligned
+    on the top row, and only past that on the bottom row, right-aligned too.
     """
     worn = [equipment[s] for s in ZIGZAG_EQUIPMENT_ORDER if equipment.get(s)]
-    worn += list(prepots)
     inv = [inventory[str(n)] for n in range(1, 29) if inventory.get(str(n))]
     pouch = [runes[str(n)] for n in range(1, 5) if runes.get(str(n))]
 
     layout: dict[int, int] = {}
     i = _place(worn, layout, 0, True)
+    for pos, item_id in zip(prepot_cells(layout, len(prepots)), prepots):
+        layout[pos] = item_id
+    if prepots:
+        i = max(i, 16)
     i = _place(inv, layout, i, True)
     # The plugin lays the rune pouch out linearly, not zigzag.
     _place(pouch, layout, i, False)
     return {str(k): v for k, v in sorted(layout.items())}
+
+
+def prepot_cells(layout: dict[int, int], count: int) -> list[int]:
+    """The gear-band cells zigzag gives `count` prepots, worn items placed."""
+    top = [c for c in range(8) if c not in layout]
+    bottom = [c for c in range(8, 16) if c not in layout]
+    on_top = min(count, len(top))
+    cells = top[len(top) - on_top:] + bottom[len(bottom) - (count - on_top):]
+    if len(cells) < count:
+        raise ValueError(f"{count} prepots, but the gear band has {len(cells)} free cells")
+    return cells
 
 
 def place_prepots(layout: dict[str, int], ids: list[int]) -> dict[str, int]:

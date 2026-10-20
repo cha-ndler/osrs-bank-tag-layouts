@@ -957,21 +957,34 @@ class TestPrepots(unittest.TestCase):
     RUNES = {"1": 21880, "2": 565, "3": 4696}
     PREPOTS = [23685, 23733, 23745, 27641]
 
-    # The Fractured Archive's layout as first built and checked by hand: the
-    # prepots fill the four gear-band cells the twelve worn items leave free.
+    # A full set of twelve worn items leaves the gear band's top-right four
+    # cells free: the first two prepots take the top row, the rest the bottom.
     REFERENCE = (
         "banktaglayoutsplugin:The Fractured Archive,26382:0,33639:1,27238:2,27241:3,"
-        "31097:4,33595:5,23685:6,23745:7,28951:8,26374:9,21000:10,22981:11,28307:12,"
-        "21944:13,23733:14,27641:15,30634:16,20714:17,12002:18,28313:19,24420:20,"
+        "31097:4,33595:5,23685:6,23733:7,28951:8,26374:9,21000:10,22981:11,28307:12,"
+        "21944:13,23745:14,27641:15,30634:16,20714:17,12002:18,28313:19,24420:20,"
         "13441:21,24421:22,13441:23,21021:24,33631:25,21024:26,22325:27,29801:28,"
         "21295:29,20997:30,6685:31,6685:32,10925:33,6685:34,10925:35,6685:36,"
         "27281:37,6685:40,6685:41,10925:42,6685:43,10925:44,28922:45,21880:48,"
         "565:49,4696:50,banktag:The Fractured Archive,26374"
     )
 
-    def test_zigzag_puts_prepots_straight_after_the_worn_items(self):
+    def test_zigzag_puts_prepots_in_the_gear_bands_free_cells(self):
         layout = zigzag_layout(self.EQUIPMENT, self.INVENTORY, self.RUNES, self.PREPOTS)
         self.assertEqual(layout, parse_hub_import_string(self.REFERENCE)["layout"])
+
+    def test_zigzag_right_aligns_prepots_on_the_top_row(self):
+        # Ten worn items, no shield or second ammo, fill columns 0-4 of both
+        # rows; two prepots go to the top row's right end, not the next column.
+        eq = {s: i for s, i in self.EQUIPMENT.items() if s not in ("shield", "ammo2")}
+        layout = zigzag_layout(eq, self.INVENTORY, self.RUNES, [30000, 27641])
+        band = {k: v for k, v in layout.items() if int(k) < 16}
+        self.assertEqual(
+            sorted(band, key=int),
+            ["0", "1", "2", "3", "4", "6", "7", "8", "9", "10", "11", "12"],
+        )
+        self.assertEqual((layout["6"], layout["7"]), (30000, 27641))
+        self.assertEqual(min(int(k) for k in layout if int(k) >= 16), 16)
 
     def test_without_prepots_zigzag_is_unchanged(self):
         self.assertEqual(
