@@ -97,7 +97,8 @@ Two exceptions:
 - **Different names need a list.** RuneLite links variants by name, so nothing
   connects an Infernal cape to an Infernal max cape. `equivalents.json` lists
   those pairs: max-cape combinations, imbued god capes, Dizana's quiver and its
-  blessed and max forms. They are tagged, so they show in the tab, but RuneLite
+  blessed and max forms, and ornament kits that rename an item (Sanguine
+  torva, Twisted ancestral). They are tagged, so they show in the tab, but RuneLite
   can't put them in the original's slot; they go in the next free one. Upgrades
   with different stats (Avernic defender, Abyssal tentacle) are not listed. A
   name that stops resolving on the wiki fails the build.
